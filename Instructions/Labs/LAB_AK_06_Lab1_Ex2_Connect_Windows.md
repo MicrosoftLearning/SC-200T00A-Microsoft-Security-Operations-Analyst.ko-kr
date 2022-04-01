@@ -2,12 +2,12 @@
 lab:
   title: 연습 2 - 데이터 커넥터를 사용하여 Microsoft Sentinel에 Windows 디바이스 연결
   module: Module 6 - Connect logs to Microsoft Sentinel
-ms.openlocfilehash: 29c9fd18c97224093d52d6a5c796955c34223a49
-ms.sourcegitcommit: 175df7de88c9a609f8caf39840664bf992c5b6dc
+ms.openlocfilehash: 91e038a226219fbd411855158f1449d92995ff5f
+ms.sourcegitcommit: 320cb9d3ce20c75731418e03eb86916841cecc69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2022
-ms.locfileid: "138025404"
+ms.lasthandoff: 03/19/2022
+ms.locfileid: "140742097"
 ---
 # <a name="module-6---lab-1---exercise-2---connect-windows-devices-to-microsoft-sentinel-using-data-connectors"></a>모듈 6 - 랩 1 - 연습 2 - 데이터 커넥터를 사용하여 Microsoft Sentinel에 Windows 디바이스 연결
 
@@ -184,7 +184,7 @@ ms.locfileid: "138025404"
 
 1. 디바이스 관리 섹션에서 **온보딩** 을 선택합니다.
 
-1. **패키지 다운로드** 를 선택합니다.
+1. **온보딩 패키지 다운로드** 를 선택합니다.
 
 1. 다운로드한 .zip 파일의 압축을 풉니다.
 

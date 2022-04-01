@@ -2,12 +2,12 @@
 lab:
   title: 연습 1 - 엔드포인트용 Microsoft Defender 배포
   module: Module 2 - Mitigate threats using Microsoft Defender for Endpoint
-ms.openlocfilehash: 55d34a12be8028af19201a113d23ffbbd870a150
-ms.sourcegitcommit: 175df7de88c9a609f8caf39840664bf992c5b6dc
+ms.openlocfilehash: 6db9e431414750e41f7caccc587bfdbc41071210
+ms.sourcegitcommit: 1535118acb3c18e55bb160b79728a772a84f9fbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2022
-ms.locfileid: "138025422"
+ms.lasthandoff: 03/25/2022
+ms.locfileid: "140880375"
 ---
 # <a name="module-2---lab-1---exercise-1---deploy-microsoft-defender-for-endpoint"></a>모듈 2 - 랩 1 - 연습 1 - 엔드포인트용 Microsoft Defender 배포
 
@@ -75,9 +75,9 @@ ms.locfileid: "138025422"
 
 1. **관리자: 명령 프롬프트** 창을 마우스 오른쪽 단추로 클릭하여 스크립트를 붙여넣고 **Enter** 키를 눌러 실행합니다. **참고:** 스크립트를 실행한 후 창이 자동으로 닫힙니다.
 
-1. Microsoft 365 Defender 포털 왼쪽 메뉴의 엔드포인트 영역에서 **디바이스 인벤토리** 를 선택합니다. 이제 목록에 디바이스가 표시됩니다.
+1. Microsoft 365 Defender 포털 왼쪽 메뉴의 엔드포인트 영역에서 **디바이스 인벤토리** 를 선택합니다. 디바이스가 표시되지 않으면 다음 작업을 완료하고 돌아와서 나중에 다시 확인합니다. 디바이스가 포털에 표시되려면 최대 60분이 소요될 수 있습니다.
 
-    >**참고:** 디바이스가 포털에 표시되려면 최대 5분이 걸릴 수 있습니다. 디바이스가 표시되지 않으면 다음 작업을 완료하고 돌아와서 나중에 다시 확인합니다.
+    >**참고:** 온보딩 프로세스를 완료하고 한 시간 후에 디바이스 목록에 디바이스가 표시되지 않으면 온보딩 또는 연결 문제가 표시될 수 있습니다.
 
 
 ### <a name="task-3-configure-roles"></a>작업 3: 역할 구성
@@ -125,7 +125,7 @@ ms.locfileid: "138025422"
 
 1. 디바이스 탭에서 OS 조건으로 **Windows 10** 을 선택하고 **다음** 을 선택합니다.
 
-1. 디바이스 미리 보기 탭에서 **미리 보기 표시** 를 선택하여 WIN1 가상 머신을 확인합니다.  **다음** 을 선택합니다.
+1. 디바이스 미리 보기 탭에서 **미리 보기 표시** 를 선택하여 WIN1 가상 머신을 확인합니다. **다음** 을 선택합니다. **힌트:** 미리 보기 목록에 가상 머신이 표시되지 않으면 돌아가서 OS 조건에 대해서도 없음을 선택합니다. VM에 대한 데이터가 아직 채워지지 않았습니다.
 
 1. 사용자 액세스 탭에서 **sg-IT** 를 선택한 다음 **선택한 그룹 추가** 단추를 클릭합니다. 이 디바이스 그룹에 대한 액세스 권한을 가진 Azure AD 사용자 그룹 아래에 표시되는지 확인합니다.
 

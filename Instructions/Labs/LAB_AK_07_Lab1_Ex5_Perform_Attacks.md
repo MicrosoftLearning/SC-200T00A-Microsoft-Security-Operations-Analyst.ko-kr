@@ -2,12 +2,12 @@
 lab:
   title: 연습 5 - 공격 수행
   module: Module 7 - Create detections and perform investigations using Microsoft Sentinel
-ms.openlocfilehash: 6cdec4c87437cc8962c5386a9110f847c5ef944b
-ms.sourcegitcommit: 175df7de88c9a609f8caf39840664bf992c5b6dc
+ms.openlocfilehash: e884305f1880725d3308c1a594322ac8e301e3e5
+ms.sourcegitcommit: e0fd7a9cf2e15a900d71fccfca58a14cb967f474
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2022
-ms.locfileid: "138025470"
+ms.lasthandoff: 03/25/2022
+ms.locfileid: "141143188"
 ---
 # <a name="module-7---lab-1---exercise-5---conduct-attacks"></a>모듈 7 - 랩 1 - 연습 5 - 공격 수행
 
@@ -101,7 +101,7 @@ ms.locfileid: "138025470"
     >**참고:** 새 PowerShell 창이 열리고 오류 해결이 표시됩니다. 예상된 동작입니다.
 
     ```CommandPrompt
-    Start PowerShell.exe c2.ps1
+    Start PowerShell.exe -file c2.ps1
     ```
 
 >**중요:** 이 창을 닫지 마세요. 이 PowerShell 스크립트를 백그라운드에서 실행하겠습니다. 명령이 몇 시간 동안 로그 항목을 생성해야 합니다. 이 스크립트가 실행되는 동안 다음 작업과 다음 연습을 진행해도 됩니다. 이 작업에서 생성되는 데이터를 나중에 위협 헌팅 랩에서 사용합니다. 이 프로세스에서 대량의 데이터가 작성되거나 처리되지는 않습니다.

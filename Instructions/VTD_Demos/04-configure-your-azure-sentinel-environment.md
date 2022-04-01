@@ -1,20 +1,28 @@
-﻿# 모듈 4 - KQL(Kusto 쿼리 언어)을 사용하여 Azure Sentinel용 쿼리 만들기
+---
+ms.openlocfilehash: 806a6762c79381662bd14b22c9de74229270949b
+ms.sourcegitcommit: 20cbc7b52187d61fca294ac2c00146c2c7c6d337
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 01/13/2022
+ms.locfileid: "137899285"
+---
+# <a name="module-4-create-queries-for-azure-sentinel-using-kusto-query-language-kql"></a>모듈 4 - KQL(Kusto 쿼리 언어)을 사용하여 Azure Sentinel용 쿼리 만들기
 
 **참고** 이 데모의 성공적인 완료는 [필수 구성 요소 문서](00-prerequisites.md)에 있는 모든 단계를 완료하는 것에 달려 있습니다. 
 
-## Azure Sentinel 인터페이스 살펴보기
+## <a name="explore-the-azure-sentinel-interface"></a>Azure Sentinel 인터페이스 살펴보기
 
 1. [필수 구성 요소 섹션](00-prerequisites.md#deploy-azure-sentinel-workspace-for-demo-in-module-4)을 완료하는 동안 이전에 만든 Azure Sentinel 인터페이스로 돌아갑니다.
 
 1. 새로 만든 Azure Sentinel 작업 영역 내를 이동하면서 사용자 인터페이스 옵션을 숙지합니다.
 
-## 관심 목록 만들기
+## <a name="create-a-watchlist"></a>관심 목록 만들기
 
 이 작업에서는 관심 목록을 만듭니다.
 
-1. 화면 아래쪽의 검색 상자에 `Notepad`를 입력합니다.  결과에서 **메모장**을 선택합니다.
+1. 화면 아래쪽의 검색 상자에 `Notepad`를 입력합니다.  결과에서 **메모장** 을 선택합니다.
 
-2. `Hostname`을 입력하고 Enter 키를 눌러 새 줄을 시작합니다.
+2. `Hostname`을 입력한 다음 새 줄을 입력합니다.
 
 3. 2~6행에 다음 호스트 이름을 추가합니다.
     ```
@@ -25,32 +33,29 @@
     Host5
     ```
 
-4. 메뉴에서 **파일 - 다른 이름으로 저장** 을 선택하고 파일 이름을 `HighValue.csv`로 지정합니다.  그런 후에 파일 형식을 **모든 파일(*.*)** 로 변경합니다.  그리고 **저장**을 선택합니다.
+4. 메뉴에서 **파일 - 다른 이름으로 저장** 을 선택하고 파일 이름을 `HighValue.csv`로 지정합니다.  그런 후에 파일 형식을 **모든 파일( *.* )** 로 변경합니다.  그런 다음 **저장** 을 선택합니다.
 
 5. 메모장을 닫습니다.
 
 6. Azure Sentinel의 **구성** 영역에서 **관심 목록** 옵션을 선택합니다.
 
-7. 명령 모음에서 **새로 추가**를 선택합니다.
+7. 명령 모음에서 **새로 추가** 를 선택합니다.
 
-8. 관심 목록 마법사에 다음 정보를 입력합니다.
-    이름: HighValueHosts
-    설명: 중요 호스트
-    관심 목록 별칭: HighValueHosts
+8. 관심 목록 마법사에 다음 정보를 입력합니다.  이름: HighValueHosts  설명: 중요 호스트  관심 목록 별칭: HighValueHosts
 
 9. **다음: 원본 >** 을 선택합니다.
 
 10. 방금 만든 `HighValue.csv` 파일을 찾습니다. 
 
-1. CSV 파일이 로드되면 **SearchKey 필드** 드롭다운에서 상자에서 **Hostname**을 선택합니다.
+1. CSV 파일이 로드되면 **SearchKey 필드** 드롭다운에서 상자에서 **Hostname** 을 선택합니다.
 
 11. **다음: 검토 및 만들기 >** 를 선택합니다.
 
-12. **만들기**를 선택합니다.
+12. **만들기** 를 선택합니다.
 
 13. 화면에 관심 목록 목록이 다시 표시됩니다.
 
-14. 새 관심 목록을 선택합니다.  오른쪽 탭에서 **Log Analytics에서 보기**를 선택합니다.
+14. 새 관심 목록을 선택합니다.  오른쪽 탭에서 **Log Analytics에서 보기** 를 선택합니다.
 
 15. 다음 KQL 문이 자동 실행되고 결과가 표시됩니다.
 
@@ -59,15 +64,15 @@ _GetWatchlist('HighValueHosts')
 ```
 **참고** 가져오기가 완료되려면 시간이 다소 걸릴 수 있습니다.
 
-이제 KQL 문에서 _GetWatchlist('HighValueHosts')를 사용하여 목록에 액세스할 수 있습니다. 참조할 열은 *Hostname*입니다.
+이제 KQL 문에서 _GetWatchlist('HighValueHosts')를 사용하여 목록에 액세스할 수 있습니다. 참조할 열은 *Hostname* 입니다.
 
-## 위협 표시기 만들기
+## <a name="create-a-threat-indicator"></a>위협 표시기 만들기
 
 이 작업에서는 표시기를 만듭니다.
 
 1. Azure Sentinel의 **위협 관리** 영역에서 **위협 인텔리전스** 옵션을 선택합니다.
 
-2. 명령 모음에서 **새로 추가**를 선택합니다.
+2. 명령 모음에서 **새로 추가** 를 선택합니다.
 
 3. 유형 드롭다운에서 사용 가능한 여러 표시기 유형을 검토합니다.  그런 후에 **domain-name** 을 선택합니다. 도메인 상자에 이니셜을 입력합니다. 예를 들어 fmg.com 등을 입력할 수 있습니다.
 
@@ -77,7 +82,7 @@ _GetWatchlist('HighValueHosts')
 
 6. **유효 기간(시작)** 필드의 값을 오늘 날짜로 설정합니다.
 
-7. **적용**을 선택합니다.
+7. **적용** 을 선택합니다.
 
 **참고** 표시기가 표시되려면 시간이 다소 걸릴 수 있습니다.
 
@@ -94,4 +99,4 @@ ThreatIntelligenceIndicator
 ThreatIntelligenceIndicator 
 | project DomainName
 ```
-## 이 데모를 완료했습니다.
+## <a name="you-have-completed-the-demo"></a>이 데모를 완료했습니다.
