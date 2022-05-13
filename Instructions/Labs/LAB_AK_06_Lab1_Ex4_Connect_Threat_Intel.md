@@ -2,16 +2,18 @@
 lab:
   title: 연습 4 - 데이터 커넥터를 사용하여 Microsoft Sentinel에 위협 인텔리전스 연결
   module: Module 6 - Connect logs to Microsoft Sentinel
-ms.openlocfilehash: c106b8d5c651727d942e59ed4da7a45d0a5d18a5
-ms.sourcegitcommit: 175df7de88c9a609f8caf39840664bf992c5b6dc
+ms.openlocfilehash: 88d42bb20882e75e9842a92dd8f480d07d754f82
+ms.sourcegitcommit: a90325f86a3497319b3dc15ccf49e0396c4bf749
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2022
-ms.locfileid: "138025485"
+ms.lasthandoff: 04/07/2022
+ms.locfileid: "141493985"
 ---
 # <a name="module-6---lab-1---exercise-4---connect-threat-intelligence-to-microsoft-sentinel-using-data-connectors"></a>모듈 6 - 랩 1 - 연습 4 - 데이터 커넥터를 사용하여 Microsoft Sentinel에 위협 인텔리전스 연결
 
 ## <a name="lab-scenario"></a>랩 시나리오
+
+![랩 개요입니다.](../Media/SC-200-Lab_Diagrams_Mod6_L1_Ex4.png)
 
 당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다. 조직에 있는 많은 데이터 원본의 로그 데이터를 연결하는 방법을 알아야 합니다. 마지막으로, 위협 인텔리전스 피드를 연결하여 알려진 위협을 감지하고 우선 순위를 지정하는 기능을 향상시킵니다.
 

@@ -2,16 +2,19 @@
 lab:
   title: 연습 1 - KQL(Kusto 쿼리 언어)을 사용하여 Microsoft Sentinel에 대한 쿼리 만들기
   module: Module 4 - Create queries for Microsoft Sentinel using Kusto Query Language (KQL)
-ms.openlocfilehash: a9b6a745f40b18744bc520ca542c052ec28d5a11
-ms.sourcegitcommit: 1535118acb3c18e55bb160b79728a772a84f9fbe
+ms.openlocfilehash: e96c19613f6379217a12392cd39ac916d022c880
+ms.sourcegitcommit: a90325f86a3497319b3dc15ccf49e0396c4bf749
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2022
-ms.locfileid: "140880372"
+ms.lasthandoff: 04/07/2022
+ms.locfileid: "141493910"
 ---
 # <a name="module-4---lab-1---exercise-1---create-queries-for-microsoft-sentinel-using-kusto-query-language-kql"></a>모듈 4 - 랩 1 - 연습 1 - KQL(Kusto 쿼리 언어)을 사용하여 Microsoft Sentinel에 대한 쿼리 만들기
 
 ## <a name="lab-scenario"></a>랩 시나리오
+
+![랩 개요입니다.](../Media/SC-200-Lab_Diagrams_Mod4_L1_Ex1.png)
+
 당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다. 로그 데이터 분석을 수행하여 악의적인 활동을 검색하고 시각화를 표시하고 위협 헌팅을 수행할 책임이 있습니다. 로그 데이터를 쿼리하려면 KQL(Kusto Query Language)을 사용합니다.
 
 >**중요:** 이 랩에서는 많은 KQL 스크립트를 Microsoft Sentinel에 입력합니다. 스크립트는 이 랩의 시작 부분에 있는 파일에 제공되었습니다. 스크립트를 다운로드할 대체 위치는 https://github.com/MicrosoftLearning/SC-200T00A-Microsoft-Security-Operations-Analyst/tree/master/Allfiles 입니다.
@@ -276,9 +279,9 @@ ms.locfileid: "140880372"
 
 이 작업에서는 다중 테이블 KQL 문을 작성합니다.
 
-1. 다음 문은 두 개 이상의 테이블을 사용하고 모든 행을 반환하는 **union** 연산자를 보여 줍니다. 결과가 파이프 문자에 어떻게 전달되고 영향을 받는지 이해하는 것은 중요합니다. 쿼리 창에서 다음 문을 입력하고 각 쿼리에 대해 개별적으로 **실행** 을 선택하여 결과를 확인합니다. 
-
 1. 쿼리 창에서 **시간 범위** 를 **마지막 시간** 으로 변경합니다. 이렇게 하면 다음 문에 대한 결과가 제한됩니다.
+
+1. 다음 문은 두 개 이상의 테이블을 사용하고 모든 행을 반환하는 **union** 연산자를 보여 줍니다. 결과가 파이프 문자에 어떻게 전달되고 영향을 받는지 이해하는 것은 중요합니다. 쿼리 창에서 다음 문을 입력하고 각 쿼리에 대해 개별적으로 **실행** 을 선택하여 결과를 확인합니다. 
 
     1. **쿼리 1** 은 SecurityBaseline의 모든 행과 SecurityEvent의 모든 행을 반환합니다.
 
@@ -324,7 +327,7 @@ ms.locfileid: "140880372"
     ) on Account
     ```
 
->**중요:** 조인에서 지정된 첫 번째 테이블은 왼쪽 테이블로 간주됩니다. **join** 연산자 뒤의 테이블은 오른쪽 테이블입니다. 테이블의 열로 작업을 할 때는 참조 대상 테이블 열을 구분하기 위해 $left.Column name 이름 및 $right.Column 이름을 사용합니다. **join** 연산자는 전체 형식 범위인 flouter, inner, innerunique, leftanti, leftantisemi, leftouter, leftsemi, rightanti, rightantisemi, rightouter, rightsemi를 지원합니다.
+    >**중요:** 조인에서 지정된 첫 번째 테이블은 왼쪽 테이블로 간주됩니다. **join** 연산자 뒤의 테이블은 오른쪽 테이블입니다. 테이블의 열로 작업을 할 때는 참조 대상 테이블 열을 구분하기 위해 $left.Column name 이름 및 $right.Column 이름을 사용합니다. **join** 연산자는 전체 형식 범위인 flouter, inner, innerunique, leftanti, leftantisemi, leftouter, leftsemi, rightanti, rightantisemi, rightouter, rightsemi를 지원합니다.
 
 1. 쿼리 창에서 **Time range** 를 다시 **Last 24 hours** 로 변경합니다.
 
@@ -416,7 +419,7 @@ ms.locfileid: "140880372"
 
     ```KQL
     SecurityAlert  
-    | where TimeGenerated >= ago(90d)
+    | where TimeGenerated > ago(90d)
     | mv-apply entity = todynamic(Entities) on 
     ( where entity.Type == "host" | extend AffectedHost = strcat (entity.DnsDomain, "\\", entity.HostName))
     ```

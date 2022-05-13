@@ -2,16 +2,18 @@
 lab:
   title: 연습 5 - 공격 수행
   module: Module 7 - Create detections and perform investigations using Microsoft Sentinel
-ms.openlocfilehash: e884305f1880725d3308c1a594322ac8e301e3e5
-ms.sourcegitcommit: e0fd7a9cf2e15a900d71fccfca58a14cb967f474
+ms.openlocfilehash: ff595199e034f5779ecd1c982609858a6c677a87
+ms.sourcegitcommit: a90325f86a3497319b3dc15ccf49e0396c4bf749
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2022
-ms.locfileid: "141143188"
+ms.lasthandoff: 04/07/2022
+ms.locfileid: "141493844"
 ---
 # <a name="module-7---lab-1---exercise-5---conduct-attacks"></a>모듈 7 - 랩 1 - 연습 5 - 공격 수행
 
 ## <a name="lab-scenario"></a>랩 시나리오
+
+![랩 개요입니다.](../Media/SC-200-Lab_Diagrams_Mod7_L1_Ex5.png)
 
 나중에 Microsoft Sentinel에서 검색하고 조사하는 데 사용할 공격을 시뮬레이션하려고 합니다.
 

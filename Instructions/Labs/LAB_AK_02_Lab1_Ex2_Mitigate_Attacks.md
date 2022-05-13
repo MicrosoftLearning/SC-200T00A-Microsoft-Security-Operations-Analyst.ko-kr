@@ -2,16 +2,18 @@
 lab:
   title: 연습 2 - 엔드포인트용 Microsoft Defender를 사용하여 공격 완화
   module: Module 2 - Mitigate threats using Microsoft Defender for Endpoint
-ms.openlocfilehash: 0f79ef27e27b989481d50b9ff617c21ba6770705
-ms.sourcegitcommit: 175df7de88c9a609f8caf39840664bf992c5b6dc
+ms.openlocfilehash: 75d7cb14ee90aeaafd539a3cd7ad32163f53474f
+ms.sourcegitcommit: a90325f86a3497319b3dc15ccf49e0396c4bf749
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2022
-ms.locfileid: "138025413"
+ms.lasthandoff: 04/07/2022
+ms.locfileid: "141493856"
 ---
 # <a name="module-2---lab-1---exercise-2---mitigate-attacks-with-microsoft-defender-for-endpoint"></a>모듈 2 - 랩 1 - 연습 2 - 엔드포인트용 Microsoft Defender를 사용하여 위협 완화
 
 ## <a name="lab-scenario"></a>랩 시나리오
+
+![랩 개요입니다.](../Media/SC-200-Lab_Diagrams_Mod2_L1_Ex2.png)
 
 여러분은 엔드포인트용 Microsoft Defender를 구현하고 있는 회사에서 일하는 보안 운영 분석가입니다. 귀하의 관리자가 몇몇 디바이스를 온보딩하여 보안 운영(SecOps) 팀 응답 절차에 필요한 변경 내용에 대한 인사이트를 제공하려고 합니다.
 
@@ -44,9 +46,9 @@ ms.locfileid: "138025413"
 
 1. **내게 할당** 토글을 선택하여 사용자 계정을 인시던트 소유자로 추가합니다. 
 
-1. **분류** 아래의 드롭다운 메뉴에서 **True 경고** 를 선택합니다. 
+1. **분류** 아래에서 드롭다운 메뉴를 확장합니다. 
 
-1. **결정** 아래의 드롭다운 메뉴에서 **보안 테스트** 를 선택합니다. 
+1. **정보, 예상 작업** 에서 **보안 테스트** 를 선택합니다. 
 
 1. 원하는 경우 설명을 추가하고 **저장** 을 클릭하여 완료합니다.
 

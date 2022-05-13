@@ -2,16 +2,18 @@
 lab:
   title: 연습 7 - 인시던트 조사
   module: Module 7 - Create detections and perform investigations using Microsoft Sentinel
-ms.openlocfilehash: 1ccd67c04a1b30ec97e9f075c7a196b11d48656f
-ms.sourcegitcommit: 175df7de88c9a609f8caf39840664bf992c5b6dc
+ms.openlocfilehash: 99676b594e2c1ea5b47eccb3a3e603f6ff9a8f93
+ms.sourcegitcommit: a90325f86a3497319b3dc15ccf49e0396c4bf749
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2022
-ms.locfileid: "138025464"
+ms.lasthandoff: 04/07/2022
+ms.locfileid: "141493904"
 ---
 # <a name="module-7---lab-1---exercise-7---investigate-incidents"></a>모듈 7 - 랩 1 - 연습 7 - 인시던트 조사
 
 ## <a name="lab-scenario"></a>랩 시나리오
+
+![랩 개요입니다.](../Media/SC-200-Lab_Diagrams_Mod7_L1_Ex7.png)
 
 당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다. 예약됨 및 Microsoft 보안 분석 규칙을 이미 만들었습니다. 퓨전 및 변칙 분석 규칙도 환경에서 사용할 수 있습니다. 이제 규칙에 따라 만들어진 인시던트를 조사하겠습니다.
 
@@ -52,7 +54,7 @@ ms.locfileid: "138025464"
 
 1. 설명 상자에 조사할 내용입니다.를 입력하고 **설명** 단추를 선택하여 새 설명을 제출합니다.
 
-1. **엔터티** 탭을 선택하고 이전 연습의 KQL 쿼리 내에서 매핑한 계정 및 호스트 엔터티를 검토합니다. 
+1. **엔터티** 탭을 선택하고 이전 연습의 KQL 쿼리 내에서 매핑한 계정 및 호스트 엔터티를 검토합니다.  **힌트:** 엔터티가 표시되지 않으면 페이지를 새로 고칩니다.
 
 1. **경고** 탭을 선택합니다. *Sysmon Startup RegKey* 경고의 경우 막대를 사용하여 오른쪽으로 밀고 **플레이북 보기** 링크를 확인합니다. 이렇게 하면 분석 규칙 내의 자동화된 응답 탭에서 트리거하는 대신 경고에서 플레이북을 수동으로 실행할 수 있습니다.
 

@@ -2,16 +2,18 @@
 lab:
   title: 연습 2 - Microsoft Sentinel이 설치된 Notebooks를 사용하여 위협 헌팅
   module: Module 8 - Perform threat hunting in Microsoft Sentinel
-ms.openlocfilehash: 78e9f168c1c512da4fe3217009b2d9f9ba90a5fd
-ms.sourcegitcommit: 175df7de88c9a609f8caf39840664bf992c5b6dc
+ms.openlocfilehash: 27db8985c2581a04345396e47ee0f0d2e97eb931
+ms.sourcegitcommit: a90325f86a3497319b3dc15ccf49e0396c4bf749
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2022
-ms.locfileid: "138025494"
+ms.lasthandoff: 04/07/2022
+ms.locfileid: "141493955"
 ---
 # <a name="module-8---lab-1---exercise-2---threat-hunting-using-notebooks-with-microsoft-sentinel"></a>모듈 8 - 랩 1 - 연습 2 - Microsoft Sentinel이 설치된 Notebooks를 사용하여 위협 헌팅
 
 ## <a name="lab-scenario"></a>랩 시나리오
+
+
 
 당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다. Microsoft Sentinel Notebooks를 사용하는 위협 헌팅의 이점을 파악해야 합니다. Notebook을 사용하여 다음을 수행할 수 있습니다.
 
@@ -46,16 +48,16 @@ ms.locfileid: "138025494"
 
 1. 작업 영역 정보 섹션에서 다음 작업을 수행합니다.
 
-    - 작업 영역에 고유한 이름을 지정합니다.
-    - 지역을 선택하거나 적절한 경우 기본값을 그대로 둡니다.
-    - 기본 스토리지 계정, 키 자격 증명 모음 및 애플리케이션 인사이트 정보는 그대로 유지합니다.
-    - Container Registry 옵션은 **없음** 으로 유지하면 됩니다.
+     - 작업 영역에 고유한 이름을 지정합니다.
+     - 지역 기본값으로 **미국 동부** 를 그대로 둡니다.
+     - 기본 스토리지 계정, 키 자격 증명 모음 및 애플리케이션 인사이트 정보는 그대로 유지합니다.
+     - Container Registry 옵션은 **없음** 으로 유지하면 됩니다.
 
 1. 페이지의 아래쪽에서 **검토 + 생성** 를 선택합니다. “유효성 검사 통과” 메시지가 표시되면 **만들기** 를 선택합니다. 
 
-    >**참고:** Machine Learning 작업 영역을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
+     >**참고:** Machine Learning 작업 영역을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 
-1. 배포가 완료된 후 메시지가 나타나면 Microsoft Sentinel 포털로 돌아갑니다.
+1. 배포가 완료됨 메시지가 나타난 후 Microsoft Sentinel 포털로 돌아갑니다.
 
 1. **Notebooks** 를 선택한 다음, 가운데 명령 모음에서 **템플릿** 탭을 선택합니다. 
 

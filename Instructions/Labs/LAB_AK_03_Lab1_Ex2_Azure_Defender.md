@@ -2,16 +2,18 @@
 lab:
   title: 연습 2 - 클라우드용 Microsoft Defender를 사용하여 위협 완화
   module: Module 3 - Mitigate threats using Microsoft Defender for Cloud
-ms.openlocfilehash: 5970d1d528ffc320e6b7e379b8deb011e58fca8c
-ms.sourcegitcommit: 175df7de88c9a609f8caf39840664bf992c5b6dc
+ms.openlocfilehash: 50d77067c70634a4f887a7c8669b38fa7977b860
+ms.sourcegitcommit: a90325f86a3497319b3dc15ccf49e0396c4bf749
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2022
-ms.locfileid: "138025416"
+ms.lasthandoff: 04/07/2022
+ms.locfileid: "141493961"
 ---
 # <a name="module-3---lab-1---exercise-2---mitigate-threats-using-microsoft-defender-for-cloud"></a>모듈 3 - 랩 1 - 연습 2 - 클라우드용 Microsoft Defender를 사용하여 위협 완화
 
 ## <a name="lab-scenario"></a>랩 시나리오
+
+![랩 개요입니다.](../Media/SC-200-Lab_Diagrams_Mod3_L1_Ex2.png)
 
 여러분은 클라우드용 Microsoft Defender를 구현한 회사에서 일하는 보안 운영 분석가입니다. 클라우드용 Microsoft Defender에서 생성된 보안 경고에 응답해야 합니다.
 

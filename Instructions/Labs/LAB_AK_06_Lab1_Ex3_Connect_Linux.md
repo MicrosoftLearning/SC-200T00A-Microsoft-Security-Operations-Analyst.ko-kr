@@ -2,16 +2,18 @@
 lab:
   title: 연습 3 - 데이터 커넥터를 사용하여 Microsoft Sentinel에 Linux 호스트 연결
   module: Module 6 - Connect logs to Microsoft Sentinel
-ms.openlocfilehash: 5d2aa7f11949f5fd011d6ca2ae612c158e8a1d58
-ms.sourcegitcommit: e0fd7a9cf2e15a900d71fccfca58a14cb967f474
+ms.openlocfilehash: bf3774978dc5c6cef158d5f1288577854000d944
+ms.sourcegitcommit: a90325f86a3497319b3dc15ccf49e0396c4bf749
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2022
-ms.locfileid: "141143191"
+ms.lasthandoff: 04/07/2022
+ms.locfileid: "141493973"
 ---
 # <a name="module-6---lab-1---exercise-3---connect-linux-hosts-to-microsoft-sentinel-using-data-connectors"></a>모듈 6 - 랩 1 - 연습 3 - 데이터 커넥터를 사용하여 Microsoft Sentinel에 Linux 호스트 연결
 
 ## <a name="lab-scenario"></a>랩 시나리오
+
+![랩 개요입니다.](../Media/SC-200-Lab_Diagrams_Mod6_L1_Ex3.png)
 
 당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다. 조직에 있는 많은 데이터 원본의 로그 데이터를 연결하는 방법을 알아야 합니다. 다음 데이터 원본은 CEF(Common Event Formatting) 및 Syslog 커넥터를 사용하는 Linux 가상 머신입니다.
 

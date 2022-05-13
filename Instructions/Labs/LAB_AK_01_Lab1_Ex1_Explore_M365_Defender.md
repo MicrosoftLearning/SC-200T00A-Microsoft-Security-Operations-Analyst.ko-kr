@@ -2,16 +2,18 @@
 lab:
   title: 연습 1 - Microsoft 365 Defender 살펴보기
   module: Module 1 - Mitigate threats using Microsoft 365 Defender
-ms.openlocfilehash: e49efce29c61889db8a0cafb012a714940dea563
-ms.sourcegitcommit: 175df7de88c9a609f8caf39840664bf992c5b6dc
+ms.openlocfilehash: dc37672bc32d41439aec72056ed1530196cbcfc6
+ms.sourcegitcommit: a90325f86a3497319b3dc15ccf49e0396c4bf749
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2022
-ms.locfileid: "138025419"
+ms.lasthandoff: 04/07/2022
+ms.locfileid: "141493838"
 ---
 # <a name="module-1---lab-1---exercise-1---explore-microsoft-365-defender"></a>모듈 1 - 랩 1 - 연습 1 - Microsoft 365 Defender 살펴보기 
 
 ## <a name="lab-scenario"></a>랩 시나리오
+
+![M365 Defender](../Media/SC-200-Lab_M1_L1_Ex1.png)
 
 여러분은 Microsoft 365 Defender를 구현하고 있는 회사에서 일하는 보안 운영 분석자입니다. 먼저 EOP 및 Office 365용 Microsoft Defender에서 미리 설정된 보안 정책을 할당합니다.
 

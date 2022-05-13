@@ -2,15 +2,16 @@
 lab:
   title: 연습 4 - 검색 모델링 이해
   module: Module 7 - Create detections and perform investigations using Microsoft Sentinel
-ms.openlocfilehash: f2b41a44b3661f89f27ff8d22063244ce497fa5a
-ms.sourcegitcommit: 175df7de88c9a609f8caf39840664bf992c5b6dc
+ms.openlocfilehash: 4b3da97ade23e0dbc1f7efb54ce830de21a4e194
+ms.sourcegitcommit: a90325f86a3497319b3dc15ccf49e0396c4bf749
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2022
-ms.locfileid: "138025497"
+ms.lasthandoff: 04/07/2022
+ms.locfileid: "141493832"
 ---
 # <a name="module-7---lab-1---exercise-4---understand-detection-modeling"></a>모듈 7 - 랩 1 - 연습 4 - 검색 모델링 이해
 
+![랩 개요입니다.](../Media/SC-200-Lab_Diagrams_Mod7_L1_Ex4.png)
 ### <a name="task-1-understand-the-attacks"></a>작업 1: 공격 이해
 
 >**중요: 이 연습에서는 작업을 수행하지 않습니다.**  이러한 지침은 다음 연습에서 수행할 공격에 대한 설명일 뿐입니다. 이 페이지를 주의 깊게 읽으세요.

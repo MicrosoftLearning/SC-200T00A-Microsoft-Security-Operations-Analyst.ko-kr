@@ -2,20 +2,22 @@
 lab:
   title: 연습 3 - 예약된 쿼리 만들기
   module: Module 7 - Create detections and perform investigations using Microsoft Sentinel
-ms.openlocfilehash: c76ba6f5bdd5c1f380393b3f0ebbdb16c85626c1
-ms.sourcegitcommit: 175df7de88c9a609f8caf39840664bf992c5b6dc
+ms.openlocfilehash: 6e8d5655639433928d1c52d7c49077dead6121b4
+ms.sourcegitcommit: a90325f86a3497319b3dc15ccf49e0396c4bf749
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2022
-ms.locfileid: "138025479"
+ms.lasthandoff: 04/07/2022
+ms.locfileid: "141493991"
 ---
 # <a name="module-7---lab-1---exercise-3---create-a-scheduled-query"></a>모듈 7 - 랩 1 - 연습 3 - 예약된 쿼리 만들기
 
 ## <a name="lab-scenario"></a>랩 시나리오
 
+![랩 개요입니다.](../Media/SC-200-Lab_Diagrams_Mod7_L1_Ex3.png)
+
 당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다. Microsoft Sentinel을 사용하여 위협을 검색하고 완화하는 방법을 파악해야 합니다. 데이터 원본을 Microsoft Sentinel에 연결한 후, 사용자 환경에서 위협 및 비정상적인 동작을 검색하는 데 도움이 되는 사용자 지정 분석 규칙을 만듭니다.
 
-분석 규칙은 사용자 환경에서 특정 이벤트 또는 이벤트 집합을 검색하고, 특정 이벤트 임계값 또는 조건에 도달하면 경고를 생성하고, SOC에서 심사 및 조사를 위해 인시던트를 생성하고, 자동화된 추적 및 수정 프로세스를 통해 위협에 대응합니다.
+분석 규칙은 사용자 환경에서 특정 이벤트 또는 이벤트 세트를 검색하고, 특정 이벤트 임계값 또는 조건에 도달하면 경고를 생성하고, SOC에서 심사 및 조사를 위해 인시던트를 생성하고, 자동화된 추적 및 수정 프로세스를 통해 위협에 대응합니다.
 
 
 ### <a name="task-1-create-a-scheduled-query"></a>작업 1: 예약된 쿼리 만들기
@@ -87,7 +89,7 @@ ms.locfileid: "138025479"
 
 1. 하단에서 **다음: 인시던트 설정 >** 단추를 선택합니다. 
 
-1. 인시던트 설정(미리 보기) 탭에서 기본 옵션을 검토합니다.
+1. 인시던트 설정 탭에서 기본 옵션을 검토합니다.
 
 1. 하단에서 **다음: 자동화된 응답 >** 단추를 선택합니다.
 

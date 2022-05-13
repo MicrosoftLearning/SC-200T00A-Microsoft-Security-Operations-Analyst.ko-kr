@@ -2,16 +2,18 @@
 lab:
   title: 연습 1 - Microsoft Sentinel 환경 구성
   module: Module 5 - Configure your Microsoft Sentinel environment
-ms.openlocfilehash: e8d4347932306ebfab7b75dd110e3ae3a0e4cca9
-ms.sourcegitcommit: 175df7de88c9a609f8caf39840664bf992c5b6dc
+ms.openlocfilehash: 3dc3670a58758c2d7de37878ba5b9413804596c4
+ms.sourcegitcommit: a90325f86a3497319b3dc15ccf49e0396c4bf749
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2022
-ms.locfileid: "138025410"
+ms.lasthandoff: 04/07/2022
+ms.locfileid: "141493967"
 ---
 # <a name="module-5---lab-1---exercise-1---configure-your-microsoft-sentinel-environment"></a>모듈 5 - 랩 1 - 연습 1 - Microsoft Sentinel 환경 구성
 
 ## <a name="lab-scenario"></a>랩 시나리오
+
+![랩 개요입니다.](../Media/SC-200-Lab_Diagrams_Mod5_L1_Ex1.png)
 
 당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다. 비용을 최소화하고, 규정 준수 규정을 충족하며, 보안 팀이 일상적인 업무 책임을 수행하도록 가장 관리 가능한 환경을 제공하기 위해 회사의 요구 사항을 충족하는 Microsoft Sentinel 환경을 설정할 책임이 있습니다.
 

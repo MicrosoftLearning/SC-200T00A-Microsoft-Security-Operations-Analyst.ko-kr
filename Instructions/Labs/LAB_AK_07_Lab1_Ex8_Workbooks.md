@@ -2,16 +2,18 @@
 lab:
   title: 연습 8 - 통합 문서 만들기
   module: Module 7 - Create detections and perform investigations using Microsoft Sentinel
-ms.openlocfilehash: e57f2d5fbb83fbd88c51ca551cd2838d9a35411b
-ms.sourcegitcommit: 175df7de88c9a609f8caf39840664bf992c5b6dc
+ms.openlocfilehash: 504b1964c0b950d4ddd76cb143b56d82858bec09
+ms.sourcegitcommit: a90325f86a3497319b3dc15ccf49e0396c4bf749
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2022
-ms.locfileid: "138025452"
+ms.lasthandoff: 04/07/2022
+ms.locfileid: "141493922"
 ---
 # <a name="module-7---lab-1---exercise-8---create-workbooks"></a>모듈 7 - 랩 1 - 연습 8 - 통합 문서 만들기
 
 ## <a name="lab-scenario"></a>랩 시나리오
+
+![랩 개요입니다.](../Media/SC-200-Lab_Diagrams_Mod7_L1_Ex8.png)
 
 당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다. Microsoft Sentinel에 데이터 원본을 연결한 후에는 사용자 지정 대시보드를 만들 때 다양한 기능을 제공하는 Azure Monitor 통합 문서의 Microsoft Sentinel 채택을 사용하여 데이터를 시각화하고 모니터링할 수 있습니다. 
 
@@ -49,7 +51,7 @@ Microsoft Sentinel을 사용하면 데이터에 대한 사용자 지정 통합 �
 
 1. **Microsoft Sentinel - 통합 문서 - 템플릿** 탭으로 돌아가야 합니다. **Azure AD 감사 로그** 를 검색하고 선택한 다음, 오른쪽 창에서 아래로 스크롤하여 **저장** 단추를 선택합니다. 
 
-1. 적절한 위치를 선택하고 **확인** 을 선택합니다. 적절한 위치가 기본값으로 설정됩니다.
+1. **미국 동부** 를 지역의 기본값으로 유지하고 **확인** 을 선택합니다.
 
 1. **저장된 통합 문서 보기** 단추를 선택합니다.
 
@@ -75,7 +77,7 @@ Microsoft Sentinel을 사용하면 데이터에 대한 사용자 지정 통합 �
 
 1. *항목이 선택되면 매개 변수 내보내기* 설정을 검토합니다. 사용자 정보 필드가 선택되어 있습니다.
 
-1. 아래로 스크롤하여 쿼리 아래쪽에서(위쪽 메뉴가 아님) **편집 완료** 를 선택합니다.
+1. 아래로 스크롤하여 쿼리 아래쪽에서(위쪽 메뉴가 아님) **편집 완료** 를 선택합니다. 작업 수 및 추세의 변경된 색을 확인합니다. 
 
 1. 화면 오른쪽의 상위 활성 사용자 원형 차트 아래에서 **편집** 을 선택합니다.  
 
@@ -100,7 +102,7 @@ Microsoft Sentinel을 사용하면 데이터에 대한 사용자 지정 통합 �
 
 1. 통합 문서의 첫 번째 단락 아래에서 **편집** 단추를 선택합니다. 
 
-1. # 내 통합 문서를 입력하여 ## 새 통합 문서를 대체합니다. 
+1. ## 새 통합 문서 위에 #내 통합 문서를 입력합니다. 
 
 1. 텍스트 항목 편집: 텍스트 - 2의 경우 아래쪽 메뉴에서 **편집 완료** 를 선택합니다. 헤더 크기가 증가했고 헤더 이름이 변경되었습니다.
 

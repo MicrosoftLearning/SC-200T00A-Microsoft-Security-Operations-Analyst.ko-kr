@@ -2,16 +2,18 @@
 lab:
   title: 연습 1 - 엔드포인트용 Microsoft Defender 배포
   module: Module 2 - Mitigate threats using Microsoft Defender for Endpoint
-ms.openlocfilehash: 6db9e431414750e41f7caccc587bfdbc41071210
-ms.sourcegitcommit: 1535118acb3c18e55bb160b79728a772a84f9fbe
+ms.openlocfilehash: 7ecad955c59395014fbf39c2f9836d734137ed74
+ms.sourcegitcommit: a90325f86a3497319b3dc15ccf49e0396c4bf749
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2022
-ms.locfileid: "140880375"
+ms.lasthandoff: 04/07/2022
+ms.locfileid: "141493915"
 ---
 # <a name="module-2---lab-1---exercise-1---deploy-microsoft-defender-for-endpoint"></a>모듈 2 - 랩 1 - 연습 1 - 엔드포인트용 Microsoft Defender 배포
 
 ## <a name="lab-scenario"></a>랩 시나리오
+
+![랩 개요입니다.](../Media/SC-200-Lab_Diagrams_Mod2_L1_Ex1.png)
 
 여러분은 엔드포인트용 Microsoft Defender를 구현하고 있는 회사에서 일하는 보안 운영 분석가입니다. 귀하의 관리자가 몇몇 디바이스를 온보딩하여 보안 운영(SecOps) 팀 응답 절차에 필요한 변경 내용에 대한 인사이트를 제공하려고 합니다.
 
@@ -75,7 +77,7 @@ ms.locfileid: "140880375"
 
 1. **관리자: 명령 프롬프트** 창을 마우스 오른쪽 단추로 클릭하여 스크립트를 붙여넣고 **Enter** 키를 눌러 실행합니다. **참고:** 스크립트를 실행한 후 창이 자동으로 닫힙니다.
 
-1. Microsoft 365 Defender 포털 왼쪽 메뉴의 엔드포인트 영역에서 **디바이스 인벤토리** 를 선택합니다. 디바이스가 표시되지 않으면 다음 작업을 완료하고 돌아와서 나중에 다시 확인합니다. 디바이스가 포털에 표시되려면 최대 60분이 소요될 수 있습니다.
+1. Microsoft 365 Defender 포털 왼쪽 메뉴의 엔드포인트 영역에서 **디바이스 인벤토리** 를 선택합니다. 디바이스가 표시되지 않으면 다음 작업을 완료하고 돌아와서 나중에 다시 확인합니다. 첫 번째 디바이스가 포털에 표시될 때까지 최대 60분이 걸릴 수 있습니다.
 
     >**참고:** 온보딩 프로세스를 완료하고 한 시간 후에 디바이스 목록에 디바이스가 표시되지 않으면 온보딩 또는 연결 문제가 표시될 수 있습니다.
 

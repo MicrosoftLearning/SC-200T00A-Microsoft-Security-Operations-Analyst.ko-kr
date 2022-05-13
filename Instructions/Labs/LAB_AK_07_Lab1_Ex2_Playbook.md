@@ -2,16 +2,18 @@
 lab:
   title: 연습 2 - 플레이북 만들기
   module: Module 7 - Create detections and perform investigations using Microsoft Sentinel
-ms.openlocfilehash: 8a8117e90593c1c2a022169551b7a13df2cfcff4
-ms.sourcegitcommit: 175df7de88c9a609f8caf39840664bf992c5b6dc
+ms.openlocfilehash: 8017ba4ba215da42fce83151d80756e441e480df
+ms.sourcegitcommit: a90325f86a3497319b3dc15ccf49e0396c4bf749
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2022
-ms.locfileid: "138025476"
+ms.lasthandoff: 04/07/2022
+ms.locfileid: "141493934"
 ---
 # <a name="module-7---lab-1---exercise-2---create-a-playbook"></a>모듈 7 - 랩 1 - 연습 2 - 플레이북 만들기
 
 ## <a name="lab-scenario"></a>랩 시나리오
+
+![랩 개요입니다.](../Media/SC-200-Lab_Diagrams_Mod7_L1_Ex2.png)
 
 당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다. Microsoft Sentinel을 사용하여 위협을 검색하고 완화하는 방법을 파악해야 합니다. 이제 Microsoft Sentinel에서 루틴으로 실행할 수 있는 작업에 응답하고 이를 수정하려고 합니다.
 
@@ -44,7 +46,7 @@ ms.locfileid: "138025476"
 
 1. SOC 화면에 구성원을 추가하고 **건너뛰기** 단추를 선택합니다. 
 
-1. Teams 블레이드를 아래로 스크롤하여 새로 만든 SOC 팀을 찾고, 이름 오른쪽에서 **...** 를 선택하고, **채널 추가** 를 선택합니다.
+1. Teams 블레이드를 아래로 스크롤하여 새로 만든 SOC 팀을 찾고, 이름 오른쪽에서 줄임표 **(...)** 를 선택하고, **채널 추가** 를 선택합니다.
 
 1. 채널 이름을 *New Alerts* 로 입력하고 **추가** 단추를 선택합니다.
 
@@ -79,9 +81,9 @@ ms.locfileid: "138025476"
 
 1. 리소스 그룹에서 **새로 만들기** 를 선택하고, *RG-Playbooks* 를 입력한 후, **확인** 을 선택합니다.
 
-1. 지역에서는 상황에 맞는 지역을 선택합니다. 기본 지역이 최적입니다.
+1. 지역 기본값으로 **미국 동부** 를 그대로 둡니다.
 
-1. 플레이북 이름이 “PostMessageTeams-OnAlert”인지 확인하고 **검토 + 만들기** 를 선택합니다.
+1. 플레이북 이름이 “PostMessageTeams-OnAlert”인지 확인하고 **검토 + 만들기** 를 선택합니다. **힌트:** 이름이 다른 경우 GitHub로 돌아가서 **경고 트리거로 배포** 플레이북을 선택합니다.
 
 1. 이제 **만들기** 를 선택합니다. 
 

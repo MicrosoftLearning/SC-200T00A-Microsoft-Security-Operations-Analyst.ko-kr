@@ -2,16 +2,18 @@
 lab:
   title: 연습 2 - 데이터 커넥터를 사용하여 Microsoft Sentinel에 Windows 디바이스 연결
   module: Module 6 - Connect logs to Microsoft Sentinel
-ms.openlocfilehash: 91e038a226219fbd411855158f1449d92995ff5f
-ms.sourcegitcommit: 320cb9d3ce20c75731418e03eb86916841cecc69
+ms.openlocfilehash: 9605e4624286654c8d99e1c1fdfc7c88e9508f54
+ms.sourcegitcommit: a90325f86a3497319b3dc15ccf49e0396c4bf749
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2022
-ms.locfileid: "140742097"
+ms.lasthandoff: 04/07/2022
+ms.locfileid: "141493928"
 ---
 # <a name="module-6---lab-1---exercise-2---connect-windows-devices-to-microsoft-sentinel-using-data-connectors"></a>모듈 6 - 랩 1 - 연습 2 - 데이터 커넥터를 사용하여 Microsoft Sentinel에 Windows 디바이스 연결
 
 ## <a name="lab-scenario"></a>랩 시나리오
+
+![랩 개요입니다.](../Media/SC-200-Lab_Diagrams_Mod6_L1_Ex2.png)
 
 당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다. 조직에 있는 많은 데이터 원본의 로그 데이터를 연결하는 방법을 알아야 합니다. 다음 데이터 원본은 온-프레미스 환경 또는 기타 퍼블릭 클라우드와 같은 Azure 내부 및 외부의 Windows 가상 머신입니다.
 
@@ -32,7 +34,7 @@ ms.locfileid: "140742097"
 
 1. **서비스 및 마켓플레이스 검색** 상자에 *Windows 10* 을 입력하고 드롭다운 목록에서 **Microsoft Window 10** 을 선택합니다.
 
-1. 플랜 드롭다운 목록을 열고 **Windows 10 Enterprise 버전 20H2** 를 선택합니다. **미리 설정된 구성으로 시작** 을 선택하여 계속 진행합니다.
+1. 플랜 드롭다운 목록을 열고 **Windows 10 Enterprise 버전 21H2** 를 선택합니다. **미리 설정된 구성으로 시작** 을 선택하여 계속 진행합니다.
 
 1. **개발/테스트** 를 선택한 다음, **VM 계속 만들기** 를 선택합니다.
 
@@ -42,9 +44,9 @@ ms.locfileid: "140742097"
 
 1. 가상 머신 이름에 AZWIN01을 입력합니다.
 
-1. 지역을 현재 영역에 적합한 지역으로 설정합니다. 적합한 지역이 기본적으로 설정됩니다.
+1. 지역 기본값으로 **미국 동부** 를 그대로 둡니다.
 
-1. 아래로 스크롤하여 가상 머신의 크기를 검토합니다. 비어 있는 것으로 나타나면 **모든 크기 보기** 를 선택하고, **B2ms** 를 선택하고, **선택** 을 클릭합니다.
+1. 아래로 스크롤하여 가상 머신의 크기를 검토합니다. 비어 있는 것 같은 경우 **모든 크기 보기** 를 선택하고 Azure 사용자들이 가장 많이 사용함에서 VM 크기 중 하나를 선택하고 **선택** 을 클릭합니다.
 
 1. 선택한 사용자 이름을 입력합니다. **힌트:** admin 또는 root 같은 예약어를 사용하지 마세요.
 
