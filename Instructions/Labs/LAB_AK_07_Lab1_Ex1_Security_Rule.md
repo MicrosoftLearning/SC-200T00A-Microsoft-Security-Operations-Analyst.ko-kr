@@ -2,12 +2,12 @@
 lab:
   title: 연습 1 - Microsoft 보안 규칙 수정
   module: Module 7 - Create detections and perform investigations using Microsoft Sentinel
-ms.openlocfilehash: d433e3425f961862a2f51538bb73bd9705c6cc03
-ms.sourcegitcommit: a90325f86a3497319b3dc15ccf49e0396c4bf749
+ms.openlocfilehash: 92e54277d1d8c51dd0ddde982409f991bfbe0766
+ms.sourcegitcommit: 1b122762798f79fe9862bc662a7dc55f40b15dd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2022
-ms.locfileid: "141493850"
+ms.lasthandoff: 05/27/2022
+ms.locfileid: "145912163"
 ---
 # <a name="module-7---lab-1---exercise-1---modify-a-microsoft-security-rule"></a>모듈 7 - 랩 1 - 연습 1 - Microsoft 보안 규칙 수정
 
@@ -36,7 +36,7 @@ ms.locfileid: "141493850"
 
 1. 구성 영역에서 **분석** 을 선택합니다. 기본적으로 활성 규칙이 표시됩니다.
 
-1. **Azure Defender 경고에 따라 인시던트 만들기** 를 선택합니다. 이 경고는 “모듈 6 - 연습 1 - 작업 4”에서 구성한 클라우드용 Defender 커넥터에 의해 자동으로 생성되었습니다. 
+1. **CLoud용 Microsoft Defender를 기반으로 인시던트 만들기** 를 선택합니다. 이 경고는 “모듈 6 - 연습 1 - 작업 4”에서 구성한 클라우드용 Defender 커넥터에 의해 자동으로 생성되었습니다. 
 
 1. 오른쪽 블레이드에서 **편집** 단추를 선택합니다.
 
