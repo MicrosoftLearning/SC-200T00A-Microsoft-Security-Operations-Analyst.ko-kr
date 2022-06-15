@@ -2,12 +2,12 @@
 lab:
   title: 연습 3 - 예약된 쿼리 만들기
   module: Module 7 - Create detections and perform investigations using Microsoft Sentinel
-ms.openlocfilehash: 6e8d5655639433928d1c52d7c49077dead6121b4
-ms.sourcegitcommit: a90325f86a3497319b3dc15ccf49e0396c4bf749
+ms.openlocfilehash: 97e0ead1d3b79493deda54a3e268fc8f72f4070f
+ms.sourcegitcommit: 1b122762798f79fe9862bc662a7dc55f40b15dd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2022
-ms.locfileid: "141493991"
+ms.lasthandoff: 05/27/2022
+ms.locfileid: "145912154"
 ---
 # <a name="module-7---lab-1---exercise-3---create-a-scheduled-query"></a>모듈 7 - 랩 1 - 연습 3 - 예약된 쿼리 만들기
 
@@ -114,9 +114,9 @@ ms.locfileid: "141493991"
 
 1. 명령 모음에서 **+ 할당 추가** 를 선택합니다.
 
-1. 할당 추가 페이지의 멤버 자격 탭의 역할 선택에서 **사용자 관리자** 를 선택합니다.   그리고 **다음 >** 을 선택합니다.
+1. 할당 추가 페이지의 멤버 자격 탭의 역할 선택에서 **사용자 관리자** 를 선택합니다.   그리고 **추가** 를 선택합니다.
 
-1. 설정 탭에서 기본 할당 유형을 검토한 다음, **할당** 을 선택합니다.  할당이 완료되지 않으면 다시 시도합니다.
+    >**참고:** 새 역할 할당을 확인하려면 **새로 고침** 단추를 클릭해야 합니다. 
 
 1. 오른쪽 위에 있는 ‘x’를 두 번 선택하여 “Christie Cline - 할당된 역할” 및 “사용자 - 모든 사용자” 페이지를 닫습니다.
 

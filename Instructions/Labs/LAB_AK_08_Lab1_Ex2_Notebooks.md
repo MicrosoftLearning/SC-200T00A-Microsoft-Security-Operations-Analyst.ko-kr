@@ -2,12 +2,12 @@
 lab:
   title: 연습 2 - Microsoft Sentinel이 설치된 Notebooks를 사용하여 위협 헌팅
   module: Module 8 - Perform threat hunting in Microsoft Sentinel
-ms.openlocfilehash: 27db8985c2581a04345396e47ee0f0d2e97eb931
-ms.sourcegitcommit: a90325f86a3497319b3dc15ccf49e0396c4bf749
+ms.openlocfilehash: 3f48ff448906532c93fcb3a1b3478ca445dad777
+ms.sourcegitcommit: 1b122762798f79fe9862bc662a7dc55f40b15dd5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2022
-ms.locfileid: "141493955"
+ms.lasthandoff: 05/27/2022
+ms.locfileid: "145912157"
 ---
 # <a name="module-8---lab-1---exercise-2---threat-hunting-using-notebooks-with-microsoft-sentinel"></a>모듈 8 - 랩 1 - 연습 2 - Microsoft Sentinel이 설치된 Notebooks를 사용하여 위협 헌팅
 
@@ -63,7 +63,7 @@ ms.locfileid: "141493955"
 
 1. **Microsoft Sentinel ML Notebooks에 대한 시작 가이드** 를 선택합니다. 
 
-1. 오른쪽 창에서 아래로 스크롤하여 **Notebook 템플릿 복제** 단추를 선택합니다. 기본 옵션을 검토하고 **저장** 을 선택합니다.
+1. 오른쪽 창에서 아래로 스크롤하고 **템플릿에서 만들기** 단추를 선택합니다. 기본 옵션을 검토하고 **저장** 을 선택합니다.
 
 1. 저장이 완료되면 **Notebook 시작** 단추를 선택합니다. 그러면 Microsoft Azure Machine Learning Studio로 연결됩니다.
 

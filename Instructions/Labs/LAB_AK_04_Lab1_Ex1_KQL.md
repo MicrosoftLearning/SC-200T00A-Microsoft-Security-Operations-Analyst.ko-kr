@@ -2,12 +2,12 @@
 lab:
   title: 연습 1 - KQL(Kusto 쿼리 언어)을 사용하여 Microsoft Sentinel에 대한 쿼리 만들기
   module: Module 4 - Create queries for Microsoft Sentinel using Kusto Query Language (KQL)
-ms.openlocfilehash: e96c19613f6379217a12392cd39ac916d022c880
-ms.sourcegitcommit: a90325f86a3497319b3dc15ccf49e0396c4bf749
+ms.openlocfilehash: 15469ce769f9c3655c9c8c35ea33d70f43d8ef2e
+ms.sourcegitcommit: ac5992dcbc64a608d24a33e084c71f456327b07d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2022
-ms.locfileid: "141493910"
+ms.lasthandoff: 05/26/2022
+ms.locfileid: "145892528"
 ---
 # <a name="module-4---lab-1---exercise-1---create-queries-for-microsoft-sentinel-using-kusto-query-language-kql"></a>모듈 4 - 랩 1 - 연습 1 - KQL(Kusto 쿼리 언어)을 사용하여 Microsoft Sentinel에 대한 쿼리 만들기
 
@@ -231,7 +231,7 @@ ms.locfileid: "141493910"
         | summarize arg_max(TimeGenerated, *) by Account
         ```
 
-    >**참고:**  “Completed” 막대를 선택하여 “Total CPU” 및 “Data used for processed query”를 검토하고 두 문 간에 데이터를 비교할 수도 있습니다.
+    >**참고:**  오른쪽 아래에서 “쿼리 세부 정보” 링크를 선택하여 “Total CPU” 및 “Data used for processed query”를 검토하고 두 문의 데이터를 비교할 수도 있습니다.
 
 1. 다음 문은 그룹 내의 모든 값 목록을 반환하는 **make_list()** 함수를 보여 줍니다. 이 KQL 쿼리는 먼저 where 연산자를 사용하여 EventID를 필터링합니다. 그런 다음 각 컴퓨터에서 결과는 계정의 JSON 배열입니다. 결과 JSON 배열에는 중복된 계정이 포함됩니다. 쿼리 창에서 다음 문을 입력하고 **실행** 을 선택합니다. 
 
