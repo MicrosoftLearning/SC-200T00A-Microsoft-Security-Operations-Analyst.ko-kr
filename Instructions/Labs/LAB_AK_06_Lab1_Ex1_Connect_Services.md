@@ -2,12 +2,12 @@
 lab:
   title: 연습 1 - 데이터 커넥터를 사용하여 Microsoft Sentinel에 데이터 연결
   module: Module 6 - Connect logs to Microsoft Sentinel
-ms.openlocfilehash: 783cc6d5cb6b7a2e962a60ad6654b8a900a04581
-ms.sourcegitcommit: a90325f86a3497319b3dc15ccf49e0396c4bf749
+ms.openlocfilehash: ba1ab1fbfbc322357395fc6d78ba124eda9d00cc
+ms.sourcegitcommit: 190d5d493301a8c8d98c86772d2500128637ad2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2022
-ms.locfileid: "141493979"
+ms.lasthandoff: 06/29/2022
+ms.locfileid: "146650238"
 ---
 # <a name="module-6---lab-1---exercise-1---connect-data-to-microsoft-sentinel-using-data-connectors"></a>모듈 6 - 랩 1 - 연습 1 - 데이터 커넥터를 사용하여 Microsoft Sentinel에 데이터 연결
 
@@ -67,9 +67,9 @@ ms.locfileid: "141493979"
 
 1. 커넥터 정보 블레이드에서 **커넥터 페이지 열기** 를 선택합니다.
 
-1. 구성 영역의 구독에서 “Azure Pass - 스폰서쉽” 구독에 대한 확인란을 선택하고 **연결** 을 선택합니다.
+1. 구성 영역의 구독 아래에서 “Azure Pass - 스폰서쉽” 구독 확인란을 선택하고 **상태** 옵션을 오른쪽으로 밀어 **연결됨** 을 표시합니다.
 
-1. "연결" 메시지를 읽고 **확인** 을 선택하여 계속합니다. 이제 “상태”가 연결됨으로 설정되고 “양방향 동기화”가 사용으로 설정됩니다. 
+1. 이제 “상태”가 연결됨으로 설정되고 “양방향 동기화”가 사용으로 설정됩니다. 
 
 1. 아래로 스크롤하여 “인시던트 만들기 - 권장됨!” 영역에서 **사용** 을 선택합니다. 이 옵션은 해당 서비스에 대한 분석 규칙을 자동으로 만듭니다. 여기서 사용되지 않는 경우 나중에 수동으로 추가하거나, 분석 블레이드 내에서 해당 구성을 변경할 수 있습니다.
 
