@@ -2,12 +2,12 @@
 lab:
   title: 연습 2 - 클라우드용 Microsoft Defender를 사용하여 위협 완화
   module: Module 3 - Mitigate threats using Microsoft Defender for Cloud
-ms.openlocfilehash: 50d77067c70634a4f887a7c8669b38fa7977b860
-ms.sourcegitcommit: a90325f86a3497319b3dc15ccf49e0396c4bf749
+ms.openlocfilehash: 2d08f56492a17cbf2606a51a56ce039e33417442
+ms.sourcegitcommit: f8918eddeaa7a7a480e92d0e5f2f71143c729d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2022
-ms.locfileid: "141493961"
+ms.lasthandoff: 07/08/2022
+ms.locfileid: "147038000"
 ---
 # <a name="module-3---lab-1---exercise-2---mitigate-threats-using-microsoft-defender-for-cloud"></a>모듈 3 - 랩 1 - 연습 2 - 클라우드용 Microsoft Defender를 사용하여 위협 완화
 
@@ -15,12 +15,12 @@ ms.locfileid: "141493961"
 
 ![랩 개요입니다.](../Media/SC-200-Lab_Diagrams_Mod3_L1_Ex2.png)
 
-여러분은 클라우드용 Microsoft Defender를 구현한 회사에서 일하는 보안 운영 분석가입니다. 클라우드용 Microsoft Defender에서 생성된 보안 경고에 응답해야 합니다.
+여러분은 클라우드용 Microsoft Defender를 구현한 회사에서 일하는 보안 운영 분석가입니다. 클라우드용 Microsoft Defender에서 생성된 권장 사항 및 보안 경고에 응답해야 합니다.
 
 
-### <a name="task-1-mitigate-security-alerts"></a>작업 1: 보안 경고 관련 상황 완화
+### <a name="task-1-explore-regulatory-compliance"></a>작업 1: 규정 준수 살펴보기
 
-이 작업에서는 샘플 보안 경고를 로드하여 경고 세부 정보를 검토합니다.
+이 작업에서는 클라우드용 Microsoft Defender에서 규정 준수 구성을 검토합니다. 
 
 >**중요:** 다음 단계는 이전에 작업한 컴퓨터와는 다른 컴퓨터에서 수행합니다. 가상 머신 이름 참조를 찾습니다.
 
@@ -33,6 +33,33 @@ ms.locfileid: "141493961"
 1. 랩 호스팅 공급자가 제공한 **테넌트 암호** 를 복사하여 **암호 입력** 대화 상자에 붙여 넣은 후 **로그인** 을 선택합니다.
 
 1. Azure Portal의 검색 창에 *Defender* 를 입력하고 **클라우드용 Microsoft Defender** 를 선택합니다.
+
+1. 클라우드 보안의 포털 메뉴에서 **규정 준수** 를 선택합니다.
+1. *규정 준수 환경을 명확히 이해하셨습니까?* 에 대해 **예** 를 선택합니다.
+1. 규정 준수 피드백 블레이드에 **클래스** 를 입력합니다. 그런 다음 **제출** 합니다.
+1. 도구 모음에서 **관리형 준수 정책** 을 선택합니다.
+1. 구독을 선택합니다.
+1. 정책 설정 아래의 포털 메뉴에서 **보안 정책** 을 선택합니다.
+1. 규정 준수 환경을 명확히 이해하셨습니까?에 대해 **예** 를 선택합니다.
+1. 사용자 환경에 사용할 수 있는 사용 가능한 이니셔티브를 검토합니다.
+1. 클라우드용 Microsoft Defender를 선택하여 기본 블레이드로 돌아갑니다.
+
+### <a name="task-2-explore-security-posture-and-recommendations"></a>작업 2: 보안 태세 및 권장 사항 살펴보기
+
+이 작업에서는 클라우드 보안 태세 관리를 검토합니다.  보안 점수 정보는 다시 계산하는 데 24시간이 걸릴 수 있습니다.  24시간 안에 이 작업을 다시 수행하는 것이 좋습니다.
+
+1. 클라우드 보안의 포털 메뉴에서 **보안 태세** 를 선택합니다.
+1. 보안 점수는 점수가 계산될 때까지 *N/A* 를 표시할 가능성이 높습니다.
+1. 일반 아래 포털 메뉴에서 **권장 사항** 을 선택합니다.
+1. 제공된 권장 사항을 살펴봅니다(24시간 후).
+
+
+
+
+### <a name="task-3-mitigate-security-alerts"></a>작업 3: 보안 경고 관련 상황 완화
+
+이 작업에서는 샘플 보안 경고를 로드하여 경고 세부 정보를 검토합니다.
+
 
 1. 일반 아래 포털 메뉴에서 **보안 경고** 를 선택합니다.
 

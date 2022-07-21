@@ -2,12 +2,12 @@
 lab:
   title: 연습 3 - 예약된 쿼리 만들기
   module: Module 7 - Create detections and perform investigations using Microsoft Sentinel
-ms.openlocfilehash: 97e0ead1d3b79493deda54a3e268fc8f72f4070f
-ms.sourcegitcommit: 1b122762798f79fe9862bc662a7dc55f40b15dd5
+ms.openlocfilehash: ca549d6d3770e1a220c51b4e411ab0913a443e69
+ms.sourcegitcommit: f8918eddeaa7a7a480e92d0e5f2f71143c729d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2022
-ms.locfileid: "145912154"
+ms.lasthandoff: 07/08/2022
+ms.locfileid: "147038015"
 ---
 # <a name="module-7---lab-1---exercise-3---create-a-scheduled-query"></a>모듈 7 - 랩 1 - 연습 3 - 예약된 쿼리 만들기
 
@@ -94,6 +94,10 @@ ms.locfileid: "145912154"
 1. 하단에서 **다음: 자동화된 응답 >** 단추를 선택합니다.
 
 1. 경고 자동화 영역의 자동화된 응답 탭에서 이전 연습에서 만든 *PostMessageTeams-OnAlert* 플레이북을 선택합니다.
+1. 인시던트 자동화 탭에서 **새로 추가** 를 선택합니다.
+1. 자동화 규칙 이름에 **계층 2** 를 입력합니다.
+1. 작업에서 **소유자 할당** 을 선택합니다.
+1. 그런 다음, **나에게 할당** 을 선택합니다. 그런 다음, **적용** 을 선택합니다.
 
 1. 하단에서 **다음: 검토 >** 단추를 선택합니다.
   

@@ -2,12 +2,12 @@
 lab:
   title: 연습 1 - 엔드포인트용 Microsoft Defender 배포
   module: Module 2 - Mitigate threats using Microsoft Defender for Endpoint
-ms.openlocfilehash: 7ecad955c59395014fbf39c2f9836d734137ed74
-ms.sourcegitcommit: a90325f86a3497319b3dc15ccf49e0396c4bf749
+ms.openlocfilehash: ddc1d68a0d0a8f7df50ae3a6e0b6a6e205391905
+ms.sourcegitcommit: f8918eddeaa7a7a480e92d0e5f2f71143c729d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2022
-ms.locfileid: "141493915"
+ms.lasthandoff: 07/08/2022
+ms.locfileid: "147038009"
 ---
 # <a name="module-2---lab-1---exercise-1---deploy-microsoft-defender-for-endpoint"></a>모듈 2 - 랩 1 - 연습 1 - 엔드포인트용 Microsoft Defender 배포
 
@@ -21,7 +21,7 @@ ms.locfileid: "141493915"
 
 >**중요:**  랩 가상 머신은 다양한 모듈을 통해 사용됩니다. 가상 머신을 저장해 두세요. 저장하지 않고 랩을 종료하면 일부 구성을 다시 실행해야 합니다.
 
->**참고:** 이전 모듈의 마지막 3개 단계를 성공적으로 완료했는지 확인합니다.
+>**참고:** 이전 모듈의 작업 3을 성공적으로 완료했는지 확인합니다.
 
 
 ### <a name="task-1-initialize-microsoft-defender-for-endpoint"></a>작업 1: 엔드포인트용 Microsoft Defender 초기화

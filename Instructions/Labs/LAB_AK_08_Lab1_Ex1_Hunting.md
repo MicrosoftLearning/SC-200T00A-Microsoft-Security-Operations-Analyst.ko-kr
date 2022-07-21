@@ -2,12 +2,12 @@
 lab:
   title: 연습 1 - Microsoft Sentinel에서 위협 헌팅 수행
   module: Module 8 - Perform threat hunting in Microsoft Sentinel
-ms.openlocfilehash: 04861267f93df1fe9a9adc019d553b436a4aeee5
-ms.sourcegitcommit: a90325f86a3497319b3dc15ccf49e0396c4bf749
+ms.openlocfilehash: 3e2631435122423265dbef3f56f06340706abc9f
+ms.sourcegitcommit: f8918eddeaa7a7a480e92d0e5f2f71143c729d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2022
-ms.locfileid: "141493942"
+ms.lasthandoff: 07/08/2022
+ms.locfileid: "147038021"
 ---
 # <a name="module-8---lab-1---exercise-1---perform-threat-hunting-in-microsoft-sentinel"></a>모듈 8 - 랩 1 - 연습 1 - Microsoft Sentinel에서 위협 헌팅 수행
 
@@ -141,4 +141,69 @@ ms.locfileid: "141493942"
 
 1. 상태가 현재 실행 중인지 검토합니다.  결과를 찾으면 Azure Portal(종 아이콘)에서 알림을 받게 됩니다.
 
-# <a name="proceed-to-exercise-2"></a>연습 2 계속 진행
+
+### <a name="task-2-create-a-nrt-query-rule"></a>작업 2: NRT 쿼리 규칙 만들기
+
+이 작업에서는 LiveStream을 사용하는 대신 NRT 분석 쿼리 규칙을 만듭니다. NRT 규칙은 1분마다 실행되고 1분마다 조회됩니다.  NRT 규칙의 이점은 경고 및 인시던트 생성 논리를 사용할 수 있다는 것입니다.
+
+
+1. Microsoft Sentinel에서 **분석** 페이지를 선택합니다. 
+
+1. **만들기** 탭을 선택한 다음, **NRT 쿼리 규칙** 을 선택합니다.
+1. 그러면 “분석 규칙 마법사”가 시작됩니다. 일반 탭에서 다음을 입력합니다.
+
+    |설정|값|
+    |---|---|
+    |Name|**NRT C2 헌트**|
+    |설명|**NRT C2 헌트**|
+    |전술|**명령 및 제어**|
+    |심각도|**높음**|
+
+1. **다음: 규칙 논리 설정 >** 단추를 선택합니다. 
+
+
+1. 규칙 쿼리의 경우 KQL 문을 입력합니다.
+
+    ```KQL
+    DeviceEvents | where TimeGenerated >= ago(lookback) 
+    | where ActionType == "DnsQueryResponse"
+    | extend c2 = substring(tostring(AdditionalFields.DnsQueryString),0,indexof(tostring(AdditionalFields.DnsQueryString),"."))
+    | where c2 startswith "sub"
+    | summarize cnt=count() by bin(TimeGenerated, 5m), c2, DeviceName
+    | where cnt > 15
+    ```
+
+>**참고:** 같은 데이터에 대해 의도적으로 여러 인시던트를 생성합니다. 그러면 랩에서 해당 경고를 사용할 수 있기 때문입니다.
+
+1. 나머지 옵션은 기본값으로 둡니다. **다음: 인시던트 설정>** 단추를 선택합니다.
+
+1. 인시던트 설정 탭에서 기본값을 그대로 두고 **다음: 자동화된 응답 >** 단추를 선택합니다.
+
+1. 자동화된 응답 탭에서 경고 자동화 아래의 **PostMessageTeams-OnAlert** 를 선택한 다음, **다음:  검토** 단추를 클릭합니다.
+
+1. 검토 탭에서 **만들기** 단추를 선택하여 새 예약된 분석 규칙을 만듭니다.
+
+
+
+### <a name="task-3-create-a-search"></a>작업 3: 검색 만들기
+
+이 작업에서는 검색 작업을 사용하여 C2를 찾습니다. 
+
+
+1. Microsoft Sentinel에서 **검색** 페이지를 선택합니다. 
+
+1. **복원** 탭을 선택합니다.
+
+>**참고:** 랩에는 복원할 보관된 테이블이 없습니다.  정상적인 프로세스는 검색 작업에 포함하도록 보관된 테이블을 복원합니다.
+1. **취소** 를 선택합니다.
+1. **검색** 탭을 선택합니다.
+1. 테이블을 선택하고 **DeviceRegistryEvents** 로 변경합니다.
+1. 검색 상자에 **reg.exe** 를 입력합니다.  
+1. **저장된 검색** 을 선택합니다. 
+1. 검색 작업은 **DeviceRegistryEvents_####_SRCH** 라는 새 테이블을 만듭니다. 
+1. 검색 작업이 완료되기를 기다립니다.  상태가 업데이트 중으로 표시됩니다. 이후 진행 중으로 바뀌었다가 검색 완료로 표시됩니다. 
+1. **검색 결과 보기** 를 선택합니다.
+1. 로그에서 새 탭을 엽니다.
+1. 새 테이블 이름인 **DeviceRegistryEvents_####_SRCH** 를 입력하고 실행합니다.
+
+## <a name="proceed-to-exercise-2"></a>연습 2 계속 진행

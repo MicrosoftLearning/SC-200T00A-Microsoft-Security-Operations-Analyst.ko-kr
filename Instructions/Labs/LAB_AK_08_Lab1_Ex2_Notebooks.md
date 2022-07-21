@@ -2,12 +2,12 @@
 lab:
   title: 연습 2 - Microsoft Sentinel이 설치된 Notebooks를 사용하여 위협 헌팅
   module: Module 8 - Perform threat hunting in Microsoft Sentinel
-ms.openlocfilehash: 3f48ff448906532c93fcb3a1b3478ca445dad777
-ms.sourcegitcommit: 1b122762798f79fe9862bc662a7dc55f40b15dd5
+ms.openlocfilehash: 6691a1bec1d9499c8e7741332ea827260bc3b816
+ms.sourcegitcommit: f8918eddeaa7a7a480e92d0e5f2f71143c729d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2022
-ms.locfileid: "145912157"
+ms.lasthandoff: 07/08/2022
+ms.locfileid: "147038018"
 ---
 # <a name="module-8---lab-1---exercise-2---threat-hunting-using-notebooks-with-microsoft-sentinel"></a>모듈 8 - 랩 1 - 연습 2 - Microsoft Sentinel이 설치된 Notebooks를 사용하여 위협 헌팅
 
