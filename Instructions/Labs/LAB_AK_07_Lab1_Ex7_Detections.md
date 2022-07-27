@@ -2,12 +2,12 @@
 lab:
   title: 연습 7 - 검색 만들기
   module: Module 7 - Create detections and perform investigations using Microsoft Sentinel
-ms.openlocfilehash: 03e10d1275742f70b1b2871400a2002b4732f460
-ms.sourcegitcommit: f8918eddeaa7a7a480e92d0e5f2f71143c729d60
+ms.openlocfilehash: f94b4d459a9af82751b774f572db69df3c01bf7f
+ms.sourcegitcommit: 8c0ae4aec8425a85e0ba6dc8964406bf5d79e4d4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2022
-ms.locfileid: "147038060"
+ms.lasthandoff: 07/15/2022
+ms.locfileid: "147154505"
 ---
 # <a name="module-7---lab-1---exercise-7---create-detections"></a>모듈 7 - 랩 1 - 연습 7 - 검색 만들기
 
@@ -78,7 +78,7 @@ ms.locfileid: "147038060"
     | extend timestamp = TimeGenerated, HostCustomEntity = DeviceName, AccountCustomEntity = InitiatingProcessAccountName
     ```
 
-1. 이제 적절한 검색 규칙을 작성했으므로 로그 창의 명령 표시줄에서 **+ 새 경고 규칙** 을 선택한 다음 **Azure Sentinel 경고 만들기** 를 선택합니다. 이렇게 하면 새 예약된 규칙이 만들어집니다.
+1. 이제 적절한 검색 규칙을 작성했으므로 로그 창의 명령 표시줄에서 **+ 새 경고 규칙** 을 선택한 다음 **Microsoft Sentinel 경고 만들기** 를 선택합니다. 이렇게 하면 새 예약된 규칙이 만들어집니다.
 
 1. 그러면 “분석 규칙 마법사”가 시작됩니다. 일반 탭에서 다음을 입력합니다.
 
@@ -159,7 +159,7 @@ ms.locfileid: "147038060"
     | extend timestamp = TimeGenerated, HostCustomEntity = Computer, AccountCustomEntity = UserName1
     ```
 
-1. 이제 적절한 검색 규칙이 작성되었으므로 로그 창의 명령 모음에서 **+ 새 경고 규칙** 을 선택하고 **Azure Sentinel 경고 만들기** 를 선택합니다.
+1. 이제 적절한 검색 규칙을 작성했으므로 로그 창의 명령 표시줄에서 **+ 새 경고 규칙** 을 선택한 다음 **Microsoft Sentinel 경고 만들기** 를 선택합니다.
 
 1. 그러면 “분석 규칙 마법사”가 시작됩니다. 일반 탭에서 다음을 입력합니다.
 

@@ -2,12 +2,12 @@
 lab:
   title: 연습 1 - Microsoft 365 Defender 살펴보기
   module: Module 1 - Mitigate threats using Microsoft 365 Defender
-ms.openlocfilehash: e725991b72e1b7258c91ab8aef15b0c85e5e4a53
-ms.sourcegitcommit: f8918eddeaa7a7a480e92d0e5f2f71143c729d60
+ms.openlocfilehash: 024beb607208ed4b5a93f298ba8085ec7389d3ef
+ms.sourcegitcommit: 8c0ae4aec8425a85e0ba6dc8964406bf5d79e4d4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2022
-ms.locfileid: "147037985"
+ms.lasthandoff: 07/15/2022
+ms.locfileid: "147154478"
 ---
 # <a name="module-1---lab-1---exercise-1---explore-microsoft-365-defender"></a>모듈 1 - 랩 1 - 연습 1 - Microsoft 365 Defender 살펴보기 
 
@@ -30,7 +30,7 @@ ms.locfileid: "147037985"
 
 ### <a name="task-2-apply-microsoft-defender-for-office-365-preset-security-policies"></a>작업 2: Office 365용 Microsoft Defender 미리 설정된 보안 정책 적용
 
-이 작업에서는 Microsoft 365 보안 포털에서 EOP 및 Office 365용 Microsoft Defender에 대한 미리 설정된 보안 정책을 할당합니다.
+이 작업에서는 Microsoft 365 보안 포털에서 EOP(Exchange Online Protection) 및 Office 365용 Microsoft Defender에 대한 미리 설정된 보안 정책을 할당합니다.
 
 1. WIN1 가상 머신에 Admin으로 로그인합니다. 암호로는 **Pa55w.rd** 를 사용하여 로그인합니다.  
 
