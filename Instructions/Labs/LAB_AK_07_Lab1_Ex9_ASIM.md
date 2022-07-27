@@ -2,12 +2,12 @@
 lab:
   title: 연습 9 - ASIM 파서 만들기
   module: Module 7 - Create detections and perform investigations using Microsoft Sentinel
-ms.openlocfilehash: bd90c61e55ce8324ada00d2ac533c569c628f15a
-ms.sourcegitcommit: f8918eddeaa7a7a480e92d0e5f2f71143c729d60
+ms.openlocfilehash: 5f115627b8d915bfb31e34532d3a2a7d79a23499
+ms.sourcegitcommit: 8c0ae4aec8425a85e0ba6dc8964406bf5d79e4d4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2022
-ms.locfileid: "147038061"
+ms.lasthandoff: 07/15/2022
+ms.locfileid: "147154481"
 ---
 # <a name="module-7---lab-1---exercise-9---create-asim-parsers"></a>모듈 7 - 랩 1 - 연습 9 - ASIM 파서 만들기
 
@@ -15,8 +15,7 @@ ms.locfileid: "147038061"
 
 당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다. 특정 Windows 레지스트리 이벤트에 대한 ASIM 파서를 모델링해야 합니다.  이러한 간소화된 파서는 ASIM 파서 레지스트리 이벤트 정규화 표준(https://docs.microsoft.com/en-us/azure/sentinel/registry-event-normalization-schema) )에 따라 나중에 완료됩니다.
 
-
-
+>**중요:** 이 랩에서는 긴 KQL ASIM 파서 스크립트를 Microsoft Sentinel에 입력합니다. 스크립트는 이 랩의 시작 부분에 있는 다운로드 파일을 통해 제공되었습니다. 스크립트를 다운로드할 대체 위치는 https://github.com/MicrosoftLearning/SC-200T00A-Microsoft-Security-Operations-Analyst/tree/master/Allfiles 입니다.
 
 ### <a name="task-1-develop-kql-function-for-microsoft-365-defender-registry-event"></a>작업 1: Microsoft 365 Defender 레지스트리 이벤트에 대한 KQL 함수 개발 
 
@@ -35,7 +34,10 @@ ms.locfileid: "147038061"
 1. 앞에서 만든 Microsoft Sentinel 작업 영역을 선택합니다.
 
 1. **로그** 페이지를 선택합니다.
-1. 새 쿼리 탭에 다음 KQL 문을 입력합니다.
+
+1. 다운로드한 **SC200_module7_ASIM_Parser_scripts.txt** 를 열고 작업 1 스크립트 KQL 문을 복사하여 새 쿼리 탭에 붙여넣습니다.
+
+>**참고** 아래 표시된 스크립트는 참조용입니다.
 
     ```KQL
     let RegistryType = datatable (TypeCode: string, TypeName: string) [
@@ -136,7 +138,9 @@ ms.locfileid: "147038061"
 이 작업에서는 SecurityEvent의 작업 영역 파서인 함수를 만듭니다.
 
 1. 새 쿼리 탭을 만듭니다.
-1. 새 쿼리 탭에 다음 KQL 문을 입력합니다.
+1. 다운로드한 **SC200_module7_ASIM_Parser_scripts.txt** 를 열고 작업 2 스크립트 KQL 문을 복사하여 새 쿼리 탭에 붙여넣습니다.
+
+>**참고** 아래 표시된 스크립트는 참조용입니다.
 
     ```KQL
     let RegistryType = datatable (TypeCode: string, TypeName: string) [
