@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: f0a0dac7e3f900c9c7f0a4a3f33de4d9ee06cdff
-ms.sourcegitcommit: 8c0ae4aec8425a85e0ba6dc8964406bf5d79e4d4
+ms.openlocfilehash: bac4babf32bbf62213da667426ce4644fdd88ef9
+ms.sourcegitcommit: c026d30237cf9a0efdc6e7bbc58a395ecbc9e250
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2022
-ms.locfileid: "147154508"
+ms.lasthandoff: 08/03/2022
+ms.locfileid: "147449896"
 ---
 
 # <a name="microsoft-security-operations-analyst"></a>Microsoft 보안 운영 분석가 시험에 맞춰 조정됩니다.
@@ -17,6 +17,7 @@ ms.locfileid: "147154508"
 ## <a name="demo-prerequisites"></a>데모 필수 구성 요소
 
 이 과정의 랩을 진행하려면 Microsoft 365 E5 사용 허가를 받은 테넌트와 Azure 구독이 필요합니다.
+
 * 자신을 위해 Microsoft Learning Azure Pass를 요청할 수 있습니다.
 * 데모를 수행하기 최소 2주 전에 이러한 패스를 요청해야 합니다. 패스를 받으면 해당 패스를 활성화해야 합니다. 
 * ✔️ Azure Pass는 공개적으로 사용할 수 있는 Microsoft Azure 평가판 구독과 동일한 방식으로 효과적으로 작동합니다. 즉, Pass를 사용하여 수행할 수 있는 작업이 제한됩니다.

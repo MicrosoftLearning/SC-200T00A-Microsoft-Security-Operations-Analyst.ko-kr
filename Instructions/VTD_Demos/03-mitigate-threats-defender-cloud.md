@@ -1,12 +1,12 @@
 ---
-ms.openlocfilehash: 97cfe7875df23dba8d3481430fbdbc5444702fd6
-ms.sourcegitcommit: 6934bbcd5d9774aa44dd949cf9523e8a43a505d1
+ms.openlocfilehash: 7153be471268ce4c563dd3445e17b58336850485
+ms.sourcegitcommit: c026d30237cf9a0efdc6e7bbc58a395ecbc9e250
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2022
-ms.locfileid: "147168468"
+ms.lasthandoff: 08/03/2022
+ms.locfileid: "147449899"
 ---
-# <a name="module-2---mitigate-threats-using-microsoft-defender-for-cloud"></a>모듈 2 - 클라우드용 Microsoft Defender를 사용하여 위협 완화
+# <a name="module-3---mitigate-threats-using-microsoft-defender-for-cloud"></a>모듈 3 - 클라우드용 Microsoft Defender를 사용하여 위협 완화
 
 **참고** 이 데모의 성공적인 완료는 [필수 구성 요소 문서](00-prerequisites.md)에 있는 모든 단계를 완료하는 것에 달려 있습니다. 
 

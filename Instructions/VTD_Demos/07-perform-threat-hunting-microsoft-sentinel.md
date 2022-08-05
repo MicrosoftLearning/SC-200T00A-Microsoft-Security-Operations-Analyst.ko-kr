@@ -1,12 +1,12 @@
 ---
-ms.openlocfilehash: 395fef9928cfb7773a5b46a8c534f26d28a5e3ed
-ms.sourcegitcommit: 6934bbcd5d9774aa44dd949cf9523e8a43a505d1
+ms.openlocfilehash: f17cb18612147dbb60efe9cbcbad87819bd2a352
+ms.sourcegitcommit: c026d30237cf9a0efdc6e7bbc58a395ecbc9e250
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2022
-ms.locfileid: "147168467"
+ms.lasthandoff: 08/03/2022
+ms.locfileid: "147449902"
 ---
-# <a name="module-6---threat-hunting-in-microsoft-sentinel"></a>모듈 6 - Microsoft Sentinel에서 위협 헌팅
+# <a name="module-7---threat-hunting-in-microsoft-sentinel"></a>모듈 7 - Microsoft Sentinel에서 위협 헌팅
 
 **참고** 이 데모의 성공적인 완료는 [필수 구성 요소 문서](00-prerequisites.md)에 있는 모든 단계를 완료하는 것에 달려 있습니다. 
 

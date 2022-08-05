@@ -1,12 +1,12 @@
 ---
-ms.openlocfilehash: 9267efde7b1d184fa4201ba07be947ffff21311e
-ms.sourcegitcommit: 6934bbcd5d9774aa44dd949cf9523e8a43a505d1
+ms.openlocfilehash: 8b5dbb31b0de6f493d9eb51a4a2e998aa248ce46
+ms.sourcegitcommit: c026d30237cf9a0efdc6e7bbc58a395ecbc9e250
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2022
-ms.locfileid: "147168466"
+ms.lasthandoff: 08/03/2022
+ms.locfileid: "147449887"
 ---
-# <a name="module-4-configure-your-microsoft-sentinel-environment"></a>모듈 4 Microsoft Sentinel 환경 구성
+# <a name="module-5-configure-your-microsoft-sentinel-environment"></a>모듈 5 Microsoft Sentinel 환경 구성
 
 **참고** 이 데모의 성공적인 완료는 [필수 구성 요소 문서](00-prerequisites.md)에 있는 모든 단계를 완료하는 것에 달려 있습니다. 
 

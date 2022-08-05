@@ -1,12 +1,12 @@
 ---
-ms.openlocfilehash: 2fd744791ec4df2757b90424801e90101dee6382
-ms.sourcegitcommit: 6934bbcd5d9774aa44dd949cf9523e8a43a505d1
+ms.openlocfilehash: 456c138ac13d09fa836cdbb430b74c74569cddbc
+ms.sourcegitcommit: c026d30237cf9a0efdc6e7bbc58a395ecbc9e250
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2022
-ms.locfileid: "147168449"
+ms.lasthandoff: 08/03/2022
+ms.locfileid: "147449890"
 ---
-# <a name="module-1-demo---mitigate-attacks-with-microsoft-defender-for-endpoint"></a>모듈 1 데모 - 엔드포인트용 Microsoft Defender를 사용하여 위협 완화
+# <a name="module-2-demo---mitigate-attacks-with-microsoft-defender-for-endpoint"></a>모듈 2 데모 - 엔드포인트용 Microsoft Defender를 사용하여 위협 완화
 
 
 

@@ -1,12 +1,12 @@
 ---
-ms.openlocfilehash: 5e75d2ffcd04176cbb1957d6597c425efb693fd6
-ms.sourcegitcommit: 6934bbcd5d9774aa44dd949cf9523e8a43a505d1
+ms.openlocfilehash: 48e003310cefa01ba3d20f56d4aedf8855656e07
+ms.sourcegitcommit: c026d30237cf9a0efdc6e7bbc58a395ecbc9e250
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2022
-ms.locfileid: "147168465"
+ms.lasthandoff: 08/03/2022
+ms.locfileid: "147449893"
 ---
-# <a name="module-5-create-detections-and-perform-investigations-with-microsoft-sentinel"></a>모듈 5 Microsoft Sentinel을 사용하여 탐지 만들기 및 조사 수행
+# <a name="module-6-create-detections-and-perform-investigations-with-microsoft-sentinel"></a>모듈 6 Microsoft Sentinel을 사용하여 탐지 만들기 및 조사 수행
 
 **참고** 이 데모의 성공적인 완료는 [필수 구성 요소 문서](00-prerequisites.md)에 있는 모든 단계를 완료하는 것에 달려 있습니다. 
 
