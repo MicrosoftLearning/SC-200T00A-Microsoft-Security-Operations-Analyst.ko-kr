@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: bac4babf32bbf62213da667426ce4644fdd88ef9
-ms.sourcegitcommit: c026d30237cf9a0efdc6e7bbc58a395ecbc9e250
+ms.openlocfilehash: 198d029e03950b40e9850b3552c5d448867b73f0
+ms.sourcegitcommit: 8bd0d3a1384dafb6db097ad5bff4ec65ee8b4d4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2022
-ms.locfileid: "147449896"
+ms.lasthandoff: 08/10/2022
+ms.locfileid: "147541855"
 ---
 
 # <a name="microsoft-security-operations-analyst"></a>Microsoft 보안 운영 분석가 시험에 맞춰 조정됩니다.
@@ -110,7 +110,12 @@ ms.locfileid: "147449896"
 
 1. **항목 추가** 를 선택합니다.
 
-1. 역할뷰 추가 대화 상자에서 다음 정보를 입력합니다.  역할 이름: 계층  라이브 응답 기능: 체크박스 선택  고급: 선택.
+1. 역할뷰 추가 대화 상자에서 다음 정보를 입력합니다.
+
+    |일반 설정|값|
+    |---|---|
+    |역할 이름|**계층 1 지원**|
+    |사용 권한|라이브 응답 기능 - 고급|
 
 1. **다음** 을 선택합니다.
 
@@ -118,7 +123,6 @@ ms.locfileid: "147449896"
           **sg-IT** 를 선택하고 **선택한 그룹 추가** 를 선택합니다.
 
 1. **저장** 을 선택합니다.
-
 
 ### <a name="configure-device-groups"></a>디바이스 그룹 구성
 
@@ -132,20 +136,28 @@ ms.locfileid: "147449896"
 
 1. 일반 탭에서 다음 정보를 입력합니다.
 
-- 디바이스 그룹 이름: 주기적
-- 자동화 수준: 전체 - 자동으로 위협 수정
-- 구성원: 이름 = TESTLAB
+    |일반 설정|값|
+    |---|---|
+    |디바이스 그룹 이름|**주기적**|
+    |자동화 수준|전체 - 자동으로 위협 수정|
 
 1. **다음** 을 선택합니다.
+
+1. . 디바이스 탭에서 OS 조건으로 **Windows 10** 을 선택하고 **다음** 을 선택합니다.
+
+1. 디바이스 미리 보기 탭에서 **미리 보기 표시** 를 선택하여 WIN1 가상 머신을 확인합니다. **다음** 을 선택합니다. 
+**힌트:** 미리 보기 목록에 가상 머신이 표시되지 않으면 돌아가서 OS 조건에 대해서도 없음을 선택합니다. VM에 대한 데이터가 아직 채워지지 않았습니다.
 
 1. 사용자 액세스 탭에서 **sg-IT** 를 선택하고 **선택한 그룹 추가** 를 선택합니다.
 
 1. **완료** 를 선택합니다.
 
-1. 디바이스 그룹 구성이 변경되었습니다. 변경 내용을 적용하여 일치 여부를 확인하고 그룹을 다시 계산합니다.
+1. 디바이스 그룹 구성이 변경되었습니다. **변경 내용 적용** 을 선택하여 일치 항목을 확인하고 그룹화를 다시 계산합니다.
+
+1. 이제 방금 만든 “일반” 및 동일한 수정 수준을 가진 “그룹화되지 않은 디바이스(기본값)”의 두 가지 디바이스 그룹을 포함하려고 합니다.
 
 
-## <a name="deploy-sample-alerts-for-demo-in-module-2"></a>모듈 2에서 데모용 샘플 경고 배포
+## <a name="deploy-sample-alerts-for-demo-in-module-3"></a>모듈 3에서 데모용 샘플 경고 배포
 
 이 작업에서는 샘플 보안 경고를 로드하여 경고 세부 정보를 검토합니다.
 
@@ -171,7 +183,7 @@ ms.locfileid: "147449896"
 
 이 작업에서는 Microsoft Sentinel 작업 영역을 만듭니다.
 
-1.  Edge 브라우저에서 Azure Portal(https://portal.azure.com )로 이동합니다.
+1. Edge 브라우저에서 Azure Portal(https://portal.azure.com )로 이동합니다.
 
 1. 랩 호스팅 공급자가 제공한 **테넌트 전자 메일** 계정을 복사하여 **로그인** 대화 상자에 붙여넣은 후 **다음** 을 선택합니다.
 
@@ -413,7 +425,7 @@ cd temp
 REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /V "SOC Test" /t REG_SZ /F /D "C:\temp\startup.bat"
 ```
 
-1. 공격 3 - 다음 명령을 복사하여 실행합니다.
+1. 공격 2 - 다음 명령을 복사하여 실행합니다.
 
 ```
 notepad c2.ps1
