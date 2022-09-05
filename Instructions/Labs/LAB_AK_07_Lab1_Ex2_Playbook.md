@@ -2,12 +2,12 @@
 lab:
   title: 연습 2 - 플레이북 만들기
   module: Module 7 - Create detections and perform investigations using Microsoft Sentinel
-ms.openlocfilehash: db4d3e74419475539b412afdb1b3e935f89d95b1
-ms.sourcegitcommit: 1b122762798f79fe9862bc662a7dc55f40b15dd5
+ms.openlocfilehash: c06fe1fd5adcf236783083c2870249560f61e73c
+ms.sourcegitcommit: 5bf676e43973b883b6d350ee061b6bbc292e528e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2022
-ms.locfileid: "145912160"
+ms.lasthandoff: 08/31/2022
+ms.locfileid: "147718805"
 ---
 # <a name="module-7---lab-1---exercise-2---create-a-playbook"></a>모듈 7 - 랩 1 - 연습 2 - 플레이북 만들기
 
@@ -69,7 +69,9 @@ ms.locfileid: "145912160"
 
 1. 오른쪽 창에서 **커뮤니티 콘텐츠 온보딩** 링크를 선택합니다. 그러면 Microsoft Sentinel용 Edge 브라우저 GitHub 콘텐츠에 새 탭이 열립니다.
 
-1. **Playbooks** 폴더를 선택합니다.
+1. **Solutions** 폴더를 선택합니다.
+
+1. **Teams** 폴더를 선택하고 **Playbooks** 폴더를 선택합니다.
 
 1. **Post-Message-Teams** 폴더를 선택합니다.
 
