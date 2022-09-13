@@ -2,12 +2,12 @@
 lab:
   title: 연습 1 - 엔드포인트용 Microsoft Defender 배포
   module: Module 2 - Mitigate threats using Microsoft Defender for Endpoint
-ms.openlocfilehash: ddc1d68a0d0a8f7df50ae3a6e0b6a6e205391905
-ms.sourcegitcommit: f8918eddeaa7a7a480e92d0e5f2f71143c729d60
+ms.openlocfilehash: 70f7966e8584760ca61a7b15217b9db13bf1076d
+ms.sourcegitcommit: 8d2ac5382c9f5dc03a7171e0afa587fa84b0a8b2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2022
-ms.locfileid: "147038009"
+ms.lasthandoff: 09/06/2022
+ms.locfileid: "147854630"
 ---
 # <a name="module-2---lab-1---exercise-1---deploy-microsoft-defender-for-endpoint"></a>모듈 2 - 랩 1 - 연습 1 - 엔드포인트용 Microsoft Defender 배포
 
@@ -28,7 +28,7 @@ ms.locfileid: "147038009"
 
 이 작업에서는 엔드포인트용 Microsoft Defender 포털 초기화를 수행합니다.
 
-1. WIN1 가상 머신에 Admin으로 로그인합니다. 암호로는 **Pa55w.rd** 를 사용하여 로그인합니다.  
+1. **WIN1** 가상 머신에 Admin으로 로그인합니다. 암호로는 **Pa55w.rd** 를 사용하여 로그인합니다.  
 
 1. 현재 위치가 Microsoft 365 Defender 포털이 아닌 경우 Microsoft Edge 브라우저를 시작합니다.
 
@@ -77,7 +77,7 @@ ms.locfileid: "147038009"
 
 1. **관리자: 명령 프롬프트** 창을 마우스 오른쪽 단추로 클릭하여 스크립트를 붙여넣고 **Enter** 키를 눌러 실행합니다. **참고:** 스크립트를 실행한 후 창이 자동으로 닫힙니다.
 
-1. Microsoft 365 Defender 포털 왼쪽 메뉴의 엔드포인트 영역에서 **디바이스 인벤토리** 를 선택합니다. 디바이스가 표시되지 않으면 다음 작업을 완료하고 돌아와서 나중에 다시 확인합니다. 첫 번째 디바이스가 포털에 표시될 때까지 최대 60분이 걸릴 수 있습니다.
+1. Microsoft 365 Defender 포털 왼쪽 메뉴의 **자산** 영역에서 **디바이스** 를 선택합니다. 디바이스가 표시되지 않으면 다음 작업을 완료하고 돌아와서 나중에 다시 확인합니다. 첫 번째 디바이스가 포털에 표시될 때까지 최대 60분이 걸릴 수 있습니다.
 
     >**참고:** 온보딩 프로세스를 완료하고 한 시간 후에 디바이스 목록에 디바이스가 표시되지 않으면 온보딩 또는 연결 문제가 표시될 수 있습니다.
 
