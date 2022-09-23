@@ -2,16 +2,18 @@
 lab:
   title: 연습 1 - 클라우드용 Microsoft Defender 사용
   module: Module 3 - Mitigate threats using Microsoft Defender for Cloud
-ms.openlocfilehash: d9d41d575b31ccbc25d5a89c3a0337fed7371e7b
-ms.sourcegitcommit: 175df7de88c9a609f8caf39840664bf992c5b6dc
+ms.openlocfilehash: e37191fb2c95e6d9c443dcb4e5a6a14e7ed0de62
+ms.sourcegitcommit: 8d2ac5382c9f5dc03a7171e0afa587fa84b0a8b2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2022
-ms.locfileid: "138025451"
+ms.lasthandoff: 09/06/2022
+ms.locfileid: "147854633"
 ---
 # <a name="module-3---lab-1---exercise-1---enable-microsoft-defender-for-cloud"></a>모듈 3 - 랩 1 - 연습 1 - 클라우드용 Microsoft Defender 사용
 
 ## <a name="lab-scenario"></a>랩 시나리오
+
+![랩 개요입니다.](../Media/SC-200-Lab_Diagrams_Mod3_L1_Ex1.png)
 
 여러분은 클라우드용 Microsoft Defender를 사용하여 클라우드 워크로드 보호를 구현하고 있는 회사에서 일하는 보안 운영 분석가입니다.  이 랩에서는 클라우드용 Microsoft Defender를 사용하도록 설정합니다.
 
@@ -20,7 +22,7 @@ ms.locfileid: "138025451"
 
 이 연습에서는 이 랩과 이후 랩을 완료하는 데 필요한 Azure 구독을 설정합니다.
 
-1. WIN1 가상 머신에 Admin으로 로그인합니다. 암호로는 **Pa55w.rd** 를 사용하여 로그인합니다.  
+1. **WIN1** 가상 머신에 Admin으로 로그인합니다. 암호로는 **Pa55w.rd** 를 사용하여 로그인합니다.  
 
 1. Microsoft Edge 브라우저를 열거나 이미 열려 있는 경우 새 탭을 엽니다.
 
@@ -89,7 +91,7 @@ ms.locfileid: "138025451"
 
 >**중요:** 다음 단계는 이전에 작업한 컴퓨터와는 다른 컴퓨터에서 수행합니다. 가상 머신 이름 참조를 찾습니다.
 
-1. WINServer 가상 머신에 Administrator로 로그인합니다. 암호로는 **Passw0rd!** 를 사용합니다(필요한 경우).  
+1. **WINServer** 가상 머신에 Administrator로 로그인합니다. 암호로는 **Passw0rd!** 를 사용합니다. 사용합니다(필요한 경우).  
 
 1. Microsoft Edge 브라우저를 열고 https://portal.azure.com 에 있는 Azure Portal로 이동합니다.
 
@@ -154,7 +156,7 @@ ms.locfileid: "138025451"
 
 ### <a name="task-5-protect-an-on-premises-server"></a>작업 5: 온-프레미스 서버 보호
 
-이 작업에서는 WINServer 가상 머신에 필요한 에이전트를 수동으로 설치합니다.
+이 작업에서는 **WINServer** 가상 머신에 필요한 에이전트를 수동으로 설치합니다.
 
 1. **클라우드용 Microsoft Defender** 로 이동하고 **시작** 페이지를 선택합니다.
 
@@ -178,7 +180,7 @@ ms.locfileid: "138025451"
 
 1. “클라우드용 Microsoft Defender” 포털로 이동하고 **인벤토리** 를 선택합니다.
 
-1. *WINServer* 가상 머신은 최소한 5분 후에 표시됩니다. 보려면 **새로 고침** 을 선택해야 할 수 있습니다. **힌트:** 총 리소스 아래에 숫자 1이 표시되면 필터를 제거하여 *WINServer* 가상 머신을 표시합니다.
+1. **WINServer** 가상 머신은 최소한 5분 후에 표시됩니다. 보려면 **새로 고침** 을 선택해야 할 수 있습니다. **힌트:** 총 리소스 아래에 숫자 1이 표시되면 필터를 제거하여 *WINServer* 가상 머신을 표시합니다.
 
 1. 다음 랩으로 이동하고 나중에 돌아와서 **클라우드용 Microsoft Defender** 의 **인벤토리** 섹션을 검토할 수 있습니다.
 

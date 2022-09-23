@@ -2,16 +2,18 @@
 lab:
   title: 연습 1 - Microsoft Sentinel 환경 구성
   module: Module 5 - Configure your Microsoft Sentinel environment
-ms.openlocfilehash: e8d4347932306ebfab7b75dd110e3ae3a0e4cca9
-ms.sourcegitcommit: 175df7de88c9a609f8caf39840664bf992c5b6dc
+ms.openlocfilehash: c95a8bd0e358a7ca09dd2f7644c27779d3baa9f1
+ms.sourcegitcommit: f8918eddeaa7a7a480e92d0e5f2f71143c729d60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2022
-ms.locfileid: "138025410"
+ms.lasthandoff: 07/08/2022
+ms.locfileid: "147038012"
 ---
 # <a name="module-5---lab-1---exercise-1---configure-your-microsoft-sentinel-environment"></a>모듈 5 - 랩 1 - 연습 1 - Microsoft Sentinel 환경 구성
 
 ## <a name="lab-scenario"></a>랩 시나리오
+
+![랩 개요입니다.](../Media/SC-200-Lab_Diagrams_Mod5_L1_Ex1.png)
 
 당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다. 비용을 최소화하고, 규정 준수 규정을 충족하며, 보안 팀이 일상적인 업무 책임을 수행하도록 가장 관리 가능한 환경을 제공하기 위해 회사의 요구 사항을 충족하는 Microsoft Sentinel 환경을 설정할 책임이 있습니다.
 
@@ -129,5 +131,17 @@ ms.locfileid: "138025410"
     ```KQL
     ThreatIntelligenceIndicator | project DomainName
     ```
+
+### <a name="task-4-configure-log-retention"></a>작업 4: 로그 보존 구성
+
+이 작업에서는 SecurityEvent 테이블의 보존 기간을 변경합니다.
+
+1. Microsoft Sentinel의 구성 영역에서 **설정** 옵션을 선택합니다.
+1. **작업 영역 설정** 을 선택합니다.
+1. Log Analytics 작업 영역의 설정 영역에서 **테이블(미리 보기)** 옵션을 선택합니다.
+1. 테이블 이름 **SecurityEvent** 를 선택한 다음 **...** 를 선택합니다.
+1. **테이블 관리** 를 선택합니다.
+1. 총 보존 기간은 **180일** 을 선택합니다. 그런 다음, **저장** 합니다.
+
 
 ## <a name="you-have-completed-the-lab"></a>이 랩을 완료했습니다.

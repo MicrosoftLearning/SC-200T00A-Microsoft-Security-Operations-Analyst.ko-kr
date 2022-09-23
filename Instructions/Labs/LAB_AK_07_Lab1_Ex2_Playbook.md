@@ -2,16 +2,18 @@
 lab:
   title: 연습 2 - 플레이북 만들기
   module: Module 7 - Create detections and perform investigations using Microsoft Sentinel
-ms.openlocfilehash: 8a8117e90593c1c2a022169551b7a13df2cfcff4
-ms.sourcegitcommit: 175df7de88c9a609f8caf39840664bf992c5b6dc
+ms.openlocfilehash: c06fe1fd5adcf236783083c2870249560f61e73c
+ms.sourcegitcommit: 5bf676e43973b883b6d350ee061b6bbc292e528e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2022
-ms.locfileid: "138025476"
+ms.lasthandoff: 08/31/2022
+ms.locfileid: "147718805"
 ---
 # <a name="module-7---lab-1---exercise-2---create-a-playbook"></a>모듈 7 - 랩 1 - 연습 2 - 플레이북 만들기
 
 ## <a name="lab-scenario"></a>랩 시나리오
+
+![랩 개요입니다.](../Media/SC-200-Lab_Diagrams_Mod7_L1_Ex2.png)
 
 당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다. Microsoft Sentinel을 사용하여 위협을 검색하고 완화하는 방법을 파악해야 합니다. 이제 Microsoft Sentinel에서 루틴으로 실행할 수 있는 작업에 응답하고 이를 수정하려고 합니다.
 
@@ -44,7 +46,7 @@ ms.locfileid: "138025476"
 
 1. SOC 화면에 구성원을 추가하고 **건너뛰기** 단추를 선택합니다. 
 
-1. Teams 블레이드를 아래로 스크롤하여 새로 만든 SOC 팀을 찾고, 이름 오른쪽에서 **...** 를 선택하고, **채널 추가** 를 선택합니다.
+1. Teams 블레이드를 아래로 스크롤하여 새로 만든 SOC 팀을 찾고, 이름 오른쪽에서 줄임표 **(...)** 를 선택하고, **채널 추가** 를 선택합니다.
 
 1. 채널 이름을 *New Alerts* 로 입력하고 **추가** 단추를 선택합니다.
 
@@ -67,7 +69,9 @@ ms.locfileid: "138025476"
 
 1. 오른쪽 창에서 **커뮤니티 콘텐츠 온보딩** 링크를 선택합니다. 그러면 Microsoft Sentinel용 Edge 브라우저 GitHub 콘텐츠에 새 탭이 열립니다.
 
-1. **Playbooks** 폴더를 선택합니다.
+1. **Solutions** 폴더를 선택합니다.
+
+1. **Teams** 폴더를 선택하고 **Playbooks** 폴더를 선택합니다.
 
 1. **Post-Message-Teams** 폴더를 선택합니다.
 
@@ -79,9 +83,9 @@ ms.locfileid: "138025476"
 
 1. 리소스 그룹에서 **새로 만들기** 를 선택하고, *RG-Playbooks* 를 입력한 후, **확인** 을 선택합니다.
 
-1. 지역에서는 상황에 맞는 지역을 선택합니다. 기본 지역이 최적입니다.
+1. 지역 기본값으로 **미국 동부** 를 그대로 둡니다.
 
-1. 플레이북 이름이 “PostMessageTeams-OnAlert”인지 확인하고 **검토 + 만들기** 를 선택합니다.
+1. 플레이북 이름이 “PostMessageTeams-OnAlert”인지 확인하고 **검토 + 만들기** 를 선택합니다. **힌트:** 이름이 다른 경우 GitHub로 돌아가서 **경고 트리거로 배포** 플레이북을 선택합니다.
 
 1. 이제 **만들기** 를 선택합니다. 
 
@@ -102,7 +106,7 @@ ms.locfileid: "138025476"
 
 1. 명령 메뉴의 *PostMessageTeams-OnAlert* 의 논리 앱 페이지에서 **편집** 을 선택합니다.
 
-1. **Microsoft Sentinel 경고에 대한 응답이 트리거되는 경우** 첫 번째 블록을 선택합니다.
+1. 첫 번째 블록 **Microsoft Sentinel 경고** 를 선택합니다.
 
 1. **연결 변경** 링크를 선택합니다.
 

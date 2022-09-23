@@ -2,16 +2,18 @@
 lab:
   title: 연습 3 - 데이터 커넥터를 사용하여 Microsoft Sentinel에 Linux 호스트 연결
   module: Module 6 - Connect logs to Microsoft Sentinel
-ms.openlocfilehash: b4ab3cbac9e48dbda18b9daa58739b878e5661a0
-ms.sourcegitcommit: 175df7de88c9a609f8caf39840664bf992c5b6dc
+ms.openlocfilehash: bf3774978dc5c6cef158d5f1288577854000d944
+ms.sourcegitcommit: a90325f86a3497319b3dc15ccf49e0396c4bf749
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2022
-ms.locfileid: "138025488"
+ms.lasthandoff: 04/07/2022
+ms.locfileid: "141493973"
 ---
 # <a name="module-6---lab-1---exercise-3---connect-linux-hosts-to-microsoft-sentinel-using-data-connectors"></a>모듈 6 - 랩 1 - 연습 3 - 데이터 커넥터를 사용하여 Microsoft Sentinel에 Linux 호스트 연결
 
 ## <a name="lab-scenario"></a>랩 시나리오
+
+![랩 개요입니다.](../Media/SC-200-Lab_Diagrams_Mod6_L1_Ex3.png)
 
 당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다. 조직에 있는 많은 데이터 원본의 로그 데이터를 연결하는 방법을 알아야 합니다. 다음 데이터 원본은 CEF(Common Event Formatting) 및 Syslog 커넥터를 사용하는 Linux 가상 머신입니다.
 
@@ -51,30 +53,30 @@ ms.locfileid: "138025488"
 
 1. LIN1 서버의 IP 주소를 적어 둡니다. 아래 스크린샷을 예제로 참조하세요.
 
-   ![linux 로그인](../Media/LinuxLoginExample.png)
+    ![linux 로그인](../Media/LinuxLoginExample.png)
 
 1. WIN1 가상 머신으로 돌아갑니다. 시작 메뉴 아이콘을 마우스 오른쪽 단추로 클릭하여 관리자 권한으로 Windows PowerShell을 시작하고 **Windows PowerShell(관리자)** 를 선택합니다. 표시되는 사용자 계정 컨트롤 창에서 **예** 를 선택하여 앱을 실행할 수 있도록 합니다. **힌트:** 이전 연습에서 이미 열려 있는 Windows PowerShell 창이 있을 수 있습니다.
 
 1. 구체적인 Linux 서버 정보에 맞게 다음 PowerShell 명령을 수정하여 입력하고 Enter 키를 누릅니다.
 
-   ```PowerShell
-   ssh insert-your-linux-IP-address-here -l insert-linux-user-name-here
-   ```
+    ```PowerShell
+    ssh insert-your-linux-IP-address-here -l insert-linux-user-name-here
+    ```
 
 1. 예를 입력하여 연결을 확인한 다음, 사용자의 암호를 입력하고 Enter 키를 누릅니다. 화면이 이제 다음과 같이 표시됩니다.
 
-   ![linux 로그인](../Media/PSconnectLinux.png)
+    ![linux 로그인](../Media/PSconnectLinux.png)
 
 1. 이제 이전 단계의 1.2 Linux 머신에 CEF 수집기 설치 명령을 붙여넣을 준비가 되었습니다. Azure의 스크립트가 클립보드에 있는지 확인합니다. PowerShell에서 상단 표시줄을 마우스 오른쪽 단추로 클릭하고 **편집**, **붙여넣기** 를 차례로 선택합니다. 
 
 1. 붙여넣은 후 Enter 키를 누르기 전에 아래와 같이 단어 *python* 에 문자 **3** 을 추가합니다.
 
-   ![ConnectorScript](../Media/ConnectorScript.png)
+    ![ConnectorScript](../Media/ConnectorScript.png)
 
 
 1. 스크립트가 조정되면 Enter 키를 누릅니다. 스크립트가 Linux 서버에 대해 원격으로 실행됩니다. 스크립트가 올바르게 처리되면 이 화면과 비슷하게 됩니다.
 
-   ![ConnectorScript](../Media/LinuxConnected.png)
+    ![ConnectorScript](../Media/LinuxConnected.png)
 
 1. **종료** 를 입력하여 LIN1에 대한 원격 셸 연결을 닫습니다.
 
@@ -105,19 +107,19 @@ ms.locfileid: "138025488"
 
 1. LIN2 서버의 IP 주소를 적어 둡니다. 아래 스크린샷을 예제로 참조하세요.
 
-   ![linux 로그인](../Media/LinuxLoginExample.png)
+    ![linux 로그인](../Media/LinuxLoginExample.png)
 
 1. WIN1 가상 머신으로 돌아갑니다. 이전 작업에 사용된 Windows PowerShell을 선택합니다.
 
 1. 구체적인 Linux 서버 정보에 맞게 다음 PowerShell 명령을 수정하여 입력하고 Enter 키를 누릅니다.
 
-   ```PowerShell
-   ssh insert-your-linux-IP-address-here -l insert-linux-user-name-here
-   ```
+    ```PowerShell
+    ssh insert-your-linux-IP-address-here -l insert-linux-user-name-here
+    ```
 
 1. 예를 입력하여 연결을 확인한 다음, 사용자의 암호를 입력하고 Enter 키를 누릅니다. 화면이 이제 다음과 같이 표시됩니다.
 
-   ![linux 로그인](../Media/PSconnectLinux.png)
+    ![linux 로그인](../Media/PSconnectLinux.png)
 
 1. 이제 이전 단계의 Linux용 에이전트 다운로드 및 설치 명령을 붙여넣을 준비가 되었습니다. 스크립트가 클립보드에 있는지 확인합니다. PowerShell에서 상단 표시줄을 마우스 오른쪽 단추로 클릭하고 **편집**, **붙여넣기** 를 차례로 선택합니다.
 
