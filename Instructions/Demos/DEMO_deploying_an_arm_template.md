@@ -2,13 +2,8 @@
 demo:
   title: '데모: ARM 템플릿 배포'
   module: 'Module 1: Exploring Azure Resource Manager'
-ms.openlocfilehash: ff5a4aa30cb206ef4a1f6623232d3718a542592a
-ms.sourcegitcommit: 20cbc7b52187d61fca294ac2c00146c2c7c6d337
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2022
-ms.locfileid: "137899244"
 ---
+
 # <a name="demo-deploying-an-arm-template"></a>데모: ARM 템플릿 배포
 
 ## <a name="instructions"></a>Instructions

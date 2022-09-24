@@ -2,40 +2,35 @@
 lab:
   title: 연습 9 - ASIM 파서 만들기
   module: Module 7 - Create detections and perform investigations using Microsoft Sentinel
-ms.openlocfilehash: 5f115627b8d915bfb31e34532d3a2a7d79a23499
-ms.sourcegitcommit: 8c0ae4aec8425a85e0ba6dc8964406bf5d79e4d4
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2022
-ms.locfileid: "147154481"
 ---
+
 # <a name="module-7---lab-1---exercise-9---create-asim-parsers"></a>모듈 7 - 랩 1 - 연습 9 - ASIM 파서 만들기
 
 ## <a name="lab-scenario"></a>랩 시나리오
 
-당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다. 특정 Windows 레지스트리 이벤트에 대한 ASIM 파서를 모델링해야 합니다.  이러한 간소화된 파서는 ASIM 파서 레지스트리 이벤트 정규화 표준(https://docs.microsoft.com/en-us/azure/sentinel/registry-event-normalization-schema) )에 따라 나중에 완료됩니다.
+You are a Security Operations Analyst working at a company that implemented Microsoft Sentinel. You need to model ASIM parsers for a specific Windows registry event.  These simplified parsers will be finalized at a later time following the ASIM parser registry event normalization standard (<ph id="ph1">https://docs.microsoft.com/en-us/azure/sentinel/registry-event-normalization-schema)</ph>.
 
->**중요:** 이 랩에서는 긴 KQL ASIM 파서 스크립트를 Microsoft Sentinel에 입력합니다. 스크립트는 이 랩의 시작 부분에 있는 다운로드 파일을 통해 제공되었습니다. 스크립트를 다운로드할 대체 위치는 https://github.com/MicrosoftLearning/SC-200T00A-Microsoft-Security-Operations-Analyst/tree/master/Allfiles 입니다.
+><bpt id="p1">**</bpt>Important:<ept id="p1">**</ept> This lab involves entering lengthy KQL ASIM parser scripts into Microsoft Sentinel. The scripts were provided via download files at the beginning of this lab. An alternate location to download them is:  <ph id="ph1">https://github.com/MicrosoftLearning/SC-200T00A-Microsoft-Security-Operations-Analyst/tree/master/Allfiles</ph>
 
 ### <a name="task-1-develop-kql-function-for-microsoft-365-defender-registry-event"></a>작업 1: Microsoft 365 Defender 레지스트리 이벤트에 대한 KQL 함수 개발 
 
 이 작업에서는 DeviceRegistryEvents에 대한 작업 영역 파서인 함수를 만듭니다. 
 
-1. WIN1 가상 머신에 Admin으로 로그인합니다. 암호로는 **Pa55w.rd** 를 사용하여 로그인합니다.  
+1. WIN1 가상 머신에 Admin으로 로그인합니다. 암호로는 **Pa55w.rd**를 사용하여 로그인합니다.  
 
 1. Edge 브라우저에서 Azure Portal(https://portal.azure.com )로 이동합니다.
 
-1. 랩 호스팅 공급자가 제공한 **테넌트 전자 메일** 계정을 복사하여 **로그인** 대화 상자에 붙여넣은 후 **다음** 을 선택합니다.
+1. 랩 호스팅 공급자가 제공한 **테넌트 전자 메일** 계정을 복사하여 **로그인** 대화 상자에 붙여넣은 후 **다음**을 선택합니다.
 
-1. 랩 호스팅 공급자가 제공한 **테넌트 암호** 를 복사하여 **암호 입력** 대화 상자에 붙여넣은 후 **로그인** 을 선택합니다.
+1. 랩 호스팅 공급자가 제공한 **테넌트 암호**를 복사하여 **암호 입력** 대화 상자에 붙여넣은 후 **로그인**을 선택합니다.
 
-1. Azure Portal의 검색 창에 *Sentinel* 을 입력하고 **Microsoft Sentinel** 을 선택합니다.
+1. Azure Portal의 검색 창에 *Sentinel*을 입력하고 **Microsoft Sentinel**을 선택합니다.
 
 1. 앞에서 만든 Microsoft Sentinel 작업 영역을 선택합니다.
 
 1. **로그** 페이지를 선택합니다.
 
-1. 다운로드한 **SC200_module7_ASIM_Parser_scripts.txt** 를 열고 작업 1 스크립트 KQL 문을 복사하여 새 쿼리 탭에 붙여넣습니다.
+1. 다운로드한 **SC200_module7_ASIM_Parser_scripts.txt**를 열고 작업 1 스크립트 KQL 문을 복사하여 새 쿼리 탭에 붙여넣습니다.
 
 >**참고** 아래 표시된 스크립트는 참조용입니다.
 
@@ -121,16 +116,16 @@ ms.locfileid: "147154481"
     RegistryEvents_M365D
     ```
 >**참고:** 시간을 내어 KQL 줄을 한 줄씩 검토합니다.  
-1. **실행** 을 선택하여 KQL이 유효한지 확인합니다.
-1. **저장** 을 선택한 다음, **함수로 저장** 을 선택합니다.
+1. **실행**을 선택하여 KQL이 유효한지 확인합니다.
+1. **저장**을 선택한 다음, **함수로 저장**을 선택합니다.
 1. 아래로 스크롤하여 쿼리 예약에서 다음을 설정합니다.
 
     |설정|값|
     |---|---|
     |함수 이름|vimRegEvtM365D|
     |레거시 범주|MyASIM|
-1. 그런 다음 **저장** 을 선택합니다.
-1. 새 쿼리 탭에서 **vimRegEvtM365D** 를 입력하고 **실행** 을 선택합니다.
+1. 그런 다음 **저장**을 선택합니다.
+1. 새 쿼리 탭에서 **vimRegEvtM365D**를 입력하고 **실행**을 선택합니다.
 
 
 ### <a name="task-2-develop-kql-function-for-securityevent-table"></a>작업 2: SecurityEvent 테이블에 대한 KQL 함수를 개발합니다. 
@@ -138,7 +133,7 @@ ms.locfileid: "147154481"
 이 작업에서는 SecurityEvent의 작업 영역 파서인 함수를 만듭니다.
 
 1. 새 쿼리 탭을 만듭니다.
-1. 다운로드한 **SC200_module7_ASIM_Parser_scripts.txt** 를 열고 작업 2 스크립트 KQL 문을 복사하여 새 쿼리 탭에 붙여넣습니다.
+1. 다운로드한 **SC200_module7_ASIM_Parser_scripts.txt**를 열고 작업 2 스크립트 KQL 문을 복사하여 새 쿼리 탭에 붙여넣습니다.
 
 >**참고** 아래 표시된 스크립트는 참조용입니다.
 
@@ -229,16 +224,16 @@ ms.locfileid: "147154481"
     ```
 
 >**참고:** 시간을 내어 KQL 줄을 한 줄씩 검토합니다.  
-1. **실행** 을 선택하여 KQL이 유효한지 확인합니다.
-1. **저장** 을 선택한 다음, **함수로 저장** 을 선택합니다.
+1. **실행**을 선택하여 KQL이 유효한지 확인합니다.
+1. **저장**을 선택한 다음, **함수로 저장**을 선택합니다.
 1. 아래로 스크롤하여 쿼리 예약에서 다음을 설정합니다.
 
     |설정|값|
     |---|---|
     |함수 이름|vimRegEvtSecurityEvent|
     |레거시 범주|MyASIM|
-1. 그런 다음 **저장** 을 선택합니다.
-1. 새 쿼리 탭에서 **vimRegEvtSecurityEvent** 를 입력하고 **실행** 을 선택합니다.
+1. 그런 다음 **저장**을 선택합니다.
+1. 새 쿼리 탭에서 **vimRegEvtSecurityEvent**를 입력하고 **실행**을 선택합니다.
 
 
 ### <a name="task-3-create-a-unifying-workspace-parser"></a>작업 3: 통합 작업 영역 파서 만들기 
@@ -254,17 +249,17 @@ ms.locfileid: "147154481"
     vimRegEvtSecurityEvent
     ```
 
-1. **실행** 을 선택하여 KQL이 유효한지 확인합니다.
-1. **저장** 을 선택한 다음, **함수로 저장** 을 선택합니다.
+1. **실행**을 선택하여 KQL이 유효한지 확인합니다.
+1. **저장**을 선택한 다음, **함수로 저장**을 선택합니다.
 1. 아래로 스크롤하여 쿼리 예약에서 다음을 설정합니다.
 
     |설정|값|
     |---|---|
     |함수 이름|imRegEvt|
     |레거시 범주|MyASIM|
-1. 그런 다음 **저장** 을 선택합니다.
-1. 새 쿼리 탭에서 **imRegEvt** 를 입력하고 **실행** 을 선택합니다.
-1. **imRegEvt | where ActionType == 'RegistryValueSet'** 로 쿼리를 업데이트하고 **실행** 을 선택합니다.
+1. 그런 다음 **저장**을 선택합니다.
+1. 새 쿼리 탭에서 **imRegEvt**를 입력하고 **실행**을 선택합니다.
+1. **imRegEvt | where ActionType == 'RegistryValueSet'** 로 쿼리를 업데이트하고 **실행**을 선택합니다.
 
 
 ## <a name="proceed-to-exercise-10"></a>연습 10 계속 진행

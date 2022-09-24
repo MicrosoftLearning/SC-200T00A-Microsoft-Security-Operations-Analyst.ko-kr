@@ -2,20 +2,15 @@
 lab:
   title: 연습 2 - 엔드포인트용 Microsoft Defender를 사용하여 공격 완화
   module: Module 2 - Mitigate threats using Microsoft Defender for Endpoint
-ms.openlocfilehash: 75d7cb14ee90aeaafd539a3cd7ad32163f53474f
-ms.sourcegitcommit: a90325f86a3497319b3dc15ccf49e0396c4bf749
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2022
-ms.locfileid: "141493856"
 ---
+
 # <a name="module-2---lab-1---exercise-2---mitigate-attacks-with-microsoft-defender-for-endpoint"></a>모듈 2 - 랩 1 - 연습 2 - 엔드포인트용 Microsoft Defender를 사용하여 위협 완화
 
 ## <a name="lab-scenario"></a>랩 시나리오
 
 ![랩 개요입니다.](../Media/SC-200-Lab_Diagrams_Mod2_L1_Ex2.png)
 
-여러분은 엔드포인트용 Microsoft Defender를 구현하고 있는 회사에서 일하는 보안 운영 분석가입니다. 귀하의 관리자가 몇몇 디바이스를 온보딩하여 보안 운영(SecOps) 팀 응답 절차에 필요한 변경 내용에 대한 인사이트를 제공하려고 합니다.
+You are a Security Operations Analyst working at a company that is implementing Microsoft Defender for Endpoint. Your manager plans to onboard a few devices to provide insight into required changes to the Security Operations (SecOps) team response procedures.
 
 엔드포인트용 Defender 공격 완화 기능을 살펴보기 위해 시뮬레이션된 공격 2개를 실행합니다.
 
@@ -26,19 +21,19 @@ ms.locfileid: "141493856"
 
 1. 현재 위치가 Microsoft Edge 브라우저의 Microsoft 365 Defender 포털이 아닌 경우 https://security.microsoft.com) 으로 이동하고 테넌트에 대한 관리자로 로그인합니다.
 
-1. 메뉴의 **엔드포인트** 에서 **평가 및 자습서** 를 선택한 다음, 왼쪽에서 **자습서 및 시뮬레이션** 을 선택합니다.
+1. 메뉴의 **엔드포인트**에서 **평가 및 자습서**를 선택한 다음, 왼쪽에서 **자습서 및 시뮬레이션**을 선택합니다.
 
 1. **자습서** 탭을 선택합니다.
 
-1. 자동 조사(백도어) 아래에 시나리오를 설명하는 메시지가 표시됩니다. 이 단락 아래에서 **연습 확인** 을 클릭합니다. 시뮬레이션을 수행하는 지침이 포함된 새 브라우저 탭이 열립니다.
+1. Under <bpt id="p1">*</bpt>Automated investigation (backdoor)<ept id="p1">*</ept> you will see a message describing the scenario. Below this paragraph, click <bpt id="p1">**</bpt>Read the walkthrough<ept id="p1">**</ept>. A new browser tab opens which includes instructions to perform the simulation.
 
-1. 새 브라우저 탭에서 **시뮬레이션 실행** 이라는 섹션(페이지 5, 2단계부터)을 찾고 단계에 따라 공격을 실행합니다. **힌트:** 시뮬레이션 파일 *RS4_WinATP-Intro-Invoice.docm* 은 **시뮬레이션 파일 가져오기** 단추를 선택하여 이전 단계에서 선택한 **연습 확인** 바로 아래 포털에서 다시 찾을 수 있습니다. 
+1. In the new browser tab, locate the section named <bpt id="p1">**</bpt>Run the simulation<ept id="p1">**</ept> (page 5, starting at step 2) and follow the steps to run the attack. <bpt id="p1">**</bpt>Hint:<ept id="p1">**</ept> The simulation file <bpt id="p2">*</bpt>RS4_WinATP-Intro-Invoice.docm<ept id="p2">*</ept> can be found back in portal, just below the <bpt id="p3">**</bpt>Read the walkthrough<ept id="p3">**</ept> you selected in the previous step by selecting the <bpt id="p4">**</bpt>Get simulation file<ept id="p4">**</ept> button. 
 
 1. 이제 마지막 3개 단계를 반복하여 자동 조사(파일리스 공격)를 실행합니다.
 
-1. Microsoft 365 Defender 포털의 왼쪽 메뉴 모음에서 **인시던트 및 경고** 를 선택한 다음, **인시던트** 를 선택합니다.
+1. Microsoft 365 Defender 포털의 왼쪽 메뉴 모음에서 **인시던트 및 경고**를 선택한 다음, **인시던트**를 선택합니다.
 
-1. “다단계 인시던트...”라는 새 인시던트는 오른쪽 창에 표시됩니다. 인시던트가 표시될 때까지 5분 이상 기다립니다. 인시던트 이름을 클릭하여 세부 정보를 로드합니다.
+1. A new incident called "Multi-stage incident..." will appear in the right pane. Allow at least 5 minutes for the incident to appear. Click the incident name to load its details.
 
 1. **인시던트 관리** 단추를 선택하면 새 창 블레이드가 나타납니다. 
 
@@ -48,12 +43,12 @@ ms.locfileid: "141493856"
 
 1. **분류** 아래에서 드롭다운 메뉴를 확장합니다. 
 
-1. **정보, 예상 작업** 에서 **보안 테스트** 를 선택합니다. 
+1. **정보, 예상 작업**에서 **보안 테스트**를 선택합니다. 
 
-1. 원하는 경우 설명을 추가하고 **저장** 을 클릭하여 완료합니다.
+1. 원하는 경우 설명을 추가하고 **저장**을 클릭하여 완료합니다.
 
-1. 경고, 디바이스, 사용자, 조사, 증거 및 응답, 그래프 탭의 콘텐츠를 검토합니다. **힌트:** 일부 탭은 디스플레이 크기 때문에 숨겨질 수 있습니다. 줄임표 탭(...)을 선택하여 해당 탭을 표시합니다.
+1. Review the contents of the Alerts, Devices, Users, Investigations, Evidence and Response, Graph tabs. <bpt id="p1">**</bpt>Hint:<ept id="p1">**</ept> Some tabs might be hidden due the size of your display. Select the ellipsis tab (...) to make them appear.
 
->**경고:** 시뮬레이션과 자습서는 연습 전체에서 우수한 학습 원본입니다.  포털의 시뮬레이션과 자습서는 정기적으로 추가 및 편집됩니다.  하지만 이러한 시뮬레이션과 자습서 중 일부는 이 학습 과정을 위해 설계된 랩의 성능을 저하시킬 수 있습니다.  과정에서 제공된 Azure 테넌트를 사용할 때는 이 랩에서 제공된 지침에서 권장되는 시뮬레이션과 자습서만 수행합니다.  다른 시뮬레이션과 자습서는 이 교육 과정을 완료한 *후에* 이 테넌트를 사용하여 수행할 수 있습니다.
+>여러분은 엔드포인트용 Microsoft Defender를 구현하고 있는 회사에서 일하는 보안 운영 분석가입니다.
 
 ## <a name="you-have-completed-the-lab"></a>이 랩을 완료했습니다.

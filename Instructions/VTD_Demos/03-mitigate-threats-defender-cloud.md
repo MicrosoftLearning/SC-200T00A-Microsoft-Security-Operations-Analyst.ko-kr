@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: 7153be471268ce4c563dd3445e17b58336850485
-ms.sourcegitcommit: c026d30237cf9a0efdc6e7bbc58a395ecbc9e250
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2022
-ms.locfileid: "147449899"
----
 # <a name="module-3---mitigate-threats-using-microsoft-defender-for-cloud"></a>모듈 3 - 클라우드용 Microsoft Defender를 사용하여 위협 완화
 
 **참고** 이 데모의 성공적인 완료는 [필수 구성 요소 문서](00-prerequisites.md)에 있는 모든 단계를 완료하는 것에 달려 있습니다. 
@@ -14,16 +6,16 @@ ms.locfileid: "147449899"
 
 이 작업에서는 샘플 보안 경고를 로드하여 경고 세부 정보를 검토합니다.
 
-1. **클라우드용 Microsoft Defender** > **보안 경고** 화면으로 이동합니다. [필수 구성 요소 섹션](00-prerequisites.md#Deploy-sample-alerts-for-Demo-in-Module-2)에서 지시한 대로 샘플 경고가 만들어진 경우 이 화면에 여러 보안 경고가 표시됩니다.
+1. Go the  <bpt id="p1">**</bpt>Microsoft Defender for Cloud<ept id="p1">**</ept><ph id="ph1"> &gt; </ph><bpt id="p2">**</bpt>Security Alerts<ept id="p2">**</ept> screen. If the sample alerts were created as directed in the <bpt id="p1">[</bpt>pre-requisites section<ept id="p1">](00-prerequisites.md#Deploy-sample-alerts-for-Demo-in-Module-2)</ept>, there should be multiple security alerts on this screen.
 
 1. 여러 개의 경고가 나열된 경우 다음 작업을 수행합니다.
 
-    A. 경고를 선택합니다. 그러면 오른쪽 창에 경고 관련 정보가 표시됩니다.  **전체 세부 정보 보기** 를 클릭합니다.
+    A. Select the alert, information about the alert should appear in a pane on the right.  Click <bpt id="p1">**</bpt>View full details<ept id="p1">**</ept>.
 
-    B. 경고 세부 정보를 검토합니다.
+    B. Review the Alert details.
 
-    C. **작업 수행** 탭을 선택합니다.
+    C. Select the <bpt id="p1">**</bpt>Take action<ept id="p1">**</ept> tab.
 
-    D. 작업 수행 정보를 검토합니다. 경고 유형에 따라 작업을 수행할 수 있도록 제공되는 단추를 확인합니다.
+    D. Review the Take action information. Notice the buttons available to take action depend on the type of alert.
 
 ## <a name="you-have-completed-the-lab"></a>이 랩을 완료했습니다.
