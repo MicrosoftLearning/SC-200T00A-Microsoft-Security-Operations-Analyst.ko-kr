@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: 48e003310cefa01ba3d20f56d4aedf8855656e07
-ms.sourcegitcommit: c026d30237cf9a0efdc6e7bbc58a395ecbc9e250
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2022
-ms.locfileid: "147449893"
----
 # <a name="module-6-create-detections-and-perform-investigations-with-microsoft-sentinel"></a>모듈 6 Microsoft Sentinel을 사용하여 탐지 만들기 및 조사 수행
 
 **참고** 이 데모의 성공적인 완료는 [필수 구성 요소 문서](00-prerequisites.md)에 있는 모든 단계를 완료하는 것에 달려 있습니다. 
@@ -19,21 +11,21 @@ ms.locfileid: "147449893"
 REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /V "SOC Test" /t REG_SZ /F /D "C:\temp\startup.bat"
 ```
 
-1. WIN1 가상 머신에 Admin으로 로그인합니다. 암호로는 **Pa55w.rd** 를 사용하여 로그인합니다.  
+1. WIN1 가상 머신에 Admin으로 로그인합니다. 암호로는 **Pa55w.rd**를 사용하여 로그인합니다.  
 
 2. Edge 브라우저에서 Azure Portal(https://portal.azure.com )로 이동합니다.
 
-3. 랩 호스팅 공급자가 제공한 관리자용 **테넌트 전자 메일** 계정을 복사하여 **로그인** 대화 상자에 붙여넣은 후 **다음** 을 선택합니다.
+3. 랩 호스팅 공급자가 제공한 관리자용 **테넌트 전자 메일** 계정을 복사하여 **로그인** 대화 상자에 붙여넣은 후 **다음**을 선택합니다.
 
-4. 랩 호스팅 공급자가 제공한 관리자용 **테넌트 암호** 를 복사하여 **암호 입력** 대화 상자에 붙여넣은 후 **로그인** 을 선택합니다.
+4. 랩 호스팅 공급자가 제공한 관리자용 **테넌트 암호**를 복사하여 **암호 입력** 대화 상자에 붙여넣은 후 **로그인**을 선택합니다.
 
-5. Azure Portal의 검색 창에 *Sentinel* 을 입력하고 **Microsoft Sentinel** 을 선택합니다.
+5. Azure Portal의 검색 창에 *Sentinel*을 입력하고 **Microsoft Sentinel**을 선택합니다.
 
 6. 앞에서 만든 Microsoft Sentinel 작업 영역을 선택합니다.
 
-7. 일반 섹션에서 **로그** 를 선택합니다.
+7. 일반 섹션에서 **로그**를 선택합니다.
 
-8. 먼저 데이터가 저장되는 위치를 확인해야 합니다. 방금 공격을 수행했으므로,  로그 시간 범위를 **지난 24시간** 으로 설정합니다.
+8. First, you need to see where the data is stored. Since you just performed the attacks.  Set the Log Time Range to <bpt id="p1">**</bpt>Last 24 hours<ept id="p1">**</ept>.
 
 9. 다음 KQL 문을 실행합니다.
 
@@ -43,18 +35,18 @@ search "temp\\startup.bat"
 
 10. 결과에는 다음의 3개 테이블이 표시됩니다. DeviceProcessEvents DeviceRegistryEvents Event
 
-    Device* 테이블은 엔드포인트용 Defender(데이터 커넥터 - Microsoft 365 Defender)에서 제공된 것입니다.  그리고 Event 테이블은 여기서 사용하는 데이터 커넥터 보안 이벤트에서 제공된 것입니다. 
+    The Device* tables are from Defender for Endpoint (Data Connector - Microsoft 365 Defender).  Event is from our Data Connector Security Events. 
 
-    여기서는 Sysmon과 엔드포인트용 Defender의 두 원본에서 데이터를 수신하므로, 나중에 통합할 수 있는 KQL 문 두 개를 작성해야 합니다.  초기 조사에서 각 문을 개별적으로 살펴볼 예정입니다.
+    Since we are receiving data from two different sources - Sysmon and Defender for Endpoint,  we will need to build two KQL statements that could be unioned later.  In our initial investigation, you will look at each separately.
 
-11. 첫 번째 데이터 원본은 Windows 호스트의 Sysmon입니다.  다음 KQL 문을 실행합니다.
+11. Our first data source is Sysmon from Windows hosts.  Run the following KQL Statement.
 
 ```KQL
 search in (Event) "temp\\startup.bat"
 ```
 이제 결과에는 Event 테이블만 표시됩니다.  
 
-16. Registry Key Set Value 행을 표시하는 KQL 문을 직접 작성합니다.  다음 KQL 쿼리를 실행합니다.
+16. Create your own KQL statement to display all Registry Key Set Value rows.  Run the following KQL query:
 
 ```KQL
 
@@ -75,8 +67,8 @@ Event
 
 17.  검색 규칙을 계속 작성할 수도 있지만, 이 KQL 문을 다른 검색 규칙의 KQL 문에 이 KQL 문을 재사용할 수 있을 것으로 보입니다.  
     
-    로그 창에서 **저장**, **함수로 저장** 을 차례로 선택합니다.
-    저장 플라이아웃에 다음 정보를 입력합니다.
+    In the Log window, select <bpt id="p1">**</bpt>Save<ept id="p1">**</ept>, then <bpt id="p2">**</bpt>Save as function<ept id="p2">**</ept>.
+    In the Save flyout, enter the following:
 
     이름: Event_Reg_SetValue 다른 이름으로 저장: 함수 별칭: Event_Reg_SetValue Category: Sysmon
 
@@ -87,7 +79,7 @@ Event
 Event_Reg_SetValue
 
 ```
-현재 데이터 컬렉션에 따라 행이 여러 개 반환될 수도 있습니다.  예상된 동작입니다.  다음 작업에서 이 랩의 시나리오에 맞게 결과를 필터링합니다.
+Depending on the current data collection, you could receive many rows.  This is expected.  Our next task is to filter to our specific scenario.
 
 19. 다음 KQL 문을 실행합니다.
 
@@ -97,7 +89,7 @@ Event_Reg_SetValue | search "startup.bat"
 
 ```
 
-22. 보안 작업 분석가가 위협을 정확하게 분석할 수 있도록 경고 관련 상황 정보를 최대한 많이 제공해야 합니다. 가령 조사 그래프에 사용할 엔터티 등을 제공할 수 있습니다.  다음 쿼리를 실행합니다.
+22. It is important to help the Security Operations Analyst by providing as much context about the alert as you can. This includes projecting Entities for use in the investigation graph.  Run the following query:
 
 ```KQL
 Event_Reg_SetValue 
