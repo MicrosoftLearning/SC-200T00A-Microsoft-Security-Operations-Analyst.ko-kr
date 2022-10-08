@@ -2,141 +2,136 @@
 lab:
   title: 연습 2 - 데이터 커넥터를 사용하여 Microsoft Sentinel에 Windows 디바이스 연결
   module: Module 6 - Connect logs to Microsoft Sentinel
-ms.openlocfilehash: 30ebc048c00a28680d7539692c442a2c399a8c01
-ms.sourcegitcommit: f8918eddeaa7a7a480e92d0e5f2f71143c729d60
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2022
-ms.locfileid: "147037997"
 ---
+
 # <a name="module-6---lab-1---exercise-2---connect-windows-devices-to-microsoft-sentinel-using-data-connectors"></a>모듈 6 - 랩 1 - 연습 2 - 데이터 커넥터를 사용하여 Microsoft Sentinel에 Windows 디바이스 연결
 
 ## <a name="lab-scenario"></a>랩 시나리오
 
 ![랩 개요입니다.](../Media/SC-200-Lab_Diagrams_Mod6_L1_Ex2.png)
 
-당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다. 조직에 있는 많은 데이터 원본의 로그 데이터를 연결하는 방법을 알아야 합니다. 다음 데이터 원본은 온-프레미스 환경 또는 기타 퍼블릭 클라우드와 같은 Azure 내부 및 외부의 Windows 가상 머신입니다.
+You are a Security Operations Analyst working at a company that implemented Microsoft Sentinel. You must learn how to connect log data from the many data sources in your organization. The next source of data are Windows virtual machines inside and outside of Azure, like On-Premises environments or other Public Clouds.
 
 
 ### <a name="task-1-create-a-windows-virtual-machine-in-azure"></a>작업 1: Azure에서 Windows 가상 머신 만들기
 
 이 작업에서는 Azure에서 Windows 가상 머신을 만듭니다.
 
-1. WIN1 가상 머신에 Admin으로 로그인합니다. 암호로는 **Pa55w.rd** 를 사용하여 로그인합니다.  
+1. **WIN1** 가상 머신에 Admin으로 로그인합니다. 암호로는 **Pa55w.rd**를 사용하여 로그인합니다.  
 
 1. Edge 브라우저에서 Azure Portal(https://portal.azure.com )로 이동합니다.
 
-1. 랩 호스팅 공급자가 제공한 **테넌트 전자 메일** 계정을 복사하여 **로그인** 대화 상자에 붙여 넣은 후 **다음** 을 선택합니다.
+1. 랩 호스팅 공급자가 제공한 **테넌트 전자 메일** 계정을 복사하여 **로그인** 대화 상자에 붙여 넣은 후 **다음**을 선택합니다.
 
-1. 랩 호스팅 공급자가 제공한 **테넌트 암호** 를 복사하여 **암호 입력** 대화 상자에 붙여 넣은 후 **로그인** 을 선택합니다.
+1. 랩 호스팅 공급자가 제공한 **테넌트 암호**를 복사하여 **암호 입력** 대화 상자에 붙여 넣은 후 **로그인**을 선택합니다.
 
-1. **+ 리소스 만들기** 를 선택합니다. **힌트:** 이미 Azure Portal에 있는 경우 위쪽 막대에서 *Microsoft Azure* 를 선택하여 홈으로 이동해야 할 수 있습니다.
+1. Select <bpt id="p1">**</bpt>+ Create a Resource<ept id="p1">**</ept>. <bpt id="p1">**</bpt>Hint:<ept id="p1">**</ept> If you were already in the Azure Portal, you might need to select <bpt id="p2">*</bpt>Microsoft Azure<ept id="p2">*</ept> from the top bar to go Home.
 
-1. **서비스 및 마켓플레이스 검색** 상자에 *Windows 10* 을 입력하고 드롭다운 목록에서 **Microsoft Window 10** 을 선택합니다.
+1. **서비스 및 마켓플레이스 검색** 상자에 *Windows 10*을 입력하고 드롭다운 목록에서 **Microsoft Window 10**을 선택합니다.
 
-1. 플랜 드롭다운 목록을 열고 **Windows 10 Enterprise 버전 21H2** 를 선택합니다. **미리 설정된 구성으로 시작** 을 선택하여 계속 진행합니다.
+1. Open the <bpt id="p1">*</bpt>Plan<ept id="p1">*</ept> drop-down list and select <bpt id="p2">**</bpt>Windows 10 Enterprise, version 21H2<ept id="p2">**</ept>. Select <bpt id="p1">**</bpt>Start with a pre-set configuration<ept id="p1">**</ept> to continue.
 
-1. **개발/테스트** 를 선택한 다음, **VM 계속 만들기** 를 선택합니다.
+1. **개발/테스트**를 선택한 다음, **VM 계속 만들기**를 선택합니다.
 
-1. 리소스 그룹에 대해 **새로 만들기** 를 선택하고, RG-AZWIN01을 이름으로 입력하고, **확인** 을 선택합니다.
+1. 리소스 그룹에 대해 **새로 만들기**를 선택하고, RG-AZWIN01을 이름으로 입력하고, **확인**을 선택합니다.
 
     >**참고:** 이는 추적을 위한 새 리소스 그룹입니다. 
 
 1. 가상 머신 이름에 AZWIN01을 입력합니다.
 
-1. 지역 기본값으로 **미국 동부** 를 그대로 둡니다.
+1. 지역 기본값으로 **미국 동부**를 그대로 둡니다.
 
-1. 아래로 스크롤하여 가상 머신의 크기를 검토합니다. 비어 있는 것 같은 경우 **모든 크기 보기** 를 선택하고 Azure 사용자들이 가장 많이 사용함에서 VM 크기 중 하나를 선택하고 **선택** 을 클릭합니다.
+1. Scroll down and review the <bpt id="p1">*</bpt>Size<ept id="p1">*</ept> for the virtual machine. If it appears empty, select <bpt id="p1">**</bpt>See all sizes<ept id="p1">**</ept>, choose one of the VM sizes under <bpt id="p2">*</bpt>Most used by Azure users<ept id="p2">*</ept> and click <bpt id="p3">**</bpt>Select<ept id="p3">**</ept>.
 
-1. 선택한 사용자 이름을 입력합니다. **힌트:** admin 또는 root 같은 예약어를 사용하지 마세요.
+1. Enter a <bpt id="p1">*</bpt>Username<ept id="p1">*</ept> of your choosing. <bpt id="p1">**</bpt>Hint:<ept id="p1">**</ept> Avoid reserved words like admin or root.
 
-1. 선택한 암호를 입력합니다. **힌트:** 테넌트 암호를 다시 사용하는 것이 더 간편할 수 있습니다. 리소스 탭에서 찾을 수 있습니다.
+1. 당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다.
 
 1. 페이지 아래쪽으로 스크롤하고 라이선스 아래 확인란을 선택하여 적격 라이선스가 있는지 확인합니다.
 
-1. **검토 + 만들기** 를 선택하고 유효성 검사를 통과할 때까지 기다립니다.
+1. **검토 + 만들기**를 선택하고 유효성 검사를 통과할 때까지 기다립니다.
 
-1. **만들기** 를 선택합니다. 리소스가 작성될 때까지 기다립니다. 몇 분 정도 걸릴 수 있습니다.
+1. 조직에 있는 많은 데이터 원본의 로그 데이터를 연결하는 방법을 알아야 합니다.
 
 
 ### <a name="task-2-connect-an-azure-windows-virtual-machine"></a>작업 2: Azure Windows 가상 머신을 연결합니다.
 
 이 작업에서는 Microsoft Sentinel에 Azure Windows 가상 머신을 연결합니다.
 
-1. Azure Portal의 검색 창에 *Sentinel* 을 입력하고 **Microsoft Sentinel** 을 선택합니다.
+1. Azure Portal의 검색 창에 *Sentinel*을 입력하고 **Microsoft Sentinel**을 선택합니다.
 
 1. 앞에서 만든 Microsoft Sentinel 작업 영역을 선택합니다.
 
 1. 데이터 커넥터 탭에서 **AMA를 통한 Windows보안 이벤트** 커넥터를 검색하고 목록에서 선택합니다.
 
-1. 커넥터 정보 블레이드에서 **커넥터 페이지 열기** 를 선택합니다.
+1. 커넥터 정보 블레이드에서 **커넥터 페이지 열기**를 선택합니다.
 
-1. 구성 섹션에서 **데이터 수집 규칙 만들기** 를 선택합니다.
-1. 규칙 이름에 **AZWIN01DCR** 을 입력한 후 **다음: 리소스** 를 선택합니다.
-1. **+리소스 추가** 를 선택합니다.
-1. **rg-azwin01** 을 확장한 다음 **AZWIN01** 을 선택합니다.
-1. **적용** 을 선택합니다.
-1. **다음: 수집** 을 선택한 후, **다음: 검토 + 만들기** 를 선택합니다.
-1. **만들기** 를 선택합니다.
-1. 몇 분 정도 기다린 다음 **새로 고침** 을 선택하여 나열된 새 데이터 수집 규칙을 확인합니다.
+1. 구성 섹션에서 **데이터 수집 규칙 만들기**를 선택합니다.
+1. 규칙 이름에 **AZWIN01DCR** 을 입력한 후 **다음: 리소스**를 선택합니다.
+1. **+리소스 추가**를 선택합니다.
+1. **rg-azwin01**을 확장한 다음 **AZWIN01**을 선택합니다.
+1. **적용**을 선택합니다.
+1. **다음: 수집**을 선택한 후, **다음: 검토 + 만들기**를 선택합니다.
+1. **만들기**를 선택합니다.
+1. 몇 분 정도 기다린 다음 **새로 고침**을 선택하여 나열된 새 데이터 수집 규칙을 확인합니다.
 
 
 ### <a name="task-3-connect-a-non-azure-windows-machine"></a>작업 3: 비 Azure Windows 컴퓨터 연결
 
 이 작업에서는 Azure Arc를 설치하고 Microsoft Sentinel에 비 Azure Windows 가상 머신을 연결합니다.  
 
->**중요:** 다음 단계는 이전에 작업한 컴퓨터와는 다른 컴퓨터에서 수행합니다. 가상 머신 이름 참조를 찾습니다.
+>다음 데이터 원본은 온-프레미스 환경 또는 기타 퍼블릭 클라우드와 같은 Azure 내부 및 외부의 Windows 가상 머신입니다.
 
 >**중요:** AMA를 통한 Windows 보안 이벤트 데이터 커넥터는 비 Azure 디바이스에 대한 Azure Arc가 필요합니다. 
 
-1. WIN2 가상 머신에 Admin으로 로그인합니다. 암호로는 **Pa55w.rd** 를 사용하여 로그인합니다.  
+1. **WIN2** 가상 머신에 Admin으로 로그인합니다. 암호로는 **Pa55w.rd**를 사용하여 로그인합니다.  
 
 1. Microsoft Edge 브라우저를 엽니다.
 
 1. 브라우저를 열고 이전 랩에서 사용했던 자격 증명으로 Azure Portal(https://portal.azure.com )에 로그인합니다.
 
 
-1. 랩 호스팅 공급자가 제공한 **테넌트 전자 메일** 계정을 복사하여 **로그인** 대화 상자에 붙여 넣은 후 **다음** 을 선택합니다.
+1. 랩 호스팅 공급자가 제공한 **테넌트 전자 메일** 계정을 복사하여 **로그인** 대화 상자에 붙여 넣은 후 **다음**을 선택합니다.
 
-1. 랩 호스팅 공급자가 제공한 **테넌트 암호** 를 복사하여 **암호 입력** 대화 상자에 붙여넣은 후 **로그인** 을 선택합니다.
+1. 랩 호스팅 공급자가 제공한 **테넌트 암호**를 복사하여 **암호 입력** 대화 상자에 붙여넣은 후 **로그인**을 선택합니다.
 
-1. Azure Portal의 검색 창에 *Arc* 를 입력하고 **Azure Arc** 를 선택합니다.
+1. Azure Portal의 검색 창에 *Arc*를 입력하고 **Azure Arc**를 선택합니다.
 
-1. 탐색 창의 **인프라** 아래에서 **서버** 를 선택합니다.
+1. 탐색 창의 **인프라** 아래에서 **서버**를 선택합니다.
 
-1. **+추가** 를 선택합니다.
+1. **+추가**를 선택합니다.
 
-1. "단일 서버 추가" 섹션에서 **스크립트 생성** 을 선택합니다.
+1. "단일 서버 추가" 섹션에서 **스크립트 생성**을 선택합니다.
 
-1. **다음** 을 선택하여 리소스 세부 정보 탭으로 이동합니다.
+1. **다음**을 선택하여 리소스 세부 정보 탭으로 이동합니다.
 
-1. 앞에서 만든 리소스 그룹을 선택합니다. **힌트:** *RG-Defender*
+1. Select the Resource group you created earlier. <bpt id="p1">**</bpt>Hint:<ept id="p1">**</ept> <bpt id="p2">*</bpt>RG-Defender<ept id="p2">*</ept>
 
     >**참고:** 리소스 그룹을 아직 만들지 않은 경우 다른 탭을 열고, 리소스 그룹을 만들고, 다시 시작합니다.
 
-1. 서버 세부 정보 및 연결 방법 옵션을 검토합니다.  기본값을 유지하고 **다음** 을 선택하여 태그 탭으로 이동합니다.
+1. Review the <bpt id="p1">*</bpt>Server details<ept id="p1">*</ept> and <bpt id="p2">*</bpt>Connectivity method<ept id="p2">*</ept> options. Keep the default values and select <bpt id="p1">**</bpt>Next<ept id="p1">**</ept> to get to the Tags tab.
 
-1. **다음** 을 선택하여 스크립트 다운로드 및 실행 탭으로 이동합니다.
+1. **다음**을 선택하여 스크립트 다운로드 및 실행 탭으로 이동합니다.
 
-1. **등록** 옵션을 사용할 수 있는 경우 다음 단계에서 **등록**을 선택합니다.*1. 등록을 선택합니다.
+1. 등록 옵션을 사용할 수 있는 경우 다음 단계에서 등록을 선택합니다.*1. 등록을 선택합니다.
 
     >**참고:** 처리를 위해 3분 이상 기다립니다.
 
-1. 아래로 스크롤하여 **다운로드** 단추를 선택합니다. **힌트:** 브라우저에서 다운로드를 차단하는 경우 브라우저에서 다운로드를 허용하도록 설정합니다. Edge 브라우저에서 필요한 경우 줄임표 단추(...)를 선택한 다음, **유지** 를 선택합니다. 
+1. Scroll down and select the <bpt id="p1">**</bpt>Download<ept id="p1">**</ept> button. <bpt id="p1">**</bpt>Hint:<ept id="p1">**</ept> if your browser blocks the download, take action in the browser to allow it. In Edge Browser, select the ellipsis button (...) if needed and then select <bpt id="p1">**</bpt>Keep<ept id="p1">**</ept>. 
 
 1. Windows 시작 단추를 마우스 오른쪽 단추로 클릭하고 **Windows PowerShell(관리자)** 을 선택합니다.
 
-1. UAC 프롬프트가 표시되면 “사용자 이름”으로 *Administrator* 를 입력하고 “암호”로 *Passw0rd* 를 입력합니다.
+1. In case you get a UAC prompt, enter <bpt id="p1">*</bpt>Administrator<ept id="p1">*</ept> for "Username" and <bpt id="p2">*</bpt>Passw0rd!<ept id="p2">*</ept> for "Password", else skip to next step.
 
 1. cd C:\Users\Admin\Downloads를 입력합니다.
 
-1. *Set-ExecutionPolicy -ExecutionPolicy Unrestricted* 를 입력하고 Enter 키를 누릅니다.
+1. *Set-ExecutionPolicy -ExecutionPolicy Unrestricted*를 입력하고 Enter 키를 누릅니다.
 
 1. 모두 예에 해당하는 **A** 키를 누른 다음 Enter 키를 누릅니다.
 
-1. *.\OnboardingScript.ps1* 을 입력하고 Enter 키를 누릅니다.  
+1. *.\OnboardingScript.ps1*을 입력하고 Enter 키를 누릅니다.  
 
-    >**중요:** “.\OnboardingScript.ps1 용어가 인식되지 않음...”이라는 오류가 표시되는 경우 WINServer 가상 머신에서 작업 4에 대한 단계를 수행하고 있는지 확인합니다. 여러 다운로드로 인해 파일 이름이 변경되는 다른 문제가 있을 수 있습니다. 실행 중인 디렉터리에서 *“.\OnboardingScript (1).ps1”* 또는 다른 파일 번호를 검색합니다.
+    ><bpt id="p1">**</bpt>Important:<ept id="p1">**</ept> If you get the error <bpt id="p2">*</bpt>"The term .\OnboardingScript.ps1 is not recognized..."<ept id="p2">*</ept>, make sure you are doing the steps for Task 4 in the WINServer virtual machine. Other issue might be that the name of the file changed due to multiple downloads, search for <bpt id="p1">*</bpt>".\OnboardingScript (1).ps1"<ept id="p1">*</ept> or other file numbers in the running directory.
 
 1. **R** 키를 눌러 한 번 실행하고 Enter 키를 누릅니다(몇 분 정도 걸릴 수 있음).
 
@@ -144,34 +139,34 @@ ms.locfileid: "147037997"
 
 1. Windows PowerShell 창으로 돌아가서 에이전트를 인증하기 위해 스크립트의 마지막 줄에서 “...코드 입력” 뒤에 표시되는 코드를 복사합니다.
 
-1. Edge 브라우저로 돌아가서 **코드** 상자에 붙여넣고 **다음** 을 선택합니다. 테넌트 관리자 계정을 선택하고 Azure Connected Machine 에이전트에 로그인하려고 하시나요? 창에서 **계속** 을 선택합니다. 
+1. Go back to the Edge browser and paste it in the <bpt id="p1">**</bpt>Code<ept id="p1">**</ept> box and select <bpt id="p2">**</bpt>Next<ept id="p2">**</ept>. Select your tenant admin account and select <bpt id="p1">**</bpt>Continue<ept id="p1">**</ept> in the <bpt id="p2">*</bpt>Are you trying to sign in to Azure Connected Machine Agent?<ept id="p2">*</ept> window. 
 
-1. Windows PowerShell 창으로 돌아가서 “Azure에 리소스를 온보딩했습니다.”라는 메시지가 표시될 때까지 기다립니다. **참고:** 새 인증 코드가 포함된 메시지 줄이 표시되면 마지막 3단계를 다시 반복해야 합니다.
+1. Go back to the Windows PowerShell window and wait for the message <bpt id="p1">*</bpt>"Successfully Onboarded Resource to Azure"<ept id="p1">*</ept>. <bpt id="p1">**</bpt>Note:<ept id="p1">**</ept> If you see a message line with a new authentication code, you need to repeat the last 3 steps again.
 
-1. 스크립트를 다운로드한 Azure Portal 페이지로 돌아가서 **닫기** 를 선택합니다. **Azure Arc를 사용하여 서버 추가** 를 닫고 Azure Arc **서버** 페이지로 돌아갑니다.
+1. **+ 리소스 만들기**를 선택합니다.
 
-1. WIN2 이름이 표시될 때까지 **새로 고침** 을 선택합니다.
+1. **WIN2** 이름이 표시될 때까지 **새로 고침**을 선택합니다.
 
     >**참고:** 몇 분 정도 걸릴 수 있습니다.
 
 
 
-1. Azure Portal의 검색 창에 *Sentinel* 을 입력하고 **Microsoft Sentinel** 을 선택합니다.
+1. Azure Portal의 검색 창에 *Sentinel*을 입력하고 **Microsoft Sentinel**을 선택합니다.
 
 1. 앞에서 만든 Microsoft Sentinel 작업 영역을 선택합니다.
 
 1. 데이터 커넥터 탭에서 **AMA를 통한 Windows보안 이벤트** 커넥터를 검색하고 목록에서 선택합니다.
 
-1. 커넥터 정보 블레이드에서 **커넥터 페이지 열기** 를 선택합니다.
+1. 커넥터 정보 블레이드에서 **커넥터 페이지 열기**를 선택합니다.
 
-1. 구성 섹션에서 **데이터 수집 규칙 만들기** 를 선택합니다.
-1. 규칙 이름에 **WIN2** 를 입력한 후 **다음: 리소스** 를 선택합니다.
-1. **+리소스 추가** 를 선택합니다.
-1. **rg-defender**(또는 만든 리소스 그룹)를 확장한 다음 **WIN2** 를 선택합니다.
-1. **적용** 을 선택합니다.
-1. **다음: 수집** 을 선택한 후, **다음: 검토 + 만들기** 를 선택합니다.
-1. **만들기** 를 선택합니다.
-1. 몇 분 정도 기다린 다음 **새로 고침** 을 선택하여 나열된 새 데이터 수집 규칙을 확인합니다.
+1. 구성 섹션에서 **데이터 수집 규칙 만들기**를 선택합니다.
+1. 규칙 이름에 **WIN2**를 입력한 후 **다음: 리소스**를 선택합니다.
+1. **+리소스 추가**를 선택합니다.
+1. **rg-defender**(또는 만든 리소스 그룹)를 확장한 다음 **WIN2**를 선택합니다.
+1. **적용**을 선택합니다.
+1. **다음: 수집**을 선택한 후, **다음: 검토 + 만들기**를 선택합니다.
+1. **만들기**를 선택합니다.
+1. 몇 분 정도 기다린 다음 **새로 고침**을 선택하여 나열된 새 데이터 수집 규칙을 확인합니다.
 
 
 
@@ -179,28 +174,28 @@ ms.locfileid: "147037997"
 
 이 작업에서는 엔드포인트용 Microsoft Defender에 디바이스를 온보딩합니다.
 
->**매우 중요**: 이 과정의 “모듈 2 - 연습 1”에 대한 랩을 완료하고 지금까지 가상 머신을 저장한 경우 이 작업을 건너뛸 수 있습니다. 그렇지 않으면 WIN1 컴퓨터를 엔드포인트용 Defender에 다시 온보딩해야 합니다.
+>**힌트:** 이미 Azure Portal에 있는 경우 위쪽 막대에서 *Microsoft Azure*를 선택하여 홈으로 이동해야 할 수 있습니다.
 
->**중요:** 다음 단계는 이전에 작업한 컴퓨터와는 다른 컴퓨터에서 수행합니다. 가상 머신 이름 참조를 찾습니다.
+><bpt id="p1">**</bpt>Important:<ept id="p1">**</ept> The next steps are done in a different machine than the one you were previously working. Look for the Virtual Machine name references.
 
-1. WIN1 가상 머신에 Admin으로 로그인합니다. 암호로는 **Pa55w.rd** 를 사용하여 로그인합니다.  
+1. WIN1 가상 머신에 Admin으로 로그인합니다. 암호로는 **Pa55w.rd**를 사용하여 로그인합니다.  
 
 1. Edge 브라우저에서 Microsoft 365 Defender 포털(https://security.microsoft.com) )로 이동하고, 현재 포털에 없는 경우 **테넌트 메일** 자격 증명으로 로그인합니다.
 
-1. 왼쪽 메뉴 모음에서 **설정** 을 선택한 다음 설정 페이지에서 **엔드포인트** 를 선택합니다.
+1. 왼쪽 메뉴 모음에서 **설정**을 선택한 다음 설정 페이지에서 **엔드포인트**를 선택합니다.
 
-1. 디바이스 관리 섹션에서 **온보딩** 을 선택합니다.
+1. 디바이스 관리 섹션에서 **온보딩**을 선택합니다.
 
-1. **온보딩 패키지 다운로드** 를 선택합니다.
+1. **온보딩 패키지 다운로드**를 선택합니다.
 
 1. 다운로드한 .zip 파일의 압축을 풉니다.
 
 1. Windows 명령 프롬프트를 **관리자** 권한으로 실행합니다. 사용자 계정 컨트롤 메시지가 표시되면 실행에 동의합니다.
 
-1. 방금 관리자 권한으로 압축을 푼 WindowsDefenderATPLocalOnboardingScript.cmd 파일을 실행합니다. **참고:** 이 파일의 기본 위치는 c:\users\admin\downloads 디렉터리입니다. 스크립트에서 표시되는 질문에 답변으로 Y 키를 누릅니다. 
+1. Run the WindowsDefenderATPLocalOnboardingScript.cmd file that you just extracted as administrator. <bpt id="p1">**</bpt>Note:<ept id="p1">**</ept> By default the file should be in the c:\users\admin\downloads directory. Answer Y to questions presented by the script. 
 
-1. 포털의 온보딩 페이지에서 검색 테스트 스크립트를 복사한 다음 열린 명령 창에서 실행합니다. 새 **관리자: 명령 프롬프트** 창을 열어야 할 수도 있습니다. 이 창을 열려면 Windows 검색 창에 *CMD* 를 입력하고 **관리자 권한으로 실행** 을 선택합니다.
+1. 플랜 드롭다운 목록을 열고 **Windows 10 Enterprise 버전 21H2**를 선택합니다.
 
-1. 엔드포인트 영역의 Microsoft 365 Defender 포털에서 **디바이스 인벤토리** 를 선택합니다. 이제 목록에 디바이스가 표시됩니다.
+1. **미리 설정된 구성으로 시작**을 선택하여 계속 진행합니다.
 
 ## <a name="proceed-to-exercise-3"></a>연습 3 계속 진행
