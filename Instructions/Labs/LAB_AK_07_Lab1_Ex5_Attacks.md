@@ -9,14 +9,14 @@ lab:
 ![랩 개요입니다.](../Media/SC-200-Lab_Diagrams_Mod7_L1_Ex4.png)
 ### <a name="task-1-understand-the-attacks"></a>작업 1: 공격 이해
 
-><bpt id="p1">**</bpt>Important: You will perform no actions in this exercise.<ept id="p1">**</ept>  These instructions are only an explanation of the attacks you will perform in the next exercise. Please carefully read this page.
+>**중요: 이 연습에서는 작업을 수행하지 않습니다.**  이러한 지침은 다음 연습에서 수행할 공격에 대한 설명일 뿐입니다. 이 페이지를 주의 깊게 읽으세요.
 
 공격 패턴은 오픈 소스 프로젝트(https://github.com/redcanaryco/atomic-red-team )를 기반으로 합니다.
 
 
 #### <a name="attack-1---persistence-with-registry-key-add"></a>공격 1 - 레지스트리 키 추가를 통한 지속성
 
-Attackers will add a program in the Run Registry key. This achieves persistence by making the program run every time the user logs on.
+공격자는 레지스트리 실행 키에 프로그램을 추가합니다. 이렇게 하면 사용자가 로그온할 때마다 프로그램을 실행하여 지속성을 달성합니다.
 
 ```
 REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /V "SOC Test" /t REG_SZ /F /D "C:\temp\startup.bat"
@@ -24,7 +24,7 @@ REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /V "SOC Test" /t RE
 
 #### <a name="attack-2---user-add-and-elevate-privilege"></a>공격 2 - 사용자 추가 및 권한 상승
 
-Attackers will add new users and elevate the new user to the Administrators group. This enables the attacker to logon with a different account that is privileged.
+이 공격에서는 공격자가 새 사용자를 추가한 다음 권한을 Administrators 그룹으로 높입니다. 그러면 권한이 있는 다른 계정으로 로그온할 수 있게 됩니다.
 
 ```
 net user theusernametoadd /add
@@ -34,7 +34,7 @@ net localgroup administrators theusernametoadd /add
 
 #### <a name="attack-3---dns--c2"></a>공격 3 - DNS/C2 
 
-Attacker will send a large volume of DNS queries to a command and control (C2) server. The intent is to trigger threshold-based detection on the number of DNS queries either from a single source system or to a single target domain.
+공격자는 대량의 DNS 쿼리를 명령 및 제어(C2) 서버로 보냅니다. 의도는 단일 원본 시스템 또는 단일 대상 도메인에서 DNS 쿼리 수에 대한 임계값 기반 검색을 트리거하는 것입니다.
 
 ```
 param(
@@ -83,7 +83,7 @@ Until ($TimeNow -ge $RunEnd)
 
 이 랩에서 사용하는 공격 검색 구성 주기에는 모든 데이터 원본이 포함됩니다. 하지만 실제로는 두 가지 데이터 원본만 중점적으로 검색합니다.
 
-To build a detection, you first start with building a KQL statement. Since you will attack a host, you will have representative data to start building the KQL statement.
+검색을 작성하려면 먼저 KQL 문을 작성해야 합니다. 여기서는 호스트를 공격할 것이므로 KQL 문 작성을 시작하는 데 필요한 대표 데이터가 제공됩니다.
 
 
 KQL 문을 완성한 후에는 분석 규칙을 만듭니다.

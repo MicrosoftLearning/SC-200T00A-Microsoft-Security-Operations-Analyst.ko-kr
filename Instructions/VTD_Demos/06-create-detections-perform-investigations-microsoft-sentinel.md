@@ -25,7 +25,7 @@ REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /V "SOC Test" /t RE
 
 7. 일반 섹션에서 **로그**를 선택합니다.
 
-8. First, you need to see where the data is stored. Since you just performed the attacks.  Set the Log Time Range to <bpt id="p1">**</bpt>Last 24 hours<ept id="p1">**</ept>.
+8. 먼저 데이터가 저장되는 위치를 확인해야 합니다. 방금 공격을 수행했으므로,  로그 시간 범위를 **지난 24시간**으로 설정합니다.
 
 9. 다음 KQL 문을 실행합니다.
 
@@ -35,18 +35,18 @@ search "temp\\startup.bat"
 
 10. 결과에는 다음의 3개 테이블이 표시됩니다. DeviceProcessEvents DeviceRegistryEvents Event
 
-    The Device* tables are from Defender for Endpoint (Data Connector - Microsoft 365 Defender).  Event is from our Data Connector Security Events. 
+    Device* 테이블은 엔드포인트용 Defender(데이터 커넥터 - Microsoft 365 Defender)에서 제공된 것입니다.  그리고 Event 테이블은 여기서 사용하는 데이터 커넥터 보안 이벤트에서 제공된 것입니다. 
 
-    Since we are receiving data from two different sources - Sysmon and Defender for Endpoint,  we will need to build two KQL statements that could be unioned later.  In our initial investigation, you will look at each separately.
+    여기서는 Sysmon과 엔드포인트용 Defender의 두 원본에서 데이터를 수신하므로, 나중에 통합할 수 있는 KQL 문 두 개를 작성해야 합니다.  초기 조사에서 각 문을 개별적으로 살펴볼 예정입니다.
 
-11. Our first data source is Sysmon from Windows hosts.  Run the following KQL Statement.
+11. 첫 번째 데이터 원본은 Windows 호스트의 Sysmon입니다.  다음 KQL 문을 실행합니다.
 
 ```KQL
 search in (Event) "temp\\startup.bat"
 ```
 이제 결과에는 Event 테이블만 표시됩니다.  
 
-16. Create your own KQL statement to display all Registry Key Set Value rows.  Run the following KQL query:
+16. Registry Key Set Value 행을 표시하는 KQL 문을 직접 작성합니다.  다음 KQL 쿼리를 실행합니다.
 
 ```KQL
 
@@ -67,8 +67,8 @@ Event
 
 17.  검색 규칙을 계속 작성할 수도 있지만, 이 KQL 문을 다른 검색 규칙의 KQL 문에 이 KQL 문을 재사용할 수 있을 것으로 보입니다.  
     
-    In the Log window, select <bpt id="p1">**</bpt>Save<ept id="p1">**</ept>, then <bpt id="p2">**</bpt>Save as function<ept id="p2">**</ept>.
-    In the Save flyout, enter the following:
+    로그 창에서 **저장**, **함수로 저장**을 차례로 선택합니다.
+    저장 플라이아웃에 다음 정보를 입력합니다.
 
     이름: Event_Reg_SetValue 다른 이름으로 저장: 함수 별칭: Event_Reg_SetValue Category: Sysmon
 
@@ -79,7 +79,7 @@ Event
 Event_Reg_SetValue
 
 ```
-Depending on the current data collection, you could receive many rows.  This is expected.  Our next task is to filter to our specific scenario.
+현재 데이터 컬렉션에 따라 행이 여러 개 반환될 수도 있습니다.  예상된 동작입니다.  다음 작업에서 이 랩의 시나리오에 맞게 결과를 필터링합니다.
 
 19. 다음 KQL 문을 실행합니다.
 
@@ -89,7 +89,7 @@ Event_Reg_SetValue | search "startup.bat"
 
 ```
 
-22. It is important to help the Security Operations Analyst by providing as much context about the alert as you can. This includes projecting Entities for use in the investigation graph.  Run the following query:
+22. 보안 작업 분석가가 위협을 정확하게 분석할 수 있도록 경고 관련 상황 정보를 최대한 많이 제공해야 합니다. 가령 조사 그래프에 사용할 엔터티 등을 제공할 수 있습니다.  다음 쿼리를 실행합니다.
 
 ```KQL
 Event_Reg_SetValue 

@@ -10,7 +10,7 @@ lab:
 
 ![랩 개요입니다.](../Media/SC-200-Lab_Diagrams_Mod7_L1_Ex2.png)
 
-You are a Security Operations Analyst working at a company that implemented Microsoft Sentinel. You must learn how to detect and mitigate threats using Microsoft Sentinel. Now, you want to respond and reMediate actions that can be run from Microsoft Sentinel as a routine.
+당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다. Microsoft Sentinel을 사용하여 위협을 검색하고 완화하는 방법을 파악해야 합니다. 이제 Microsoft Sentinel에서 루틴으로 실행할 수 있는 작업에 응답하고 이를 수정하려고 합니다.
 
 플레이북을 사용하면 위협 대응을 자동화 및 오케스트레이션하고, 내부 및 외부의 다른 시스템과 통합할 수 있으며, 분석 규칙 또는 자동화 규칙에 의해 트리거될 때 특정 경고 또는 인시던트에 대응하여 자동으로 실행되도록 설정할 수 있습니다. 
 
@@ -62,7 +62,7 @@ You are a Security Operations Analyst working at a company that implemented Micr
 
 1. 페이지 왼쪽의 콘텐츠 관리 영역에서 **커뮤니티** 페이지를 선택합니다.
 
-1. On the right pane, select the <bpt id="p1">**</bpt>Onboard community content<ept id="p1">**</ept> link. This will open a new tab in the Edge Browser for Microsoft Sentinel GitHub content.
+1. 오른쪽 창에서 **커뮤니티 콘텐츠 온보딩** 링크를 선택합니다. 그러면 Microsoft Sentinel용 Edge 브라우저 GitHub 콘텐츠에 새 탭이 열립니다.
 
 1. **Solutions** 폴더를 선택합니다.
 
@@ -72,7 +72,7 @@ You are a Security Operations Analyst working at a company that implemented Micr
 
 1. readme.md 상자에서 두 번째 빠른 배포 옵션, **경고 트리거를 사용하여 배포**로 아래로 스크롤하고 **Azure에 배포** 단추를 선택합니다.  
 
-    ><bpt id="p1">**</bpt>VERY IMPORTANT<ept id="p1">**</ept>: Be aware that they are two different Microsoft Sentinel triggers to use, Incident and Alert. Make sure you are selecting the Alert (second) one.
+    >**매우 중요**: 두 개의 서로 다른 Microsoft Sentinel 트리거인 인시던트 및 경고를 사용합니다. 경고(두 번째)를 선택해야 합니다.
 
 1. Azure 구독이 선택되어 있는지 확인합니다.
 
@@ -80,7 +80,7 @@ You are a Security Operations Analyst working at a company that implemented Micr
 
 1. 지역 기본값으로 **미국 동부**를 그대로 둡니다.
 
-1. Make sure the <bpt id="p1">*</bpt>Playbook Name<ept id="p1">*</ept> is "PostMessageTeams-OnAlert" and select <bpt id="p2">**</bpt>Review + create<ept id="p2">**</ept>. <bpt id="p1">**</bpt>Hint:<ept id="p1">**</ept> If the name is different, go back to GitHub and select the <bpt id="p2">**</bpt>Deploy with alert trigger<ept id="p2">**</ept> playbook.
+1. 플레이북 이름이 “PostMessageTeams-OnAlert”인지 확인하고 **검토 + 만들기**를 선택합니다. **힌트:** 이름이 다른 경우 GitHub로 돌아가서 **경고 트리거로 배포** 플레이북을 선택합니다.
 
 1. 이제 **만들기**를 선택합니다. 
 
@@ -97,7 +97,7 @@ You are a Security Operations Analyst working at a company that implemented Micr
 
 1. 구성 영역에서 **자동화**를 선택하고 **활성 플레이북** 탭을 선택합니다.
 
-1. Select the <bpt id="p1">**</bpt>PostMessageTeams-OnAlert<ept id="p1">**</ept> playbook. <bpt id="p1">**</bpt>Hint:<ept id="p1">**</ept> If you do not see the playbook, refresh the Azure portal page by pressing Ctrl+F5.
+1. **PostMessageTeams-OnAlert** 플레이북을 선택합니다. **힌트:** 플레이북이 표시되지 않으면 Ctrl+F5를 눌러 Azure Portal 페이지를 새로 고칩니다.
 
 1. 명령 메뉴의 *PostMessageTeams-OnAlert*의 논리 앱 페이지에서 **편집**을 선택합니다.
 
@@ -105,21 +105,21 @@ You are a Security Operations Analyst working at a company that implemented Micr
 
 1. **연결 변경** 링크를 선택합니다.
 
-1. 당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다.
+1. **새로 추가**를 선택하고 **로그인**을 선택합니다. 새 창에서 메시지가 표시되면 Azure 구독 관리자 자격 증명을 선택합니다. 이제 블록의 마지막 줄에 “관리자-사용자-이름에 연결됨”이 표시되어야 합니다.
 
 1. 이제 두 번째 블록인 **경고 - 인시던트 가져오기**를 선택합니다.
 
 1. **연결 변경** 링크를 선택합니다.
 
-1. Microsoft Sentinel을 사용하여 위협을 검색하고 완화하는 방법을 파악해야 합니다.
+1. 표시 이름 아래에 Azure 관리자 사용자 이름이 있는 연결을 선택합니다. **힌트:** admin@ZZZZZZ.onmicrosoft.com. 이제 블록의 마지막 줄에 “관리자-사용자-이름에 연결됨”이 표시되어야 합니다.
 
 1. 이제 세 번째 블록인 **연결**을 선택합니다.
 
-1. 이제 Microsoft Sentinel에서 루틴으로 실행할 수 있는 작업에 응답하고 이를 수정하려고 합니다.
+1. **새로 추가**를 선택하고 메시지가 표시되면 Azure 관리자 자격 증명을 선택합니다. 이제 블록의 마지막 줄에 “관리자-사용자-이름에 연결됨”이 표시되어야 합니다.
 
-1. The block has now been renamed to <bpt id="p1">**</bpt>Post a message (V3)<ept id="p1">**</ept>, at the end of the <bpt id="p2">*</bpt>Team<ept id="p2">*</ept> field, select the <bpt id="p3">**</bpt>X<ept id="p3">**</ept> to clear the contents. The field will be changed to a drop-down with a listing of the available Teams from Microsoft Teams. Select <bpt id="p1">**</bpt>SOC<ept id="p1">**</ept>.
+1. 이제 블록 이름이 **메시지(V3) 게시**로 바뀌었습니다. *팀* 필드의 끝에서 **X**를 선택하여 콘텐츠를 지웁니다. 필드가 Microsoft Teams에서 사용 가능한 팀 목록이 포함된 드롭다운으로 변경됩니다. **SOC**를 선택합니다.
 
-1. Do the same for the <bpt id="p1">*</bpt>Channel<ept id="p1">*</ept> field, select the <bpt id="p2">**</bpt>X<ept id="p2">**</ept> at the end of the field to clear the contents. The field will be changed to a drop-down with a listing of the Channels of the SOC Teams. Select <bpt id="p1">**</bpt>New Alerts<ept id="p1">**</ept>.
+1. 채널 필드에 대해 동일한 작업을 수행합니다. 필드 끝에 있는 **X**를 선택하여 콘텐츠를 지웁니다. 필드가 SOC Teams 채널 목록이 포함된 드롭다운으로 변경됩니다. **새 경고**를 선택합니다.
 
 1. 명령 모음에서 **저장**을 선택합니다.
 

@@ -12,7 +12,7 @@
 
 이 작업에서는 관심 목록을 만듭니다.
 
-1. In the search box at the bottom of the screen, enter <ph id="ph1">`Notepad`</ph>.  Select <bpt id="p1">**</bpt>Notepad<ept id="p1">**</ept> from the results.
+1. 화면 아래쪽의 검색 상자에 `Notepad`를 입력합니다.  결과에서 **메모장**을 선택합니다.
 
 1. `Hostname`을 입력한 다음 새 줄을 입력합니다.
 
@@ -25,7 +25,7 @@
     Host5
     ```
 
-1. From the menu select, <bpt id="p1">**</bpt>File - Save As<ept id="p1">**</ept>, Name the file <ph id="ph1">`HighValue.csv`</ph>.  Then change the file type to <bpt id="p1">**</bpt>All files(<bpt id="p2">*</bpt>.<ept id="p2">*</ept>)<ept id="p1">**</ept>.  Then select <bpt id="p1">**</bpt>Save<ept id="p1">**</ept>.
+1. 메뉴에서 **파일 - 다른 이름으로 저장**을 선택하고 파일 이름을 `HighValue.csv`로 지정합니다.  그런 후에 파일 형식을 **모든 파일( *.* )** 로 변경합니다.  그런 다음 **저장**을 선택합니다.
 
 1. 메모장을 닫습니다.
 
@@ -47,7 +47,7 @@
 
 1. 화면에 관심 목록 목록이 다시 표시됩니다.
 
-1. Select your new watchlist.  On the right tab, select <bpt id="p1">**</bpt>View in Log Analytics<ept id="p1">**</ept>.
+1. 새 관심 목록을 선택합니다.  오른쪽 탭에서 **Log Analytics에서 보기**를 선택합니다.
 
 1. 다음 KQL 문이 자동 실행되고 결과가 표시됩니다.
 
@@ -56,7 +56,7 @@ _GetWatchlist('HighValueHosts')
 ```
 **참고** 가져오기가 완료되려면 시간이 다소 걸릴 수 있습니다.
 
-You can now use the _GetWatchlist('HighValueHosts') in your own KQL statements to access the list. The column to reference would be <bpt id="p1">*</bpt>Hostname<ept id="p1">*</ept>.
+이제 KQL 문에서 _GetWatchlist('HighValueHosts')를 사용하여 목록에 액세스할 수 있습니다. 참조할 열은 *Hostname*입니다.
 
 ## <a name="create-a-threat-indicator"></a>위협 표시기 만들기
 
@@ -66,11 +66,11 @@ You can now use the _GetWatchlist('HighValueHosts') in your own KQL statements t
 
 1. 명령 모음에서 **새로 추가**를 선택합니다.
 
-1. Review the different indicator types available in the Types dropdown.  Then select <bpt id="p1">**</bpt>domain-name<ept id="p1">**</ept>. Enter your initials in the Domain box. An example would be fmg.com.
+1. 유형 드롭다운에서 사용 가능한 여러 표시기 유형을 검토합니다.  그런 후에 **domain-name**을 선택합니다. 도메인 상자에 이니셜을 입력합니다. 예를 들어 fmg.com 등을 입력할 수 있습니다.
 
 1. 위협 유형에 대해 **+ 추가**를 선택하고 **악의적 활동**을 복사하여 필드에 붙여넣습니다.
 
-1. For the name, enter the same value used for the Domain. An example would be fmg.com.
+1. 이름에는 도메인에 사용한 것과 같은 값을 입력합니다. 예를 들어 fmg.com 등을 입력할 수 있습니다.
 
 1. **유효 기간(시작)** 필드의 값을 오늘 날짜로 설정합니다.
 
@@ -78,14 +78,14 @@ You can now use the _GetWatchlist('HighValueHosts') in your own KQL statements t
 
 **참고** 표시기가 표시되려면 시간이 다소 걸릴 수 있습니다.
 
-1. Select <bpt id="p1">**</bpt>Logs<ept id="p1">**</ept> option in the General area.  You may have to disable the "Always show queries" option to get to the query window.
+1. 일반 영역에서 **로그** 옵션을 선택합니다.  쿼리 창을 표시하려면 "항상 쿼리 표시" 옵션을 사용하지 않도록 설정해야 할 수도 있습니다.
 
 1. 다음 KQL 문을 실행합니다.
 
 ```KQL
 ThreatIntelligenceIndicator 
 ```
-Scroll the results to the right to see the DomainName column. You can also run the following KQL statement to just see the DomainName column.  
+결과를 오른쪽으로 스크롤하여 DomainName 열을 확인합니다. 다음 KQL 문을 실행하여 DomainName 열만 표시할 수도 있습니다.  
 
 ```KQL
 ThreatIntelligenceIndicator 

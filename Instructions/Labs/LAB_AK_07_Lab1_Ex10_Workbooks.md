@@ -10,7 +10,7 @@ lab:
 
 ![랩 개요입니다.](../Media/SC-200-Lab_Diagrams_Mod7_L1_Ex8.png)
 
-You are a Security Operations Analyst working at a company that implemented Microsoft Sentinel. Once you have connected your data sources to Microsoft Sentinel, you can visualize and monitor the data using the Microsoft Sentinel adoption of Azure Monitor Workbooks, which provides versatility in creating custom dashboards. 
+당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다. Microsoft Sentinel에 데이터 원본을 연결한 후에는 사용자 지정 대시보드를 만들 때 다양한 기능을 제공하는 Azure Monitor 통합 문서의 Microsoft Sentinel 채택을 사용하여 데이터를 시각화하고 모니터링할 수 있습니다. 
 
 Microsoft Sentinel을 사용하면 데이터에 대한 사용자 지정 통합 문서를 만들 수 있으며 데이터 원본을 연결하는 즉시 데이터를 신속하게 파악할 수 있는 기본 제공 통합 문서 템플릿도 제공됩니다.
 
@@ -31,11 +31,11 @@ Microsoft Sentinel을 사용하면 데이터에 대한 사용자 지정 통합 �
 
 1. Microsoft Sentinel 작업 영역을 선택합니다.
 
-1. Select <bpt id="p1">**</bpt>Workbooks<ept id="p1">**</ept>. The <bpt id="p1">*</bpt>Templates<ept id="p1">*</ept> tab is selected by default.
+1. **통합 문서**를 선택합니다. 템플릿 탭은 기본적으로 선택되어 있습니다.
 
-1. Search for and select the <bpt id="p1">**</bpt>Identity &amp; Access<ept id="p1">**</ept> template workbook. In the right pane, scroll down and select the <bpt id="p1">**</bpt>View template<ept id="p1">**</ept> button.
+1. **ID 및 액세스** 템플릿 통합 문서를 검색하고 선택합니다. 오른쪽 창에서 아래로 스크롤하여 **템플릿 보기** 단추를 선택합니다.
 
-1. Review the contents of the workbook. It shows insights into Identity and access operations by collecting and analyzing security logs, using the audit and sign-in logs to gather insights into use of Microsoft products.
+1. 통합 문서의 콘텐츠를 검토합니다. 보안 로그를 수집 및 분석하고 감사 및 로그인 로그를 사용하여 Microsoft 제품 사용에 대한 인사이트를 수집하여 ID 및 액세스 작업에 대한 인사이트를 보여 줍니다.
 
 1. 오른쪽 위에 있는 **X**를 선택하여 통합 문서를 닫습니다.
 
@@ -52,35 +52,35 @@ Microsoft Sentinel을 사용하면 데이터에 대한 사용자 지정 통합 �
 
 1. 명령 모음에서 **편집**을 선택하여 통합 문서의 변경 내용을 사용하도록 설정합니다.
 
-1. Read the banner that informs you of a new feature to compare workbooks. Dismiss the message by selecting the banner.
+1. 통합 문서를 비교하는 새로운 기능을 알려 주는 배너를 읽습니다. 배너를 선택하여 메시지를 해제합니다.
 
-1. 당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다.
+1. 사용자 활동 영역까지 아래로 스크롤하고 해당 열의 형식을 지정하기 위해 그래프에서 “작업 수” 및 “추세”에 대한 색을 확인합니다. 그리드 아래에서 **편집** 단추를 선택합니다.
 
-1. Microsoft Sentinel에 데이터 원본을 연결한 후에는 사용자 지정 대시보드를 만들 때 다양한 기능을 제공하는 Azure Monitor 통합 문서의 Microsoft Sentinel 채택을 사용하여 데이터를 시각화하고 모니터링할 수 있습니다.
+1. 쿼리 실행 명령 모음의 오른쪽에 있는 **열 설정** 단추를 선택합니다. **힌트:** 이 단추는 KQL 쿼리의 데이터가 있는 경우에만 나타납니다.
 
 1. 표시되는 열 설정 편집 블레이드의 열 내에서 **작업 수(열 지도 + 형식 지정됨)** 를 선택합니다. 
 
-1. Review the settings, in particular the options for <bpt id="p1">*</bpt>Column renderer<ept id="p1">*</ept>. For <bpt id="p1">*</bpt>Color palette<ept id="p1">*</ept>, select <bpt id="p2">**</bpt>32-color categorical<ept id="p2">**</ept>.
+1. 설정, 특히 열 렌더러에 대한 옵션을 검토합니다. 색상표의 경우 **32색 범주**를 선택합니다.
 
 1. 열 내에서 **추세(Spark 선 + 형식 지정됨)** 를 선택합니다.
 
 1. 설정을 검토합니다. *열 렌더러*의 경우 **Spark 영역**을 선택한 다음, 색상표에서 원하는 색을 선택합니다.
 
-1. Select <bpt id="p1">**</bpt>Save and Close<ept id="p1">**</ept>. Now we are going to review how one tile/grid control can be used to filter the results in another tile/grid.
+1. **저장 후 닫기**를 선택합니다. 이제 하나의 타일/그리드 컨트롤을 사용하여 다른 타일/그리드에서 결과를 필터링하는 방법을 검토하겠습니다.
 
 1. 쿼리 항목 편집: 쿼리 - 2 명령 모음에서 **고급 설정** 단추를 선택합니다.
 
-1. Review the <bpt id="p1">*</bpt>When items are selected, export parameters<ept id="p1">*</ept> setting. Notice the <bpt id="p1">*</bpt>UserInfo<ept id="p1">*</ept> field is selected.
+1. *항목이 선택되면 매개 변수 내보내기* 설정을 검토합니다. 사용자 정보 필드가 선택되어 있습니다.
 
-1. Scroll down and select <bpt id="p1">**</bpt>Done Editing<ept id="p1">**</ept> at the bottom of the query (not the top menu). Look at the changed colors for <bpt id="p1">*</bpt>Operations count<ept id="p1">*</ept> and <bpt id="p2">*</bpt>Trend<ept id="p2">*</ept>.
+1. 아래로 스크롤하여 쿼리 아래쪽에서(위쪽 메뉴가 아님) **편집 완료**를 선택합니다. 작업 수 및 추세의 변경된 색을 확인합니다. 
 
 1. 화면 오른쪽의 상위 활성 사용자 원형 차트 아래에서 **편집**을 선택합니다.  
 
-1. In the <bpt id="p1">*</bpt>Logs query<ept id="p1">*</ept>, locate <bpt id="p2">*</bpt>UserInfo<ept id="p2">*</ept>. The query is using the parameter exported from the other query to filter results.
+1. 로그 쿼리에서 사용자 정보를 찾습니다.  이 쿼리는 다른 쿼리에서 내보낸 매개 변수를 사용하여 결과를 필터링합니다.
 
 1. 아래로 스크롤하여 쿼리 아래쪽에서(위쪽 메뉴가 아님) **편집 완료**를 선택합니다.
 
-1. Scroll up and select <bpt id="p1">**</bpt>Done Editing<ept id="p1">**</ept> at the top menu and select the <bpt id="p2">**</bpt>Save<ept id="p2">**</ept> icon. Close the workbook by selecting the <bpt id="p1">**</bpt>X<ept id="p1">**</ept> in the top-right corner.
+1. 위로 스크롤하여 위쪽 메뉴에서 **편집 완료**를 선택하고 **저장** 아이콘을 선택합니다. 오른쪽 위에 있는 **X**를 선택하여 통합 문서를 닫습니다.
 
 
 ### <a name="task-3-create-a-workbook"></a>작업 3: 통합 문서 만들기
@@ -99,7 +99,7 @@ Microsoft Sentinel을 사용하면 데이터에 대한 사용자 지정 통합 �
 
 1. ## 새 통합 문서 위에 #내 통합 문서를 입력합니다. 
 
-1. Select <bpt id="p1">**</bpt>Done Editing<ept id="p1">**</ept> on the bottom menu, for the <bpt id="p2">*</bpt>Editing text item: text - 2<ept id="p2">*</ept>. Notice that your header increased size and name changed.
+1. 텍스트 항목 편집: 텍스트 - 2의 경우 아래쪽 메뉴에서 **편집 완료**를 선택합니다. 헤더 크기가 증가했고 헤더 이름이 변경되었습니다.
 
 1. 표시되는 유일한 막대형 차트 그래프 아래에서 **편집**을 선택합니다.
 
@@ -145,7 +145,7 @@ Microsoft Sentinel을 사용하면 데이터에 대한 사용자 지정 통합 �
 
 1. 통합 문서의 명령 모음에서 **편집 완료**를 선택합니다.
 
-1. Select the <bpt id="p1">**</bpt>Save<ept id="p1">**</ept> icon, change the <bpt id="p2">*</bpt>Title<ept id="p2">*</ept> to <bpt id="p3">**</bpt>My Workbook<ept id="p3">**</ept> and leave other values as default. Select <bpt id="p1">**</bpt>Save<ept id="p1">**</ept> again to commit the changes. 
+1. **저장** 아이콘을 선택하고, 제목을 **내 통합 문서**로 변경하고, 다른 값을 기본값으로 유지합니다. 다시 **저장**을 선택하여 변경 내용을 커밋합니다. 
 
 1. 오른쪽 위에 있는 **X**를 선택하여 통합 문서를 닫거나 Microsoft Sentinel 포털에서 **통합 문서**를 선택합니다.
 

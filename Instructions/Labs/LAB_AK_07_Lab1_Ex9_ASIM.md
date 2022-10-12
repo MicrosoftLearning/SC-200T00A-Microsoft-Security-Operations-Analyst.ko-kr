@@ -8,9 +8,9 @@ lab:
 
 ## <a name="lab-scenario"></a>랩 시나리오
 
-You are a Security Operations Analyst working at a company that implemented Microsoft Sentinel. You need to model ASIM parsers for a specific Windows registry event.  These simplified parsers will be finalized at a later time following the ASIM parser registry event normalization standard (<ph id="ph1">https://docs.microsoft.com/en-us/azure/sentinel/registry-event-normalization-schema)</ph>.
+당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다. 특정 Windows 레지스트리 이벤트에 대한 ASIM 파서를 모델링해야 합니다.  이러한 간소화된 파서는 ASIM 파서 레지스트리 이벤트 정규화 표준(https://docs.microsoft.com/en-us/azure/sentinel/registry-event-normalization-schema) )에 따라 나중에 완료됩니다.
 
-><bpt id="p1">**</bpt>Important:<ept id="p1">**</ept> This lab involves entering lengthy KQL ASIM parser scripts into Microsoft Sentinel. The scripts were provided via download files at the beginning of this lab. An alternate location to download them is:  <ph id="ph1">https://github.com/MicrosoftLearning/SC-200T00A-Microsoft-Security-Operations-Analyst/tree/master/Allfiles</ph>
+>**중요:** 이 랩에서는 긴 KQL ASIM 파서 스크립트를 Microsoft Sentinel에 입력합니다. 스크립트는 이 랩의 시작 부분에 있는 다운로드 파일을 통해 제공되었습니다. 스크립트를 다운로드할 대체 위치는 https://github.com/MicrosoftLearning/SC-200T00A-Microsoft-Security-Operations-Analyst/tree/master/Allfiles 입니다.
 
 ### <a name="task-1-develop-kql-function-for-microsoft-365-defender-registry-event"></a>작업 1: Microsoft 365 Defender 레지스트리 이벤트에 대한 KQL 함수 개발 
 

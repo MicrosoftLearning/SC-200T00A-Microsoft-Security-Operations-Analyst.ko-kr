@@ -8,7 +8,7 @@ lab:
 
 ## <a name="lab-scenario"></a>랩 시나리오
 
-You are a Security Operations Analyst working at a company that implemented Microsoft Sentinel. You already created Scheduled and Microsoft Security Analytics rules. 
+당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다. 예약됨 및 Microsoft 보안 분석 규칙을 이미 만들었습니다. 
 
 
 엔터티 동작 분석을 수행하여 변칙을 검색하고 엔터티 분석 페이지를 제공하도록 Microsoft Sentinel을 구성해야 합니다.
@@ -34,7 +34,7 @@ You are a Security Operations Analyst working at a company that implemented Micr
 1. 엔터티 동작 설정의 팝업에서 **EUBA 설정**을 선택합니다.
 1. 다음 페이지에서 **UEBA 설정**을 선택합니다.
 1. 엔터티 동작 구성 페이지에서 1번의 기능을 **켜기**로 토글합니다. 
-1. For <bpt id="p1">*</bpt>2.<ept id="p1">*</ept>, select <bpt id="p2">**</bpt>Azure Active Directory<ept id="p2">**</ept>. Then select <bpt id="p1">**</bpt>Apply<ept id="p1">**</ept>.
+1. *2.* 의 경우, **Azure Active Directory**를 선택합니다. 그런 다음, **적용**을 선택합니다.
 1. *3.* 의 경우 **감사 로그**, **Azure 활동**, **보안 이벤트** 및 **로그인 로그**를 선택합니다. 
 1. 그런 다음, **적용**을 선택합니다.
 1. 수집된 로그 데이터와 생성된 경고를 기반으로 채워진 엔터티를 보려면 랩 중에 이 페이지로 자주 돌아갑니다.
@@ -47,9 +47,9 @@ You are a Security Operations Analyst working at a company that implemented Micr
 1. **분석** 페이지를 선택합니다.
 1. **변칙** 페이지를 선택합니다.
 1. 규칙의 상태 열이 사용인지 확인합니다.
-1. Select any rule. Then select <bpt id="p1">**</bpt>Edit<ept id="p1">**</ept> on the rule blade.
-1. Review the <bpt id="p1">*</bpt>General<ept id="p1">*</ept> tab information. Then select <bpt id="p1">**</bpt>Next : Configuration<ept id="p1">**</ept>
-1. 당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다.
+1. 규칙을 선택합니다. 그런 다음, 규칙 블레이드에서 **편집**을 선택합니다.
+1. 일반 탭 정보를 검토합니다. 그런 다음, 페이지 아래쪽의 **다음: 구성** 클릭
+1. 구성 탭 정보를 검토합니다. 그런 다음, 오른쪽 위 모서리에서 **X**를 선택하여 분석 규칙 마법사를 종료합니다.
 
 
 ## <a name="proceed-to-exercise-5"></a>연습 5 계속 진행

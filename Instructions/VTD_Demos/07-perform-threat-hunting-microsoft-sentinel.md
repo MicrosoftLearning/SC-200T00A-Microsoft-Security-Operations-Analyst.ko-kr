@@ -33,9 +33,9 @@ DeviceEvents | where TimeGenerated >= ago(lookback)
 | render timechart 
 ```
 
-1. The goal of this statement is to provide a visualization to check for a C2 beaconing out on a consistent basis.  Take time to adjust the 3m setting to 30s and more.  Change the count_ &gt; 5 setting to other threshold counts to witness the impact.
+1. 이 문은 C2 알림을 일관되게 확인하기 위한 시각화를 제공하는 데 사용됩니다.  3m 설정을 30s로 조정하는 등 문을 조정해 봅니다.  count_ > 5 설정의 임계값 횟수를 다른 값으로 변경하여 결과의 변화를 확인합니다.
 
-1. You have now identified DNS requests that are beaconing to a C2 server.  Next, determine which devices are beaconing.  Enter the following KQL Statement:
+1. 지금까지 C2 서버에 알림을 전송하는 DNS 요청을 살펴보았습니다.  다음으로는 알림을 생성하는 디바이스를 확인합니다.  다음 KQL 문을 입력합니다.
 
 ```KQL
 let lookback = 2d;
@@ -83,7 +83,7 @@ DeviceEvents | where TimeGenerated >= ago(lookback)
 
 1. 오른쪽 창에서 아래로 스크롤하여 **쿼리 실행** 단추를 선택합니다.
 
-1. The number of results is shown in the middle pane under the <bpt id="p1">*</bpt>Results<ept id="p1">*</ept> column. Alternatively, scroll up to see the count over the <bpt id="p1">*</bpt>Results<ept id="p1">*</ept> box..
+1. 결과 열 아래의 가운데 창에 결과 수가 표시됩니다. 또는 위로 스크롤하여 결과 상자의 개수를 확인합니다.
 
 1. **결과 보기**를 선택합니다.
 

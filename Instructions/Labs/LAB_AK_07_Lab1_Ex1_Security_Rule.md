@@ -10,7 +10,7 @@ lab:
 
 ![랩 개요입니다.](../Media/SC-200-Lab_Diagrams_Mod7_L1_Ex1.png)
 
-You are a Security Operations Analyst working at a company that implemented Microsoft Sentinel. You must learn how to detect and mitigate threats using Microsoft Sentinel. First, you need to filter the alerts coming from Defender for Cloud into Microsoft Sentinel, by Severity. 
+당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다. Microsoft Sentinel을 사용하여 위협을 검색하고 완화하는 방법을 파악해야 합니다. 먼저 클라우드용 Defender에서 Microsoft Sentinel로 들어오는 경고를 심각도별로 필터링해야 합니다. 
 
 
 ### <a name="task-1-activate-a-microsoft-security-rule"></a>작업 1: Microsoft 보안 규칙 활성화
@@ -29,9 +29,9 @@ You are a Security Operations Analyst working at a company that implemented Micr
 
 1. 이전 랩에서 만든 Microsoft Sentinel 작업 영역을 선택합니다.
 
-1. Select <bpt id="p1">**</bpt>Analytics<ept id="p1">**</ept> from the Configuration area. By default, you will see the <bpt id="p1">*</bpt>Active rules<ept id="p1">*</ept>. Click on <bpt id="p1">*</bpt>Rule templates<ept id="p1">*</ept>.
+1. 구성 영역에서 **분석**을 선택합니다. 기본적으로 활성 규칙이 표시됩니다. 규칙 템플릿을 클릭합니다.
 
-1. Search for and select <bpt id="p1">**</bpt>Create incidents based on Microsoft Defender for Cloud<ept id="p1">**</ept>. This rule was activated by the Defender for Cloud connector we configured in "Module 6 - Exercise 1 - Task 4". 
+1. **클라우드용 Microsoft Defender를 기반으로 인시던트 만들기**를 검색하여 선택합니다. 이 규칙은 “모듈 6 - 연습 1 - 작업 4”에서 구성한 클라우드용 Defender 커넥터에 의해 활성화되었습니다. 
 
 1. 오른쪽 블레이드에서 **편집** 단추를 선택합니다.
 
@@ -41,6 +41,6 @@ You are a Security Operations Analyst working at a company that implemented Micr
 
 1. 하단에서 **다음: 자동화된 응답** 단추를 선택한 후, **다음: 검토** 단추를 클릭합니다.
 
-1. Review the changes made and select the <bpt id="p1">**</bpt>Save<ept id="p1">**</ept> button. The Analytics rule will be saved.
+1. 변경 내용을 검토하고 **저장** 단추를 선택합니다. Analytics 규칙이 저장됩니다.
 
 ## <a name="proceed-to-exercise-2"></a>연습 2 계속 진행

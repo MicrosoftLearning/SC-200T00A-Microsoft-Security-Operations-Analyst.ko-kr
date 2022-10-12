@@ -6,16 +6,16 @@
 
 이 작업에서는 샘플 보안 경고를 로드하여 경고 세부 정보를 검토합니다.
 
-1. Go the  <bpt id="p1">**</bpt>Microsoft Defender for Cloud<ept id="p1">**</ept><ph id="ph1"> &gt; </ph><bpt id="p2">**</bpt>Security Alerts<ept id="p2">**</ept> screen. If the sample alerts were created as directed in the <bpt id="p1">[</bpt>pre-requisites section<ept id="p1">](00-prerequisites.md#Deploy-sample-alerts-for-Demo-in-Module-2)</ept>, there should be multiple security alerts on this screen.
+1. **클라우드용 Microsoft Defender** > **보안 경고** 화면으로 이동합니다. [필수 구성 요소 섹션](00-prerequisites.md#Deploy-sample-alerts-for-Demo-in-Module-2)에서 지시한 대로 샘플 경고가 만들어진 경우 이 화면에 여러 보안 경고가 표시됩니다.
 
 1. 여러 개의 경고가 나열된 경우 다음 작업을 수행합니다.
 
-    A. Select the alert, information about the alert should appear in a pane on the right.  Click <bpt id="p1">**</bpt>View full details<ept id="p1">**</ept>.
+    A. 경고를 선택합니다. 그러면 오른쪽 창에 경고 관련 정보가 표시됩니다.  **전체 세부 정보 보기**를 클릭합니다.
 
-    B. Review the Alert details.
+    B. 경고 세부 정보를 검토합니다.
 
-    C. Select the <bpt id="p1">**</bpt>Take action<ept id="p1">**</ept> tab.
+    C. **작업 수행** 탭을 선택합니다.
 
-    D. Review the Take action information. Notice the buttons available to take action depend on the type of alert.
+    D. 작업 수행 정보를 검토합니다. 경고 유형에 따라 작업을 수행할 수 있도록 제공되는 단추를 확인합니다.
 
 ## <a name="you-have-completed-the-lab"></a>이 랩을 완료했습니다.
