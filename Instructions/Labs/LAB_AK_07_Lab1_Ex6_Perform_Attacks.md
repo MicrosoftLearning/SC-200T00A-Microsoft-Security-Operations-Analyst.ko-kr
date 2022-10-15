@@ -19,9 +19,9 @@ lab:
 
 1. WIN1 가상 머신에 Admin으로 로그인합니다. 암호로는 **Pa55w.rd**를 사용하여 로그인합니다.  
 
-1. In the search of the task bar, enter <bpt id="p1">*</bpt>Command<ept id="p1">*</ept>. Command Prompt will be displayed in the search results. Right-click on the Command Prompt and select <bpt id="p1">**</bpt>Run as Administrator<ept id="p1">**</ept>. Select <bpt id="p1">**</bpt>Yes<ept id="p1">**</ept> in the User Account Control window that appears to allow the app to run.
+1. 작업 표시줄의 검색 창에 *명령*을 입력합니다. 검색 결과에 명령 프롬프트가 표시됩니다. 명령 프롬프트를 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택합니다. 표시되는 사용자 계정 컨트롤 창에서 **예**를 선택하여 앱을 실행할 수 있도록 합니다.
 
-1. In the Command Prompt, create a Temp folder in the root directory. Remember to press Enter after the last row:
+1. 명령 프롬프트에서 루트 디렉터리에 Temp 폴더를 만듭니다. 마지막 행 후에 Enter 키를 눌러야 합니다.
 
     ```CommandPrompt
     cd \
@@ -47,7 +47,7 @@ lab:
 
 1. **예**를 선택하여 새 파일을 만든 후 아래 PowerShell 스크립트를 *c2.ps1*에 복사합니다.
 
-    ><bpt id="p1">**</bpt>Note:<ept id="p1">**</ept> Paste into the virtual machine might have a limited length. Make sure the script looks as it does in these instructions within the <bpt id="p1">*</bpt>c2.ps1<ept id="p1">*</ept> file.
+    >**참고:** 가상 머신에 스크립트를 붙여넣을 때는 길이가 제한될 수 있습니다. *c2.ps1* 파일 내에서 스크립트가 여기에 나와 있는 지침과 동일하게 표시되는지 확인합니다.
 
     ```PowerShell
     param(
@@ -95,32 +95,32 @@ lab:
 
 1. 명령 프롬프트 창으로 돌아가서 다음 명령을 입력하고 Enter 키를 누릅니다. 
 
-    ><bpt id="p1">**</bpt>Note:<ept id="p1">**</ept> A new PowerShell window will open and you will see resolve errors. This is expected.
+    >**참고:** 새 PowerShell 창이 열리고 오류 해결이 표시됩니다. 예상된 동작입니다.
 
     ```CommandPrompt
     Start PowerShell.exe -file c2.ps1
     ```
 
-><bpt id="p1">**</bpt>Important:<ept id="p1">**</ept> Do not close these windows. Let this PowerShell script run in the background. The command needs to generate log entries for some hours. You can proceed to the next task and next exercises while this script runs. The data created by this task will be used in the Threat Hunting lab later. This process will not create substantial amounts of data or processing.
+>**중요:** 이 창을 닫지 마세요. 이 PowerShell 스크립트를 백그라운드에서 실행하겠습니다. 명령이 몇 시간 동안 로그 항목을 생성해야 합니다. 이 스크립트가 실행되는 동안 다음 작업과 다음 연습을 진행해도 됩니다. 이 작업에서 생성되는 데이터를 나중에 위협 헌팅 랩에서 사용합니다. 이 프로세스에서 대량의 데이터가 작성되거나 처리되지는 않습니다.
 
 
 ### <a name="task-2-attack-windows-configured-with-microsoft-sentinel-connector"></a>작업 2: Microsoft Sentinel 커넥터로 구성된 Windows 공격
 
 이 작업에서는 Microsoft Sentinel의 보안 이벤트 커넥터가 있는 호스트에서 공격을 수행합니다.
 
-><bpt id="p1">**</bpt>Important:<ept id="p1">**</ept> The next steps are done in a different machine than the one you were previously working. Look for the Virtual Machine name references.
+>**중요:** 다음 단계는 이전에 작업한 컴퓨터와는 다른 컴퓨터에서 수행합니다. 가상 머신 이름 참조를 찾습니다.
 
 1. WIN2 가상 머신에 Admin으로 로그인합니다. 암호로는 **Pa55w.rd**를 사용하여 로그인합니다.  
 
 >**중요:** 랩 저장 기능으로 인해 Azure Arc에서 Win2가 분리될 수 있습니다.  재부팅하면 문제가 해결됩니다.  
 
-1. Select <bpt id="p1">**</bpt>Start<ept id="p1">**</ept> in Windows. Then <bpt id="p1">**</bpt>Power<ept id="p1">**</ept>, next <bpt id="p2">**</bpt>Restart<ept id="p2">**</ept>
+1. Windows에서 **시작**을 선택합니다. 그런 다음 **전원**과 **다시 시작**을 차례로 선택합니다.
 1. 지침에 따라 WIN2에 다시 로그인합니다.
 
 
-1. In the search of the task bar, enter <bpt id="p1">*</bpt>Command<ept id="p1">*</ept>. Command Prompt will be displayed in the search results. Right-click on the Command Prompt and select <bpt id="p1">**</bpt>Run as Administrator<ept id="p1">**</ept>. Select <bpt id="p1">**</bpt>Yes<ept id="p1">**</ept> in the User Account Control window that appears to allow the app to run. <bpt id="p1">**</bpt>Hint:<ept id="p1">**</ept> You might have a Command Prompt as Administrator open from a previous exercise.
+1. 작업 표시줄의 검색 창에 *명령*을 입력합니다. 검색 결과에 명령 프롬프트가 표시됩니다. 명령 프롬프트를 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택합니다. 표시되는 사용자 계정 컨트롤 창에서 **예**를 선택하여 앱을 실행할 수 있도록 합니다. **힌트:** 이전 연습에서 관리자 권한으로 명령 프롬프트가 열려 있을 수 있습니다.
 
-1. In the Command Prompt, create a Temp folder in the root directory. Remember to press Enter after the last row:
+1. 명령 프롬프트에서 루트 디렉터리에 Temp 폴더를 만듭니다. 마지막 행 후에 Enter 키를 눌러야 합니다.
 
     ```CommandPrompt
     cd \
@@ -130,7 +130,7 @@ lab:
 
 #### <a name="attack-2---user-add-and-elevate-privilege"></a>공격 2 - 사용자 추가 및 권한 상승
 
-1. 작업 표시줄의 검색 창에 *명령*을 입력합니다.
+1. 이 명령을 복사하고 실행하여 관리자 계정 만들기를 시뮬레이션합니다. 마지막 행 후에 Enter 키를 눌러야 합니다.
 
     ```CommandPrompt
     net user theusernametoadd /add

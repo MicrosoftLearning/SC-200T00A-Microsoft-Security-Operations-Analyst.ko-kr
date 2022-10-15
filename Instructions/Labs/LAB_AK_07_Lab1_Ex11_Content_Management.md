@@ -8,7 +8,7 @@ lab:
 
 ## <a name="lab-scenario"></a>랩 시나리오
 
-You are a Security Operations Analyst working at a company that implemented Microsoft Sentinel. You already created Scheduled and Microsoft Security Analytics rules.  You need to centralize analytical rules in an Azure DevOps repository.  Then connect Sentinel to the Azure DevOps repository and import the content. 
+당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다. 예약됨 및 Microsoft 보안 분석 규칙을 이미 만들었습니다.  Azure DevOps 리포지토리에서 분석 규칙을 중앙 집중화해야 합니다.  그런 다음 Sentinel을 Azure DevOps 리포지토리에 연결하고 콘텐츠를 가져옵니다. 
 
 
 ### <a name="task-1-create-and-export-an-analytical-rule"></a>작업 1: 분석 규칙을 만들고 내보내기
@@ -39,13 +39,13 @@ You are a Security Operations Analyst working at a company that implemented Micr
 
 1. 규칙 쿼리에 다음 KQL 문을 붙여넣습니다.
 
-    ><bpt id="p1">**</bpt>Warning:<ept id="p1">**</ept> When using the Paste function to the virtual machine extra (pipe) characters could be added. Make sure you use Notepad first to paste the following query.
+    >**경고:** 가상 머신에 붙여넣기 함수를 사용하는 경우 추가(파이프) 문자를 추가할 수 있습니다. 먼저 메모장 사용하여 다음 쿼리를 붙여넣는지 확인합니다.
 
     ```KQL
     SecurityEvent | where EventID == 4732
     ```
 
-1. Select <bpt id="p1">**</bpt>View query results<ept id="p1">**</ept>. You should not receive any results nor any errors. If you receive an error, please review that the query appears just like the previous KQL statement. Close the <bpt id="p1">*</bpt>Logs<ept id="p1">*</ept> window by selecting the upper right <bpt id="p2">**</bpt>X<ept id="p2">**</ept> and select <bpt id="p3">**</bpt>OK<ept id="p3">**</ept> to discard to save changes to go back to the wizard.
+1. **쿼리 결과 보기**를 선택합니다. 결과나 오류를 수신해서는 안 됩니다. 오류가 발생하면 쿼리가 이전 KQL 문과 같이 표시되는지 검토하세요. 오른쪽 위 **X**를 선택하여 로그 창을 닫고 **확인**을 선택하여 취소하고 변경 내용을 저장하여 마법사로 돌아갑니다.
 
 
 1. 아래로 스크롤하여 쿼리 예약에서 다음을 설정합니다.
@@ -55,7 +55,7 @@ You are a Security Operations Analyst working at a company that implemented Micr
     |쿼리 실행 간격|5분|
     |마지막부터 데이터 보기|1일|
 
-    ><bpt id="p1">**</bpt>Note:<ept id="p1">**</ept> We are purposely generating many incidents for the same data. This enables the Lab to use these alerts.
+    >**참고:** 같은 데이터에 대해 의도적으로 여러 인시던트를 생성합니다. 그러면 랩에서 해당 경고를 사용할 수 있기 때문입니다.
 
 1. 경고 임계값 영역에서 경고가 모든 이벤트를 등록하도록 하므로 값을 변경하지 않고 그대로 둡니다.
 
@@ -82,19 +82,19 @@ You are a Security Operations Analyst working at a company that implemented Micr
 1. **Azure DevOps 로그인** 링크 선택
 1. On the *몇 가지 추가 정보를 입력해 주세요* 페이지에서 **계속**을 선택합니다.
 1. *Azure DevOps 시작* 페이지에서 **계속**을 선택합니다.
-1. 당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다.  
+1. 거의 완료된 페이지에서 DevOps 조직의 이름을 입력합니다.  나중에 사용하지 않으려는 이름을 사용합니다.  
 
 1. 표시되는 문자를 입력한 다음 **계속**합니다.
-1. 예약됨 및 Microsoft 보안 분석 규칙을 이미 만들었습니다.
+1. 시작할 프로젝트 만들기 페이지에서 **내 Sentinel 콘텐츠**를 입력합니다. 그런 다음, **프로젝트 만들기**를 선택합니다.
 1. **보고서**로 이동합니다.
 1. README 또는 gitignore를 사용하여 기본 분기 초기화 영역의 페이지 아래쪽에서 **초기화**를 선택합니다.
-1. Azure DevOps 리포지토리에서 분석 규칙을 중앙 집중화해야 합니다.
-1. 그런 다음 Sentinel을 Azure DevOps 리포지토리에 연결하고 콘텐츠를 가져옵니다.
+1. 페이지에 리포지토리에 대한 파일이 표시됩니다.  유일한 파일은 README.me
+1. 파일(페이지 오른쪽) 블레이드의 도구 모음에는 *빌드 설정*, *복제* 및 **:** 옵션이 포함됩니다.  **:** 를 선택하여 더 많은 옵션을 표시합니다.
 1. **파일 업로드**를 선택합니다.
 1. **찾아보기**를 선택하고 다운로드 디렉터리에서 **Azure_Sentinel_analytic_rule.json** 파일을 선택합니다.
 1. **커밋**을 선택합니다.
 1. 
-1. Select <bpt id="p1">**</bpt>Azure DevOps<ept id="p1">**</ept> on the top left corner of the page.  This display your organization and projects.
+1. 페이지의 왼쪽 위 모서리에서 **Azure DevOps**를 선택합니다.  조직 및 프로젝트가 표시됩니다.
 1. 페이지 왼쪽 아래에서 **조직 설정**을 선택합니다.
 1. 보안 영역에서 **정책**을 선택합니다.
 1. 애플리케이션 연결 정책 영역에서 OAuth를 통해 타사 애플리케이션 액세스를 **설정**합니다. 
@@ -107,7 +107,7 @@ You are a Security Operations Analyst working at a company that implemented Micr
 1. 도구 모음에서 **나 추가**를 선택합니다.
 1. 이름에 **My Content**를 입력합니다.
 1. 소스 제어의 경우 **Azure DevOps**를 선택합니다.
-1. Select <bpt id="p1">**</bpt>Authorize<ept id="p1">**</ept>.  Then <bpt id="p1">**</bpt>Accept<ept id="p1">**</ept>.
+1. **권한 부여**를 선택합니다.  그런 다음 **수락**합니다.
 1. 이전에 만든 조직을 선택합니다.
 1. 이전에 만든 프로젝트를 선택합니다.
 1. 이전에 만든 리포지토리를 선택합니다.
@@ -116,9 +116,9 @@ You are a Security Operations Analyst working at a company that implemented Micr
 1. 그런 다음 **만들기**를 선택합니다.
 
 
-1. On the Repositories page, select <bpt id="p1">**</bpt>Refresh<ept id="p1">**</ept>.  Wait until <bpt id="p1">*</bpt>Last deployment status<ept id="p1">*</ept> is <bpt id="p2">*</bpt>Failed<ept id="p2">*</ept>.  
+1. 리포지토리 페이지에서 **새로 고침**을 선택합니다.  마지막 배포 상태가 실패한 상태가 될 때까지 기다립니다.   
 
-><bpt id="p1">**</bpt>Important:<ept id="p1">**</ept> The <bpt id="p2">*</bpt>Failed<ept id="p2">*</ept> status is due to limitations in the hosted lab environment. You would normally see <bpt id="p1">*</bpt>Succeeded<ept id="p1">*</ept>. Then you can see in the <bpt id="p1">*</bpt>Analytics<ept id="p1">*</ept> the imported rule <bpt id="p2">*</bpt>Rule from Azure DevOps<ept id="p2">*</ept>.
+>**중요:** 실패한 상태는 호스트된 랩 환경의 제한으로 인해 발생합니다. 일반적으로 성공이 표시됩니다. 그런 다음 Azure DevOps에서 가져온 규칙을 분석에서 확인할 수 있습니다. 
 
 
 ## <a name="you-have-completed-the-lab"></a>이 랩을 완료했습니다.

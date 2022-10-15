@@ -10,7 +10,7 @@ lab:
 
 ![랩 개요입니다.](../Media/SC-200-Lab_Diagrams_Mod7_L1_Ex3.png)
 
-You are a Security Operations Analyst working at a company that implemented Microsoft Sentinel. You must learn how to detect and mitigate threats using Microsoft Sentinel. After connecting your data sources to Microsoft Sentinel, you create custom analytics rules to help discover threats and anomalous behaviors in your environment.
+당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다. Microsoft Sentinel을 사용하여 위협을 검색하고 완화하는 방법을 파악해야 합니다. 데이터 원본을 Microsoft Sentinel에 연결한 후, 사용자 환경에서 위협 및 비정상적인 동작을 검색하는 데 도움이 되는 사용자 지정 분석 규칙을 만듭니다.
 
 분석 규칙은 사용자 환경에서 특정 이벤트 또는 이벤트 세트를 검색하고, 특정 이벤트 임계값 또는 조건에 도달하면 경고를 생성하고, SOC에서 심사 및 조사를 위해 인시던트를 생성하고, 자동화된 추적 및 수정 프로세스를 통해 위협에 대응합니다.
 
@@ -43,7 +43,7 @@ You are a Security Operations Analyst working at a company that implemented Micr
 
 1. 규칙 쿼리에 다음 KQL 문을 붙여넣습니다.
 
-    ><bpt id="p1">**</bpt>Warning:<ept id="p1">**</ept> When using the Paste function to the virtual machine extra (pipe) characters could be added. Make sure you use Notepad first to paste the following query.
+    >**경고:** 가상 머신에 붙여넣기 함수를 사용하는 경우 추가(파이프) 문자를 추가할 수 있습니다. 먼저 메모장 사용하여 다음 쿼리를 붙여넣는지 확인합니다.
 
     ```KQL
     AuditLogs  
@@ -55,7 +55,7 @@ You are a Security Operations Analyst working at a company that implemented Micr
     | project TimeGenerated, InitiatedByUPN, InitiatedFromIP, TargetUser, TargetRoleName, AADOperationType, OperationName
     ```
 
-1. Select <bpt id="p1">**</bpt>View query results<ept id="p1">**</ept>. You should not receive any results nor any errors. If you receive an error, please review that the query appears just like the previous KQL statement. Close the <bpt id="p1">*</bpt>Logs<ept id="p1">*</ept> window by selecting the upper right <bpt id="p2">**</bpt>X<ept id="p2">**</ept> and select <bpt id="p3">**</bpt>OK<ept id="p3">**</ept> to discard to save changes to go back to the wizard.
+1. **쿼리 결과 보기**를 선택합니다. 결과나 오류를 수신해서는 안 됩니다. 오류가 발생하면 쿼리가 이전 KQL 문과 같이 표시되는지 검토하세요. 오른쪽 위 **X**를 선택하여 로그 창을 닫고 **확인**을 선택하여 취소하고 변경 내용을 저장하여 마법사로 돌아갑니다.
 
 1. “분석 규칙 마법사 - 예약된 새 규칙 만들기” 블레이드의 *경고 보강* 영역에서 **엔터티 매핑**을 선택하고 다음 값을 선택합니다. 
 
@@ -76,7 +76,7 @@ You are a Security Operations Analyst working at a company that implemented Micr
     |쿼리 실행 간격|5분|
     |마지막부터 데이터 보기|1일|
 
-    ><bpt id="p1">**</bpt>Note:<ept id="p1">**</ept> We are purposely generating many incidents for the same data. This enables the Lab to use these alerts.
+    >**참고:** 같은 데이터에 대해 의도적으로 여러 인시던트를 생성합니다. 그러면 랩에서 해당 경고를 사용할 수 있기 때문입니다.
 
 1. 경고 임계값 영역에서 경고가 모든 이벤트를 등록하도록 하므로 값을 변경하지 않고 그대로 둡니다.
 
@@ -92,7 +92,7 @@ You are a Security Operations Analyst working at a company that implemented Micr
 1. 인시던트 자동화 탭에서 **새로 추가**를 선택합니다.
 1. 자동화 규칙 이름에 **계층 2**를 입력합니다.
 1. 작업에서 **소유자 할당**을 선택합니다.
-1. Then select <bpt id="p1">**</bpt>Assign to me<ept id="p1">**</ept>. Then select <bpt id="p1">**</bpt>Apply<ept id="p1">**</ept>.
+1. 그런 다음, **나에게 할당**을 선택합니다. 그런 다음, **적용**을 선택합니다.
 
 1. 하단에서 **다음: 검토 >** 단추를 선택합니다.
   
@@ -103,7 +103,7 @@ You are a Security Operations Analyst working at a company that implemented Micr
 
 이 작업에서는 새 예약된 쿼리 규칙을 테스트합니다.
 
-1. 당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다.
+1. Azure Portal의 검색 창에 *Azure Active Directory*를 입력합니다. 그런 다음 **Azure Active Directory**를 선택합니다.
 
 1. “사용자 - 모든 사용자” 페이지가 표시되도록 관리 영역에서 **사용자**를 선택합니다.
 
@@ -113,7 +113,7 @@ You are a Security Operations Analyst working at a company that implemented Micr
 
 1. 명령 모음에서 **+ 할당 추가**를 선택합니다.
 
-1. Microsoft Sentinel을 사용하여 위협을 검색하고 완화하는 방법을 파악해야 합니다.
+1. 할당 추가 페이지의 멤버 자격 탭의 역할 선택에서 **사용자 관리자**를 선택합니다.   그리고 **추가**를 선택합니다.
 
     >**참고:** 새 역할 할당을 확인하려면 **새로 고침** 단추를 클릭해야 합니다. 
 
@@ -121,7 +121,7 @@ You are a Security Operations Analyst working at a company that implemented Micr
 
 1. “Contoso - 개요” Azure Active Directory 페이지의 *모니터링*에서 **감사 로그**를 선택합니다.
 
-1. 데이터 원본을 Microsoft Sentinel에 연결한 후, 사용자 환경에서 위협 및 비정상적인 동작을 검색하는 데 도움이 되는 사용자 지정 분석 규칙을 만듭니다.
+1. **데이터 내보내기 설정**을 선택합니다. 진단 설정 정보를 검토하여 Microsoft Sentinel의 “Azure Active Directory” 데이터 커넥터가 Log Analytics 작업 영역으로 데이터를 전송하도록 구성을 올바르게 설정했는지 확인합니다.
 
 1. 이전에 Sentinel용으로 만든 Log Analytics 작업 영역에 대한 진단 설정 항목이 있는지 검토합니다. 
 
@@ -135,10 +135,10 @@ You are a Security Operations Analyst working at a company that implemented Micr
 
 1. **인시던트** 메뉴 옵션을 선택합니다.
 
-    ><bpt id="p1">**</bpt>Note:<ept id="p1">**</ept> The alert triggered may take 5+ minutes to process. You may continue with the next exercise and return to this point later. For automatic updating of the Incidents page, select the <bpt id="p1">**</bpt>Auto-refresh incidents<ept id="p1">**</ept> toggle.
+    >**참고:** 트리거된 경고를 처리하는 데 5분 정도 걸릴 수 있습니다. 다음 연습을 계속 진행하다가 나중에 이 지점으로 돌아와도 됩니다. 인시던트 페이지를 자동으로 업데이트하려면 **인시던트 자동 새로 고침** 토글을 선택합니다.
 
-1. You should see the newly created Incident. Select the Incident and review the information in the right blade.
+1. 새로 만든 인시던트가 표시됩니다. 인시던트를 선택하고 오른쪽 블레이드의 정보를 검토합니다.
 
-1. Go back to Microsoft Teams by selecting the tab in your Edge browser. If you closed it, just open a new tab and type <ph id="ph1">https://teams.microsoft.com</ph>. Go to the <bpt id="p1">*</bpt>SOC<ept id="p1">*</ept> Teams, select the <bpt id="p2">*</bpt>New Alerts<ept id="p2">*</ept> channel and see the message post about the incident.
+1. Edge 브라우저에서 탭을 선택하여 Microsoft Teams로 돌아갑니다. 닫은 경우 새 탭을 열고 https://teams.microsoft.com 을 입력합니다. *SOC* Teams로 이동하여 새 경고 채널을 선택하고 인시던트에 대한 메시지 게시물을 확인합니다.
 
 ## <a name="proceed-to-exercise-4"></a>연습 4 계속 진행

@@ -9,9 +9,9 @@ lab:
 ## <a name="lab-scenario"></a>랩 시나리오
 
 
-You are a Security Operations Analyst working at a company that implemented Microsoft Sentinel. You already created Scheduled and Microsoft Security Analytics rules. The Fusion and Anomalies Analytics rules are also enabled in your environment. Now is the time to investigate the Incidents created by them.
+당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다. 예약됨 및 Microsoft 보안 분석 규칙을 이미 만들었습니다. 퓨전 및 변칙 분석 규칙도 환경에서 사용할 수 있습니다. 이제 규칙에 따라 만들어진 인시던트를 조사하겠습니다.
 
-An incident can include multiple alerts. It is an aggregation of all the relevant evidence for a specific investigation. The properties related to the alerts, such as severity and status, are set at the incident level. After you let Microsoft Sentinel know what kinds of threats you are looking for and how to find them, you can monitor detected threats by investigating incidents.
+인시던트는 여러 경고를 포함할 수 있습니다. 이는 특정 조사에 대한 모든 관련 증거를 집계한 것입니다. 심각도 및 상태와 같은 경고와 관련된 속성은 인시던트 수준에서 설정됩니다. Microsoft Sentinel이 사용자가 찾고 있는 위협의 종류와 찾는 방법을 파악하면 사용자는 인시던트를 조사하여 탐지된 위협을 모니터링할 수 있습니다.
 
 
 ### <a name="task-1-investigate-an-incident"></a>작업 1: 인시던트 조사
@@ -34,11 +34,11 @@ An incident can include multiple alerts. It is an aggregation of all the relevan
 
 1. 인시던트 목록을 검토합니다.
 
-    ><bpt id="p1">**</bpt>Note:<ept id="p1">**</ept> The Analytics rules are generating alerts and incidents on the same specific log entry. Remember that this was done in the <bpt id="p1">*</bpt>Query scheduling<ept id="p1">*</ept> configuration to generate more alerts and incidents to be utilized in the lab.
+    >**참고:** 분석 규칙은 동일한 특정 로그 항목에 관한 경고와 인시던트를 생성합니다. 이 작업은 랩에서 사용할 더 많은 경고와 인시던트를 생성하기 위해 쿼리 예약 구성에서 수행되었습니다.
   
 1. *MDE Startup RegKey* 인시던트 중 하나를 선택합니다.
 
-1. Review the incident details on the right blade that opened. Scroll down and select the <bpt id="p1">**</bpt>View full details<ept id="p1">**</ept> button.
+1. 열린 오른쪽 블레이드에서 인시던트 세부 정보를 검토합니다. 아래로 스크롤하여 **전체 세부 정보 보기** 단추를 선택합니다.
 
 1. 인시던트 왼쪽 블레이드에서 상태를 **활성**으로 변경한 다음, **적용**을 선택합니다.
 
@@ -48,24 +48,24 @@ An incident can include multiple alerts. It is an aggregation of all the relevan
 
 1. 설명 상자에 조사할 내용입니다.를 입력하고 **설명** 단추를 선택하여 새 설명을 제출합니다.
 
-1. 당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다.
+1. **엔터티** 탭을 선택하고 이전 연습의 KQL 쿼리 내에서 매핑한 계정 및 호스트 엔터티를 검토합니다.  **힌트:** 엔터티가 표시되지 않으면 페이지를 새로 고칩니다.
 
-1. 예약됨 및 Microsoft 보안 분석 규칙을 이미 만들었습니다.
+1. **경고** 탭을 선택합니다. *MDE Startup RegKey* 경고의 경우 막대를 사용하여 오른쪽으로 밀고 **플레이북 보기** 링크를 확인합니다. 이렇게 하면 분석 규칙 내의 자동화된 응답 탭에서 트리거하는 대신 경고에서 플레이북을 수동으로 실행할 수 있습니다.
 
-1. 퓨전 및 변칙 분석 규칙도 환경에서 사용할 수 있습니다.
+1. 왼쪽 창에서 아래로 스크롤하여 **조사** 단추를 선택합니다. **힌트:** 화면에 아이콘이 너무 작으면 **(+)** 를 선택하여 확대합니다.
 
-1. 이제 규칙에 따라 만들어진 인시던트를 조사하겠습니다.
+1. **WIN1** 엔터티 아이콘을 선택하고 새 탐색 쿼리가 표시될 때까지 기다립니다. 관련 경고에 더 많은 데이터가 있는 것 같습니다. 탐색 쿼리 **관련 경고**의 이름을 선택하여 조사 그래프로 가져오거나 **이벤트 >** 를 선택하여 KQL 쿼리를 사용하여 조사합니다.
 
-1.  When you select an entity, a window on the right opens for more detailed information. Review the <bpt id="p1">**</bpt>Info<ept id="p1">**</ept> page.
+1.  엔터티를 선택하면 오른쪽 창이 열리고 더 자세한 정보가 표시됩니다. **정보** 페이지를 검토합니다.
 
-1. 인시던트는 여러 경고를 포함할 수 있습니다.
+1. **타임라인** 단추를 선택합니다. 처음 두 인시던트를 가리키고 그래프에서 어떤 시점에 어떤 것이 발생했는지 확인합니다.
 
 1. **엔터티** 단추를 선택하고 *WIN1*과 관련된 엔터티 및 경고를 검토합니다. 
 
 1. 페이지 오른쪽 위에 있는 **X**를 선택하여 조사 그래프를 닫습니다.
 
-1. 이는 특정 조사에 대한 모든 관련 증거를 집계한 것입니다.
+1. 인시던트 페이지로 돌아가서 왼쪽 창에서 **할당되지 않은 소유자**를 선택하고, **내게 할당**을 선택한 다음, **적용**을 선택합니다. 이제 계정이 인시던트 소유자로 표시됩니다.
 
-1. 심각도 및 상태와 같은 경고와 관련된 속성은 인시던트 수준에서 설정됩니다.
+1. 마지막으로, **활성 상태**를 선택하고 **닫힘**을 선택합니다. 분류 선택에서 다양한 옵션을 검토합니다. 그런 다음, **진양성 - 의심스러운 활동**을 선택한 다음, **적용**을 선택합니다.
 
 ## <a name="proceed-to-exercise-9"></a>연습 9 계속 진행

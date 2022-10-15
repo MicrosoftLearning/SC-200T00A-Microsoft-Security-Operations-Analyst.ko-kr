@@ -10,7 +10,7 @@ lab:
 
 ![랩 개요입니다.](../Media/SC-200-Lab_Diagrams_Mod6_L1_Ex1.png)
 
-You are a Security Operations Analyst working at a company that implemented Microsoft Sentinel. You must learn how to connect log data from the many data sources in your organization. The organization has data from Microsoft 365, Microsoft 365 Defender, Azure resources, non-azure virtual machines, etc. You start connecting the Microsoft sources first.
+당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다. 조직에 있는 많은 데이터 원본의 로그 데이터를 연결하는 방법을 알아야 합니다. 조직에는 Microsoft 365, Microsoft 365 Defender, Azure 리소스, 비 Azure 가상 머신 등의 데이터가 있습니다. 먼저 Microsoft 원본 연결을 시작합니다.
 
 
 ### <a name="task-1-access-the-microsoft-sentinel-workspace"></a>작업 1: Microsoft Sentinel 작업 영역에 액세스
@@ -36,7 +36,7 @@ You are a Security Operations Analyst working at a company that implemented Micr
 
 이 작업에서는 Microsoft Sentinel에 Azure Active Directory 커넥터를 연결합니다.
 
-1. Under the Configuration area select <bpt id="p1">**</bpt>Data connectors<ept id="p1">**</ept>. In the Data Connectors page, search for the <bpt id="p1">**</bpt>Azure Active Directory<ept id="p1">**</ept> connector and select it from the list.
+1. 구성 영역에서 **데이터 커넥터**를 선택합니다. 데이터 커넥터 페이지에서 **Azure Active Directory** 커넥터를 검색하고 목록에서 선택합니다.
 
 1. 커넥터 정보 블레이드에서 **커넥터 페이지 열기**를 선택합니다.
 
@@ -66,7 +66,7 @@ You are a Security Operations Analyst working at a company that implemented Micr
 
 1. 이제 “상태”가 연결됨으로 설정되고 “양방향 동기화”가 사용으로 설정됩니다. 
 
-1. Scroll down and under the "Create incidents - Recommended!" area, select <bpt id="p1">**</bpt>Enable<ept id="p1">**</ept>. This option creates an Analytics rule automatically for this service. You can manually add it later if not enabled here or change its configuration within the <bpt id="p1">*</bpt>Analytics<ept id="p1">*</ept> blade.
+1. 아래로 스크롤하여 “인시던트 만들기 - 권장됨!” 영역에서 **사용**을 선택합니다. 이 옵션은 해당 서비스에 대한 분석 규칙을 자동으로 만듭니다. 여기서 사용되지 않는 경우 나중에 수동으로 추가하거나, 분석 블레이드 내에서 해당 구성을 변경할 수 있습니다.
 
 
 ### <a name="task-5-connect-the-microsoft-365-defender-connector"></a>작업 5: Microsoft 365 Defender 커넥터 연결
@@ -94,7 +94,7 @@ You are a Security Operations Analyst working at a company that implemented Micr
 
 1. 커넥터 정보 블레이드에서 **커넥터 페이지 열기**를 선택합니다.
 
-1. In the Configuration area, scroll down and under "2. Connect your subscriptions..." select <bpt id="p1">**</bpt>Launch Azure Policy Assignment Wizard&gt;<ept id="p1">**</ept>.
+1. 구성 영역에서 아래로 스크롤하고 “2. 구독 연결...”에서 **Azure Policy 할당 마법사 시작>** 을 선택합니다.
 
 1. **기본 사항** 탭의 **범위** 아래에서 줄임표 단추(...)를 선택하고, 드롭다운 목록에서 “Azure Pass - 스폰서쉽” 구독을 선택하고, **선택**을 클릭합니다.
 
