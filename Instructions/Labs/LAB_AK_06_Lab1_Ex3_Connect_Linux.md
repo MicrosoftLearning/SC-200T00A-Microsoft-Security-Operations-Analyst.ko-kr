@@ -98,36 +98,36 @@ lab:
 
 1. *Linux용 에이전트 다운로드 및 설치* 영역의 명령을 클립보드에 복사합니다.
 
-1. LIN2 가상 머신을 시작합니다. 랩 호스터가 제공한 암호로 사용자 이름으로 로그인합니다. **힌트:** 로그인 프롬프트를 보려면 Enter 키를 눌러야 할 수 있습니다.
+1. LIN2 가상 머신을 시작합니다.
 
-1. LIN2 서버의 IP 주소를 적어 둡니다. 아래 스크린샷을 예제로 참조하세요.
+1. 랩 호스터가 제공한 암호로 사용자 이름으로 로그인합니다. **힌트:** 로그인 프롬프트를 보려면 Enter 키를 눌러야 할 수 있습니다. LIN2 서버의 IP 주소를 적어 둡니다.
 
-    ![linux 로그인](../Media/LinuxLoginExample.png)
+1. 아래 스크린샷을 예제로 참조하세요. linux 로그인
 
-1. **WIN1** 가상 머신으로 돌아갑니다. 이전 작업에 사용된 Windows PowerShell을 선택합니다.
+    ![**WIN1** 가상 머신으로 돌아갑니다.](../Media/LinuxLoginExample.png)
 
-1. 구체적인 Linux 서버 정보에 맞게 다음 PowerShell 명령을 수정하여 입력하고 Enter 키를 누릅니다.
+1. 이전 작업에 사용된 Windows PowerShell을 선택합니다. 구체적인 Linux 서버 정보에 맞게 다음 PowerShell 명령을 수정하여 입력하고 Enter 키를 누릅니다.
+
+1. 예를 입력하여 연결을 확인한 다음, 사용자의 암호를 입력하고 Enter 키를 누릅니다.
 
     ```PowerShell
     ssh insert-your-linux-IP-address-here -l insert-linux-user-name-here
     ```
 
-1. 예를 입력하여 연결을 확인한 다음, 사용자의 암호를 입력하고 Enter 키를 누릅니다. 화면이 이제 다음과 같이 표시됩니다.
+1. 화면이 이제 다음과 같이 표시됩니다. linux 로그인
 
-    ![linux 로그인](../Media/PSconnectLinux.png)
+    ![이제 이전 단계의 Linux용 에이전트 다운로드 및 설치 명령을 붙여넣을 준비가 되었습니다.](../Media/PSconnectLinux.png)
 
-1. 이제 이전 단계의 Linux용 에이전트 다운로드 및 설치 명령을 붙여넣을 준비가 되었습니다. 스크립트가 클립보드에 있는지 확인합니다. PowerShell에서 상단 표시줄을 마우스 오른쪽 단추로 클릭하고 **편집**, **붙여넣기**를 차례로 선택합니다.
+1. 스크립트가 클립보드에 있는지 확인합니다. PowerShell에서 상단 표시줄을 마우스 오른쪽 단추로 클릭하고 **편집**, **붙여넣기**를 차례로 선택합니다. 스크립트를 붙여넣은 후에 Enter 키를 누릅니다.
 
-1. 스크립트를 붙여넣은 후에 Enter 키를 누릅니다. 스크립트가 Linux 서버에 대해 원격으로 실행됩니다. 연결 시도 간격
+1. 스크립트가 Linux 서버에 대해 원격으로 실행됩니다. 연결 시도 간격 완료되면 **종료**를 입력하여 LIN2에 대한 원격 셸 연결을 닫습니다.
 
-1. 완료되면 **종료**를 입력하여 LIN2에 대한 원격 셸 연결을 닫습니다.
+1. 작업 4: Syslog 커넥터용으로 수집할 기능 및 해당 심각도 구성
 
 
-### <a name="task-4-configure-the-facilities-you-want-to-collect-and-their-severities-for-the-syslog-connector"></a>작업 4: Syslog 커넥터용으로 수집할 기능 및 해당 심각도 구성
+### <a name="task-4-configure-the-facilities-you-want-to-collect-and-their-severities-for-the-syslog-connector"></a>이 작업에서는 Syslog 수집 기능을 구성합니다.
 
-이 작업에서는 Syslog 수집 기능을 구성합니다.
-
-1. Microsoft Sentinel 포털이 열려 있는 Edge 브라우저로 돌아가서 오른쪽 위 모서리에서 ‘x’를 두 번 선택하여 “Log Analytics 작업 영역” 페이지와 “Syslog” 데이터 커넥터 페이지를 닫습니다.
+Microsoft Sentinel 포털이 열려 있는 Edge 브라우저로 돌아가서 오른쪽 위 모서리에서 ‘x’를 두 번 선택하여 “Log Analytics 작업 영역” 페이지와 “Syslog” 데이터 커넥터 페이지를 닫습니다.
 
 1. Microsoft Sentinel 포털의 구성에서 **설정** 선택한 다음, **작업 영역 설정** 탭을 선택합니다.
 
@@ -145,4 +145,6 @@ lab:
 
 1. **적용**을 선택하여 변경 내용을 저장합니다.
 
-## <a name="proceed-to-exercise-4"></a>연습 4 계속 진행
+1. 연습 4 계속 진행
+
+## <a name="proceed-to-exercise-4"></a>Proceed to Exercise 4
