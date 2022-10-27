@@ -140,7 +140,6 @@ lab:
 
     >이 과정은 몇 분 정도 걸릴 수 있습니다.
 
-
 ### <a name="task-5-protect-an-on-premises-server"></a>작업 5: 온-프레미스 서버 보호
 
 이 작업에서는 **WINServer** 가상 머신에 필요한 에이전트를 수동으로 설치합니다.

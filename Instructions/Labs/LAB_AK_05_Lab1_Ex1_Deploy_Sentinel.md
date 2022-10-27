@@ -127,15 +127,21 @@ lab:
     ThreatIntelligenceIndicator | project DomainName
     ```
 
+
 ### <a name="task-4-configure-log-retention"></a>작업 4: 로그 보존 구성
 
 이 작업에서는 SecurityEvent 테이블의 보존 기간을 변경합니다.
 
 1. Microsoft Sentinel의 구성 영역에서 **설정** 옵션을 선택합니다.
+
 1. **작업 영역 설정**을 선택합니다.
+
 1. Log Analytics 작업 영역의 설정 영역에서 **테이블(미리 보기)** 옵션을 선택합니다.
+
 1. 테이블 이름 **SecurityEvent**를 선택한 다음 **...** 를 선택합니다.
+
 1. **테이블 관리**를 선택합니다.
+
 1. 총 보존 기간은 **180일**을 선택합니다. 그런 다음, **저장**합니다.
 
 

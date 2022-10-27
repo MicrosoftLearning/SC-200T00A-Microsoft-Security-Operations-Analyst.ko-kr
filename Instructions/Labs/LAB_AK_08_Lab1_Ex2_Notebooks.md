@@ -76,6 +76,8 @@ lab:
 
 1. 명령 모음에서 **지우개** 아이콘을 선택하여 Notebook의 모든 결과를 지우고 시작 자습서를 따릅니다.
 
->**참고:** 위 단계를 완료하여 Notebook에 액세스할 수 없는 경우에는 대신 GitHub 페이지에서 수행할 수 있습니다. 다음 페이지의 Notebook을 참조하세요. [GitHub의 Microsoft Sentinel Notebooks](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/8122bca32387d60a8ee9c058ead9d3ab8f4d61e6/A%20Getting%20Started%20Guide%20For%20Azure%20Sentinel%20ML%20Notebooks.ipynb) 
+1. **참고:** 위 단계를 완료하여 Notebook에 액세스할 수 없는 경우에는 대신 GitHub 페이지에서 수행할 수 있습니다. 다음 페이지의 Notebook을 참조하세요. [GitHub의 Microsoft Sentinel Notebooks](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/8122bca32387d60a8ee9c058ead9d3ab8f4d61e6/A%20Getting%20Started%20Guide%20For%20Azure%20Sentinel%20ML%20Notebooks.ipynb)
 
-## <a name="you-have-completed-the-lab"></a>이 랩을 완료했습니다.
+>이 랩을 완료했습니다. See the notebook file here: <bpt id="p1">[</bpt>Microsoft Sentinel Notebooks on GitHub<ept id="p1">](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/8122bca32387d60a8ee9c058ead9d3ab8f4d61e6/A%20Getting%20Started%20Guide%20For%20Azure%20Sentinel%20ML%20Notebooks.ipynb)</ept> 
+
+## <a name="you-have-completed-the-lab"></a>You have completed the lab.
