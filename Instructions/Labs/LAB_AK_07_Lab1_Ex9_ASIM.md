@@ -32,7 +32,7 @@ lab:
 
 1. 다운로드한 **SC200_module7_ASIM_Parser_scripts.txt**를 열고 작업 1 스크립트 KQL 문을 복사하여 새 쿼리 탭에 붙여넣습니다.
 
-    >**참고** 아래 표시된 스크립트는 참조용입니다.
+    >**참고:** 아래 스크립트는 참조용으로만 표시됩니다. KQL 쿼리를 검토하는 데 시간이 걸립니다.
 
     ```KQL
     let RegistryType = datatable (TypeCode: string, TypeName: string) [
@@ -116,31 +116,31 @@ lab:
     RegistryEvents_M365D
     ```
 
-1. **참고:** 시간을 내어 KQL 줄을 한 줄씩 검토합니다.
-
 1. **실행**을 선택하여 KQL이 유효한지 확인합니다.
 
 1. **저장**을 선택한 다음, **함수로 저장**을 선택합니다.
 
-    |아래로 스크롤하여 쿼리 예약에서 다음을 설정합니다.|설정|
-    |---|---|
-    |값|함수 이름|
-    |vimRegEvtM365D|레거시 범주|
+1. 함수로 저장에서 다음을 설정합니다.
 
-1. MyASIM
+    |설정|값|
+    |---|---|
+    |함수 이름|vimRegEvtM365D|
+    |레거시 범주|MyASIM|
 
 1. 그런 다음 **저장**을 선택합니다.
 
+1. 새 쿼리 탭에서 **vimRegEvtM365D**를 입력하고 **실행**을 선택합니다.
 
-### <a name="task-2-develop-kql-function-for-securityevent-table"></a>새 쿼리 탭에서 **vimRegEvtM365D**를 입력하고 **실행**을 선택합니다. 
 
-작업 2: SecurityEvent 테이블에 대한 KQL 함수를 개발합니다.
+### <a name="task-2-develop-kql-function-for-securityevent-table"></a>작업 2: SecurityEvent 테이블에 대한 KQL 함수를 개발합니다. 
 
-1. 이 작업에서는 SecurityEvent의 작업 영역 파서인 함수를 만듭니다.
+이 작업에서는 SecurityEvent의 작업 영역 파서인 함수를 만듭니다.
 
 1. 새 쿼리 탭을 만듭니다.
 
-    >다운로드한 **SC200_module7_ASIM_Parser_scripts.txt**를 열고 작업 2 스크립트 KQL 문을 복사하여 새 쿼리 탭에 붙여넣습니다.
+1. 다운로드한 **SC200_module7_ASIM_Parser_scripts.txt**로 돌아가서 작업 2 스크립트 KQL 문을 복사하여 새 쿼리 탭에 붙여넣습니다.
+
+    >**참고:** 아래 스크립트는 참조용으로만 표시됩니다. KQL 쿼리를 검토하는 데 시간이 걸립니다.
 
     ```KQL
     let RegistryType = datatable (TypeCode: string, TypeName: string) [
@@ -228,29 +228,29 @@ lab:
     RegistryEvents
     ```
 
-1. **참고** 아래 표시된 스크립트는 참조용입니다.
-
-1. **참고:** 시간을 내어 KQL 줄을 한 줄씩 검토합니다.
-
 1. **실행**을 선택하여 KQL이 유효한지 확인합니다.
 
-    |**저장**을 선택한 다음, **함수로 저장**을 선택합니다.|아래로 스크롤하여 쿼리 예약에서 다음을 설정합니다.|
-    |---|---|
+1. **저장**을 선택한 다음, **함수로 저장**을 선택합니다.
+
+1. 함수로 저장에서 다음을 설정합니다.
+
     |설정|값|
+    |---|---|
     |함수 이름|vimRegEvtSecurityEvent|
+    |레거시 범주|MyASIM|
 
-1. 레거시 범주
+1. 그런 다음 **저장**을 선택합니다.
 
-1. MyASIM
+1. 새 쿼리 탭에서 **vimRegEvtSecurityEvent**를 입력하고 **실행**을 선택합니다.
 
 
-### <a name="task-3-create-a-unifying-workspace-parser"></a>그런 다음 **저장**을 선택합니다. 
+### <a name="task-3-create-a-unifying-workspace-parser"></a>작업 3: 통합 작업 영역 파서 만들기 
 
-새 쿼리 탭에서 **vimRegEvtSecurityEvent**를 입력하고 **실행**을 선택합니다.  
+이 작업에서는 이전 두 함수를 결합하는 통합 파서 함수를 만듭니다.  
 
-1. 작업 3: 통합 작업 영역 파서 만들기
+1. 새 쿼리 탭을 만듭니다.
 
-1. 이 작업에서는 이전 두 함수를 결합하는 통합 파서 함수를 만듭니다.
+1. 새 쿼리 탭에 다음 KQL 문을 입력합니다.
 
     ```KQL
     union isfuzzy=true
@@ -258,27 +258,27 @@ lab:
     vimRegEvtSecurityEvent
     ```
 
-1. 새 쿼리 탭을 만듭니다.
-
-1. 새 쿼리 탭에 다음 KQL 문을 입력합니다.
-
 1. **실행**을 선택하여 KQL이 유효한지 확인합니다.
 
-    |**저장**을 선택한 다음, **함수로 저장**을 선택합니다.|아래로 스크롤하여 쿼리 예약에서 다음을 설정합니다.|
-    |---|---|
+1. **저장**을 선택한 다음, **함수로 저장**을 선택합니다.
+
+1. 함수로 저장에서 다음을 설정합니다.
+
     |설정|값|
+    |---|---|
     |함수 이름|imRegEvt|
-
-1. 레거시 범주
-
-1. MyASIM
+    |레거시 범주|MyASIM|
 
 1. 그런 다음 **저장**을 선택합니다.
+
+1. 새 쿼리 탭에서 **imRegEvt**를 입력하고 **실행**을 선택합니다.
+
+1. 쿼리를 다음과 같이 업데이트하고 **실행**을 선택합니다.
 
     ```KQL
     imRegEvt
     | where ActionType == 'RegistryValueSet'
     ```
 
-## <a name="proceed-to-exercise-10"></a>새 쿼리 탭에서 **imRegEvt**를 입력하고 **실행**을 선택합니다.
+## <a name="proceed-to-exercise-10"></a>연습 10 계속 진행
 
