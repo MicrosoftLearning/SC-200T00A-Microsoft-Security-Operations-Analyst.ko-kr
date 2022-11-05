@@ -74,10 +74,10 @@ lab:
 
 1. 컴퓨팅이 만들어지고 실행되면 사용할 커널이 *Python 3.8 - AzureML*인지 확인합니다. **힌트:** 명령 모음의 오른쪽에 표시됩니다. *Notebooks* 메뉴에서 **<<** 을 선택하여 화면 크기를 늘릴 수도 있습니다.
 
-1. 명령 모음에서 **지우개** 아이콘을 선택하여 Notebook의 모든 결과를 지우고 시작 자습서를 따릅니다.
+1. **인증** 단추를 선택하고 인증이 완료되기를 기다립니다.
 
-1. **참고:** 위 단계를 완료하여 Notebook에 액세스할 수 없는 경우에는 대신 GitHub 페이지에서 수행할 수 있습니다. 다음 페이지의 Notebook을 참조하세요. [GitHub의 Microsoft Sentinel Notebooks](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/8122bca32387d60a8ee9c058ead9d3ab8f4d61e6/A%20Getting%20Started%20Guide%20For%20Azure%20Sentinel%20ML%20Notebooks.ipynb)
+1. 명령 모음에서 **모든 출력 지우기**를 선택하여 Notebook의 모든 결과를 지우고 시작 자습서를 따릅니다. **힌트:** 명령 모음에서 줄임표(...)를 선택하여 찾을 수 있습니다.
 
->이 랩을 완료했습니다. See the notebook file here: <bpt id="p1">[</bpt>Microsoft Sentinel Notebooks on GitHub<ept id="p1">](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/8122bca32387d60a8ee9c058ead9d3ab8f4d61e6/A%20Getting%20Started%20Guide%20For%20Azure%20Sentinel%20ML%20Notebooks.ipynb)</ept> 
+>**참고:** 위 단계를 완료하여 Notebook에 액세스할 수 없는 경우에는 대신 GitHub 페이지에서 수행할 수 있습니다. 다음 페이지의 Notebook을 참조하세요. [GitHub의 Microsoft Sentinel Notebooks](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/8122bca32387d60a8ee9c058ead9d3ab8f4d61e6/A%20Getting%20Started%20Guide%20For%20Azure%20Sentinel%20ML%20Notebooks.ipynb) 
 
-## <a name="you-have-completed-the-lab"></a>You have completed the lab.
+## <a name="you-have-completed-the-lab"></a>이 랩을 완료했습니다.
