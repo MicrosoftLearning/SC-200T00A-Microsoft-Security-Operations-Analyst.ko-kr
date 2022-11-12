@@ -3,9 +3,6 @@
 이 리포지토리에는 다음 과정용 랩 지침이 포함되어 있습니다.
 
 - SC-200T00: Microsoft 보안 작업 분석가
- 
-
-**[최신 학생 핸드북 및 AllFiles 콘텐츠 다운로드](../../releases/latest)**
 
 **MCT이신가요?** - [MCT를 위한 GitHub 사용자 가이드](https://microsoftlearning.github.io/MCT-User-Guide/)를 살펴보세요.
 
