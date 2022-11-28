@@ -1,12 +1,8 @@
 # <a name="sc-200-microsoft-security-operations-analyst"></a>SC-200: Microsoft Security Operations Analyst
 
-이 리포지토리에는 다음 과정용 랩 지침이 포함되어 있습니다.
-
-- SC-200T00: Microsoft 보안 작업 분석가
-
-**MCT이신가요?** - [MCT를 위한 GitHub 사용자 가이드](https://microsoftlearning.github.io/MCT-User-Guide/)를 살펴보세요.
-
-**랩 지침을 수동으로 빌드해야 하나요?** - 지침은 [MicrosoftLearning/Docker-Build](https://github.com/MicrosoftLearning/Docker-Build) 리포지토리에서 확인할 수 있습니다.
+- **[랩 링크(HTML 형식)](https://microsoftlearning.github.io/SC-200T00A-Microsoft-Security-Operations-Analyst/)**
+- **MCT이신가요?** - [MCT를 위한 GitHub 사용자 가이드](https://microsoftlearning.github.io/MCT-User-Guide/)를 살펴보세요.
+- **랩 지침을 수동으로 빌드해야 하나요?** - 지침은 [MicrosoftLearning/Docker-Build](https://github.com/MicrosoftLearning/Docker-Build) 리포지토리에서 확인할 수 있습니다.
 
 ## <a name="what-are-we-doing"></a>Microsoft의 역할
 
