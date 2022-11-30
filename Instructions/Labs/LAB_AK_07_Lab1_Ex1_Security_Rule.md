@@ -1,10 +1,10 @@
 ---
 lab:
   title: 연습 1 - Microsoft 보안 규칙 수정
-  module: Module 7 - Create detections and perform investigations using Microsoft Sentinel
+  module: Learning Path 7 - Create detections and perform investigations using Microsoft Sentinel
 ---
 
-# <a name="module-7---lab-1---exercise-1---modify-a-microsoft-security-rule"></a>모듈 7 - 랩 1 - 연습 1 - Microsoft 보안 규칙 수정
+# <a name="learning-path-7---lab-1---exercise-1---modify-a-microsoft-security-rule"></a>학습 경로 7 - 랩 1 - 연습 1 - Microsoft 보안 규칙 수정
 
 ## <a name="lab-scenario"></a>랩 시나리오
 

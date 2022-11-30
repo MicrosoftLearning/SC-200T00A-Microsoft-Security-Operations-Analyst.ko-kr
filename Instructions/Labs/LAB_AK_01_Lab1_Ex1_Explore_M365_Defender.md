@@ -1,10 +1,10 @@
 ---
 lab:
   title: 연습 1 - Microsoft 365 Defender 살펴보기
-  module: Module 1 - Mitigate threats using Microsoft 365 Defender
+  module: Learning Path 1 - Mitigate threats using Microsoft 365 Defender
 ---
 
-# <a name="module-1---lab-1---exercise-1---explore-microsoft-365-defender"></a>모듈 1 - 랩 1 - 연습 1 - Microsoft 365 Defender 살펴보기 
+# <a name="learning-path-1---lab-1---exercise-1---explore-microsoft-365-defender"></a>학습 경로 1 - 랩 1 - 연습 1 - Microsoft 365 Defender 살펴보기
 
 ## <a name="lab-scenario"></a>랩 시나리오
 

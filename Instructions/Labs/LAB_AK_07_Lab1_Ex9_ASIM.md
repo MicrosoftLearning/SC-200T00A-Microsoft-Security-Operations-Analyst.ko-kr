@@ -1,10 +1,10 @@
 ---
 lab:
   title: 연습 9 - ASIM 파서 만들기
-  module: Module 7 - Create detections and perform investigations using Microsoft Sentinel
+  module: Learning Path 7 - Create detections and perform investigations using Microsoft Sentinel
 ---
 
-# <a name="module-7---lab-1---exercise-9---create-asim-parsers"></a>모듈 7 - 랩 1 - 연습 9 - ASIM 파서 만들기
+# <a name="learning-path-7---lab-1---exercise-9---create-asim-parsers"></a>학습 경로 7 - 랩 1 - 연습 9 - ASIM 파서 만들기
 
 ## <a name="lab-scenario"></a>랩 시나리오
 

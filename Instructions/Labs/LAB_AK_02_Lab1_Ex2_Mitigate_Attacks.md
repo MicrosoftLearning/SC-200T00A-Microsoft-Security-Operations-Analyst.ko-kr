@@ -1,10 +1,10 @@
 ---
 lab:
   title: 연습 2 - 엔드포인트용 Microsoft Defender를 사용하여 공격 완화
-  module: Module 2 - Mitigate threats using Microsoft Defender for Endpoint
+  module: Learning Path 2 - Mitigate threats using Microsoft Defender for Endpoint
 ---
 
-# <a name="module-2---lab-1---exercise-2---mitigate-attacks-with-microsoft-defender-for-endpoint"></a>모듈 2 - 랩 1 - 연습 2 - 엔드포인트용 Microsoft Defender를 사용하여 위협 완화
+# <a name="learning-path-2---lab-1---exercise-2---mitigate-attacks-with-microsoft-defender-for-endpoint"></a>학습 경로 2 - 랩 1 - 연습 2 - 엔드포인트용 Microsoft Defender를 사용하여 위협 완화
 
 ## <a name="lab-scenario"></a>랩 시나리오
 

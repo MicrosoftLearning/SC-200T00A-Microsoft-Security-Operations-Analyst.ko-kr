@@ -1,10 +1,10 @@
 ---
 lab:
   title: 연습 2 - Microsoft Sentinel이 설치된 Notebooks를 사용하여 위협 헌팅
-  module: Module 8 - Perform threat hunting in Microsoft Sentinel
+  module: Learning Path 8 - Perform threat hunting in Microsoft Sentinel
 ---
 
-# <a name="module-8---lab-1---exercise-2---threat-hunting-using-notebooks-with-microsoft-sentinel"></a>모듈 8 - 랩 1 - 연습 2 - Microsoft Sentinel이 설치된 Notebooks를 사용하여 위협 헌팅
+# <a name="learning-path-8---lab-1---exercise-2---threat-hunting-using-notebooks-with-microsoft-sentinel"></a>학습 경로 8 - 랩 1 - 연습 2 - Microsoft Sentinel이 설치된 Notebooks를 사용하여 위협 헌팅
 
 ## <a name="lab-scenario"></a>랩 시나리오
 
