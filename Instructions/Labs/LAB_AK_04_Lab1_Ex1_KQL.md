@@ -1,10 +1,10 @@
 ---
 lab:
   title: 연습 1 - KQL(Kusto 쿼리 언어)을 사용하여 Microsoft Sentinel에 대한 쿼리 만들기
-  module: Module 4 - Create queries for Microsoft Sentinel using Kusto Query Language (KQL)
+  module: Learning Path 4 - Create queries for Microsoft Sentinel using Kusto Query Language (KQL)
 ---
 
-# <a name="module-4---lab-1---exercise-1---create-queries-for-microsoft-sentinel-using-kusto-query-language-kql"></a>모듈 4 - 랩 1 - 연습 1 - KQL(Kusto 쿼리 언어)을 사용하여 Microsoft Sentinel에 대한 쿼리 만들기
+# <a name="learning-path-4---lab-1---exercise-1---create-queries-for-microsoft-sentinel-using-kusto-query-language-kql"></a>학습 경로 4 - 랩 1 - 연습 1 - KQL(Kusto 쿼리 언어)을 사용하여 Microsoft Sentinel에 대한 쿼리 만들기
 
 ## <a name="lab-scenario"></a>랩 시나리오
 
@@ -33,48 +33,11 @@ lab:
 
 1. 첫 번째 레코드 옆에 있는 **>** 을 선택하여 해당 행의 정보를 펼칩니다.
 
-
 ### <a name="task-2-run-basic-kql-statements"></a>작업 2: 기본 KQL 문 실행
 
 이 작업에서는 기본적인 KQL 문을 작성합니다.
 
 >**중요:**  각 쿼리에 대해 쿼리 창에서 이전 문을 지우거나, 마지막으로 연 탭 뒤에 있는 **+** 를 선택하여 새 쿼리 창을 엽니다(최대 25개).
-
-1. 다음 문에는 **let** 문을 사용하여 변수를 선언하는 방법이 나와 있습니다. 쿼리 창에서 다음 문을 입력하고 **실행**을 선택합니다. 
-
-    ```KQL
-    let timeOffset = 1h;
-    let discardEventId = 4688;
-    SecurityEvent
-    | where TimeGenerated > ago(timeOffset*2) and TimeGenerated < ago(timeOffset)
-    | where EventID != discardEventId
-    ```
-
-1. 다음 문에는 **let** 문을 사용하여 동적 목록을 선언하는 방법이 나와 있습니다. 쿼리 창에서 다음 문을 입력하고 **실행**을 선택합니다. 
-
-    ```KQL
-    let suspiciousAccounts = datatable(account: string) [
-      @"\administrator", 
-      @"NT AUTHORITY\SYSTEM"
-    ];
-    SecurityEvent  
-    | where TimeGenerated > ago(1h)
-    | where Account in (suspiciousAccounts)
-    ```
-
-    >**팁:** 쿼리 창에서 줄임표(...)를 선택하여 쿼리 서식을 간편하게 다시 지정할 수 있으며 **양식 쿼리**를 선택할 수 있습니다.
-    
-1. 다음 문에는 **let** 문을 사용하여 동적 테이블을 선언하는 방법이 나와 있습니다. 쿼리 창에서 다음 문을 입력하고 **실행**을 선택합니다. 
-
-    ```KQL
-    let LowActivityAccounts =
-        SecurityEvent 
-        | summarize cnt = count() by Account 
-        | where cnt < 1000;
-    LowActivityAccounts | where Account contains "sql"
-    ```
-
-1. 쿼리 창에서 **시간 범위**를 **마지막 시간**으로 변경합니다. 이렇게 하면 다음 문에 대한 결과가 제한됩니다.
 
 1. 다음 문은 테이블의 모든 열에서 값을 검색하는 **search** 연산자를 보여 줍니다. 쿼리 창에서 다음 문을 입력하고 **실행**을 선택합니다. 
 
@@ -114,7 +77,44 @@ lab:
     ```KQL
     SecurityEvent  
     | where TimeGenerated > ago(1h) and EventID in (4624, 4625)
+ 
     ```
+
+1. 다음 문에는 **let** 문을 사용하여 변수를 선언하는 방법이 나와 있습니다. 쿼리 창에서 다음 문을 입력하고 **실행**을 선택합니다. 
+
+    ```KQL
+    let timeOffset = 1h;
+    let discardEventId = 4688;
+    SecurityEvent
+    | where TimeGenerated > ago(timeOffset*2) and TimeGenerated < ago(timeOffset)
+    | where EventID != discardEventId
+    ```
+
+1. 다음 문에는 **let** 문을 사용하여 동적 목록을 선언하는 방법이 나와 있습니다. 쿼리 창에서 다음 문을 입력하고 **실행**을 선택합니다. 
+
+    ```KQL
+    let suspiciousAccounts = datatable(account: string) [
+      @"\administrator", 
+      @"NT AUTHORITY\SYSTEM"
+    ];
+    SecurityEvent  
+    | where TimeGenerated > ago(1h)
+    | where Account in (suspiciousAccounts)
+    ```
+
+    >**팁:** 쿼리 창에서 줄임표(...)를 선택하여 쿼리 서식을 간편하게 다시 지정할 수 있으며 **양식 쿼리**를 선택할 수 있습니다.
+
+1. 다음 문에는 **let** 문을 사용하여 동적 테이블을 선언하는 방법이 나와 있습니다. 쿼리 창에서 다음 문을 입력하고 **실행**을 선택합니다. 
+
+    ```KQL
+    let LowActivityAccounts =
+        SecurityEvent 
+        | summarize cnt = count() by Account 
+        | where cnt < 1000;
+    LowActivityAccounts | where Account contains "sql"
+    ```
+
+1. 쿼리 창에서 **시간 범위**를 **마지막 시간**으로 변경합니다. 이렇게 하면 다음 문에 대한 결과가 제한됩니다.
 
 1. 다음 문은 계산 열을 만들고 결과 집합에 추가하는 **extend** 연산자를 보여 줍니다. 쿼리 창에서 다음 문을 입력하고 **실행**을 선택합니다. 
 

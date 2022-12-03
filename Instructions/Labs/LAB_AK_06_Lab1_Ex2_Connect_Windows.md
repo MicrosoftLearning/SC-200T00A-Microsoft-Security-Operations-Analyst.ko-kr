@@ -1,10 +1,10 @@
 ---
 lab:
   title: 연습 2 - 데이터 커넥터를 사용하여 Microsoft Sentinel에 Windows 디바이스 연결
-  module: Module 6 - Connect logs to Microsoft Sentinel
+  module: Learning Path 6 - Connect logs to Microsoft Sentinel
 ---
 
-# <a name="module-6---lab-1---exercise-2---connect-windows-devices-to-microsoft-sentinel-using-data-connectors"></a>모듈 6 - 랩 1 - 연습 2 - 데이터 커넥터를 사용하여 Microsoft Sentinel에 Windows 디바이스 연결
+# <a name="learning-path-6---lab-1---exercise-2---connect-windows-devices-to-microsoft-sentinel-using-data-connectors"></a>학습 경로 6 - 랩 1 - 연습 2 - 데이터 커넥터를 사용하여 Microsoft Sentinel에 Windows 디바이스 연결
 
 ## <a name="lab-scenario"></a>랩 시나리오
 

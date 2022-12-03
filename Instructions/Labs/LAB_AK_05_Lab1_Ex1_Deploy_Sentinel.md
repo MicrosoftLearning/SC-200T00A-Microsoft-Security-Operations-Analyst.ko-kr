@@ -1,10 +1,10 @@
 ---
 lab:
   title: 연습 1 - Microsoft Sentinel 환경 구성
-  module: Module 5 - Configure your Microsoft Sentinel environment
+  module: Learning Path 5 - Configure your Microsoft Sentinel environment
 ---
 
-# <a name="module-5---lab-1---exercise-1---configure-your-microsoft-sentinel-environment"></a>모듈 5 - 랩 1 - 연습 1 - Microsoft Sentinel 환경 구성
+# <a name="learning-path-5---lab-1---exercise-1---configure-your-microsoft-sentinel-environment"></a>학습 경로 5 - 랩 1 - 연습 1 - Microsoft Sentinel 환경 구성
 
 ## <a name="lab-scenario"></a>랩 시나리오
 

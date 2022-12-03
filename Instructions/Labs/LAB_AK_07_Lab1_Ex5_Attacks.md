@@ -1,10 +1,10 @@
 ---
 lab:
   title: 연습 5 - 검색 모델링 이해
-  module: Module 7 - Create detections and perform investigations using Microsoft Sentinel
+  module: Learning Path 7 - Create detections and perform investigations using Microsoft Sentinel
 ---
 
-# <a name="module-7---lab-1---exercise-5---understand-detection-modeling"></a>모듈 7 - 랩 1 - 연습 5 - 검색 모델링 이해
+# <a name="learning-path-7---lab-1---exercise-5---understand-detection-modeling"></a>학습 경로 7 - 랩 1 - 연습 5 - 검색 모델링 이해
 
 ![랩 개요입니다.](../Media/SC-200-Lab_Diagrams_Mod7_L1_Ex4.png)
 ### <a name="task-1-understand-the-attacks"></a>작업 1: 공격 이해

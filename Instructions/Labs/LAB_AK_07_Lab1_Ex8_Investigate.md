@@ -1,10 +1,10 @@
 ---
 lab:
   title: 연습 8 - 인시던트 조사
-  module: Module 7 - Create detections and perform investigations using Microsoft Sentinel
+  module: Learning Path 7 - Create detections and perform investigations using Microsoft Sentinel
 ---
 
-# <a name="module-7---lab-1---exercise-8---investigate-incidents"></a>모듈 7 - 랩 1 - 연습 8 - 인시던트 조사
+# <a name="learning-path-7---lab-1---exercise-8---investigate-incidents"></a>학습 경로 7 - 랩 1 - 연습 8 - 인시던트 조사
 
 ## <a name="lab-scenario"></a>랩 시나리오
 
