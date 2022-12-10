@@ -28,7 +28,7 @@
 
 - 버그, 변경 내용, 개선 사항 및 아이디어를 제출할 수 있습니다.  우리보다 먼저 새 Azure 기능을 찾으셨나요?  새 데모를 제출하세요!
 
-## <a name="notes"></a>참고
+## <a name="notes"></a>메모
 
 ### <a name="classroom-materials"></a>강의 자료
 
