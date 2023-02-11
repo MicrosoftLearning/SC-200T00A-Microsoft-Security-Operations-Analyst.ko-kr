@@ -4,18 +4,18 @@ lab:
   module: Learning Path 6 - Connect logs to Microsoft Sentinel
 ---
 
-# <a name="learning-path-6---lab-1---exercise-3---connect-linux-hosts-to-microsoft-sentinel-using-data-connectors"></a>학습 경로 6 - 랩 1 - 연습 3 - 데이터 커넥터를 사용하여 Microsoft Sentinel에 Linux 호스트 연결
+# 학습 경로 6 - 랩 1 - 연습 3 - 데이터 커넥터를 사용하여 Microsoft Sentinel에 Linux 호스트 연결
 
-## <a name="lab-scenario"></a>랩 시나리오
+## 랩 시나리오
 
 ![랩 개요입니다.](../Media/SC-200-Lab_Diagrams_Mod6_L1_Ex3.png)
 
-당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다. 조직에 있는 많은 데이터 원본의 로그 데이터를 연결하는 방법을 알아야 합니다. 다음 데이터 원본은 CEF(Common Event Formatting) 및 Syslog 커넥터를 사용하는 Linux 가상 머신입니다.
+당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다. 조직에 있는 많은 데이터 원본의 로그 데이터를 연결하는 방법을 알아야 합니다. 다음 데이터 원본은 레거시 에이전트를 통한 CEF(Common Event Formatting) 및 Syslog 커넥터를 사용하는 Linux 가상 머신입니다.
 
 
 >**중요:** 다음 작업에는 서로 다른 가상 머신에서 수행되는 단계가 있습니다. 가상 머신 이름 참조를 찾습니다.
 
-### <a name="task-1-access-the-microsoft-sentinel-workspace"></a>작업 1: Microsoft Sentinel 작업 영역에 액세스
+### 작업 1: Microsoft Sentinel 작업 영역에 액세스
 
 이 작업에서는 Microsoft Sentinel 작업 영역에 액세스합니다.
 
@@ -34,11 +34,11 @@ lab:
 1. 이전 랩에서 만든 Microsoft Sentinel 작업 영역을 선택합니다.
 
 
-### <a name="task-2-connect-a-linux-host-using-the-common-event-format-connector"></a>작업 2: Common Event Format 커넥터를 사용하여 Linux 호스트 연결
+### 작업 2: Common Event Format 커넥터를 사용하여 Linux 호스트 연결
 
-이 작업에서는 CEF(Common Event Format) 커넥터를 사용하여 Microsoft Sentinel에 Linux 호스트를 연결합니다.
+이 작업에서는 레거시 에이전트를 통한 CEF(Common Event Format) 커넥터를 사용하여 Microsoft Sentinel에 Linux 호스트를 연결합니다.
 
-1. Microsoft Sentinel의 구성 영역에서 **데이터 커넥터**를 선택합니다. 데이터 커넥터 탭에서 **CEF(Common Event Format)** 커넥터를 검색하고 목록에서 선택합니다.
+1. Microsoft Sentinel의 구성 영역에서 **데이터 커넥터**를 선택합니다. 데이터 커넥터 탭에서 **레거시 에이전트를 통한 CEF(Common Event Format)** 커넥터를 검색하고 목록에서 선택합니다.
 
 1. 커넥터 정보 블레이드에서 **커넥터 페이지 열기**를 선택합니다.
 
@@ -76,11 +76,11 @@ lab:
 1. **종료**를 입력하여 LIN1에 대한 원격 셸 연결을 닫습니다.
 
 
-### <a name="task-3-connect-a-linux-host-using-the-syslog-connector"></a>작업 3: Syslog 커넥터를 사용하여 Linux 호스트 연결
+### 작업 3: Syslog 커넥터를 사용하여 Linux 호스트 연결
 
 이 작업에서는 Syslog 커넥터를 사용하여 Microsoft Sentinel에 Linux 호스트를 연결합니다.
 
-1. Microsoft Sentinel 포털이 열려 있는 Edge 브라우저로 돌아가서 오른쪽 위 모서리에서 ‘x’를 선택하여 “CEF(Common Event Format)” 데이터 커넥터 페이지를 닫습니다. 
+1. Microsoft Sentinel 포털이 열려 있는 Edge 브라우저로 돌아가서 오른쪽 위 모서리에서 ‘x’를 선택하여 “레거시 에이전트를 통한 CEF(Common Event Format)” 데이터 커넥터 페이지를 닫습니다. 
 
 1. 데이터 커넥터 탭에서 **Syslog** 커넥터를 검색하고 목록에서 선택합니다.
 
@@ -125,7 +125,7 @@ lab:
 1. 완료되면 **종료**를 입력하여 LIN2에 대한 원격 셸 연결을 닫습니다.
 
 
-### <a name="task-4-configure-the-facilities-you-want-to-collect-and-their-severities-for-the-syslog-connector"></a>작업 4: Syslog 커넥터용으로 수집할 기능 및 해당 심각도 구성
+### 작업 4: Syslog 커넥터용으로 수집할 기능 및 해당 심각도 구성
 
 이 작업에서는 Syslog 수집 기능을 구성합니다.
 
@@ -147,4 +147,4 @@ lab:
 
 1. **적용**을 선택하여 변경 내용을 저장합니다.
 
-## <a name="proceed-to-exercise-4"></a>연습 4 계속 진행
+## 연습 4 계속 진행
