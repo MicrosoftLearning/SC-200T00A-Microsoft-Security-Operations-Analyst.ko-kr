@@ -1,12 +1,12 @@
 ---
 lab:
-  title: 연습 3 - 예약된 쿼리 만들기
+  title: 연습 3 - 템플릿에서 예약된 쿼리 만들기
   module: Learning Path 7 - Create detections and perform investigations using Microsoft Sentinel
 ---
 
-# <a name="learning-path-7---lab-1---exercise-3---create-a-scheduled-query"></a>학습 경로 7 - 랩 1 - 연습 3 - 예약된 쿼리 만들기
+# 학습 경로 7 - 랩 1 - 연습 3 - 템플릿에서 예약된 쿼리 만들기
 
-## <a name="lab-scenario"></a>랩 시나리오
+## 랩 시나리오
 
 ![랩 개요입니다.](../Media/SC-200-Lab_Diagrams_Mod7_L1_Ex3.png)
 
@@ -14,8 +14,10 @@ lab:
 
 분석 규칙은 사용자 환경에서 특정 이벤트 또는 이벤트 세트를 검색하고, 특정 이벤트 임계값 또는 조건에 도달하면 경고를 생성하고, SOC에서 심사 및 조사를 위해 인시던트를 생성하고, 자동화된 추적 및 수정 프로세스를 통해 위협에 대응합니다.
 
+>                **참고:** **[대화형 랩 시뮬레이션](https://mslabs.cloudguides.com/guides/SC-200%20Lab%20Simulation%20-%20Create%20a%20scheduled%20query)** 을 사용하여 이 랩을 원하는 속도로 클릭할 수 있습니다. 대화형 시뮬레이션과 호스트된 랩 간에 약간의 차이가 있을 수 있지만 보여주는 핵심 개념과 아이디어는 동일합니다. 
 
-### <a name="task-1-create-a-scheduled-query"></a>작업 1: 예약된 쿼리 만들기
+
+### 작업 1: 예약된 쿼리 만들기
 
 이 작업에서는 예약된 쿼리를 만들고 이를 이전 연습에서 만든 Teams 채널에 연결합니다.
 
@@ -31,43 +33,21 @@ lab:
 
 1. 구성 영역에서 **분석**을 선택합니다.
 
-1. **+ 만들기** 단추를 선택하고 **예약된 쿼리 규칙**을 선택합니다.
+1. 명령 모음의 *규칙 템플릿* 탭에 있는지 확인하고 **새 CloudShell 사용자** 규칙을 검색합니다.
 
-1. 분석 규칙 마법사의 일반 탭에서 Azure AD 역할 할당 감사 내역 이름을 입력합니다.
+1. 규칙 요약 블레이드에서 데이터 *원본: Azure 활동*에서 녹색 아이콘을 검토하여 데이터를 수신하고 있는지 확인합니다.
 
-1. 전술의 경우 **지속성**을 선택합니다.
+    >**참고:** 연결된 상태로 표시되지 않으면 학습 경로 6 랩, 연습 1의 작업 3을 완료했는지 확인합니다.
 
-1. 심각도는 **낮음**을 선택합니다.
+1. **규칙 만들기**를 선택하여 계속합니다.
+
+1. 분석 규칙 마법사의 *일반* 탭에서 *심각도* 를 **보통**으로 변경합니다.
 
 1. **다음: 규칙 논리 설정 >** 단추를 선택합니다.
 
-1. 규칙 쿼리에 다음 KQL 문을 붙여넣습니다.
+1. 규칙 쿼리에 대해 **쿼리 결과 보기를** 선택합니다. 결과나 오류를 수신해서는 안 됩니다.
 
-    >**경고:** 가상 머신에 붙여넣기 함수를 사용하는 경우 추가(파이프) 문자를 추가할 수 있습니다. 먼저 메모장 사용하여 다음 쿼리를 붙여넣는지 확인합니다.
-
-    ```KQL
-    AuditLogs  
-    | where isnotempty(InitiatedBy.user.userPrincipalName) and Result == 'success' and OperationName contains "member to role" and AADOperationType startswith "Assign"
-    | extend InitiatedByUPN = tostring(InitiatedBy.user.userPrincipalName)
-    | extend InitiatedFromIP = iff(tostring(AdditionalDetails.[7].value) == '', tostring(AdditionalDetails.[6].value), tostring(AdditionalDetails.[7].value))
-    | extend TargetUser = tostring(TargetResources.[2].displayName)
-    | extend TargetRoleName = tostring(TargetResources.[0].displayName)
-    | project TimeGenerated, InitiatedByUPN, InitiatedFromIP, TargetUser, TargetRoleName, AADOperationType, OperationName
-    ```
-
-1. **쿼리 결과 보기**를 선택합니다. 결과나 오류를 수신해서는 안 됩니다. 오류가 발생하면 쿼리가 이전 KQL 문과 같이 표시되는지 검토하세요. 오른쪽 위 **X**를 선택하여 로그 창을 닫고 **확인**을 선택하여 취소하고 변경 내용을 저장하여 마법사로 돌아갑니다.
-
-1. “분석 규칙 마법사 - 예약된 새 규칙 만들기” 블레이드의 *경고 보강* 영역에서 **엔터티 매핑**을 선택하고 다음 값을 선택합니다. 
-
-    - 엔터티 유형 드롭다운 목록에서 **Account**를 선택합니다.
-    - 식별자 드롭다운 목록에서 **FullName**을 선택합니다.
-    - 값 드롭다운 목록에서 **InitiatedByUPN**을 선택합니다.
-
-1. 그런 다음, **새 엔터티 추가**를 선택하고 다음 값을 선택합니다.
-
-    - 엔터티 유형 드롭다운 목록에서 **IP**를 선택합니다.
-    - 식별자 드롭다운 목록에서 **Address**를 선택합니다.
-    - 값 드롭다운 목록에서 **InitiatedFromIP**를 선택합니다.
+1. 오른쪽 위 **X**를 선택하여 로그 창을 닫고 **확인**을 선택하여 취소하고 변경 내용을 저장하여 마법사로 돌아갑니다.
 
 1. 아래로 스크롤하여 쿼리 예약에서 다음을 설정합니다.
 
@@ -88,9 +68,7 @@ lab:
 
 1. 하단에서 **다음: 자동화된 응답 >** 단추를 선택합니다.
 
-1. 경고 자동화(클래식) 영역의 자동화된 응답 탭에서 이전 연습에서 만든 *PostMessageTeams-OnAlert* 플레이북을 선택합니다.
-
-1. 자동화 규칙(미리 보기)에서 **새로 추가**를 선택합니다.
+1. *자동화 규칙 아래의 자동화된 응답* 탭에서 **새로 추가를** 선택합니다.**
 
 1. 자동화 규칙 이름에 **계층 2**를 입력합니다.
 
@@ -98,42 +76,28 @@ lab:
 
 1. 그런 다음, **나에게 할당**을 선택합니다. 그런 다음, **적용**을 선택합니다.
 
+1. 아래로 스크롤하여 **경고 자동화(클래식)** 막대를 선택합니다.
+
+1. 드롭다운 메뉴에서 이전 연습에서 만든 **플레이북 PostMessageTeams-OnAlert** 를 선택합니다.
+
 1. 하단에서 **다음: 검토 >** 단추를 선택합니다.
   
 1. **만들기**를 선택합니다.
 
 
-### <a name="task-2-test-our-new-rule"></a>작업 2: 새 규칙 테스트
+### 작업 2: 새 규칙 테스트
 
 이 작업에서는 새 예약된 쿼리 규칙을 테스트합니다.
 
-1. Azure Portal의 검색 창에 *Azure Active Directory*를 입력합니다. 그런 다음 **Azure Active Directory**를 선택합니다.
+1. Azure Portal의 위쪽 막대에서 Cloud Shell 해당하는 아이콘 **>_** 선택합니다. 디스플레이 해상도가 너무 낮으면 먼저 줄임표 아이콘 **(...)** 을 선택해야 할 수 있습니다.
 
-1. “사용자 - 모든 사용자” 페이지가 표시되도록 관리 영역에서 **사용자**를 선택합니다.
+1. **Powershell**을 선택한 다음 **, 스토리지 만들기**를 선택합니다. Cloud Shell 프로비전될 때까지 기다립니다.
 
-1. “Christie Cline - 프로필” 페이지가 표시되도록 목록에서 사용자 **Christie Cline**을 선택합니다.
+1. Azure Cloud Shell 창을 닫습니다.
 
-1. “Christie Cline - 할당된 역할” 페이지가 표시되도록 관리 영역에서 **할당된 역할**을 선택합니다.
+1. Azure Portal 검색 창에 *활동을* 입력한 다음 **활동 로그를** 선택합니다.
 
-1. 명령 모음에서 **+ 할당 추가**를 선택합니다.
-
-1. 디렉터리 역할 블레이드에서 **사용자 관리자**에 대한 확인란을 선택합니다.
-
-1. **추가**를 선택합니다.
-
-1. **새로 고침** 단추를 선택하여 명령 모음을 구성한 후 새 역할 할당을 확인합니다. 
-
-1. 오른쪽 위에 있는 ‘x’를 두 번 선택하여 “Christie Cline - 할당된 역할” 및 “사용자 - 모든 사용자” 페이지를 닫습니다.
-
-1. “Contoso - 개요” Azure Active Directory 페이지의 *모니터링*에서 **감사 로그**를 선택합니다.
-
-1. **데이터 내보내기 설정**을 선택합니다. 진단 설정 정보를 검토하여 Microsoft Sentinel의 “Azure Active Directory” 데이터 커넥터가 Log Analytics 작업 영역으로 데이터를 전송하도록 구성을 올바르게 설정했는지 확인합니다.
-
-1. 이전에 Sentinel용으로 만든 Log Analytics 작업 영역에 대한 진단 설정 항목이 있는지 검토합니다. 
-
-1. 오른쪽 위에서 ‘x’를 선택하여 페이지를 닫습니다.
-
-1. “Contoso - 감사 로그”로 돌아가서 이전에 수행한 역할의 변경을 나타내는 카테고리: RoleManagement에 대한 항목이 표시될 때까지 **새로 고침**을 선택합니다.
+1. *작업 이름* 항목이 표시되는지 확인합니다. **스토리지 계정 키 나열** 및 **스토리지 계정 만들기 업데이트**. 앞에서 검토한 KQL 쿼리가 경고를 생성하기 위해 일치하는 작업입니다. **힌트:** 목록을 업데이트하려면 **새로 고침** 을 선택해야 할 수 있습니다.
 
 1. Azure Portal의 검색 창에 *Sentinel*을 입력하고 **Microsoft Sentinel**을 선택합니다.
 
@@ -145,10 +109,11 @@ lab:
 
 1. 새로 만든 인시던트가 표시됩니다. 
 
-    >**참고:** 경고를 트리거하는 이벤트는 처리하는 데 5분 이상 걸릴 수 있습니다. 다음 연습을 계속 진행하다가 나중에 이 지점으로 돌아와도 됩니다.
+    >**참고:** 경고를 트리거하는 이벤트는 처리하는 데 5분 이상 걸릴 수 있습니다. 다음 연습을 계속하면 나중에 이 보기로 돌아갑니다.
 
 1. 인시던트를 선택하고 오른쪽 블레이드의 정보를 검토합니다.
 
 1. Edge 브라우저에서 탭을 선택하여 Microsoft Teams로 돌아갑니다. 닫은 경우 새 탭을 열고 https://teams.microsoft.com 을 입력합니다. *SOC* Teams로 이동하여 새 경고 채널을 선택하고 인시던트에 대한 메시지 게시물을 확인합니다.
 
-## <a name="proceed-to-exercise-4"></a>연습 4 계속 진행
+
+## 연습 4 계속 진행

@@ -4,24 +4,28 @@ lab:
   module: Learning Path 4 - Create queries for Microsoft Sentinel using Kusto Query Language (KQL)
 ---
 
-# <a name="learning-path-4---lab-1---exercise-1---create-queries-for-microsoft-sentinel-using-kusto-query-language-kql"></a>학습 경로 4 - 랩 1 - 연습 1 - KQL(Kusto 쿼리 언어)을 사용하여 Microsoft Sentinel에 대한 쿼리 만들기
+# 학습 경로 4 - 랩 1 - 연습 1 - KQL(Kusto 쿼리 언어)을 사용하여 Microsoft Sentinel에 대한 쿼리 만들기
 
-## <a name="lab-scenario"></a>랩 시나리오
+## 랩 시나리오
 
 ![랩 개요입니다.](../Media/SC-200-Lab_Diagrams_Mod4_L1_Ex1.png)
 
 당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다. 로그 데이터 분석을 수행하여 악의적인 활동을 검색하고 시각화를 표시하고 위협 헌팅을 수행할 책임이 있습니다. 로그 데이터를 쿼리하려면 KQL(Kusto Query Language)을 사용합니다.
 
+>                **참고:** **[대화형 랩 시뮬레이션](https://mslabs.cloudguides.com/guides/SC-200%20Lab%20Simulation%20-%20Create%20queries%20for%20Microsoft%20Sentinel%20using%20Kusto%20Query%20Language)** 을 사용하여 이 랩을 원하는 속도로 클릭할 수 있습니다. 대화형 시뮬레이션과 호스트된 랩 간에 약간의 차이가 있을 수 있지만 보여주는 핵심 개념과 아이디어는 동일합니다.
+
 >**중요:** 이 랩에서는 많은 KQL 스크립트를 Microsoft Sentinel에 입력합니다. 스크립트는 이 랩의 시작 부분에 있는 파일에 제공되었습니다. 스크립트를 다운로드할 대체 위치는 https://github.com/MicrosoftLearning/SC-200T00A-Microsoft-Security-Operations-Analyst/tree/master/Allfiles 입니다.
 
 
-### <a name="task-1-access-the-kql-testing-area"></a>작업 1: KQL 테스트 영역 액세스
+### 작업 1: KQL 테스트 영역 액세스
 
 이 작업에서는 KQL 문 작성을 연습할 수 있는 Log Analytics 환경에 액세스합니다.
 
 1. **WIN1** 가상 머신에 Admin으로 로그인합니다. 암호로는 **Pa55w.rd**를 사용하여 로그인합니다.  
 
-1. 브라우저에서 https://aka.ms/lademo으로 이동합니다. MOD 관리자 자격 증명을 사용하여 로그인합니다. 
+1. 브라우저에서 https://aka.ms/lademo으로 이동합니다. MOD 관리자 자격 증명을 사용하여 로그인합니다.
+
+1. 표시되는 Log Analytics 비디오 팝업 창을 닫습니다.
 
 1. 화면 왼쪽 탭에 나열되어 있는 사용 가능한 테이블을 살펴봅니다.
 
@@ -31,46 +35,53 @@ lab:
     SecurityEvent
     ```
 
+1. 최대 결과 수(30,000개)에 도달했습니다.
+
+1. 쿼리 창에서 *시간 범위를* **마지막 30분** 으로 변경합니다.
+
 1. 첫 번째 레코드 옆에 있는 **>** 을 선택하여 해당 행의 정보를 펼칩니다.
 
-### <a name="task-2-run-basic-kql-statements"></a>작업 2: 기본 KQL 문 실행
+
+### 작업 2: 기본 KQL 문 실행
 
 이 작업에서는 기본적인 KQL 문을 작성합니다.
 
->**중요:**  각 쿼리에 대해 쿼리 창에서 이전 문을 지우거나, 마지막으로 연 탭 뒤에 있는 **+** 를 선택하여 새 쿼리 창을 엽니다(최대 25개).
+>**중요:**  각 쿼리에 대해 쿼리 창에서 이전 문을 지우거나 마지막으로 연 탭(최대 25개)을 선택하여 **+** 새 쿼리 창을 엽니다.
 
 1. 다음 문은 테이블의 모든 열에서 값을 검색하는 **search** 연산자를 보여 줍니다. 쿼리 창에서 다음 문을 입력하고 **실행**을 선택합니다. 
 
     ```KQL
-    search "err"
+    search "new"
     ```
 
 1. 다음 문은 **in** 절 내에 나열된 테이블에서 **search**를 보여 줍니다. 쿼리 창에서 다음 문을 입력하고 **실행**을 선택합니다. 
 
     ```KQL
-    search in (SecurityEvent,SecurityAlert,A*) "err"
+    search in (SecurityEvent,App*) "new"
     ```
 
-1. 쿼리 창에서 **Time range**를 다시 **Last 24 hours**로 변경합니다.
+1. 쿼리 창에서 *Time range*를 다시 **Last 24 hours**로 변경합니다.
 
 1. 다음 문은 특정 조건자를 필터링하는 **where** 연산자를 보여 줍니다. 쿼리 창에서 다음 문을 입력하고 **실행**을 선택합니다. 
 
-    >**참고:** 아래 코드 블록에서 각 쿼리를 입력한 후 **실행**을 선택해야 합니다.
+    >**중요:** 아래 코드 블록에서 각 쿼리를 입력한 후 **실행을** 선택해야 합니다.
 
     ```KQL
     SecurityEvent  
     | where TimeGenerated > ago(1h)
     ```
 
+    >**참고:** 이제 TimeGenerated 열을 사용하여 필터링하므로 *시간 범위* 는 *쿼리에서 설정을* 표시합니다.
+
     ```KQL
     SecurityEvent  
-    | where TimeGenerated > ago(1h) and EventID == "4624"
+    | where TimeGenerated > ago(1h) and EventID == 4624
     ```
 
     ```KQL
     SecurityEvent  
     | where TimeGenerated > ago(1h)
-    | where EventID == 4624
+    | where EventID == 4624  
     | where AccountType =~ "user"
     ```
 
@@ -94,7 +105,7 @@ lab:
 
     ```KQL
     let suspiciousAccounts = datatable(account: string) [
-      @"\administrator", 
+      @"NA\timadmin", 
       @"NT AUTHORITY\SYSTEM"
     ];
     SecurityEvent  
@@ -120,8 +131,8 @@ lab:
 
     ```KQL
     SecurityEvent  
-    | where TimeGenerated > ago(1h)
-    | where ProcessName != "" and Process != ""
+    | where TimeGenerated > ago(1h) 
+    | where ProcessName != "" and Process != "" 
     | extend StartDir =  substring(ProcessName,0, string_size(ProcessName)-string_size(Process))
     ```
 
@@ -129,9 +140,9 @@ lab:
 
     ```KQL
     SecurityEvent  
-    | where TimeGenerated > ago(1h)
-    | where ProcessName != "" and Process != ""
-    | extend StartDir =  substring(ProcessName,0, string_size(ProcessName)-string_size(Process))
+    | where TimeGenerated > ago(1h) 
+    | where ProcessName != "" and Process != "" 
+    | extend StartDir =  substring(ProcessName,0, string_size(ProcessName)-string_size(Process)) 
     | order by StartDir desc, Process asc
     ```
 
@@ -139,10 +150,10 @@ lab:
 
     ```KQL
     SecurityEvent  
-    | where TimeGenerated > ago(1h)
-    | where ProcessName != "" and Process != ""
-    | extend StartDir =  substring(ProcessName,0, string_size(ProcessName)-string_size(Process))
-    | order by StartDir desc, Process asc
+    | where TimeGenerated > ago(1h) 
+    | where ProcessName != "" and Process != "" 
+    | extend StartDir =  substring(ProcessName,0, string_size(ProcessName)-string_size(Process)) 
+    | order by StartDir desc, Process asc 
     | project Process, StartDir
     ```
 
@@ -150,15 +161,15 @@ lab:
 
     ```KQL
     SecurityEvent  
-    | where TimeGenerated > ago(1h)
-    | where ProcessName != "" and Process != ""
-    | extend StartDir =  substring(ProcessName,0, string_size(ProcessName)-string_size(Process))
-    | order by StartDir desc, Process asc
+    | where TimeGenerated > ago(1h) 
+    | where ProcessName != "" and Process != "" 
+    | extend StartDir =  substring(ProcessName,0, string_size(ProcessName)-string_size(Process)) 
+    | order by StartDir desc, Process asc 
     | project-away ProcessName
     ```
 
 
-### <a name="task-3-analyze-results-in-kql-with-the-summarize-operator"></a>작업 3: Summarize 연산자를 사용하여 KQL에서 결과 분석
+### 작업 3: Summarize 연산자를 사용하여 KQL에서 결과 분석
 
 이 작업에서는 데이터를 집계하는 KQL 문을 빌드합니다. **요약**에서는 **by** 그룹 열에 따라 행을 그룹화하고 각 그룹에 대한 집계를 계산합니다.
 
@@ -166,7 +177,7 @@ lab:
 
     ```KQL
     SecurityEvent  
-    | where TimeGenerated > ago(1h) and EventID == '4688'  
+    | where TimeGenerated > ago(1h) and EventID == 4688  
     | summarize count() by Process, Computer
     ```
 
@@ -174,7 +185,7 @@ lab:
 
     ```KQL
     SecurityEvent  
-    | where TimeGenerated > ago(1h) and EventID == '4624'  
+    | where TimeGenerated > ago(1h) and EventID == 4624  
     | summarize cnt=count() by AccountType, Computer
     ```
 
@@ -186,31 +197,31 @@ lab:
     | summarize dcount(IpAddress)
     ```
 
-1. 다음 문은 동일한 계정에 대해 여러 애플리케이션에서 MFA 오류를 검색하는 규칙입니다. 쿼리 창에서 다음 문을 입력하고 **실행**을 선택합니다. 
+1. 다음 문은 동일한 계정에 대해 여러 애플리케이션에서 잘못된 암호 오류를 검색하는 규칙입니다. 쿼리 창에서 다음 문을 입력하고 **실행**을 선택합니다. 
 
     ```KQL
     let timeframe = 30d;
     let threshold = 1;
     SigninLogs
     | where TimeGenerated >= ago(timeframe)
-    | where ResultDescription has "MFA"
+    | where ResultDescription has "Invalid password"
     | summarize applicationCount = dcount(AppDisplayName) by UserPrincipalName, IPAddress
     | where applicationCount >= threshold
     ```
 
-1. 다음 문은 인수가 최대화될 때 하나 이상의 식을 반환하는 **arg_max()** 함수를 보여 줍니다. 다음 문은 컴퓨터 SQL12.NA.contosohotels.com에 대한 SecurityEvent 테이블에서 최신 행을 반환합니다. arg_max 함수의 *는 행의 모든 열을 요청합니다. 쿼리 창에서 다음 문을 입력하고 **실행**을 선택합니다. 
+1. 다음 문은 인수가 최대화될 때 하나 이상의 식을 반환하는 **arg_max()** 함수를 보여 줍니다. 다음 문은 컴퓨터 SQL10.NA.contosohotels.com에 대한 SecurityEvent 테이블에서 최신 행을 반환합니다. arg_max 함수의 *는 행의 모든 열을 요청합니다. 쿼리 창에서 다음 문을 입력하고 **실행**을 선택합니다. 
 
     ```KQL
     SecurityEvent  
-    | where Computer == "SQL12.na.contosohotels.com"
+    | where Computer == "SQL10.na.contosohotels.com"
     | summarize arg_max(TimeGenerated,*) by Computer
     ```
 
-1. 다음 문은 인수가 최소화될 때 하나 이상의 식을 반환하는 **arg_min()** 함수를 보여 줍니다. 이 문에서는 컴퓨터 SQL12.NA.contosohotels.com의 가장 오래된 SecurityEvent가 결과 집합으로 반환됩니다. 쿼리 창에서 다음 문을 입력하고 **실행**을 선택합니다. 
+1. 다음 문은 인수가 최소화될 때 하나 이상의 식을 반환하는 **arg_min()** 함수를 보여 줍니다. 이 문에서는 컴퓨터 SQL10.NA.contosohotels.com의 가장 오래된 SecurityEvent가 결과 집합으로 반환됩니다. 쿼리 창에서 다음 문을 입력하고 **실행**을 선택합니다. 
 
     ```KQL
     SecurityEvent  
-    | where Computer == "SQL12.na.contosohotels.com"
+    | where Computer == "SQL10.na.contosohotels.com"
     | summarize arg_min(TimeGenerated,*) by Computer
     ```
 
@@ -220,15 +231,15 @@ lab:
 
         ```KQL
         SecurityEvent  
-        | summarize arg_max(TimeGenerated, *) by Account
-        | where EventID == '4624'  
+        | summarize arg_max(TimeGenerated, *) by Account 
+        | where EventID == 4624  
         ```
 
     1. **쿼리 2**에는 로그인한 계정에 대한 가장 최근 로그인이 있습니다. SecurityEvent 테이블은 EventID = 4624만 포함하도록 필터링됩니다. 그러면 해당 결과가 계정별로 최신 로그인 행에 대해 요약됩니다.
 
         ```KQL
         SecurityEvent  
-        | where EventID == '4624'  
+        | where EventID == 4624  
         | summarize arg_max(TimeGenerated, *) by Account
         ```
 
@@ -239,7 +250,7 @@ lab:
     ```KQL
     SecurityEvent  
     | where TimeGenerated > ago(1h)
-    | where EventID == '4624'  
+    | where EventID == 4624  
     | summarize make_list(Account) by Computer
     ```
 
@@ -248,12 +259,12 @@ lab:
     ```KQL
     SecurityEvent  
     | where TimeGenerated > ago(1h)
-    | where EventID == '4624'  
+    | where EventID == 4624  
     | summarize make_set(Account) by Computer
     ```
 
 
-### <a name="task-4-create-visualizations-in-kql-with-the-render-operator"></a>작업 4: Render 연산자를 사용하여 KQL에서 시각화 만들기
+### 작업 4: Render 연산자를 사용하여 KQL에서 시각화 만들기
 
 이 작업에서는 KQL 문을 사용하여 시각화를 생성합니다.
 
@@ -276,7 +287,7 @@ lab:
     ```
 
 
-### <a name="task-5-build-multi-table-statements-in-kql"></a>작업 5: KQL에서 다중 테이블 문 작성
+### 작업 5: KQL에서 다중 테이블 문 작성
 
 이 작업에서는 다중 테이블 KQL 문을 작성합니다.
 
@@ -306,10 +317,12 @@ lab:
         | union (SigninLogs | summarize count() | project count_)
         ```
 
+    >**참고:** 결과의 '빈 행'에는 SigninLogs의 요약된 수가 표시됩니다.
+
 1. 다음 문은 와일드카드를 사용하여 여러 테이블을 결합하기 위한 **union** 연산자 지원을 보여 줍니다. 쿼리 창에서 다음 문을 입력하고 **실행**을 선택합니다. 
 
     ```KQL
-    union Security*  
+    union App*  
     | summarize count() by Type
     ```
 
@@ -317,13 +330,13 @@ lab:
 
     ```KQL
     SecurityEvent  
-    | where EventID == "4624" 
-    | summarize LogOnCount=count() by EventID, Account
+    | where EventID == 4624 
+    | summarize LogOnCount=count() by  EventID, Account
     | project LogOnCount, Account
     | join kind = inner( 
      SecurityEvent  
-    | where EventID == "4634" 
-    | summarize LogOffCount=count() by EventID, Account
+    | where EventID == 4634 
+    | summarize LogOffCount=count() by  EventID, Account
     | project LogOffCount, Account
     ) on Account
     ```
@@ -333,7 +346,7 @@ lab:
 1. 쿼리 창에서 **Time range**를 다시 **Last 24 hours**로 변경합니다.
 
 
-### <a name="task-6-work-with-string-data-in-kql"></a>작업 6: KQL에서 문자열 데이터 작업
+### 작업 6: KQL에서 문자열 데이터 작업
 
 이 작업에서는 KQL 문을 사용하여 구조화된 문자열 필드 및 구조화되지 않은 문자열 필드 작업을 수행합니다.
 
@@ -347,10 +360,10 @@ lab:
 
     ```KQL
     SecurityEvent  
-    | where EventID == '4672' and AccountType == 'User' 
+    | where EventID == 4672 and AccountType == 'User' 
     | extend Account_Name = extract(@"^(.*\\)?([^@]*)(@.*)?$", 2, tolower(Account))
     | summarize LoginCount = count() by Account_Name
-    | where Account_Name != ""
+    | where Account_Name != "" 
     | where LoginCount < 10
     ```
 
@@ -365,7 +378,7 @@ lab:
     "Event: NotifySliceRelease (resourceName=PipelineScheduler, totalSlices=27, sliceNumber=22, lockTime=02/17/2016 08:41:01, releaseTime=02/17/2016 08:41:00, previousLockTime=02/17/2016 08:40:01)",
     "Event: NotifySliceRelease (resourceName=PipelineScheduler, totalSlices=27, sliceNumber=16, lockTime=02/17/2016 08:41:00, releaseTime=02/17/2016 08:41:00, previousLockTime=02/17/2016 08:40:00)"
     ];
-    Traces  
+    Traces   
     | parse EventText with * "resourceName=" resourceName ", totalSlices=" totalSlices:long * "sliceNumber=" sliceNumber:long * "lockTime=" lockTime ", releaseTime=" releaseTime:date "," * "previousLockTime=" previousLockTime:date ")" *  
     | project resourceName, totalSlices, sliceNumber, lockTime, releaseTime, previousLockTime
     ```
@@ -379,13 +392,10 @@ lab:
 1. 다음 예제에서는 SigninLogs에 대해 압축된 필드를 분리하는 방법을 보여 줍니다. 쿼리 창에서 다음 문을 입력하고 **실행**을 선택합니다. 
 
     ```KQL
-    SigninLogs | extend OS = DeviceDetail.operatingSystem, Browser = DeviceDetail.browser
-    | extend CAPol0Name = tostring(ConditionalAccessPolicies[0].displayName), CAPol0Result = tostring(ConditionalAccessPolicies[0].result)
-    | extend CAPol1Name = tostring(ConditionalAccessPolicies[1].displayName), CAPol1Result = tostring(ConditionalAccessPolicies[1].result)
-    | extend CAPol2Name = tostring(ConditionalAccessPolicies[2].displayName), CAPol2Result = tostring(ConditionalAccessPolicies[2].result)
-    | extend StatusCode = tostring(Status.errorCode), StatusDetails = tostring(Status.additionalDetails)
-    | extend Date = startofday(TimeGenerated), City = tostring(LocationDetails.city)
-    | summarize count() by Date, Identity, UserDisplayName, UserPrincipalName, IPAddress, City, ResultType, ResultDescription, StatusCode, StatusDetails, CAPol0Name, CAPol0Result, CAPol1Name, CAPol1Result, CAPol2Name, CAPol2Result
+    SigninLogs | extend OS = DeviceDetail.operatingSystem, Browser = DeviceDetail.browser 
+    | extend StatusCode = tostring(Status.errorCode), StatusDetails = tostring(Status.additionalDetails) 
+    | extend Date = startofday(TimeGenerated) 
+    | summarize count() by Date, Identity, UserDisplayName, UserPrincipalName, IPAddress, ResultType, ResultDescription, StatusCode, StatusDetails 
     | sort by Date
     ```
 
@@ -394,24 +404,26 @@ lab:
 1. 다음 문은 문자열 필드에 저장된 JSON을 조작하는 연산자를 보여 줍니다. 대부분의 로그는 JSON 형식으로 데이터를 제출합니다. 이 경우 JSON 데이터를 쿼리 가능한 필드로 변환하는 방법을 알아야 합니다. 쿼리 창에서 다음 문을 입력하고 **실행**을 선택합니다. 
 
     ```KQL
-    SigninLogs | extend Location =  todynamic(LocationDetails)
-    | extend City =  Location.city
-    | extend City2 = Location["city"]
-    | project Location, City, City2
+    SigninLogs | extend AuthDetails =  todynamic(AuthenticationDetails) 
+    | extend AuthMethod =  AuthDetails[0].authenticationMethod 
+    | extend AuthResult = AuthDetails[0].["authenticationStepResultDetail"] 
+    | project AuthMethod, AuthResult, AuthDetails 
     ```
 
 1. 다음 문은 동적 배열을 행(다중 값 확장)으로 변환하는 **mv-expand** 연산자를 보여 줍니다.
 
     ```KQL
-    SigninLogs | mv-expand Location = todynamic(LocationDetails)
+    SigninLogs | mv-expand AuthDetails = todynamic(AuthenticationDetails) 
+    | project AuthDetails
     ```
+
+1. ">"을 선택하여 첫 번째 행을 확장한 다음 *, AuthDetails* 옆에 다시 확장된 결과를 검토합니다.
 
 1. 다음 문은 각 레코드에 하위 쿼리를 적용하고 모든 하위 쿼리 결과의 합집합을 반환하는 **mv-apply** 연산자를 보여 줍니다.
 
     ```KQL
-    SigninLogs  
-    | mv-apply Location = todynamic(LocationDetails) on 
-    ( where Location.countryOrRegion == "ES")
+    SigninLogs | mv-apply AuthDetails = todynamic(AuthenticationDetails) on
+    (where AuthDetails.authenticationMethod == "Password")
     ```
 
 1. **함수**는 다른 로그 쿼리에서 명령으로 저장된 이름과 함께 사용할 수 있는 로그 쿼리입니다. **함수**를 만들려면 쿼리를 실행한 후 **저장** 단추를 선택한 다음, 드롭다운에서 **함수로 저장**을 선택합니다. 원하는 이름(예: *PrivLogins*)을 **함수 이름** 상자에 입력하고, **레거시 범주**(예: 일반)를 입력하고, **저장**을 선택합니다. 함수는 KQL에서 함수 별칭을 통해 함수를 사용할 수 있습니다.
@@ -422,4 +434,4 @@ lab:
     PrivLogins  
     ```
 
-## <a name="you-have-completed-the-lab"></a>이 랩을 완료했습니다.
+## 이 랩을 완료했습니다.
