@@ -1,18 +1,14 @@
----
-lab - Do not use. Temporarily not operational!:
-  title: 연습 4 - 데이터 커넥터를 사용하여 Microsoft Sentinel에 위협 인텔리전스 연결
-  module: Learning Path 6 - Connect logs to Microsoft Sentinel
----
+ **사용하지 마세요. 일시적으로 작동되지 않습니다.**
 
-# <a name="learning-path-6---lab-1---exercise-4---connect-threat-intelligence-to-microsoft-sentinel-using-data-connectors"></a>학습 경로 6 - 랩 1 - 연습 4 - 데이터 커넥터를 사용하여 Microsoft Sentinel에 위협 인텔리전스 연결
+# 학습 경로 6 - 랩 1 - 연습 4 - 데이터 커넥터를 사용하여 Microsoft Sentinel에 위협 인텔리전스 연결
 
-## <a name="lab-scenario"></a>랩 시나리오
+## 랩 시나리오
 
 ![랩 개요입니다.](../Media/SC-200-Lab_Diagrams_Mod6_L1_Ex4.png)
 
 당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다. 조직에 있는 많은 데이터 원본의 로그 데이터를 연결하는 방법을 알아야 합니다. 마지막으로, 위협 인텔리전스 피드를 연결하여 알려진 위협을 감지하고 우선 순위를 지정하는 기능을 향상시킵니다.
 
-### <a name="task-1-connect-threat-intelligence"></a>작업 1: 위협 인텔리전스 연결
+### 작업 1: 위협 인텔리전스 연결
 
 이 작업에서는 위협 인텔리전스 - TAXII 커넥터를 사용하여 위협 인텔리전스 공급자를 연결합니다.
 
@@ -46,4 +42,4 @@ lab - Do not use. Temporarily not operational!:
 
 >**참고:** 다른 컬렉션을 추가하려면 Edge 브라우저에서 <https://limo.anomali.com/api/v1/taxii2/feeds/collections/> 를 열고 게스트 사용자 이름과 암호를 사용하여 사용 가능한 다른 ID를 검토합니다.
 
-## <a name="you-have-completed-the-lab"></a>이 랩을 완료했습니다.
+## 이 랩을 완료했습니다.
