@@ -4,16 +4,18 @@ lab:
   module: Learning Path 5 - Configure your Microsoft Sentinel environment
 ---
 
-# <a name="learning-path-5---lab-1---exercise-1---configure-your-microsoft-sentinel-environment"></a>학습 경로 5 - 랩 1 - 연습 1 - Microsoft Sentinel 환경 구성
+# 학습 경로 5 - 랩 1 - 연습 1 - Microsoft Sentinel 환경 구성
 
-## <a name="lab-scenario"></a>랩 시나리오
+## 랩 시나리오
 
 ![랩 개요입니다.](../Media/SC-200-Lab_Diagrams_Mod5_L1_Ex1.png)
 
 당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다. 비용을 최소화하고, 규정 준수 규정을 충족하며, 보안 팀이 일상적인 업무 책임을 수행하도록 가장 관리 가능한 환경을 제공하기 위해 회사의 요구 사항을 충족하는 Microsoft Sentinel 환경을 설정할 책임이 있습니다.
 
+>                **참고:** **[대화형 랩 시뮬레이션](https://mslabs.cloudguides.com/guides/SC-200%20Lab%20Simulation%20-%20Configure%20your%20Microsoft%20Sentinel%20environment)** 을 사용하여 이 랩을 원하는 속도로 클릭할 수 있습니다. 대화형 시뮬레이션과 호스트된 랩 간에 약간의 차이가 있을 수 있지만 보여주는 핵심 개념과 아이디어는 동일합니다. 
 
-### <a name="task-1-initialize-the-microsoft-sentinel-workspace"></a>작업 1: Microsoft Sentinel 작업 영역 초기화
+
+### 작업 1: Microsoft Sentinel 작업 영역 초기화
 
 이 작업에서는 Microsoft Sentinel 작업 영역을 만듭니다.
 
@@ -38,7 +40,7 @@ lab:
 1. 새로 만든 Microsoft Sentinel 작업 영역 내를 이동하면서 사용자 인터페이스 옵션을 숙지합니다.
 
 
-### <a name="task-2-create-a-watchlist"></a>작업 2: 관심 목록 만들기
+### 작업 2: 관심 목록 만들기
 
 이 작업에서는 Microsoft Sentinel에서 관심 목록을 만듭니다.
 
@@ -93,7 +95,7 @@ lab:
 1. 오른쪽 위에 있는 ‘x’를 선택하여 로그 창을 닫고 **확인**을 선택하여 저장되지 않은 편집 내용을 삭제합니다.
 
 
-### <a name="task-3-create-a-threat-indicator"></a>작업 3: 위협 표시기 만들기
+### 작업 3: 위협 표시기 만들기
 
 이 작업에서는 Microsoft Sentinel에서 표시기를 만듭니다.
 
@@ -101,11 +103,13 @@ lab:
 
 1. 명령 모음에서 **+ 새 항목 추가**를 선택합니다.
 
-1. 유형 드롭다운에서 사용 가능한 여러 표시기 유형을 검토합니다. **domain-name**을 선택합니다. 도메인 상자에 이니셜을 입력합니다. *fmg.com*을 예로 들 수 있습니다.
+1. 유형 드롭다운에서 사용 가능한 여러 표시기 유형을 검토합니다. **domain-name**을 선택합니다. 
+
+1. 도메인의 경우 도메인 이름을 입력합니다(예: *contoso.com* 입력).
 
 1. 위협 형식에 대해 **악성 활동**을 적어 놓고 **확인**을 선택합니다.
 
-1. 이름에는 도메인에 사용한 것과 같은 값을 입력합니다. *fmg.com*을 예로 들 수 있습니다.
+1. 이름에는 도메인에 사용한 것과 같은 값을 입력합니다.
 
 1. *유효 기간(시작)* 필드의 값을 오늘 날짜로 설정합니다.
 
@@ -128,21 +132,23 @@ lab:
     ```
 
 
-### <a name="task-4-configure-log-retention"></a>작업 4: 로그 보존 구성
+### 작업 4: 로그 보존 구성
 
 이 작업에서는 SecurityEvent 테이블의 보존 기간을 변경합니다.
 
-1. Microsoft Sentinel의 구성 영역에서 **설정** 옵션을 선택합니다.
+1. Microsoft Sentinel의 *구성* 영역에서 **설정** 옵션을 선택합니다.
 
 1. **작업 영역 설정**을 선택합니다.
 
-1. Log Analytics 작업 영역의 설정 영역에서 **테이블(미리 보기)** 옵션을 선택합니다.
+1. Log Analytics 작업 영역의 *설정* 영역에서 **테이블** 옵션을 선택합니다.
 
 1. **SecurityEvent** 테이블을 검색하여 선택한 다음, 줄임표 단추(...)를 선택합니다.
 
 1. **테이블 관리**를 선택합니다.
 
-1. 총 보존 기간은 **180일**을 선택합니다. 그런 다음, **저장**합니다.
+1. 총 보존 기간은 **180일**을 선택합니다. *보관 기간*은 (기본값) *대화형 보존*에서 30일을 사용하기 때문에 150일입니다.
+
+1. 변경 내용을 적용하려면 **저장**을 선택합니다.
 
 
-## <a name="you-have-completed-the-lab"></a>이 랩을 완료했습니다.
+## 이 랩을 완료했습니다.

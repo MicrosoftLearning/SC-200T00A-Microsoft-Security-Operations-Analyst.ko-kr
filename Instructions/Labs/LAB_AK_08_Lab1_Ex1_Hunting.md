@@ -4,9 +4,9 @@ lab:
   module: Learning Path 8 - Perform threat hunting in Microsoft Sentinel
 ---
 
-# <a name="learning-path-8---lab-1---exercise-1---perform-threat-hunting-in-microsoft-sentinel"></a>학습 경로 8 - 랩 1 - 연습 1 - Microsoft Sentinel에서 위협 헌팅 수행
+# 학습 경로 8 - 랩 1 - 연습 1 - Microsoft Sentinel에서 위협 헌팅 수행
 
-## <a name="lab-scenario"></a>랩 시나리오
+## 랩 시나리오
 
 ![랩 개요입니다.](../Media/SC-200-Lab_Diagrams_Mod8_L1_Ex1.png)
 
@@ -16,8 +16,10 @@ lab:
 
 >**참고:** 이전 모듈에서 데이터 살펴보기 프로세스는 이미 진행했으므로, 이 랩에서는 작업 시작을 위한 KQL 문이 제공됩니다. 
 
+>                **참고:** **[대화형 랩 시뮬레이션](https://mslabs.cloudguides.com/guides/SC-200%20Lab%20Simulation%20-%20Perform%20threat%20hunting%20in%20Microsoft%20Sentinel)** 을 사용하여 이 랩을 원하는 속도로 클릭할 수 있습니다. 대화형 시뮬레이션과 호스트된 랩 간에 약간의 차이가 있을 수 있지만 보여주는 핵심 개념과 아이디어는 동일합니다. 
 
-### <a name="task-1-create-a-hunting-query"></a>작업 1: 헌팅 쿼리 만들기
+
+### 작업 1: 헌팅 쿼리 만들기
 
 이 작업에서는 헌팅 쿼리를 만들고 결과를 책갈피에 저장한 후 라이브 스트림을 만듭니다.
 
@@ -40,119 +42,95 @@ lab:
    >**중요:** 먼저 메모장에 KQL 쿼리를 붙여넣은 다음, 해당 위치에서 새 쿼리 1 로그 창으로 복사하여 오류를 방지하세요.
 
     ```KQL
-    let lookback = 2d;
-    DeviceEvents | where TimeGenerated >= ago(lookback) 
-    | where ActionType == "DnsQueryResponse"
-    | extend c2 = substring(tostring(AdditionalFields.DnsQueryString),0,indexof(tostring(AdditionalFields.DnsQueryString),"."))
-    | where c2 startswith "sub"
-    | summarize count() by bin(TimeGenerated, 3m), c2
-    | where count_ > 5
-    | render timechart 
+    let lookback = 2d; 
+    SecurityEvent | where TimeGenerated >= ago(lookback) 
+    | where EventID == 4688 and Process =~ "powershell.exe"
+    | extend PwshParam = trim(@"[^/\\]*powershell(.exe)+" , CommandLine) 
+    | project TimeGenerated, Computer, SubjectUserName, PwshParam 
+    | summarize min(TimeGenerated), count() by Computer, SubjectUserName, PwshParam 
+    | order by count_ desc nulls last 
     ```
 
-    ![스크린샷](../Media/SC200_hunting1.png)
+1. 다른 결과를 검토합니다. 이제 사용자 환경에서 실행 중인 PowerShell 요청을 식별했습니다.
 
-1. 이전 KQL 쿼리의 목표는 C2 비콘에 대한 시각화를 일관되게 제공하는 것입니다. bin() 내에서 *3m* 설정을 **1m**로 변경하여 값 그룹화 조정하고 쿼리를 다시 **실행**합니다.
+1. *"파일 c2.ps1"* 을 보여 주는 결과의 확인란을 선택합니다.
 
-1. 다시 *3m*로 변경합니다. 이제 *count_* 임계값을 **10**으로 변경하고 쿼리를 다시 **실행**하여 영향을 확인합니다.
+1. 가운데 명령 모음에서 **책갈피 추가** 단추를 선택합니다.
 
-1. 지금까지 C2 서버에 알림을 전송하는 DNS 요청을 살펴보았습니다. 다음으로는 알림을 생성하는 디바이스를 확인합니다. 다음 KQL 문을 **실행**합니다.
+1. *엔터티 매핑*에서 **+ 새 엔터티 추가**를 선택합니다.
 
-    ```KQL
-    let lookback = 2d;
-    DeviceEvents | where TimeGenerated >= ago(lookback) 
-    | where ActionType == "DnsQueryResponse"
-    | extend c2 = substring(tostring(AdditionalFields.DnsQueryString),0,indexof(tostring(AdditionalFields.DnsQueryString),".")) 
-    | where c2 startswith "sub"
-    | summarize cnt=count() by bin(TimeGenerated, 3m), c2, DeviceName
-    | where cnt > 5
-    ```
+1. *엔터티에서* **호스트**를 선택한 다음, **값에 대해 호스트 이름** 및 **컴퓨터를** 선택합니다.
 
-    ![스크린샷](../Media/SC200_hunting2.png)
+1. *전술 및 기술에 대해* **명령 및 제어를** 선택합니다.
 
-    >**참고:** 생성된 로그 데이터는 WIN1 디바이스에서만 가져온 것입니다.
+1. *책갈피 추가* 블레이드에 돌아가기 **만들기**를 선택합니다. 이 책갈피는 나중에 인시던트에 매핑합니다.
 
 1. 창의 오른쪽 위에 있는 **X**를 선택하여 로그 창을 닫고 **확인**을 선택하여 변경 내용을 취소합니다. 
 
-1. Microsoft Sentinel 작업 영역을 다시 선택하고 위협 관리 영역에서 **헌팅** 페이지를 선택합니다.
+1. Microsoft Sentinel 작업 영역을 다시 선택하고 *위협 관리* 영역 아래에서 **헌팅** 페이지를 선택합니다.
 
-1. 명령 모음에서 **+ 새 쿼리**를 선택합니다.
+1. 쿼리 탭 **을** 선택한 다음, 명령 모음에서 **+ 새 쿼리** 를 선택합니다.
 
-1. 사용자 지정 쿼리 만들기 창의 이름에 **C2 Hunt**를 입력합니다. 
+1. *사용자 지정 쿼리 만들기* 창에서 *이름*에 **PowerShell Hunt**를 입력합니다.
 
 1. *사용자 지정 쿼리*에 다음 KQL 문을 붙여 넣습니다.
 
     ```KQL
-    let lookback = 2d;
-    DeviceEvents | where TimeGenerated >= ago(lookback) 
-    | where ActionType == "DnsQueryResponse"
-    | extend c2 = substring(tostring(AdditionalFields.DnsQueryString),0,indexof(tostring(AdditionalFields.DnsQueryString),"."))
-    | where c2 startswith "sub"
-    | summarize cnt=count() by bin(TimeGenerated, 3m), c2, DeviceName
-    | where cnt > 5
+    let lookback = 2d; 
+    SecurityEvent | where TimeGenerated >= ago(lookback) 
+    | where EventID == 4688 and Process =~ "powershell.exe"
+    | extend PwshParam = trim(@"[^/\\]*powershell(.exe)+" , CommandLine) 
+    | project TimeGenerated, Computer, SubjectUserName, PwshParam 
+    | summarize min(TimeGenerated), count() by Computer, SubjectUserName, PwshParam 
+    | order by count_ desc nulls last 
     ```
 
-1. 아래로 스크롤하고 엔터티 매핑(미리 보기)에서 다음을 선택합니다.
+1. 아래로 스크롤하고 *엔터티 매핑* 아래에서 다음을 선택합니다.
 
     - 엔터티 유형 드롭다운 목록에서 **호스트**를 선택합니다.
     - 식별자 드롭다운 목록에서 **호스트 이름**을 선택합니다.
-    - 값 드롭다운 목록에서 **디바이스 이름**을 선택합니다.
+    - *값* 드롭다운 목록에서 **컴퓨터를** 선택합니다.
 
 1. 아래로 스크롤하고, 전술 & 기술 아래에서 **명령 및 제어** 를 선택한 다음, **만들기**를 선택하여 헌팅 쿼리를 만듭니다.
 
-1. “Microsoft Sentinel - 헌팅” 블레이드의 목록에서 방금 만든 쿼리인 *C2 Hunt*를 검색합니다.
+1. *"Microsoft Sentinel - 헌팅"* 블레이드에서 방금 만든 쿼리인 *PowerShell Hunt를 검색합니다*.
 
-1. 목록에서 **C2 Hunt**를 선택합니다.
+1. 목록에서 **PowerShell Hunt** 를 선택합니다.
 
-1. 오른쪽 창에서 아래로 스크롤하여 **쿼리 실행** 단추를 선택합니다.
+1. 결과 *열 아래* 의 가운데 창에서 결과 수를 검토합니다.
 
-1. 결과 열 아래의 가운데 창에 결과 수가 표시됩니다. 또는 위로 스크롤하여 결과 상자의 개수를 확인합니다.
-
-1. **결과 보기** 단추를 선택합니다. KQL 쿼리가 자동으로 실행됩니다.
-
-1. 결과에서 첫 번째 행의 확인란을 선택합니다. 
-
-1. 가운데 명령 모음에서 **책갈피 추가** 단추를 선택합니다.
-
-1. 기본적으로 채워진 값을 검토하고 책갈피 추가 블레이드에서 **만들기**를 선택합니다.
+1. 오른쪽 창에서 **결과 보기** 단추를 선택합니다. KQL 쿼리가 자동으로 실행됩니다.
 
 1. 창의 오른쪽 위에 있는 **X**를 선택하여 로그 창을 닫고 **확인**을 선택하여 변경 내용을 취소합니다. 
 
-1. Microsoft Sentinel 포털의 헌팅 페이지로 돌아가서 가운데 창에서 **책갈피** 탭을 선택합니다.
+1. **PowerShell Hunt** 쿼리를 마우스 오른쪽 단추로 클릭하고 **라이브 스트림에 추가를** 선택합니다. **힌트:** 또한 오른쪽으로 슬라이딩하고 행 끝에 있는 줄임표 **(...)** 를 선택하여 상황에 맞는 메뉴를 열어도 됩니다.
 
-1. 결과 목록에서 방금 만든 **C2 Hunt** 책갈피를 선택합니다.
+1. 상태가 현재 실행 중인지 검토합니다.  이 작업은 백그라운드에서 30초마다 실행되며 새 결과가 발견되면 Azure Portal(종 아이콘)에서 알림을 받게 됩니다. 
+
+1. 가운데 창에서 **책갈피** 탭을 선택합니다.
+
+1. 결과 목록에서 방금 만든 책갈피를 선택합니다.
 
 1. 오른쪽 창에서 아래로 스크롤하여 **조사** 단추를 선택합니다. **힌트:** 조사 그래프를 표시하는 데 몇 분 정도 걸릴 수 있습니다.
 
-1. 이전 모듈에서와 마찬가지로 조사 그래프를 살펴봅니다.
+1. 이전 모듈과 마찬가지로 조사 그래프를 탐색합니다. *WINServer*에 대한 *많은 수의 관련 경고를 확인합니다*.
 
-1. 창의 오른쪽 위에 있는 **X**를 선택하여 조사 그래프 창을 닫고 **확인**을 선택하여 변경 내용을 취소합니다. 
+1. 창의 오른쪽 위에 있는 **X**를 선택하여 *조사* 그래프 창을 닫습니다. 
 
-1. **쿼리** 탭을 선택합니다.
+1. 아이콘을 선택하여 오른쪽 블레이드를 **>>** 숨기고 줄임표 **(...)** 아이콘이 표시될 때까지 오른쪽으로 스크롤합니다.
 
-1. **C2 Hunt** 쿼리를 다시 검색하고 선택합니다.
+1. **기존 인시던트에 추가를** 선택합니다. 모든 인시던트가 오른쪽 창에 표시됩니다.
 
-1. 쿼리를 마우스 오른쪽 단추로 클릭하고 **라이브 스트림에 추가**를 선택합니다. **힌트:** 또한 오른쪽으로 슬라이딩하고 행 끝에 있는 줄임표 **(...)** 를 선택하여 상황에 맞는 메뉴를 열어도 됩니다.
+1. 인시던트 중 하나를 선택한 다음 **, 추가**를 선택합니다. 
 
-1. 상태가 현재 실행 중인지 검토합니다.  
-
-1. “모듈 7 - 랩 1 - 연습 6 - 작업 1 - 공격 3”에서 C2 공격을 시뮬레이션하는 PowerShell 스크립트를 실행했습니다. 명령 프롬프트 창으로 돌아가서 C:\Temp에서 다음 명령을 입력하고 Enter 키를 누릅니다. 
-
-    >**참고:** 새 PowerShell 창이 열리고 오류 해결이 표시됩니다. 예상된 동작입니다.
-
-    ```CommandPrompt
-    Start PowerShell.exe -file c2.ps1
-    ```
-
-1. 결과를 찾으면 Azure Portal(종 아이콘)에서 알림을 받게 됩니다.
+1. 심각 *도* 열이 이제 인시던트의 데이터로 채워지는 것을 확인하려면 왼쪽으로 스크롤합니다.
 
 
-### <a name="task-2-create-a-nrt-query-rule"></a>작업 2: NRT 쿼리 규칙 만들기
+### 작업 2: NRT 쿼리 규칙 만들기
 
 이 작업에서는 LiveStream을 사용하는 대신 NRT 분석 쿼리 규칙을 만듭니다. NRT 규칙은 1분마다 실행되고 1분마다 조회됩니다. NRT 규칙의 이점은 경고 및 인시던트 생성 논리를 사용할 수 있다는 것입니다.
 
-
-1. Microsoft Sentinel에서 **분석** 페이지를 선택합니다. 
+1. Microsoft Sentinel의 *구성* 아래에서 **분석** 페이지를 선택합니다. 
 
 1. **만들기** 탭을 선택한 다음, **NRT 쿼리 규칙(미리 보기)** 을 선택합니다.
 
@@ -160,8 +138,8 @@ lab:
 
     |설정|값|
     |---|---|
-    |Name|**NRT C2 헌트**|
-    |설명|**NRT C2 헌트**|
+    |속성|**NRT PowerShell Hunt**|
+    |Description|**NRT PowerShell Hunt**|
     |전술|**명령 및 제어**|
     |심각도|**높음**|
 
@@ -170,16 +148,27 @@ lab:
 1. 규칙 쿼리의 경우 KQL 문을 입력합니다.
 
     ```KQL
-    let lookback = 2d;
-    DeviceEvents | where TimeGenerated >= ago(lookback) 
-    | where ActionType == "DnsQueryResponse"
-    | extend c2 = substring(tostring(AdditionalFields.DnsQueryString),0,indexof(tostring(AdditionalFields.DnsQueryString),"."))
-    | where c2 startswith "sub"
-    | summarize cnt=count() by bin(TimeGenerated, 3m), c2, DeviceName
-    | where cnt > 5
+    let lookback = 2d; 
+    SecurityEvent | where TimeGenerated >= ago(lookback) 
+    | where EventID == 4688 and Process =~ "powershell.exe"
+    | extend PwshParam = trim(@"[^/\\]*powershell(.exe)+" , CommandLine) 
+    | project TimeGenerated, Computer, SubjectUserName, PwshParam 
+    | summarize min(TimeGenerated), count() by Computer, SubjectUserName, PwshParam
     ```
 
-1. 나머지 옵션은 기본값으로 둡니다. **다음: 인시던트 설정>** 단추를 선택합니다.
+1. **쿼리 결과 >보기를 ** 선택하여 쿼리에 오류가 없는지 확인합니다.
+
+1. 창의 오른쪽 위에 있는 **X**를 선택하여 로그 창을 닫고 **확인**을 선택하여 변경 내용을 취소합니다. 
+
+1. *결과 시뮬레이션*에서 **현재 데이터로 테스트를** 선택합니다. *하루에 예상되는 경고 수를 확인합니다*.
+
+1. *엔터티 매핑*에서 다음을 선택합니다.
+
+    - 엔터티 유형 드롭다운 목록에서 **호스트**를 선택합니다.
+    - 식별자 드롭다운 목록에서 **호스트 이름**을 선택합니다.
+    - *값* 드롭다운 목록에서 **컴퓨터를** 선택합니다.
+
+1. 아래로 스크롤하여 **다음: 인시던트 설정>** 단추를 선택합니다.
 
 1. 인시던트 설정 탭에서 기본값을 그대로 두고 **다음: 자동화된 응답 >** 단추를 선택합니다.
 
@@ -187,34 +176,31 @@ lab:
 
 1. 검토 탭에서 **만들기** 단추를 선택하여 새 예약된 분석 규칙을 만듭니다.
 
-1. 위협 관리 섹션 내의 Microsoft Sentinel에서 **인시던트** 페이지를 선택하고 새 C2 헌트 경고가 나타날 때까지 기다립니다. 
 
-
-### <a name="task-3-create-a-search"></a>작업 3: 검색 만들기
+### 작업 3: 검색 만들기
 
 이 작업에서는 검색 작업을 사용하여 C2를 찾습니다. 
 
-1. Microsoft Sentinel에서 **검색(미리 보기)** 페이지를 선택합니다. 
+1. Microsoft Sentinel의 *일반*에서 **검색** 페이지를 선택합니다. 
 
-1. 명령 모음에서 **복원** 단추를 선택합니다.
+1. 검색 상자에 **reg.exe** 입력한 다음 **시작을** 선택합니다. 
 
-    >**참고:** 랩에는 복원할 보관된 테이블이 없습니다. 정상적인 프로세스는 검색 작업에 포함하도록 보관된 테이블을 복원합니다.
+1. 쿼리를 실행하는 새 창이 열립니다. 오른쪽 위에서 줄임표 아이콘 **(...)** 을 선택한 다음 **검색 작업 모드**를 전환합니다.
 
-1. 사용 가능한 옵션을 검토하고 **취소** 단추를 선택합니다.
+1. 명령 모음에서 **작업 검색** 단추를 선택합니다. 
 
-1. **검색** 탭을 선택합니다.
+1. 검색 작업은 결과가 도착하는 즉시 결과가 포함된 새 테이블을 만듭니다. 저장된 *검색* 탭에서 결과를 참조할 수 있습니다.
 
-1. 검색 상자 아래의 테이블 필터를 선택하여 **DeviceRegistryEvents**로 변경하고 **적용**을 선택합니다.
+1. 창의 오른쪽 위에 있는 **X**를 선택하여 로그 창을 닫고 **확인**을 선택하여 변경 내용을 취소합니다. 
+ 
+1. 명령 모음에서 **복원** 탭을 선택한 다음 **복원** 단추를 선택합니다.
 
-1. 검색 상자에 **reg.exe**를 입력한 다음, **검색 실행**을 선택합니다.
+1. *복원할 테이블 선택*에서 **SecurityEvent**를 검색하여 선택합니다.
 
-1. **저장된 검색** 탭을 선택합니다.
+1. 사용 가능한 옵션을 검토한 다음 **복원** 단추를 선택합니다.
 
-1. 검색 작업은 **DeviceRegistryEvents_####_SRCH**라는 새 테이블을 만듭니다.
+1. 복원 작업은 몇 분 동안 실행되며 데이터는 새 테이블에서 사용할 수 있습니다.
 
-1. 검색 작업이 완료되기를 기다립니다. 상태는 업데이트 중, 진행 중, 마지막으로 검색 완료로 표시합니다.  
+    >**중요:** 복원 작업은 대화형 로그가 아닌 보관 데이터를 복구하는 데 사용해야 합니다.
 
-1. **검색 결과 보기**를 선택합니다. 그러면 로그에서 새 탭이 열리고 새 테이블 이름인 **DeviceRegistryEvents_####_SRCH**를 쿼리한 후 결과가 표시됩니다.
-
-
-## <a name="proceed-to-exercise-2"></a>연습 2 계속 진행
+## 연습 2 계속 진행

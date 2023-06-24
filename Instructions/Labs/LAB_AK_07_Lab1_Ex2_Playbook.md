@@ -4,9 +4,9 @@ lab:
   module: Learning Path 7 - Create detections and perform investigations using Microsoft Sentinel
 ---
 
-# <a name="learning-path-7---lab-1---exercise-2---create-a-playbook"></a>학습 경로 7 - 랩 1 - 연습 2 - 플레이북 만들기
+# 학습 경로 7 - 랩 1 - 연습 2 - 플레이북 만들기
 
-## <a name="lab-scenario"></a>랩 시나리오
+## 랩 시나리오
 
 ![랩 개요입니다.](../Media/SC-200-Lab_Diagrams_Mod7_L1_Ex2.png)
 
@@ -14,8 +14,10 @@ lab:
 
 플레이북을 사용하면 위협 대응을 자동화 및 오케스트레이션하고, 내부 및 외부의 다른 시스템과 통합할 수 있으며, 분석 규칙 또는 자동화 규칙에 의해 트리거될 때 특정 경고 또는 인시던트에 대응하여 자동으로 실행되도록 설정할 수 있습니다. 
 
+>                **참고:** **[대화형 랩 시뮬레이션](https://mslabs.cloudguides.com/guides/SC-200%20Lab%20Simulation%20-%20Create%20a%20playbook)** 을 사용하여 이 랩을 원하는 속도로 클릭할 수 있습니다. 대화형 시뮬레이션과 호스트된 랩 간에 약간의 차이가 있을 수 있지만 보여주는 핵심 개념과 아이디어는 동일합니다. 
 
-### <a name="task-1-create-a-security-operations-center-team-in-microsoft-teams"></a>작업 1: Microsoft Teams에서 보안 운영 센터 팀 만들기
+
+### 작업 1: Microsoft Teams에서 보안 운영 센터 팀 만들기
 
 이 작업에서는 랩에 사용할 Microsoft Teams 팀을 만듭니다.
 
@@ -46,7 +48,7 @@ lab:
 1. 채널 이름을 *New Alerts*로 입력하고 **추가** 단추를 선택합니다.
 
 
-### <a name="task-2-create-a-playbook-in-microsoft-sentinel"></a>작업 2: Microsoft Sentinel 플레이북 만들기
+### 작업 2: Microsoft Sentinel 플레이북 만들기
 
 이 작업에서는 Microsoft Sentinel에서 플레이북으로 사용할 논리 앱을 만듭니다.
 
@@ -62,7 +64,7 @@ lab:
 
 1. 페이지 왼쪽의 콘텐츠 관리 영역에서 **커뮤니티** 페이지를 선택합니다.
 
-1. 오른쪽 창에서 **커뮤니티 콘텐츠 온보딩** 링크를 선택합니다. 그러면 Microsoft Sentinel용 Edge 브라우저 GitHub 콘텐츠에 새 탭이 열립니다.
+1. 오른쪽 창에서 **커뮤니티 콘텐츠 온보딩** 링크를 선택합니다. 그러면 Microsoft Sentinel용 Edge 브라우저 GitHub 콘텐츠에 새 탭이 열립니다. **힌트:** 링크를 보려면 오른쪽으로 스크롤해야 할 수 있습니다. 또는 [GitHub의 Microsoft Sentinel](https://github.com/Azure/Azure-Sentinel) 링크를 따르세요.
 
 1. **Solutions** 폴더를 선택합니다.
 
@@ -70,9 +72,7 @@ lab:
 
 1. **Post-Message-Teams** 폴더를 선택합니다.
 
-1. readme.md 상자에서 두 번째 빠른 배포 옵션, **경고 트리거를 사용하여 배포**로 아래로 스크롤하고 **Azure에 배포** 단추를 선택합니다.  
-
-    >**매우 중요**: 두 개의 서로 다른 Microsoft Sentinel 트리거인 인시던트 및 경고를 사용합니다. 경고(두 번째)를 선택해야 합니다.
+1. readme.md 상자에서 *빠른 배포* 섹션, **인시던트 트리거를 사용하여 배포(권장)** 로 스크롤하고 **Azure에 배포** 단추를 선택합니다.  
 
 1. Azure 구독이 선택되어 있는지 확인합니다.
 
@@ -80,14 +80,16 @@ lab:
 
 1. 지역 기본값으로 **미국 동부**를 그대로 둡니다.
 
-1. 플레이북 이름이 “PostMessageTeams-OnAlert”인지 확인하고 **검토 + 만들기**를 선택합니다. **힌트:** 이름이 다른 경우 GitHub로 돌아가서 **경고 트리거로 배포** 플레이북을 선택합니다.
+1. *플레이북 이름을* "PostMessageTeams-OnIncident"로 바꾸고 **검토 + 만들기**를 선택합니다.
 
 1. 이제 **만들기**를 선택합니다. 
 
     >**참고:** 다음 작업으로 진행하기 전에 배포가 완료될 때까지 기다립니다.
 
+1. 작업을 반복하지만 인 *시던트 트리거를 사용하여 배포를 선택하는 대신(권장)* **경고 트리거를 사용하여 배포** 플레이북을 선택합니다. **힌트:** 플레이북은 GitHub에서 방금 배포한 플레이북 아래에 표시됩니다.
 
-### <a name="task-3-update-a-playbook-in-microsoft-sentinel"></a>작업 3: Microsoft Sentinel에서 플레이북 업데이트
+
+### 작업 3: Microsoft Sentinel에서 플레이북 업데이트
 
 이 작업에서는 만든 새 플레이북을 적절한 연결 정보로 업데이트합니다.
 
@@ -97,7 +99,9 @@ lab:
 
 1. 구성 영역에서 **자동화**를 선택하고 **활성 플레이북** 탭을 선택합니다.
 
-1. **PostMessageTeams-OnAlert** 플레이북을 선택합니다. **힌트:** 플레이북이 표시되지 않으면 Ctrl+F5를 눌러 Azure Portal 페이지를 새로 고칩니다.
+1. 플레이북이 표시되지 않는 경우 명령 모음에서 **새로 고침** 을 선택합니다. 이전 단계에서 만들었지만 *트리거 종류*가 다른 두 플레이북이 표시됩니다.
+
+1. **PostMessageTeams-OnAlert** 플레이북 이름을 선택합니다.
 
 1. 명령 메뉴의 *PostMessageTeams-OnAlert*의 논리 앱 페이지에서 **편집**을 선택합니다.
 
@@ -121,8 +125,9 @@ lab:
 
 1. 채널 필드에 대해 동일한 작업을 수행합니다. 필드 끝에 있는 **X**를 선택하여 콘텐츠를 지웁니다. 필드가 SOC Teams 채널 목록이 포함된 드롭다운으로 변경됩니다. **새 경고**를 선택합니다.
 
-1. 명령 모음에서 **저장**을 선택합니다.
+1. 명령 모음에서 **저장**을 선택합니다. 이후의 랩에서 이 논리 앱을 사용할 예정입니다.
 
-이후의 랩에서 이 논리 앱을 사용할 예정입니다.
+1. 작업을 반복하지만 *PostMessageTeams-OnAlert*를 선택하는 대신 **PostMessageTeams-OnIncident** 플레이북을 선택합니다. **힌트:** 연결을 만들 필요가 없으며 이 작업에 대해 만든 연결을 다시 사용합니다.
 
-## <a name="proceed-to-exercise-3"></a>연습 3 계속 진행
+
+## 연습 3 계속 진행
