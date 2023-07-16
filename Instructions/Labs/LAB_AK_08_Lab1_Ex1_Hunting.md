@@ -43,7 +43,8 @@ lab:
 
     ```KQL
     let lookback = 2d; 
-    SecurityEvent | where TimeGenerated >= ago(lookback) 
+    SecurityEvent 
+    | where TimeGenerated >= ago(lookback) 
     | where EventID == 4688 and Process =~ "powershell.exe"
     | extend PwshParam = trim(@"[^/\\]*powershell(.exe)+" , CommandLine) 
     | project TimeGenerated, Computer, SubjectUserName, PwshParam 
@@ -53,23 +54,23 @@ lab:
 
 1. 다른 결과를 검토합니다. 이제 사용자 환경에서 실행 중인 PowerShell 요청을 식별했습니다.
 
-1. *"파일 c2.ps1"* 을 보여 주는 결과의 확인란을 선택합니다.
+1. *"파일 c2.ps1"* 을 표시하는 결과의 확인란을 선택합니다.
 
 1. 가운데 명령 모음에서 **책갈피 추가** 단추를 선택합니다.
 
 1. *엔터티 매핑*에서 **+ 새 엔터티 추가**를 선택합니다.
 
-1. *엔터티에서* **호스트**를 선택한 다음, **값에 대해 호스트 이름** 및 **컴퓨터를** 선택합니다.
+1. *엔터티에서* **호스트**를 선택한 다음, 값에 **대해 호스트 이름** 및 **컴퓨터를** 선택합니다.
 
 1. *전술 및 기술에 대해* **명령 및 제어를** 선택합니다.
 
-1. *책갈피 추가* 블레이드에 돌아가기 **만들기**를 선택합니다. 이 책갈피는 나중에 인시던트에 매핑합니다.
+1. *책갈피 추가* 블레이드로 돌아가기 **만들기**를 선택합니다. 이 책갈피는 나중에 인시던트에 매핑됩니다.
 
 1. 창의 오른쪽 위에 있는 **X**를 선택하여 로그 창을 닫고 **확인**을 선택하여 변경 내용을 취소합니다. 
 
-1. Microsoft Sentinel 작업 영역을 다시 선택하고 *위협 관리* 영역 아래에서 **헌팅** 페이지를 선택합니다.
+1. Microsoft Sentinel 작업 영역을 다시 선택하고 *위협 관리* 영역 아래의 **헌팅** 페이지를 선택합니다.
 
-1. 쿼리 탭 **을** 선택한 다음, 명령 모음에서 **+ 새 쿼리** 를 선택합니다.
+1. 명령 모음에서 **쿼리** 탭을 선택한 다음 **+ 새 쿼리** 를 선택합니다.
 
 1. *사용자 지정 쿼리 만들기* 창에서 *이름*에 **PowerShell Hunt**를 입력합니다.
 
@@ -77,7 +78,8 @@ lab:
 
     ```KQL
     let lookback = 2d; 
-    SecurityEvent | where TimeGenerated >= ago(lookback) 
+    SecurityEvent 
+    | where TimeGenerated >= ago(lookback) 
     | where EventID == 4688 and Process =~ "powershell.exe"
     | extend PwshParam = trim(@"[^/\\]*powershell(.exe)+" , CommandLine) 
     | project TimeGenerated, Computer, SubjectUserName, PwshParam 
@@ -105,7 +107,7 @@ lab:
 
 1. **PowerShell Hunt** 쿼리를 마우스 오른쪽 단추로 클릭하고 **라이브 스트림에 추가를** 선택합니다. **힌트:** 또한 오른쪽으로 슬라이딩하고 행 끝에 있는 줄임표 **(...)** 를 선택하여 상황에 맞는 메뉴를 열어도 됩니다.
 
-1. 상태가 현재 실행 중인지 검토합니다.  이 작업은 백그라운드에서 30초마다 실행되며 새 결과가 발견되면 Azure Portal(종 아이콘)에서 알림을 받게 됩니다. 
+1. 상태가 현재 실행 중인지 검토합니다.  백그라운드에서 30초마다 실행되며 새 결과가 발견되면 Azure Portal(종 아이콘)에서 알림을 받게 됩니다. 
 
 1. 가운데 창에서 **책갈피** 탭을 선택합니다.
 
@@ -113,7 +115,7 @@ lab:
 
 1. 오른쪽 창에서 아래로 스크롤하여 **조사** 단추를 선택합니다. **힌트:** 조사 그래프를 표시하는 데 몇 분 정도 걸릴 수 있습니다.
 
-1. 이전 모듈과 마찬가지로 조사 그래프를 탐색합니다. *WINServer*에 대한 *많은 수의 관련 경고를 확인합니다*.
+1. 이전 모듈과 마찬가지로 조사 그래프를 탐색합니다. *WINServer*에 대한 *많은 관련 경고를 확인합니다*.
 
 1. 창의 오른쪽 위에 있는 **X**를 선택하여 *조사* 그래프 창을 닫습니다. 
 
@@ -130,7 +132,7 @@ lab:
 
 이 작업에서는 LiveStream을 사용하는 대신 NRT 분석 쿼리 규칙을 만듭니다. NRT 규칙은 1분마다 실행되고 1분마다 조회됩니다. NRT 규칙의 이점은 경고 및 인시던트 생성 논리를 사용할 수 있다는 것입니다.
 
-1. Microsoft Sentinel의 *구성* 아래에서 **분석** 페이지를 선택합니다. 
+1. Microsoft Sentinel의 *구성*에서 **분석** 페이지를 선택합니다. 
 
 1. **만들기** 탭을 선택한 다음, **NRT 쿼리 규칙(미리 보기)** 을 선택합니다.
 
@@ -149,7 +151,8 @@ lab:
 
     ```KQL
     let lookback = 2d; 
-    SecurityEvent | where TimeGenerated >= ago(lookback) 
+    SecurityEvent 
+    | where TimeGenerated >= ago(lookback) 
     | where EventID == 4688 and Process =~ "powershell.exe"
     | extend PwshParam = trim(@"[^/\\]*powershell(.exe)+" , CommandLine) 
     | project TimeGenerated, Computer, SubjectUserName, PwshParam 
@@ -170,12 +173,9 @@ lab:
 
 1. 아래로 스크롤하여 **다음: 인시던트 설정>** 단추를 선택합니다.
 
-1. 인시던트 설정 탭에서 기본값을 그대로 두고 **다음: 자동화된 응답 >** 단추를 선택합니다.
+1. *인시던트 설정* 탭에서 기본값을 그대로 두고 **다음: 검토 및 >만들기 ** 단추를 선택합니다.
 
-1. 자동화된 응답 탭에서 경고 자동화(클래식) 아래의 **PostMessageTeams-OnAlert**를 선택한 다음, **다음: 검토** 단추를 클릭합니다. 
-
-1. 검토 탭에서 **만들기** 단추를 선택하여 새 예약된 분석 규칙을 만듭니다.
-
+1. *검토 및 만들기* 탭에서 **저장** 단추를 선택하여 새 예약된 분석 규칙을 만들고 저장합니다.
 
 ### 작업 3: 검색 만들기
 
@@ -187,9 +187,9 @@ lab:
 
 1. 쿼리를 실행하는 새 창이 열립니다. 오른쪽 위에서 줄임표 아이콘 **(...)** 을 선택한 다음 **검색 작업 모드**를 전환합니다.
 
-1. 명령 모음에서 **작업 검색** 단추를 선택합니다. 
+1. 명령 모음에서 **검색 작업** 단추를 선택합니다. 
 
-1. 검색 작업은 결과가 도착하는 즉시 결과가 포함된 새 테이블을 만듭니다. 저장된 *검색* 탭에서 결과를 참조할 수 있습니다.
+1. 검색 작업은 결과가 도착하는 즉시 새 테이블을 만듭니다. 저장된 *검색* 탭에서 결과를 참조할 수 있습니다.
 
 1. 창의 오른쪽 위에 있는 **X**를 선택하여 로그 창을 닫고 **확인**을 선택하여 변경 내용을 취소합니다. 
  

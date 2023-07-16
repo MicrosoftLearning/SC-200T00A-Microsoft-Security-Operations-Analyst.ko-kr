@@ -49,7 +49,8 @@ lab:
 1. 결과를 통해 위협 행위자가 reg.exe를 사용하여 레지스트리 키에 키를 추가하고 프로그램이 C:\temp에 있음을 알 수 있습니다. 다음 문을 **실행**하여 쿼리에서 *search* 연산자를 *where* 연산자로 바꿉니다.
 
     ```KQL
-    SecurityEvent | where Activity startswith "4688" 
+    SecurityEvent 
+    | where Activity startswith "4688" 
     | where Process == "reg.exe" 
     | where CommandLine startswith "REG" 
     ```
@@ -57,7 +58,8 @@ lab:
 1. 보안 운영 센터 분석자가 위협을 정확하게 분석할 수 있도록 경고 관련 상황 정보를 최대한 많이 제공해야 합니다. 가령 조사 그래프에 사용할 엔터티 등을 제공할 수 있습니다. 다음 쿼리를 **실행**합니다.
 
     ```KQL
-    SecurityEvent | where Activity startswith "4688" 
+    SecurityEvent 
+    | where Activity startswith "4688" 
     | where Process == "reg.exe" 
     | where CommandLine startswith "REG" 
     | extend timestamp = TimeGenerated, HostCustomEntity = Computer, AccountCustomEntity = SubjectUserName
@@ -110,20 +112,23 @@ lab:
 1. 다음 KQL 문을 **실행**하여 관리자를 참조하는 항목을 식별합니다.
 
     ```KQL
-    search "administrators" | summarize count() by $table
+    search "administrators" 
+    | summarize count() by $table
     ```
 
 1. 결과는 다른 테이블의 이벤트를 표시할 수 있지만 이 경우 SecurityEvent 테이블을 조사하려고 합니다. 보고 있는 EventID 및 이벤트는 “4732 - 보안 사용 로컬 그룹에 멤버가 추가되었습니다”입니다. 이를 통해 권한 있는 그룹에 멤버를 추가하는 것을 식별합니다. 다음 KQL 쿼리를 **실행**하여 다음을 확인합니다.
 
     ```KQL
-    SecurityEvent | where EventID == 4732
+    SecurityEvent 
+    | where EventID == 4732
     | where TargetAccount == "Builtin\\Administrators"
     ```
 
 1. 행을 확장하여 레코드와 관련된 모든 열을 표시합니다. 관리자로 추가된 계정의 사용자 이름이 표시되지 않습니다. 문제는 사용자 이름이 저장되는 대신 SID(보안 식별자)가 있다는 것입니다. 다음 KQL을 **실행**하여 SID를 관리자 그룹에 추가된 사용자 이름과 일치시킵니다.
 
     ```KQL
-    SecurityEvent | where EventID == 4732
+    SecurityEvent 
+    | where EventID == 4732
     | where TargetAccount == "Builtin\\Administrators"
     | extend Acct = MemberSid, MachId = SourceComputerId  
     | join kind=leftouter (
@@ -137,7 +142,8 @@ lab:
 1. 행을 확장하여 결과 열을 표시합니다. 마지막 열에는 KQL 쿼리 내에서 프로젝션하는 *UserName1* 열 아래에 추가된 사용자의 이름이 표시됩니다. 보안 작업 분석가가 위협을 정확하게 분석할 수 있도록 경고 관련 상황 정보를 최대한 많이 제공해야 합니다. 가령 조사 그래프에 사용할 엔터티 등을 제공할 수 있습니다. 다음 쿼리를 **실행**합니다.
 
     ```KQL
-    SecurityEvent | where EventID == 4732
+    SecurityEvent 
+    | where EventID == 4732
     | where TargetAccount == "Builtin\\Administrators"
     | extend Acct = MemberSid, MachId = SourceComputerId  
     | join kind=leftouter (
