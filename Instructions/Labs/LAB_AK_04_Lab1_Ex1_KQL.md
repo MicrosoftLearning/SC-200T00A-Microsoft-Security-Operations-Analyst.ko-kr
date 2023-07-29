@@ -386,13 +386,15 @@ lab:
 1. 다음 문은 다른 데이터 형식의 모든 값을 사용할 수 있어서 특별한 **dynamic** 필드를 사용하는 방법을 보여 줍니다. 이 예제에서 SigninLogs 테이블의 DeviceDetail 필드는 **동적** 형식입니다. 쿼리 창에서 다음 문을 입력하고 **실행**을 선택합니다. 
 
     ```KQL
-    SigninLogs | extend OS = DeviceDetail.operatingSystem
+    SigninLogs 
+    | extend OS = DeviceDetail.operatingSystem
     ```
 
 1. 다음 예제에서는 SigninLogs에 대해 압축된 필드를 분리하는 방법을 보여 줍니다. 쿼리 창에서 다음 문을 입력하고 **실행**을 선택합니다. 
 
     ```KQL
-    SigninLogs | extend OS = DeviceDetail.operatingSystem, Browser = DeviceDetail.browser 
+    SigninLogs 
+    | extend OS = DeviceDetail.operatingSystem, Browser = DeviceDetail.browser 
     | extend StatusCode = tostring(Status.errorCode), StatusDetails = tostring(Status.additionalDetails) 
     | extend Date = startofday(TimeGenerated) 
     | summarize count() by Date, Identity, UserDisplayName, UserPrincipalName, IPAddress, ResultType, ResultDescription, StatusCode, StatusDetails 
@@ -404,7 +406,8 @@ lab:
 1. 다음 문은 문자열 필드에 저장된 JSON을 조작하는 연산자를 보여 줍니다. 대부분의 로그는 JSON 형식으로 데이터를 제출합니다. 이 경우 JSON 데이터를 쿼리 가능한 필드로 변환하는 방법을 알아야 합니다. 쿼리 창에서 다음 문을 입력하고 **실행**을 선택합니다. 
 
     ```KQL
-    SigninLogs | extend AuthDetails =  todynamic(AuthenticationDetails) 
+    SigninLogs 
+    | extend AuthDetails =  todynamic(AuthenticationDetails) 
     | extend AuthMethod =  AuthDetails[0].authenticationMethod 
     | extend AuthResult = AuthDetails[0].["authenticationStepResultDetail"] 
     | project AuthMethod, AuthResult, AuthDetails 
@@ -413,7 +416,8 @@ lab:
 1. 다음 문은 동적 배열을 행(다중 값 확장)으로 변환하는 **mv-expand** 연산자를 보여 줍니다.
 
     ```KQL
-    SigninLogs | mv-expand AuthDetails = todynamic(AuthenticationDetails) 
+    SigninLogs 
+    | mv-expand AuthDetails = todynamic(AuthenticationDetails) 
     | project AuthDetails
     ```
 
@@ -422,7 +426,8 @@ lab:
 1. 다음 문은 각 레코드에 하위 쿼리를 적용하고 모든 하위 쿼리 결과의 합집합을 반환하는 **mv-apply** 연산자를 보여 줍니다.
 
     ```KQL
-    SigninLogs | mv-apply AuthDetails = todynamic(AuthenticationDetails) on
+    SigninLogs 
+    | mv-apply AuthDetails = todynamic(AuthenticationDetails) on
     (where AuthDetails.authenticationMethod == "Password")
     ```
 
