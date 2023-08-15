@@ -407,7 +407,7 @@ lab:
 
     ```KQL
     SigninLogs 
-    | extend AuthDetails =  todynamic(AuthenticationDetails) 
+    | extend AuthDetails =  parse_json(AuthenticationDetails) 
     | extend AuthMethod =  AuthDetails[0].authenticationMethod 
     | extend AuthResult = AuthDetails[0].["authenticationStepResultDetail"] 
     | project AuthMethod, AuthResult, AuthDetails 
@@ -417,7 +417,7 @@ lab:
 
     ```KQL
     SigninLogs 
-    | mv-expand AuthDetails = todynamic(AuthenticationDetails) 
+    | mv-expand AuthDetails = parse_json(AuthenticationDetails) 
     | project AuthDetails
     ```
 
@@ -427,7 +427,7 @@ lab:
 
     ```KQL
     SigninLogs 
-    | mv-apply AuthDetails = todynamic(AuthenticationDetails) on
+    | mv-apply AuthDetails = parse_json(AuthenticationDetails) on
     (where AuthDetails.authenticationMethod == "Password")
     ```
 
