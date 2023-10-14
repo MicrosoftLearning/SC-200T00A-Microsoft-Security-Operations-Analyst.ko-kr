@@ -1,14 +1,14 @@
-# <a name="module-5-configure-your-microsoft-sentinel-environment"></a>모듈 5 Microsoft Sentinel 환경 구성
+# 모듈 5 Microsoft Sentinel 환경 구성
 
 **참고** 이 데모의 성공적인 완료는 [필수 구성 요소 문서](00-prerequisites.md)에 있는 모든 단계를 완료하는 것에 달려 있습니다. 
 
-## <a name="explore-the-microsoft-sentinel-interface"></a>Microsoft Sentinel 인터페이스 살펴보기
+## Microsoft Sentinel 인터페이스 살펴보기
 
 1. [필수 구성 요소](00-prerequisites.md#deploy-azure-sentinel-workspace-for-demo-in-module-4) 섹션을 완료하는 동안 이전에 만든 Microsoft Sentinel 인터페이스로 돌아갑니다.
 
 1. 새로 만든 Microsoft Sentinel 작업 영역 내를 이동하면서 사용자 인터페이스 옵션을 숙지합니다.
 
-## <a name="create-a-watchlist"></a>관심 목록 만들기
+## 관심 목록 생성
 
 이 작업에서는 관심 목록을 만듭니다.
 
@@ -58,7 +58,7 @@ _GetWatchlist('HighValueHosts')
 
 이제 KQL 문에서 _GetWatchlist('HighValueHosts')를 사용하여 목록에 액세스할 수 있습니다. 참조할 열은 *Hostname*입니다.
 
-## <a name="create-a-threat-indicator"></a>위협 표시기 만들기
+## 위협 표시기 만들기
 
 이 작업에서는 표시기를 만듭니다.
 
@@ -91,4 +91,4 @@ ThreatIntelligenceIndicator
 ThreatIntelligenceIndicator 
 | project DomainName
 ```
-## <a name="you-have-completed-the-demo"></a>이 데모를 완료했습니다.
+## 이 데모를 완료했습니다.

@@ -1,10 +1,10 @@
-# <a name="module-2-demo---mitigate-attacks-with-microsoft-defender-for-endpoint"></a>모듈 2 데모 - 엔드포인트용 Microsoft Defender를 사용하여 위협 완화
+# 모듈 2 데모 - 엔드포인트용 Microsoft Defender를 사용하여 위협 완화
 
 
 
-**참고** 이 데모의 성공적인 완료는 [필수 구성 요소 문서](00-prerequisites.md)에 있는 모든 단계를 완료하는 것에 달려 있습니다. 
+**참고** 이 데모의 성공적인 완료는 [필수 구성 요소 문서](00-prerequisites.md)에 있는 모든 단계를 완료하는 것에 달려 있습니다.
 
-## <a name="simulated-attacks"></a>시뮬레이션된 공격
+## 시뮬레이션된 공격
 
 이 작업에서는 엔드포인트용 Microsoft Defender 기능을 살펴보기 위해 시뮬레이션된 공격 1개를 실행합니다.
 
@@ -22,4 +22,4 @@
     1. 인시던트 페이지를 열고 **인시던트 관리**를 클릭합니다. **인시던트 해결**을 클릭하여 모든 활성 경고를 해결합니다.
 
 
-## <a name="you-have-completed-the-demo"></a>이 데모를 완료했습니다.
+## 데모를 완료했습니다.
