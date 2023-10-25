@@ -52,21 +52,23 @@ lab:
 
 이 작업에서는 Microsoft Sentinel에서 플레이북으로 사용되는 논리 앱을 만듭니다.
 
-1. Microsoft Edge 브라우저에서 의 Azure Portal https://portal.azure.com이동합니다.
+1. Microsoft Edge 브라우저에서 [GitHub의 Microsoft Sentinel로](https://github.com/Azure/Azure-Sentinel) 이동합니다.
 
-1. 랩 호스팅 공급자가 제공한 **테넌트 전자 메일** 계정을 복사하여 **로그인** 대화 상자에 붙여넣은 후 **다음**을 선택합니다.
+<!--- the Azure portal at https://portal.azure.com.
 
-1. 랩 호스팅 공급자가 제공한 **테넌트 암호**를 복사하여 **암호 입력** 대화 상자에 붙여넣은 후 **로그인**을 선택합니다.
+1. In the **Sign in** dialog box, copy and paste in the **Tenant Email** account provided by your lab hosting provider and then select **Next**.
 
-1. Azure Portal의 검색 창에 *Sentinel*을 입력하고 **Microsoft Sentinel**을 선택합니다.
+1. In the **Enter password** dialog box, copy and paste in the **Tenant Password** provided by your lab hosting provider and then select **Sign in**.
 
-1. 앞에서 만든 Microsoft Sentinel 작업 영역을 선택합니다.
+1. In the Search bar of the Azure portal, type *Sentinel*, then select **Microsoft Sentinel**.
 
-1. 페이지 왼쪽의 콘텐츠 관리 영역에서 **커뮤니티** 페이지를 선택합니다.
+1. Select your Microsoft Sentinel Workspace you created earlier.
 
-1. 오른쪽 창에서 **커뮤니티 콘텐츠 온보딩** 링크를 선택합니다. 그러면 Microsoft Sentinel GitHub 콘텐츠용 Microsoft Edge 브라우저에서 새 탭이 열립니다. **힌트:** 링크를 보려면 오른쪽으로 스크롤해야 할 수 있습니다. 또는 [GitHub의 Microsoft Sentinel](https://github.com/Azure/Azure-Sentinel) 링크를 따르세요.
+1. Select the **Community** page under the *Content management* area on the left side of the page.
 
-1. **Solutions** 폴더를 선택합니다.
+1. On the right pane, select the **Onboard community content** link. This opens a new tab in the Microsoft Edge Browser for Microsoft Sentinel GitHub content. **Hint:** You might need to scroll right to see the link. Alternatively, follow this link instead: [Microsoft Sentinel on GitHub](https://github.com/Azure/Azure-Sentinel). --->
+
+1. 아래로 스크롤하여 솔루션 폴더 **를** 선택합니다.
 
 1. 이제 **SentinelSOARessentials** 폴더를 선택하고, **Playbooks** 폴더를 선택합니다.
 
@@ -98,9 +100,9 @@ lab:
 
 1. 플레이북이 표시되지 않는 경우 명령 모음에서 **새로 고침** 을 선택합니다. **Microsoft Sentinel 인시**던트 *트리거 종류를* 사용하여 이전 단계에서 만든 플레이북이 표시됩니다.
 
-1. **PostMessageTeams** 플레이북 이름을 선택합니다.
+1. **PostMessageTeams-OnIncident** 플레이북 이름을 선택합니다.
 
-1. *PostMessageTeams*에 대한 논리 앱 페이지의 명령 메뉴에서 **편집**을 선택합니다.
+1. *PostMessageTeams-OnIncident*에 대한 논리 앱 페이지의 명령 메뉴에서 **편집**을 선택합니다.
 
     >**참고:** 페이지를 새로 고쳐야 할 수도 있습니다.
 
