@@ -91,7 +91,7 @@ lab:
 
 1. Microsoft Sentinel 포털이 열려 있는 Microsoft Edge 브라우저로 돌아가기 오른쪽 위 모서리에서 'x'를 선택하여 "레거시 에이전트를 통한 CEF(Common Event Format)" 데이터 커넥터 페이지를 닫습니다.
 
-1. 1. Microsoft Sentinel 왼쪽 메뉴에서 *콘텐츠 관리* 섹션까지 아래로 스크롤하여 **콘텐츠 허브**를 선택합니다.
+1. Microsoft Sentinel 왼쪽 메뉴에서 *콘텐츠 관리* 섹션까지 아래로 스크롤하여 **콘텐츠 허브**를 선택합니다.
 
 1. *콘텐츠 허브*에서 **Syslog** 솔루션을 검색하고 목록에서 선택합니다.
 
