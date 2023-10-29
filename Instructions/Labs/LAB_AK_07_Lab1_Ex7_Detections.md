@@ -73,7 +73,7 @@ lab:
 
     |설정|값|
     |---|---|
-    |속성|Startup RegKey|
+    |Name|Startup RegKey|
     |Description|c:\temp의 Startup RegKey|
     |전술|지속성|
     |심각도|높음|
@@ -85,7 +85,7 @@ lab:
     |엔터티|ID|데이터 필드|
     |:----|:----|:----|
     |계정|FullName|AccountCustomEntity|
-    |호스트|Hostname|HostCustomEntity|
+    |Host|호스트 이름|HostCustomEntity|
 
 1. **호스트 엔**터티에 대해 *호스트* 이름을 선택하지 않은 경우 드롭다운 목록에서 선택합니다.
 
@@ -111,13 +111,13 @@ lab:
     |자동화 규칙 이름|Startup RegKey|
     |트리거|인시던트가 생성될 때|
     |동작 |플레이북 실행|
-    |플레이북 |PostMessageTeams-OnAlert|
+    |플레이북 |PostMessageTeams-OnIncident|
 
     >**참고:** 플레이북에 사용 권한을 이미 할당했으므로 사용할 수 있습니다.
 
 1. **적용**을 선택합니다.
 
-1. **다음: 검토 및 만들기 >** 단추를 선택합니다.
+1. 하단에서 **다음: 검토 >** 단추를 선택합니다.
   
 1. *검토 및 만들기* 탭에서 **만들기** 단추를 선택하여 새 예약된 분석 규칙을 만듭니다.
 
