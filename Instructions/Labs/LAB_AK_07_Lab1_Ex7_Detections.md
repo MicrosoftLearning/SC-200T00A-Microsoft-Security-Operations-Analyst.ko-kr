@@ -82,9 +82,9 @@ lab:
 
 1. *규칙 논리* 설정 탭*에서 규칙 쿼리*는 경고 보강 - 엔터티 매핑* 아래*의 엔터티뿐만 아니라 KQL 쿼리로 이미 채워져야 합니다.
 
-    |엔터티|식별자|데이터 필드|
+    |Entity|식별자|데이터 필드|
     |:----|:----|:----|
-    |어카운트|FullName|AccountCustomEntity|
+    |계정|FullName|AccountCustomEntity|
     |Host|Hostname|HostCustomEntity|
 
 1. 호스트 엔터티에 대해 호스트* 이름이** 선택되지 않은 경우 **드롭*다운 목록에서 선택합니다.
@@ -208,7 +208,7 @@ lab:
    |자동화 규칙 이름|SecurityEvent 로컬 관리자 사용자 추가|
    |트리거|인시던트가 생성될 때|
    |작업 |플레이북 실행|
-   |플레이 북 |PostMessageTeams-OnAlert|
+   |플레이 북 |PostMessageTeams-OnIncident|
 
    >**참고:** 플레이북에 사용 권한을 이미 할당했으므로 사용할 수 있습니다.
 
