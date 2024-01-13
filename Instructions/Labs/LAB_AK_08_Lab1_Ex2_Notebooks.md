@@ -6,7 +6,7 @@ lab:
 
 # 학습 경로 8 - 랩 1 - 연습 2 - Microsoft Sentinel이 설치된 Notebooks를 사용하여 위협 헌팅
 
-## 실습 시나리오
+## 랩 시나리오
 
 당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다. Microsoft Sentinel Notebooks를 사용하는 위협 헌팅의 이점을 파악해야 합니다. Notebook을 사용하여 다음을 수행할 수 있습니다.
 

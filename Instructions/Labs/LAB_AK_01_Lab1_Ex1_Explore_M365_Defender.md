@@ -6,7 +6,7 @@ lab:
 
 # 학습 경로 1 - 랩 1 - 연습 1 - Microsoft 365 Defender 살펴보기
 
-## 실습 시나리오
+## 랩 시나리오
 
 ![M365 Defender](../Media/SC-200-Lab_M1_L1_Ex1.png)
 

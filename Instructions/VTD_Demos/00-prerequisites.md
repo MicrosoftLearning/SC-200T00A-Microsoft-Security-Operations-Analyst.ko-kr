@@ -1,5 +1,5 @@
 
-# Microsoft Security Operations Analyst
+# Microsoft 보안 운영 분석가
 트레이너 준비 가이드:
 
 ## 목적
