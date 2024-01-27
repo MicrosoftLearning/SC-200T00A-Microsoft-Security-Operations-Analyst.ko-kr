@@ -72,7 +72,7 @@
 
 1. 다운로드한 zip 파일을 문서 폴더와 같은 로컬 폴더로 추출합니다.
 
-1. 추출된 파일 WindowsDefenderATPLocalOnboardingScript.cmd를 마우스 오른쪽 단추로 클릭하고 관리istrator**로 실행을 선택합니다**.  Windows SmartScreen이 발생하면 실행하도록 선택합니다.
+1. 추출된 파일 WindowsDefenderATPLocalOnboardingScript.cmd 마우스 오른쪽 단추로 클릭하고 관리로** 실행을 선택합니다**.  Windows SmartScreen이 발생하면 실행하도록 선택합니다.
 
 **참고** 기본적으로 파일은 c:\users\admin\downloads 디렉터리에 있어야 합니다.
     
@@ -581,97 +581,97 @@ You should still be connected to the WIN2 virtual machine.  The following instru
 1. 작업 표시줄 검색에서 명령을 입력합니다**.  명령 프롬프트가 검색 결과에 표시됩니다.  명령 프롬프트를 마우스 오른쪽 단추로 클릭하고 관리istrator**로 실행을 선택합니다**. 표시되는 사용자 계정 컨트롤 프롬프트를 확인합니다.
 
 1. 명령 프롬프트에서 각 행 다음에 Enter 키를 눌러 각 행에 명령을 입력합니다.
-```
-cd \
-mkdir temp
-cd temp
-```
+
+    ```CommandPrompt
+    cd \
+    mkdir temp
+    cd temp
+    ```
 
 1. 다음 명령을 복사하고 실행합니다.
 
-```
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /V "SOC Test" /t REG_SZ /F /D "C:\temp\startup.bat"
-```
+    ```CommandPrompt
+    REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /V "SOC Test" /t REG_SZ /F /D "C:\temp\startup.bat"
+    ```
 
 ### 작업 2: C2(명령 및 제어) 공격 만들기
 
 1. 암호로 `WIN1` 관리 가상 머신에 로그인합니다 **. Pa55w.rd**.  
 
 1. 작업 표시줄 검색에서 명령을 입력합니다**.  명령 프롬프트가 검색 결과에 표시됩니다.  명령 프롬프트를 마우스 오른쪽 단추로 클릭하고 관리istrator**로 실행을 선택합니다**. 표시되는 사용자 계정 컨트롤 프롬프트를 확인합니다.
-1. 
-1. 
+
 1. 공격 2 - 다음 명령을 복사하여 실행합니다.
 
-```
-notepad c2.ps1
-```
+    ```CommandPrompt
+    notepad c2.ps1
+    ```
+
 예를 선택하여 **새 파일을 만들고 다음 PowerShell 스크립트를 c2.ps1에 복사하고 저장**을 선택합니다**.**
 
-**참고** : Virtual Machine에 붙여넣는 데는 길이가 제한될 수 있습니다.  이 스크립트를 세 섹션에 붙여넣어 모든 스크립트가 Virtual Machine에 붙여넣도록 합니다.  스크립트가 메모장 c2.ps1 파일 내의 이러한 지침에서와 같이 표시되는지 확인합니다.
+>**참고:** Virtual Machine에 붙여넣는 데는 길이가 제한될 수 있습니다.  이 스크립트를 세 섹션에 붙여넣어 모든 스크립트가 Virtual Machine에 붙여넣도록 합니다.  스크립트가 메모장 c2.ps1 파일 내의 이러한 지침에서와 같이 표시되는지 확인합니다.
 
-```
-
-
-param(
-    [string]$Domain = "microsoft.com",
-    [string]$Subdomain = "subdomain",
-    [string]$Sub2domain = "sub2domain",
-    [string]$Sub3domain = "sub3domain",
-    [string]$QueryType = "TXT",
-        [int]$C2Interval = 8,
-        [int]$C2Jitter = 20,
-        [int]$RunTime = 240
-)
-
-
-$RunStart = Get-Date
-$RunEnd = $RunStart.addminutes($RunTime)
-
-$x2 = 1
-$x3 = 1 
-Do {
-    $TimeNow = Get-Date
-    Resolve-DnsName -type $QueryType $Subdomain".$(Get-Random -Minimum 1 -Maximum 999999)."$Domain -QuickTimeout
-
-    if ($x2 -eq 3 )
-    {
-        Resolve-DnsName -type $QueryType $Sub2domain".$(Get-Random -Minimum 1 -Maximum 999999)."$Domain -QuickTimeout
-        
-        $x2 = 1
-
-    }
-    else
-    {
-        $x2 = $x2 + 1
-    }
+    ```PowerShell
     
-    if ($x3 -eq 7 )
-    {
-
-        Resolve-DnsName -type $QueryType $Sub3domain".$(Get-Random -Minimum 1 -Maximum 999999)."$Domain -QuickTimeout
-
-        $x3 = 1
+    param(
+        [string]$Domain = "microsoft.com",
+        [string]$Subdomain = "subdomain",
+        [string]$Sub2domain = "sub2domain",
+        [string]$Sub3domain = "sub3domain",
+        [string]$QueryType = "TXT",
+            [int]$C2Interval = 8,
+            [int]$C2Jitter = 20,
+            [int]$RunTime = 240
+    )
+    
+    
+    $RunStart = Get-Date
+    $RunEnd = $RunStart.addminutes($RunTime)
+    
+    $x2 = 1
+    $x3 = 1 
+    Do {
+        $TimeNow = Get-Date
+        Resolve-DnsName -type $QueryType $Subdomain".$(Get-Random -Minimum 1 -Maximum 999999)."$Domain -QuickTimeout
+    
+        if ($x2 -eq 3 )
+        {
+            Resolve-DnsName -type $QueryType $Sub2domain".$(Get-Random -Minimum 1 -Maximum 999999)."$Domain -QuickTimeout
+            
+            $x2 = 1
+    
+        }
+        else
+        {
+            $x2 = $x2 + 1
+        }
         
+        if ($x3 -eq 7 )
+        {
+    
+            Resolve-DnsName -type $QueryType $Sub3domain".$(Get-Random -Minimum 1 -Maximum 999999)."$Domain -QuickTimeout
+    
+            $x3 = 1
+            
+        }
+        else
+        {
+            $x3 = $x3 + 1
+        }
+    
+    
+        $Jitter = ((Get-Random -Minimum -$C2Jitter -Maximum $C2Jitter) / 100 + 1) +$C2Interval
+        Start-Sleep -Seconds $Jitter
     }
-    else
-    {
-        $x3 = $x3 + 1
-    }
-
-
-    $Jitter = ((Get-Random -Minimum -$C2Jitter -Maximum $C2Jitter) / 100 + 1) +$C2Interval
-    Start-Sleep -Seconds $Jitter
-}
-Until ($TimeNow -ge $RunEnd)
-
-```
+    Until ($TimeNow -ge $RunEnd)
+    ```
 
 명령 프롬프트에서 다음을 입력하고 각 행 다음에 Enter 키를 눌러 각 행에 명령을 입력합니다.
-```
-powershell
-.\c2.ps1
-```
-**참고:** 해결 오류가 표시됩니다. 이 대화 상자의 표시는 예상된 결과입니다.
+
+    ```PowerShell
+    .\c2.ps1
+    ```
+
+>**참고:** 해결 오류가 표시됩니다. 이 대화 상자의 표시는 예상된 결과입니다.
 이 명령/powershell 스크립트를 백그라운드에서 실행합니다. 창을 닫지 마세요.  이 명령은 몇 시간 동안 로그 항목을 생성해야 합니다.  이 스크립트가 실행되는 동안 다음 작업 및 다음 연습을 진행할 수 있습니다.  이 태스크에서 만든 데이터는 나중에 위협 헌팅 랩에서 사용됩니다.  이 프로세스는 상당한 양의 데이터 또는 처리를 만들지 않습니다.
 
 ### 작업 2: AMA(Azure Monitor 에이전트)로 구성된 공격 Windows
@@ -692,6 +692,6 @@ powershell
     net localgroup administrators theusernametoadd /add
     ```
 
->**참고**: 줄당 명령이 하나만 있는지 확인하고 사용자 이름을 변경하여 명령을 다시 실행할 수 있습니다.
+    >**참고**: 줄당 명령이 하나만 있는지 확인하고 사용자 이름을 변경하여 명령을 다시 실행할 수 있습니다.
 
 1. 창에 `Output` 세 번 표시됩니다 `The command completed successfully` .
