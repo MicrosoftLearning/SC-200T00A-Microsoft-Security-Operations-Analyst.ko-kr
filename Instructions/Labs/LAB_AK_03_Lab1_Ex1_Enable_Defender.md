@@ -124,7 +124,7 @@ lab:
 
 1. "단일 서버 추가" 섹션에서 스크립트** 생성을 선택합니다**.
 
-1. 필수 구성 요소 탭을 *읽은 다음 다음**을 선택하여 **계속*합니다.
+    <!--- 1. Read through the *Prerequisites* tab and then select **Next** to continue.--->
 
 1. *Azure Arc*를 사용하여 서버 추가 페이지에서 프로젝트 세부 정보* 아래에서 *이전에 만든 리소스 그룹을 선택합니다. **힌트:** *RG-Defender*
 
