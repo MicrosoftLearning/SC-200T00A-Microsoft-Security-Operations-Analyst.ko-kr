@@ -51,9 +51,11 @@ lab:
 
 1. 콘텐츠 허브*에서 *클라우드용 Microsoft Defender** 솔루션을 검색**하고 목록에서 선택합니다.
 
-1. *클라우드용 Microsoft Defender* 솔루션 페이지에서 설치**를 선택합니다**.
+1. *클라우드용 Microsoft Defender* 솔루션 세부 정보 페이지에서 설치**를 선택합니다**.
 
-1. 설치가 완료되면 관리를 선택합니다 **.**
+1. 설치가 완료되면 클라우드용 Microsoft Defender** 솔루션을 검색**하여 선택합니다.
+
+1. *클라우드용 Microsoft Defender* 솔루션 세부 정보 페이지에서 관리 선택 ****
 
     >**참고:** 클라우드용 Microsoft Defender 솔루션은 *구독 기반 클라우드용 Microsoft Defender(레거시)* 데이터 커넥터, *테넌트 기반 클라우드용 Microsoft Defender(미리 보기)* 데이터 커넥터 및 분석 규칙을 설치 ** 합니다.
 
@@ -65,7 +67,7 @@ lab:
 
 1. *이제 **상태가* 커넥트** "양방향 동기화"를 사용하도록 설정*해야 *합니다.
 
-1. 아래로 스크롤하여 인시 *던트 만들기 - 권장!* 영역, 이 연결된 서비스에서* 생성된 모든 경고에서 자동으로 인시던트 만들기가 **사용되도록** 설정되어 있는지 확인*합니다.
+    <!--- 1. Scroll down and under the *Create incidents - Recommended!* area, verify that *Create incidents automatically from all alerts generated in this connected service* is **Enabled**. --->
 
 ### 작업 3: Azure 활동 데이터 커넥터 커넥트
 
