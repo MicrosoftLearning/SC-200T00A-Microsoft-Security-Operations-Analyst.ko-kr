@@ -1,12 +1,12 @@
 ---
 demo:
-  title: '데모: ARM 템플릿 배포'
-  module: 'Module 1: Exploring Azure Resource Manager'
+    title: 'Demo: Deploying an ARM Template'
+    module: 'Module 1: Exploring Azure Resource Manager'
 ---
 
-# <a name="demo-deploying-an-arm-template"></a>데모: ARM 템플릿 배포
+# Demo: Deploying an ARM Template
 
-## <a name="instructions"></a>Instructions
+## Instructions
 
 1. Quisque dictum convallis metus, vitae vestibulum turpis dapibus non.
 
@@ -30,7 +30,7 @@ demo:
 
 1. Fusce tincidunt sapien nec dolor congue facilisis lacinia quis urna.
 
-    > **참고**: Ut feugiat est id ultrices gravida.
+    > **Note**: Ut feugiat est id ultrices gravida.
 
 1. Phasellus urna lacus, luctus at suscipit vitae, maximus ac nisl. 
 
