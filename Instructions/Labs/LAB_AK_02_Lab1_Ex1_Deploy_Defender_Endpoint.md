@@ -23,13 +23,13 @@ lab:
 
 ### 작업 1: 엔드포인트용 Microsoft Defender 초기화
 
-이 작업에서는 엔드포인트용 Microsoft Defender 포털 초기화를 수행합니다.
+이 작업에서는 엔드포인트용 Microsoft Defender 초기화를 수행합니다.
 
 1. **WIN1** 가상 머신에 Admin으로 로그인합니다. 암호로는 **Pa55w.rd**를 사용하여 로그인합니다.  
 
-1. 현재 위치가 Microsoft 365 Defender 포털이 아닌 경우 Microsoft Edge 브라우저를 시작합니다.
+1. 아직 Microsoft Defender XDR 포털에 접속하지 않은 경우 Microsoft Edge 브라우저를 시작합니다.
 
-1. Edge 브라우저에서 Microsoft 365 Defender 포털(https://security.microsoft.com))로 이동합니다.
+1. Edge 브라우저에서 Defender XDR 포털(https://security.microsoft.com))로 이동합니다.
 
 1. 랩 호스팅 공급자가 제공한 관리자 사용자 이름용 테넌트 전자 메일 계정을 복사하여 **로그인** 대화 상자에 붙여 넣은 후 **다음**을 선택합니다.
 
@@ -37,7 +37,7 @@ lab:
 
     >**팁:** 관리자의 테넌트 메일 계정 및 암호는 리소스 탭에서 찾을 수 있습니다.
 
-1. **Microsoft 365 Defender** 포털에 있는 탐색 메뉴의 왼쪽에서 **설정**을 선택합니다.
+1. **Defender XDR** 포털의 탐색 메뉴 왼쪽에서 **설정**을 선택합니다.
 
 1. 설정 페이지에서 **디바이스 검색**을 선택합니다. 
 
@@ -80,7 +80,7 @@ lab:
 
 이 작업에서는 디바이스 그룹에 사용할 역할을 구성합니다.
 
-1. Microsoft 365 Defender 포털의 왼쪽 메뉴 모음에서 **설정**을 선택한 다음 **엔드포인트**를 선택합니다. 
+1. Microsoft Defender XDR 포털의 왼쪽 메뉴 모음에서 **설정**을 선택한 다음 **엔드포인트**를 선택합니다. 
 
 1. 권한 영역에서 **역할**을 선택합니다.
 
@@ -107,7 +107,7 @@ lab:
 
 이 작업에서는 액세스 제어 및 자동화 구성을 허용하는 디바이스 그룹을 구성합니다.
 
-1. Microsoft 365 Defender 포털의 왼쪽 메뉴 모음에서 **설정**을 선택한 다음 **엔드포인트**를 선택합니다. 
+1. Microsoft Defender XDR 포털의 왼쪽 메뉴 모음에서 **설정**을 선택한 다음 **엔드포인트**를 선택합니다. 
 
 1. 권한 영역에서 **디바이스 그룹**을 선택합니다.
 
