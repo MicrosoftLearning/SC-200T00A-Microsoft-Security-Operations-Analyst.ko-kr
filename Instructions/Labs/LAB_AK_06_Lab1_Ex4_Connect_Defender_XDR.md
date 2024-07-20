@@ -12,6 +12,8 @@ lab:
 
 Microsoft Defender XDR과 Microsoft Sentinel을 모두 배포한 회사에서 근무하는 보안 운영 분석가라고 가정합니다. Microsoft Sentinel을 Defender XDR에 연결하는 통합 보안 운영 플랫폼을 준비해야 합니다. 다음 단계는 Defender XDR Content Hub 솔루션을 설치하고 Defender XDR 데이터 커넥터를 Microsoft Sentinel에 배포하는 것입니다.
 
+>**중요:** Azure Microsoft Sentinel 포털과 Microsoft Defender XDR 포털의 Sentinel 간에는 기능 차이**[포털 기능 차이](https://learn.microsoft.com/azure/sentinel/microsoft-sentinel-defender-portal#capability-differences-between-portals)** 가 있습니다.
+
 ### 작업 1: Defender XDR 연결
 
 이 작업에서는 Microsoft Defender XDR 커넥터를 배포합니다.
