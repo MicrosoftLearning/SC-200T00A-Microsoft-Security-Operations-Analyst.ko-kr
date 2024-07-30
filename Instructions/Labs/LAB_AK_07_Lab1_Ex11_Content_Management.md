@@ -46,7 +46,7 @@ lab:
 
 이 작업에서는 Azure DevOps 리포지토리를 만듭니다.
 
-1. 브라우저에서 다른 탭을 열고(https://aexprodcus1.vsaex.visualstudio.com/me?mkt=en-US)로 이동합니다.
+1. 브라우저에서 다른 탭을 열고 <https://aexprodcus1.vsaex.visualstudio.com/me?mkt=en-US>로 이동합니다.
 
 1. On the *몇 가지 추가 정보를 입력해 주세요* 페이지에서 **계속**을 선택합니다.
 
