@@ -40,8 +40,6 @@ Microsoft Defender XDR과 Microsoft Sentinel을 모두 배포한 회사에서 �
 
 1. *Microsoft Defender XDR* 솔루션 세부 정보 페이지에서 **관리** 선택
 
->**참고:** *Microsoft Defender XDR* 솔루션은 *Microsoft Defender XDR* 데이터 커넥터, 헌팅 쿼리, Workbooks 및 분석 규칙을 설치합니다.
-
 1. *Microsoft Defender XDR* 데이터 커넥터 확인란을 선택하고 **커넥터 페이지 열기**를 선택합니다.
 
 1. *구성* 섹션의 *지침* 탭에서 다음 확인란을 **선택 해제**합니다. *이 제품에 대한 모든 Microsoft 인시던트 만들기 규칙을 해제합니다. 권장*. 그리고 **인시던트 및 경고 연결** 단추를 선택합니다.
@@ -58,7 +56,7 @@ Microsoft Defender XDR과 Microsoft Sentinel을 모두 배포한 회사에서 �
 
 1. 새 Microsoft Edge 브라우저를 시작합니다.
 
-1. Edge 브라우저에서 Microsoft Defender XDR 포털(https://security.microsoft.com))로 이동합니다.
+1. Edge 브라우저에서 <https://security.microsoft.com>의 Microsoft Defender XDR 포털로 이동합니다.
 
 1. 랩 호스팅 공급자가 제공한 관리자 사용자 이름용 테넌트 전자 메일 계정을 복사하여 **로그인** 대화 상자에 붙여 넣은 후 **다음**을 선택합니다.
 
@@ -80,7 +78,7 @@ Microsoft Defender XDR과 Microsoft Sentinel을 모두 배포한 회사에서 �
 
 1. *작업 영역에 연결하는 중*이라는 메시지에 이어 *작업 영역이 연결됨*이라는 메시지가 표시됩니다.
 
-1. **닫기** 버튼을 선택합니다. 
+1. **닫기** 버튼을 선택합니다.
 
 1. **Defender XDR** 포털의 **홈** 화면에서 *통합 SIEM 및 XDR이 준비됨*이라는 메시지와 함께 맨 위에 배너가 표시됩니다. **헌팅 시작** 단추를 선택합니다.
 
@@ -88,6 +86,6 @@ Microsoft Defender XDR과 Microsoft Sentinel을 모두 배포한 회사에서 �
 
 1. 축소된 경우 왼쪽 주 메뉴 창을 확장하고 새 **Microsoft Sentinel** 메뉴 항목을 확장합니다. *위협 관리*, *콘텐츠 관리* 및 *구성* 선택 항목이 표시됩니다.
 
- >**참고:** 일부 기능은 공개 미리 보기에서는 사용할 수 없으며 사용자 인터페이스는 랩 지침과 다를 수 있습니다. 또한 Microsoft Sentinel과 Microsoft Defender XDR 간의 동기화를 완료하는 데 몇 분 정도 걸릴 수 있으므로 설치된 *데이터 커넥터*가 보이지 않을 수 있습니다.
+ >**참고:** 또한 Microsoft Sentinel과 Microsoft Defender XDR 간의 동기화를 완료하는 데 몇 분 정도 걸릴 수 있으므로 설치된 *데이터 커넥터*가 보이지 않을 수 있습니다.
 
 ## 랩을 완료했습니다.
