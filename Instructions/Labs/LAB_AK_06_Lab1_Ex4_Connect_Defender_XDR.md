@@ -88,4 +88,4 @@ Microsoft Defender XDR과 Microsoft Sentinel을 모두 배포한 회사에서 �
 
  >**참고:** 또한 Microsoft Sentinel과 Microsoft Defender XDR 간의 동기화를 완료하는 데 몇 분 정도 걸릴 수 있으므로 설치된 *데이터 커넥터*가 보이지 않을 수 있습니다.
 
-## 랩을 완료했습니다.
+## 랩을 완료했습니다. 학습 경로 7 - 랩 1 - 연습 2 - Microsoft Sentinel 플레이북 만들기를 진행하세요.
