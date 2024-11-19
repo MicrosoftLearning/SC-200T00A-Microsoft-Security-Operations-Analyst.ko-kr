@@ -12,10 +12,7 @@ lab:
 
 당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다. 로그 데이터 분석을 수행하여 악의적인 활동을 검색하고 시각화를 표시하고 위협 헌팅을 수행할 책임이 있습니다. 로그 데이터를 쿼리하려면 KQL(Kusto Query Language)을 사용합니다.
 
->**참고:** **[대화형 랩 시뮬레이션](https://mslabs.cloudguides.com/guides/SC-200%20Lab%20Simulation%20-%20Create%20queries%20for%20Microsoft%20Sentinel%20using%20Kusto%20Query%20Language)** 을 사용하여 이 랩을 원하는 속도로 클릭할 수 있습니다. 대화형 시뮬레이션과 호스트된 랩 간에 약간의 차이가 있을 수 있지만 보여주는 핵심 개념과 아이디어는 동일합니다.
-
->**중요:** 이 랩에서는 많은 KQL 스크립트를 Microsoft Sentinel에 입력합니다. 스크립트는 이 랩의 시작 부분에 있는 파일에 제공되었습니다. 스크립트를 다운로드할 대체 위치는 https://github.com/MicrosoftLearning/SC-200T00A-Microsoft-Security-Operations-Analyst/tree/master/Allfiles입니다.
-
+>**중요:** 이 랩에서는 많은 KQL 스크립트를 Microsoft Sentinel에 입력합니다. 스크립트는 이 랩의 시작 부분에 있는 파일에 제공되었습니다. 스크립트를 다운로드할 대체 위치는 <https://github.com/MicrosoftLearning/SC-200T00A-Microsoft-Security-Operations-Analyst/tree/master/Allfiles>입니다.
 
 ### 작업 1: KQL 테스트 영역 액세스
 
@@ -23,7 +20,7 @@ lab:
 
 1. **WIN1** 가상 머신에 Admin으로 로그인합니다. 암호로는 **Pa55w.rd**를 사용하여 로그인합니다.  
 
-1. 브라우저에서 https://aka.ms/lademo으로 이동합니다. MOD 관리자 자격 증명을 사용하여 로그인합니다.
+1. 브라우저에서 <https://aka.ms/lademo>으로 이동합니다. MOD 관리자 자격 증명을 사용하여 로그인합니다.
 
 1. 표시되는 Log Analytics 비디오 팝업 창을 닫습니다.
 
@@ -48,7 +45,7 @@ lab:
 
 >**중요:**  각 쿼리에 대해 쿼리 창에서 이전 문을 지우거나, 마지막으로 연 탭 뒤에 있는 **+** 를 선택하여 새 쿼리 창을 엽니다(최대 25개).
 
-1. 다음 문은 테이블의 모든 열에서 값을 검색하는 **search** 연산자를 보여 줍니다. 
+1. 다음 문은 테이블의 모든 열에서 값을 검색하는 **search** 연산자를 보여 줍니다.
 
 1. 쿼리 창에서 *시간 범위*를 **지난 30분**으로 변경합니다.
 
@@ -97,7 +94,7 @@ lab:
  
     ```
 
-1. 다음 문에는 **let** 문을 사용하여 변수를 선언하는 방법이 나와 있습니다.** 쿼리 창에서 다음 문을 입력하고 **실행**을 선택합니다. 
+1. 다음 문에는 **let** 문을 사용하여 변수를 선언하는 방법이 나와 있습니다.** 쿼리 창에서 다음 문을 입력하고 **실행**을 선택합니다.
 
     ```KQL
     let timeOffset = 1h;
@@ -107,7 +104,7 @@ lab:
     | where EventID != discardEventId
     ```
 
-1. 다음 문에는 **let** 문을 사용하여 동적 목록을 선언하는 방법이 나와 있습니다.** 쿼리 창에서 다음 문을 입력하고 **실행**을 선택합니다. 
+1. 다음 문에는 **let** 문을 사용하여 동적 목록을 선언하는 방법이 나와 있습니다.** 쿼리 창에서 다음 문을 입력하고 **실행**을 선택합니다.
 
     ```KQL
     let suspiciousAccounts = datatable(account: string) [
@@ -121,7 +118,7 @@ lab:
 
     >**팁:** 쿼리 창에서 줄임표(...)를 선택하여 쿼리 서식을 간편하게 다시 지정할 수 있으며 **양식 쿼리**를 선택할 수 있습니다.
 
-1. 다음 문에는 **let** 문을 사용하여 동적 테이블을 선언하는 방법이 나와 있습니다.** 쿼리 창에서 다음 문을 입력하고 **실행**을 선택합니다. 
+1. 다음 문에는 **let** 문을 사용하여 동적 테이블을 선언하는 방법이 나와 있습니다.** 쿼리 창에서 다음 문을 입력하고 **실행**을 선택합니다.
 
     ```KQL
     let LowActivityAccounts =
@@ -332,7 +329,7 @@ lab:
     | summarize count() by Type
     ```
 
-1. 다음 문은 두 테이블의 행을 병합하여 각 테이블에서 지정된 열의 값 일치 여부를 확인하여 새 테이블을 생성하는 **join** 연산자를 보여 줍니다. 쿼리 창에서 다음 문을 입력하고 **실행**을 선택합니다. 
+1. 다음 문은 두 테이블의 행을 병합하여 각 테이블에서 지정된 열의 값 일치 여부를 확인하여 새 테이블을 생성하는 **join** 연산자를 보여 줍니다. 쿼리 창에서 다음 문을 입력하고 **실행**을 선택합니다.
 
     ```KQL
     SecurityEvent  
@@ -388,6 +385,8 @@ lab:
     | parse EventText with * "resourceName=" resourceName ", totalSlices=" totalSlices:long * "sliceNumber=" sliceNumber:long * "lockTime=" lockTime ", releaseTime=" releaseTime:date "," * "previousLockTime=" previousLockTime:date ")" *  
     | project resourceName, totalSlices, sliceNumber, lockTime, releaseTime, previousLockTime
     ```
+
+>**중요:** 다음 쿼리는 현재 이 랩에 사용되는 lademo 환경에서 결과를 생성하지 않습니다. *SigninLogs* 테이블의 항목이 제거되었습니다. 그러나 KQL 쿼리는 중요한 개념과 사용 사례를 보여 주므로 검토하는 데 시간이 걸릴 수 있습니다.
 
 1. 다음 문은 다른 데이터 형식의 모든 값을 사용할 수 있어서 특별한 **dynamic** 필드를 사용하는 방법을 보여 줍니다. 이 예제에서 SigninLogs 테이블의 DeviceDetail 필드는 **동적** 형식입니다. 쿼리 창에서 다음 문을 입력하고 **실행**을 선택합니다. 
 
