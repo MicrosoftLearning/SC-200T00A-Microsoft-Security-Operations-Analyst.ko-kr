@@ -20,6 +20,8 @@ lab:
 
 이 작업에서는 Microsoft Sentinel 배포에 포함된 레지스트리 스키마 파서를 검토합니다.
 
+>**참고:** Microsoft Sentinel이 Azure 구독에 **defenderWorkspace**라는 이름으로 사전 배포되었으며 필요한 *콘텐츠 허브* 솔루션이 설치되어 있습니다.
+
 1. WIN1 가상 머신에 Admin으로 로그인합니다. 암호로는 **Pa55w.rd**를 사용하여 로그인합니다.  
 
 1. Microsoft Edge 브라우저에서 <https://portal.azure.com>의 Azure Portal로 이동합니다.
@@ -30,7 +32,7 @@ lab:
 
 1. Azure Portal의 검색 창에 *Sentinel*을 입력하고 **Microsoft Sentinel**을 선택합니다.
 
-1. Microsoft Sentinel 작업 영역을 선택합니다.
+1. Microsoft Sentinel **defenderWorkspace**을 선택합니다.
 
 <!--- 1. In the Edge browser, open a new tab (Ctrl+T) and navigate to the Microsoft Sentinel GitHub ASIM page <https://github.com/Azure/Azure-Sentinel/tree/master/ASIM>.
 
@@ -50,7 +52,7 @@ lab:
 
 1. After the deployment completes return to the *Microsoft Sentinel* tab. --->
 
-1. *일반* 왼쪽 메뉴에서 **로그**를 선택합니다.
+1. 탐색 메뉴의 *일반* 섹션에서 **로그**를 선택합니다.
 
 1. 필요한 경우 **>>** 를 선택하여 *스키마 및 필터* 블레이드를 엽니다.
 

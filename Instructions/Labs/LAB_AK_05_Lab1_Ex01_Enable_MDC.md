@@ -22,8 +22,6 @@ lab:
 
 1. Microsoft Edge 브라우저에서 <https://portal.azure.com>의 Azure Portal로 이동합니다.
   
-    >**참고:** 랩의 **리소스** 탭에서 *사용자 이름* 및 *비밀번호*를 선택합니다. 이 랩의 **<LabUser-XXXXXXXX@LODSPRODXXX.onmicrosoft.com>** 계정을 사용합니다.
-
 1. 랩 호스팅 공급자가 제공한 관리자 사용자 이름용 테넌트 전자 메일 계정을 복사하여 **로그인** 대화 상자에 붙여 넣은 후 **다음**을 선택합니다.
 
 1. 랩 호스팅 공급자가 제공한 관리자의 테넌트 암호를 복사하여 **암호 입력** 대화 상자에 붙여 넣은 후 **로그인**을 선택합니다.
@@ -56,7 +54,7 @@ lab:
 
 1. Close the Defender plans page by selecting the 'X' on the upper right of the page to go back to the **Environment settings**. --->
 
-### 작업 3: 클라우드용 Microsoft Defender 대시보드 이해
+### 작업 2: 클라우드용 Microsoft Defender 대시보드 이해
 
 1. Microsoft Azure Portal의 검색 창에 *Defender*를 입력하고 **클라우드용 Microsoft Defender**를 선택합니다.
 
