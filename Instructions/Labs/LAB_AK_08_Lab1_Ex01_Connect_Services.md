@@ -20,6 +20,8 @@ lab:
 
 이 작업에서는 Microsoft Sentinel 작업 영역에 액세스합니다.
 
+>**참고:** Microsoft Sentinel이 Azure 구독에 **defenderWorkspace**라는 이름으로 사전 배포되었으며 필요한 *콘텐츠 허브* 솔루션이 설치되어 있습니다.
+
 1. **WIN1** 가상 머신에 Admin으로 로그인합니다. 암호로는 **Pa55w.rd**를 사용하여 로그인합니다.  
 
 1. Microsoft Edge 브라우저를 엽니다.
@@ -32,7 +34,7 @@ lab:
 
 1. Azure Portal의 검색 창에 *Sentinel*을 입력하고 **Microsoft Sentinel**을 선택합니다.
 
-1. 이전 랩에서 만든 Microsoft Sentinel 작업 영역을 선택합니다.
+1. Microsoft Sentinel **defenderWorkspace**을 선택합니다.
 
 1. 다음 작업을 진행합니다.
 
@@ -40,13 +42,11 @@ lab:
 
 이 작업에서는 클라우드용 Microsoft Defender 데이터 커넥터를 연결합니다.
 
-1. Microsoft Sentinel 왼쪽 메뉴에서 **콘텐츠 관리** 섹션까지 아래로 스크롤하고 **콘텐츠 허브**를 선택합니다.
+   >**중요:** 양방향 동기화를 *사용*하려면 학습 경로 5, 연습 1, 작업 1을 검토한 후, *클라우드용 Microsoft Defender* 탐색 메뉴에서 **설정**을 선택하여 모든 적격 Azure 구독이 온보딩되었는지 확인합니다.
+
+1. Microsoft Sentinel 탐색 메뉴에서 **콘텐츠 관리** 섹션까지 아래로 스크롤하여 **콘텐츠 허브**를 선택합니다.
 
 1. *콘텐츠 허브*에서 **클라우드용 Microsoft Defender** 솔루션을 검색하고 목록에서 선택합니다.
-
-1. *클라우드용 Microsoft Defender* 솔루션 세부 정보 페이지에서 **설치**를 선택합니다.
-
-1. 설치가 완료되면 **클라우드용 Microsoft Defender** 솔루션을 검색하여 선택합니다.
 
 1. *클라우드용 Microsoft Defender* 솔루션 세부 정보 페이지에서 **관리**를 선택합니다.
 
@@ -56,8 +56,6 @@ lab:
 
 1. *구성* 섹션의 *지침* 탭에서 "Azure Pass - 스폰서쉽" 구독 확인란을 **선택**하고 **상태** 옵션을 오른쪽으로 밉니다.
 
-    >**참고:** 연결 끊김으로 다시 전환되면 학습 경로 3, 연습 1, 작업 1을 검토하여 계정에 적절한 권한을 할당하세요.
-
 1. 이제 *상태*가 **연결됨**으로 설정되고 “양방향 동기화”가 *사용*으로 설정됩니다.
 
     <!--- 1. Scroll down and under the *Create incidents - Recommended!* area, verify that *Create incidents automatically from all alerts generated in this connected service* is **Enabled**. --->
@@ -66,13 +64,11 @@ lab:
 
 이 작업에서는 *Azure Activity* 데이터 커넥터를 연결합니다.
 
-1. Microsoft Sentinel 왼쪽 메뉴에서 *콘텐츠 관리* 섹션까지 아래로 스크롤하고 **콘텐츠 허브**를 선택합니다.
+1. Microsoft Sentinel 탐색 메뉴에서 *콘텐츠 관리* 섹션까지 아래로 스크롤하여 **콘텐츠 허브**를 선택합니다.
 
 1. *콘텐츠 허브*에서 **Azure Activity** 솔루션을 검색하고 목록에서 선택합니다.
 
-1. *Azure 작업* 솔루션 페이지에서 **설치**를 선택합니다.
-
-1. 설치가 완료되면 **관리**를 선택합니다.
+1. *Azure 활동* 솔루션 세부 정보 페이지에서 **관리**를 선택합니다.
 
     >**참고:** *Azure Activity* 솔루션은 *Azure Activity* 데이터 커넥터, 12개의 분석 규칙, 14개의 헌팅 쿼리 및 1개의 통합 문서를 설치합니다.
 

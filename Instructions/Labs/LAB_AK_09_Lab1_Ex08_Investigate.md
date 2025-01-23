@@ -22,6 +22,8 @@ lab:
 
 이 작업에서는 인시던트를 조사합니다.
 
+>**참고:** Microsoft Sentinel이 Azure 구독에 **defenderWorkspace**라는 이름으로 사전 배포되었으며 필요한 *콘텐츠 허브* 솔루션이 설치되어 있습니다.
+
 1. WIN1 가상 머신에 Admin으로 로그인합니다. 암호로는 **Pa55w.rd**를 사용하여 로그인합니다.  
 
 1. Edge 브라우저에서 Azure Portal(<https://portal.azure.com> )로 이동합니다.
@@ -32,7 +34,7 @@ lab:
 
 1. Azure Portal의 검색 창에 *Sentinel*을 입력하고 **Microsoft Sentinel**을 선택합니다.
 
-1. Microsoft Sentinel 작업 영역을 선택합니다.
+1. Microsoft Sentinel **defenderWorkspace**을 선택합니다.
 
 1. **인시던트** 페이지를 선택합니다.
 

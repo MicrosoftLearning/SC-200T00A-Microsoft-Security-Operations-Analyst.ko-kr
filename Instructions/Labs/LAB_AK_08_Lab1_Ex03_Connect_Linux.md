@@ -22,6 +22,8 @@ lab:
 
 이 작업에서는 Microsoft Sentinel 작업 영역에 액세스합니다.
 
+>**참고:** Microsoft Sentinel이 Azure 구독에 **defenderWorkspace**라는 이름으로 사전 배포되었으며 필요한 *콘텐츠 허브* 솔루션이 설치되어 있습니다.
+
 1. **WIN1** 가상 머신에 Admin으로 로그인합니다. 암호로는 **Pa55w.rd**를 사용하여 로그인합니다.  
 
 1. 새 Microsoft Edge 브라우저를 시작합니다.
@@ -34,8 +36,7 @@ lab:
 
 1. Azure Portal의 검색 창에 *Sentinel*을 입력하고 **Microsoft Sentinel**을 선택합니다.
 
-1. 이전 랩에서 만든 Microsoft Sentinel 작업 영역을 선택합니다.
-
+1. Microsoft Sentinel **defenderWorkspace**을 선택합니다.
 
 ### 작업 2: Common Event Format 커넥터를 사용하여 Linux 호스트 연결
 
@@ -45,9 +46,7 @@ lab:
 
 1. *콘텐츠 허브*에서 **Common Event Format** 솔루션을 검색하고 목록에서 선택합니다.
 
-1. *Common Event Format* 솔루션 페이지에서 **설치**를 선택합니다.
-
-1. 설치가 완료되면 **관리**를 선택합니다.
+1. *Common Event Format* 솔루션 페이지에서 **관리**를 선택합니다.
 
     >**참고:** *Common Event Format* 솔루션은 *AMA를 통한 CEF(Common Event Format)* 와 *CEF(Common Event Format)* 데이터 커넥터를 모두 설치합니다.
 
@@ -55,13 +54,13 @@ lab:
 
 1. *구성* 섹션의 *지침* 탭에서 *1.2 Linux 컴퓨터에 CEF 수집기 설치*에 표시된 명령을 클립보드에 복사합니다.
 
-1. **LIN1** 가상 머신을 시작합니다. 랩 호스터가 제공한 사용자 이름 및 암호를 사용하여 로그인합니다. **힌트:** 로그인 프롬프트를 보려면 Enter 키를 눌러야 할 수 있습니다. 
+1. **LIN1** 가상 머신을 시작합니다. 랩 호스터가 제공한 사용자 이름 및 암호를 사용하여 로그인합니다. **힌트:** 로그인 프롬프트를 보려면 Enter 키를 눌러야 할 수 있습니다.
 
 1. LIN1 서버의 IP 주소를 적어 둡니다. 아래 스크린샷을 예제로 참조하세요.
 
     ![linux 로그인](../Media/LinuxLoginExample.png)
 
-1. **WIN1** 가상 머신으로 돌아갑니다. 시작 메뉴 아이콘을 마우스 오른쪽 단추로 클릭하여 관리자 권한으로 Windows PowerShell을 시작하고 **Windows PowerShell(관리자)** 를 선택합니다. 표시되는 사용자 계정 컨트롤 창에서 **예**를 선택하여 앱을 실행할 수 있도록 합니다. **힌트:** 이전 연습에서 이미 열려 있는 Windows PowerShell 창이 있을 수 있습니다.
+1. **WIN1** 가상 머신으로 돌아갑니다. 작업 표시줄의 검색 양식에 **Windows PowerShell**을 입력한 다음 **Windows PowerShell**을 선택하여 Windows PowerShell을 시작합니다.
 
 1. 구체적인 Linux 서버 정보에 맞게 다음 PowerShell 명령을 수정하여 입력하고 Enter 키를 누릅니다.
 
@@ -97,9 +96,7 @@ lab:
 
 1. *콘텐츠 허브*에서 **Syslog** 솔루션을 검색하고 목록에서 선택합니다.
 
-1. *Syslog* 솔루션 페이지에서 **설치**를 선택합니다.
-
-1. 설치가 완료되면 **관리**를 선택합니다.
+1. *Syslog* 솔루션 페이지에서 **관리**를 선택합니다.
 
     >**참고:** *Syslog* 솔루션은 *Syslog* 데이터 커넥터, 5개의 분석 규칙, 9개의 헌팅 쿼리 및 1개의 통합 문서를 설치합니다.
 

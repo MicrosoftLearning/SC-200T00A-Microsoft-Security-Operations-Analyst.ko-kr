@@ -22,6 +22,8 @@ Microsoft Sentinel을 사용하면 데이터에 대한 사용자 지정 통합 �
 
 이 작업에서는 Microsoft Sentinel 통합 문서 템플릿을 살펴봅니다.
 
+>**참고:** Microsoft Sentinel이 Azure 구독에 **defenderWorkspace**라는 이름으로 사전 배포되었으며 필요한 *콘텐츠 허브* 솔루션이 설치되어 있습니다.
+
 1. WIN1 가상 머신에 Admin으로 로그인합니다. 암호로는 **Pa55w.rd**를 사용하여 로그인합니다.  
 
 1. Edge 브라우저에서 Azure Portal(<https://portal.azure.com> )로 이동합니다.
@@ -32,7 +34,7 @@ Microsoft Sentinel을 사용하면 데이터에 대한 사용자 지정 통합 �
 
 1. Azure Portal의 검색 창에 *Sentinel*을 입력하고 **Microsoft Sentinel**을 선택합니다.
 
-1. Microsoft Sentinel 작업 영역을 선택합니다.
+1. Microsoft Sentinel **defenderWorkspace**을 선택합니다.
 
 1. 탐색 메뉴의 *위협 관리* 섹션에서 **통합 문서**를 선택합니다.
 

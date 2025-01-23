@@ -18,6 +18,8 @@ lab:
 
 이 작업에서는 Microsoft Sentinel에서 엔터티 동작 분석을 사용하도록 설정합니다.
 
+>**참고:** Microsoft Sentinel이 Azure 구독에 **defenderWorkspace**라는 이름으로 사전 배포되었으며 필요한 *콘텐츠 허브* 솔루션이 설치되어 있습니다.
+
 1. WIN1 가상 머신에 Admin으로 로그인합니다. 암호로는 **Pa55w.rd**를 사용하여 로그인합니다.  
 
 1. 랩 호스팅 공급자가 제공한 **테넌트 전자 메일** 계정을 복사하여 **로그인** 대화 상자에 붙여넣은 후 **다음**을 선택합니다.
@@ -26,7 +28,7 @@ lab:
 
 1. Azure Portal의 검색 창에 *Sentinel*을 입력하고 **Microsoft Sentinel**을 선택합니다.
 
-1. Microsoft Sentinel 작업 영역을 선택합니다.
+1. Microsoft Sentinel **defenderWorkspace**을 선택합니다.
 
 1. 왼쪽 블레이드의 *구성* 영역에서 **분석**을 선택합니다.
 
