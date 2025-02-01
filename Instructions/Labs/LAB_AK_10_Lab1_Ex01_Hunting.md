@@ -14,9 +14,13 @@ lab:
 
 >**중요:** 학습 경로 #10의 랩은 *독립 실행형* 환경으로 되어 있습니다. 완료하기 전에 랩을 종료하면 구성을 다시 실행해야 합니다.
 
->**참고:** 이전 학습 경로 *공격 수행* 랩 연습에서 생성된 로그 데이터는 연습 5의 WIN1 서버에서 **공격 3**을 다시 실행하지 않으면 이 랩에서 사용할 수 없습니다.
+>**참고**: 학습 경로 9 랩 연습에서 생성된 로그 데이터는 연습 5의 작업 1 및 2를 다시 실행하고 연습 6의 WIN1 서버에서 *공격 3*을 다시 실행하지 않으면 이 랩에서 사용할 수 없습니다. 다음 링크를 선택하여 새 브라우저 탭에서 이러한 지침을 열 수 있습니다.
 
-### 이 랩의 예상 완료 시간은 30분입니다.
+**[랩 09 연습 5](https://microsoftlearning.github.io/SC-200T00A-Microsoft-Security-Operations-Analyst/Instructions/Labs/LAB_AK_09_Lab1_Ex05_Attacks.html)**
+
+**[랩 09 연습 6](https://microsoftlearning.github.io/SC-200T00A-Microsoft-Security-Operations-Analyst/Instructions/Labs/LAB_AK_09_Lab1_Ex06_Perform_Attacks.html)**
+
+### 이 랩의 예상 완료 시간은 40분입니다.
 
 ### 작업 1: 헌팅 쿼리 만들기
 
