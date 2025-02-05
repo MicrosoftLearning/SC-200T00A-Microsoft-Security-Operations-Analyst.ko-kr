@@ -60,6 +60,8 @@ lab:
 
 이 작업에서는 적절한 연결 정보로 만든 새 플레이북을 업데이트합니다.
 
+1. 이전 작업이 완료되면 *Defender_XDR_Ransomware_Playbook_SecOps-Tasks | Logic app designer* 페이지입니다. 그렇지 않은 경우 아래의 1-5단계를 완료합니다.
+
 1. Azure Portal의 검색 창에 Sentinel을 입력하고 Microsoft Sentinel을 선택합니다.
 
 1. Microsoft Sentinel 작업 영역을 선택합니다.
@@ -68,9 +70,9 @@ lab:
 
 1. 플레이북이 표시되지 않는 경우 명령 모음에서 새로 고침을 선택합니다. 이전 단계에서 만들어진 플레이북이 표시됩니다.
 
-1. **Defender_XDR_Ransomware_Playbook_SecOps_Tasks** 플레이북 이름을 선택합니다.
+1. **Defender_XDR_Ransomware_Playbook_SecOps_Tasks** 플레이북 이름 링크를 선택합니다.
 
-1. **Defender_XDR_Ransomware_Playbook_SecOps_Tasks** 논리 앱 페이지의 명령 메뉴에서 편집을 선택합니다.
+1. **Defender_XDR_Ransomware_Playbook_SecOps_Tasks** 논리 앱 디자이너 페이지의 명령 메뉴에서 편집을 선택합니다.
 
     >**참고:** 브라우저를 새로 고쳐야 할 수도 있습니다.
 
@@ -80,13 +82,13 @@ lab:
 
 1. 새로 추가를 선택하고 로그인을 선택합니다. 새 창에서 메시지가 표시되면 Azure 구독 관리자 자격 증명을 선택합니다. 이제 블록의 마지막 줄에 "관리자-사용자 이름에 연결됨"이라고 표시되어야 합니다.
 
-1. 논리 분할 내의 아래에서 인시던트에 작업 추가를 선택합니다.
+<!--- 1. Below within the logic split (+ sign), select Add an action to incident.--->
 
 1. 명령 모음에서 저장을 선택합니다. 이후의 랩에서 이 논리 앱을 사용할 예정입니다.
 
 ### 작업 3: 자동화 규칙 만들기
 
-1. Microsoft Sentinel 내의 구성 아래에서 자동화로 이동합니다.
+1. Microsoft Sentinel 탐색 메뉴에서 *구성*을 확장하고 *자동화*를 선택합니다.
 
 1. 만들기를 선택한 후 자동화 규칙을 선택합니다.
 
@@ -96,7 +98,7 @@ lab:
 
 1. 분석 규칙 이름을 모두 그대로 둡니다.
 
-1. 추가를 클릭하고 And를 선택합니다.
+1. **연결 추가**를 선택하고 *조건 (및)* 을 선택합니다.
 
 1. 드롭다운에서 Tactics를 선택합니다.
 
@@ -120,6 +122,6 @@ lab:
 
 1. 아래쪽에서 **적용**을 선택합니다.
 
-여기에서 역할에 따라 더 많은 설계자 연습을 계속하거나 분석가 연습으로 피벗합니다.
+이제 Microsoft Sentinel에서 플레이북과 자동화 규칙을 만들었습니다.
 
 ## 연습 3 계속 진행
