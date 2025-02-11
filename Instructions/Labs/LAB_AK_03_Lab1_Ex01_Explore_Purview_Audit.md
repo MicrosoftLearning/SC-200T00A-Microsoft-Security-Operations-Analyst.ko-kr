@@ -28,9 +28,11 @@ lab:
 
 1. 탐색 메뉴에서 *운영 기술*을 확장하고 **추가 리소스**를 선택합니다.
 
-1. **추가 리소스** 창에서 *Microsoft Purview 포털* 타일의 **열기** 단추를 선택합니다.
+1. **기타 리소스** 창에서 *Microsoft Purview 포털* 타일의 **열기** 단추를 선택합니다.
 
-1. Microsoft Purview 포털이 열리면 *새 Microsoft Purview 포털*에 대한 메시지가 화면에 표시됩니다. 데이터 흐름 공개 약관 및 개인정보처리방침에 동의하는 옵션을 선택한 다음 **지금 사용**을 선택합니다.
+1. Microsoft Purview 포털이 열리면 *규정 준수 포털이 사용 중지되었다*는 메시지가 나타납니다. 이 메시지는 시간이 초과되면 새 *Microsoft Purview 포털*로 리디렉션됩니다.
+
+1. *새로운 Microsoft Purview 포털에 오신 것을 환영합니다* 메시지에서 데이터 흐름 공개 약관 및 개인정보처리방침에 동의하는 옵션을 선택한 다음 **지금 사용해 보기**를 선택합니다.
 
     ![새 Microsoft Purview 포털의 시작 화면을 보여주는 스크린샷.](../Media/welcome-purview-portal.png)
 

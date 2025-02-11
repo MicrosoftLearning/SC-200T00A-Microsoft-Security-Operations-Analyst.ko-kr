@@ -42,7 +42,7 @@ lab:
 
 이 작업에서는 클라우드용 Microsoft Defender 데이터 커넥터를 연결합니다.
 
-   >**중요:** 양방향 동기화를 *사용*하려면 학습 경로 5, 연습 1, 작업 1을 검토한 후, *클라우드용 Microsoft Defender* 탐색 메뉴에서 **설정**을 선택하여 모든 적격 Azure 구독이 온보딩되었는지 확인합니다.
+   <!--- >>**Important:** To *Enable* Bi-directional sync, please rerun  **[Lab 05 Exercise 1](https://microsoftlearning.github.io/SC-200T00A-Microsoft-Security-Operations-Analyst/Instructions/Labs/LAB_AK_05_Lab1_Ex01_Enable_MDC.html)**, Task 2, and select **Setup** from the *Microsoft Defender for Cloud* navigation menu to verify all eligible Azure subscriptions are onboarded. --->
 
 1. Microsoft Sentinel 탐색 메뉴에서 **콘텐츠 관리** 섹션까지 아래로 스크롤하여 **콘텐츠 허브**를 선택합니다.
 
@@ -54,9 +54,15 @@ lab:
 
 1. *구독 기반 클라우드용 Microsoft Defender(레거시)* 데이터 커넥터 확인란을 선택하고 **커넥터 페이지 열기**를 선택합니다.
 
-1. *구성* 섹션의 *지침* 탭에서 "Azure Pass - 스폰서쉽" 구독 확인란을 **선택**하고 **상태** 옵션을 오른쪽으로 밉니다.
+1. *구성* 섹션에서 *MOC 구독-XXXXXXXXXXX* 확인란을 **선택**하고 **연결** 링크를 선택하거나, **상태** 옵션을 오른쪽으로 밉니다.
 
-1. 이제 *상태*가 **연결됨**으로 설정되고 “양방향 동기화”가 *사용*으로 설정됩니다.
+1. 양방향 동기화를 사용하도록 설정하려면 **모든 구독에 대해 Microsoft Defender 사용** 링크를 선택합니다.
+
+1. *클라우드용 Microsoft Defender - 시작* 페이지에서 *MOC 구독-XXXXXXXXXXX* 확인란을 선택해야 하며 *Microsoft Defender 플랜*은 *사용 - 부분(평가판 30일 남음)* 으로 표시되어야 합니다.
+
+1. 오른쪽 위에서 **X(닫기)** 단추를 선택하여 *시작* 페이지를 닫습니다. *클라우드용 Microsoft Defender* 구성 페이지로 돌아와야 합니다.
+
+1. 이제 *MOC 구독-XXXXXXXXXXX*의 *상태*가 **연결됨**으로 설정되고 *양방향 동기화*가 *사용*으로 설정됩니다.
 
     <!--- 1. Scroll down and under the *Create incidents - Recommended!* area, verify that *Create incidents automatically from all alerts generated in this connected service* is **Enabled**. --->
 
@@ -76,7 +82,7 @@ lab:
 
 1. *지침* 탭 아래의 *구성* 영역에서 "2. 구독 연결..."까지 아래로 스크롤하고 **Azure Policy 할당 마법사 시작>** 을 선택합니다.
 
-1. **기본 사항** 탭의 **범위** 아래에서 줄임표 단추(...)를 선택하고, 드롭다운 목록에서 “Azure Pass - 스폰서쉽” 구독을 선택하고, **선택**을 클릭합니다.
+1. **기본 사항** 탭의 **범위** 아래에서 줄임표 단추(...)를 선택하고, 드롭다운 목록에서 *MOC 구독-XXXXXXXXXXX* 구독을 선택하고, **선택**을 클릭합니다.
 
 1. **매개 변수** 탭을 선택하고 **기본 Log Analytics 작업 영역** 드롭다운 목록에서 *uniquenameDefender* 작업 영역을 선택합니다. 이 작업은 구독 구성을 적용하여 Log Analytics 작업 영역에 정보를 보냅니다.
 
