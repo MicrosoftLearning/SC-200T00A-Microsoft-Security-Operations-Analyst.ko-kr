@@ -114,7 +114,7 @@ lab:
     |자동화 규칙 이름|Startup RegKey|
     |트리거|인시던트가 생성될 때|
     |actions |플레이북 실행|
-    |플레이 북 |PostMessageTeams-OnIncident|
+    |플레이 북 |Defender_XDR_Ransomware_Playbook_SecOps-작업|
 
     >**참고:** 이미 플레이북에 권한을 할당했으므로 사용할 수 있습니다.
 
