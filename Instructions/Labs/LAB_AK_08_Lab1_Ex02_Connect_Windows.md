@@ -67,71 +67,51 @@ lab:
 
 1. **만들기**를 실행합니다. 리소스가 작성될 때까지 기다립니다. 몇 분 정도 걸릴 수 있습니다.
 
-<!--- ### Task 2: Install Azure Arc on an On-Premises Server
+### 작업 2: 온-프레미스 서버를 Azure에 연결
 
-In this task, you install Azure Arc on an on-premises server to make onboarding easier.
+이 작업에서는 온-프레미스 서버를 Azure 구독에 연결합니다. Azure Arc가 이 서버에 미리 설치되었습니다. 이 서버는 다음 연습에서 나중에 Microsoft Sentinel에서 검색 및 조사할 시뮬레이션 공격을 실행하는 데 사용됩니다.
 
->**Important:** The next steps are done in a different machine than the one you were previously working. Look for the Virtual Machine name references.
+>**중요:** 다음 단계는 이전에 작업한 컴퓨터와는 다른 컴퓨터에서 수행합니다.
 
-1. Log in to **WINServer** virtual machine as Administrator with the password: **Passw0rd!** if necessary.  
+1. **WINServer** 가상 머신에 Administrator로 로그인합니다. 암호로는 **Passw0rd!** 를 사용합니다. 다시 장착합니다.  
 
-1. Open the Microsoft Edge browser and navigate to the Azure portal at <https://portal.azure.com>.
+    >**참고:** 위에서 설명한 대로 Azure Arc는 **WINServer** 머신에 사전 설치되어 있습니다. 이제 이 컴퓨터를 Azure 구독에 연결합니다.
 
-1. In the **Sign in** dialog box, copy, and paste in the **Tenant Email** account provided by your lab hosting provider and then select **Next**.
+1. *WINServer* 컴퓨터에서 *검색* 아이콘을 선택하고 **cmd**를 입력합니다.
 
-1. In the **Enter password** dialog box, copy, and paste in the **Tenant Password** provided by your lab hosting provider and then select **Sign in**.
+1. 검색 결과에서 *명령 프롬프트*를 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택합니다.
 
-1. In the Search bar of the Azure portal, type *Arc*, then select **Azure Arc**.
+1. 명령 프롬프트 창에서 다음 명령을 입력합니다. *Enter 키를 누르지 않습니다.*
 
-1. In the navigation pane under **Azure Arc resources** select **Machines**
+    ```cmd
+    azcmagent connect -g "defender-RG" -l "EastUS" -s "Subscription ID string"
+    ```
 
-1. Select **+ Add/Create**, then select **Add a machine**.
+1. **구독 ID 문자열**을 랩 호스팅 서비스 공급자가 제공한 *구독 ID*로 바꿉니다(*리소스 탭). 따옴표를 유지해야 합니다.
 
-1. Select **Generate script** from the "Add a single server" section.
+1. **Enter** 키를 입력하여 명령을 실행합니다(몇 분 정도 걸릴 수 있습니다).
 
-1. In the *Add a server with Azure Arc* page, select the Resource group you created earlier under *Project details*. **Hint:** *RG-Defender*
+    >**참고**: *이것을 어떻게 여시겠습니까?* 라는 브라우저 선택 창이 표시되면 **Microsoft Edge**를 선택합니다.
 
-    >**Note:** If you haven't already created a resource group, open another tab and create the resource group and start over.
+1. *로그인* 대화 상자에서 랩 호스팅 제공업체에서 제공한 **테넌트 이메일**과 **테넌트 비밀번호**를 입력하고 **로그인**을 선택합니다. *인증 완료* 메시지를 기다렸다가 브라우저 탭을 닫고 *명령 프롬프트* 창으로 돌아갑니다.
 
-1. For *Region*, select **(US) East Us** from the drop-down list.
+1. 명령 실행이 완료되면 *명령 프롬프트* 창을 열어두고 다음 명령을 입력하여 연결이 성공했는지 확인합니다.
 
-1. Review the *Server details* and *Connectivity method* options. Keep the default values and select **Next** to get to the Tags tab.
+    ```cmd
+    azcmagent show
+    ```
 
-1. Review the default available tags. Select **Next** to get to the Download and run script tab.
+1. 명령 출력에서 *에이전트 상태*가 **연결됨**인지 확인합니다.
 
-1. Scroll down and select the **Download** button. **Hint:** if your browser blocks the download, take action in the browser to allow it. In Microsoft Edge Browser, select the ellipsis button (...) if needed and then select **Keep**.
-
-1. Right-click the Windows Start button and select **Windows PowerShell (Admin)**.
-
-1. Enter *Administrator* for "Username" and *Passw0rd!* for "Password" if you get a UAC prompt.
-
-1. Enter: cd C:\Users\Administrator\Downloads
-
-    >**Important:** If you do not have this directory, most likely means that you are in the wrong machine. Go back to the beginning of Task 4 and change to WINServer and start over.
-
-1. Type *Set-ExecutionPolicy -ExecutionPolicy Unrestricted* and press enter.
-
-1. Enter **A** for Yes to All and press enter.
-
-1. Type *.\OnboardingScript.ps1* and press enter.  
-
-    >**Important:** If you get the error *"The term .\OnboardingScript.ps1 is not recognized..."*, make sure you are doing the steps for Task 4 in the WINServer virtual machine. Other issue might be that the name of the file changed due to multiple downloads, search for *".\OnboardingScript (1).ps1"* or other file numbers in the running directory.
-
-1. Enter **R** to Run once and press enter (this may take a couple minutes).
-
-1. The setup process opens a new Microsoft Edge browser tab to authenticate the Azure Arc agent. Select your admin account, wait for the message "Authentication complete" and then go back to the Windows PowerShell window.
-
-1. When the installation finishes, go back to the Azure portal page where you downloaded the script and select **Close**. Close the **Add servers with Azure Arc** to go back to the Azure Arc **Machines** page.
-
-1. Select **Refresh** until WINServer server name appears and the Status is *Connected*.
-
-    >**Note:** This could take a couple of minutes. --->
-
-### 작업 2: Azure Windows 가상 머신을 연결합니다.
+### 작업 3: Azure Windows 가상 머신을 연결합니다.
 
 이 작업에서는 Microsoft Sentinel에 Azure Windows 가상 머신을 연결합니다.
 
 >**참고:** Microsoft Sentinel이 Azure 구독에 **defenderWorkspace**라는 이름으로 사전 배포되었으며 필요한 *콘텐츠 허브* 솔루션이 설치되어 있습니다.
+
+1. **WIN1** 가상 머신에 Admin으로 로그인합니다. 암호로는 **Pa55w.rd**를 사용하여 로그인합니다.  
+
+1. 필요한 경우 Microsoft Edge 브라우저를 열고 Azure Portal(<https://portal.azure.com>)로 이동한 다음 제공된 자격 증명으로 로그인합니다.
 
 1. Azure Portal의 검색 창에 *Sentinel*을 입력하고 **Microsoft Sentinel**을 선택합니다.
 
@@ -147,15 +127,17 @@ In this task, you install Azure Arc on an on-premises server to make onboarding 
 
 1. *AMA를 통한 Windows 보안 이벤트* 데이터 커넥터를 선택하고 커넥터 정보 블레이드에서 **커넥터 페이지 열기**를 선택합니다.
 
-1. *구성* 섹션의 *지침* 탭에서 **데이터 수집 규칙 만들기**를 선택합니다.
+1. *구성* 섹션에서 **데이터 수집 규칙 만들기**를 선택합니다.
 
 1. 규칙 이름에 **AZWINDCR**을 입력하고 **다음: 리소스**를 선택합니다.
 
-1. **+리소스 추가**를 선택하여 앞서 만든 가상 머신을 선택합니다.
+1. *리소스* 탭의 *범위*에서 *MOC 구독*을 확장합니다.
 
-1. **RG-AZWIN01**을 확장한 다음, **AZWIN01**을 선택합니다.
+    >**힌트:** *범위* 열 앞에 있는 ">"를 선택하여 전체 *범위* 계층 구조를 확장할 수 있습니다.
 
-1. **적용**을 선택한 후 **다음: 수집**을 선택합니다.
+1. **defender-RG**를 확장한 다음 **AZWIN01**을 선택합니다.
+
+1. **다음: 수집**을 선택합니다.
 
 1. 다양한 보안 이벤트 컬렉션 옵션을 검토합니다. *모든 보안 이벤트*를 유지하고 **다음: 검토 + 만들기**를 선택합니다.
 
@@ -171,17 +153,15 @@ In this task, you install Azure Arc on an on-premises server to make onboarding 
 
 1. Microsoft Sentinel 작업 영역의 *AMA를 통한 Windows 보안 이벤트* 데이터 커넥터 구성에 있어야 합니다.
 
-1. **지침** 탭의 *구성* 섹션에서 *연필* 아이콘을 선택하여 **AZWINDCR** *데이터 수집 규칙*을 편집합니다.
+1. *구성* 섹션에서 *연필* 아이콘을 선택하여 **AZWINDCR***데이터 수집 규칙*을 편집합니다.
 
-1. **다음: 리소스**를 클릭하고 *리소스* 탭의 *범위*에서 *구독*을 확장합니다.
+1. **다음: 리소스**를 선택하고, *리소스* 탭의 *범위*에서 *MOC 구독*을 확장합니다.
 
     >**힌트:** *범위* 열 앞에 있는 ">"를 선택하여 전체 *범위* 계층 구조를 확장할 수 있습니다.
 
-1. **RG-Defender**(또는 만든 리소스 그룹)를 확장한 다음 **WINServer**를 선택합니다.
+1. **defender-RG**(또는 사용자가 만든 리소스 그룹)를 확장한 다음 **WINServer**를 선택합니다.
 
     >**중요:** WINServer가 표시되지 않으면 이 서버에 Azure Arc를 설치한 학습 경로 3, 연습 1, 작업 4를 참조하세요.
-
-1. **적용**을 선택합니다.
 
 1. **다음: 수집**을 선택하고 **다음: 검토 + 만들기**를 선택합니다.
 
