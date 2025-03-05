@@ -40,7 +40,7 @@ lab:
 
 1. 최대 결과 수(30,000개)에 도달했습니다.
 
-1. 쿼리 창에서 *시간 범위*를 **지난 30분**으로 변경합니다.
+1. 쿼리 창에서 *시간 범위*를 **지난 7일**로 변경합니다.
 
 1. 첫 번째 레코드 옆에 있는 **>** 을 선택하여 해당 행의 정보를 펼칩니다.
 
@@ -76,26 +76,26 @@ lab:
 
     ```KQL
     SecurityEvent  
-    | where TimeGenerated > ago(1h)
+    | where TimeGenerated > ago(7d)
     ```
 
     >**참고:** 이제 TimeGenerated 열로 필터링하므로 *시간 범위*에 *쿼리에서 설정됨*이 표시됩니다.
 
     ```KQL
     SecurityEvent  
-    | where TimeGenerated > ago(1h) and EventID == 4624
+    | where TimeGenerated > ago(7d) and EventID == 4624
     ```
 
     ```KQL
     SecurityEvent  
-    | where TimeGenerated > ago(1h)
+    | where TimeGenerated > ago(7d)
     | where EventID == 4624  
     | where AccountType =~ "user"
     ```
 
     ```KQL
     SecurityEvent  
-    | where TimeGenerated > ago(1h) and EventID in (4624, 4625)
+    | where TimeGenerated > ago(7d) and EventID in (4624, 4625)
  
     ```
 
@@ -117,7 +117,7 @@ lab:
       @"NT AUTHORITY\SYSTEM"
     ];
     SecurityEvent  
-    | where TimeGenerated > ago(1h)
+    | where TimeGenerated > ago(7d)
     | where Account in (suspiciousAccounts)
     ```
 
@@ -139,7 +139,7 @@ lab:
 
     ```KQL
     SecurityEvent  
-    | where TimeGenerated > ago(1h) 
+    | where TimeGenerated > ago(7d) 
     | where ProcessName != "" and Process != "" 
     | extend StartDir =  substring(ProcessName,0, string_size(ProcessName)-string_size(Process))
     ```
@@ -148,7 +148,7 @@ lab:
 
     ```KQL
     SecurityEvent  
-    | where TimeGenerated > ago(1h) 
+    | where TimeGenerated > ago(7d) 
     | where ProcessName != "" and Process != "" 
     | extend StartDir =  substring(ProcessName,0, string_size(ProcessName)-string_size(Process)) 
     | order by StartDir desc, Process asc
@@ -158,7 +158,7 @@ lab:
 
     ```KQL
     SecurityEvent  
-    | where TimeGenerated > ago(1h) 
+    | where TimeGenerated > ago(7d) 
     | where ProcessName != "" and Process != "" 
     | extend StartDir =  substring(ProcessName,0, string_size(ProcessName)-string_size(Process)) 
     | order by StartDir desc, Process asc 
@@ -169,7 +169,7 @@ lab:
 
     ```KQL
     SecurityEvent  
-    | where TimeGenerated > ago(1h) 
+    | where TimeGenerated > ago(7d) 
     | where ProcessName != "" and Process != "" 
     | extend StartDir =  substring(ProcessName,0, string_size(ProcessName)-string_size(Process)) 
     | order by StartDir desc, Process asc 
@@ -184,7 +184,7 @@ lab:
 
     ```KQL
     SecurityEvent  
-    | where TimeGenerated > ago(1h) and EventID == 4688  
+    | where TimeGenerated > ago(7d) and EventID == 4688  
     | summarize count() by Process, Computer
     ```
 
@@ -192,7 +192,7 @@ lab:
 
     ```KQL
     SecurityEvent  
-    | where TimeGenerated > ago(1h) and EventID == 4624  
+    | where TimeGenerated > ago(7d) and EventID == 4624  
     | summarize cnt=count() by AccountType, Computer
     ```
 
@@ -200,7 +200,7 @@ lab:
 
     ```KQL
     SecurityEvent  
-    | where TimeGenerated > ago(1h)
+    | where TimeGenerated > ago(7d)
     | summarize dcount(IpAddress)
     ```
 
@@ -256,7 +256,7 @@ lab:
 
     ```KQL
     SecurityEvent  
-    | where TimeGenerated > ago(1h)
+    | where TimeGenerated > ago(7d)
     | where EventID == 4624  
     | summarize make_list(Account) by Computer
     ```
@@ -265,7 +265,7 @@ lab:
 
     ```KQL
     SecurityEvent  
-    | where TimeGenerated > ago(1h)
+    | where TimeGenerated > ago(7d)
     | where EventID == 4624  
     | summarize make_set(Account) by Computer
     ```
@@ -279,7 +279,7 @@ lab:
 
     ```KQL
     SecurityEvent  
-    | where TimeGenerated > ago(1h)
+    | where TimeGenerated > ago(7d)
     | summarize count() by Account
     | render barchart
     ```
@@ -288,7 +288,7 @@ lab:
 
     ```KQL
     SecurityEvent  
-    | where TimeGenerated > ago(1h)
+    | where TimeGenerated > ago(7d)
     | summarize count() by bin(TimeGenerated, 1m)
     | render timechart
     ```
@@ -300,7 +300,7 @@ lab:
 
 >**중요:** *SigninLogs* 테이블의 항목이 제거되었으므로 다음 쿼리 중 일부는 현재 이 랩에 사용되는 LA 데모 환경에서 *결과를 생성하지 않습니다*. 그러나 KQL 쿼리는 중요한 개념과 사용 사례를 보여 주므로 검토하는 데 시간이 걸릴 수 있습니다.
 
-1. 쿼리 창에서 **시간 범위**를 **마지막 시간**으로 변경합니다. 이렇게 하면 다음 문에 대한 결과가 제한됩니다.
+1. 쿼리 창에서 **시간 범위**를 **지난 7일**로 변경합니다. 이렇게 하면 다음 문에 대한 결과가 제한됩니다.
 
 1. 다음 문은 두 개 이상의 테이블을 사용하고 모든 행을 반환하는 **union** 연산자를 보여 줍니다. 결과가 파이프 문자에 어떻게 전달되고 영향을 받는지 이해하는 것은 중요합니다. 쿼리 창에서 다음 문을 입력하고 각 쿼리에 대해 개별적으로 **실행**을 선택하여 결과를 확인합니다.
 
@@ -352,7 +352,7 @@ lab:
 
     >**중요:** 조인에서 지정된 첫 번째 테이블은 왼쪽 테이블로 간주됩니다. **join** 연산자 뒤의 테이블은 오른쪽 테이블입니다. 테이블의 열로 작업을 할 때는 참조 대상 테이블 열을 구분하기 위해 $left.Column name 이름 및 $right.Column 이름을 사용합니다. **join** 연산자는 전체 형식 범위인 flouter, inner, innerunique, leftanti, leftantisemi, leftouter, leftsemi, rightanti, rightantisemi, rightouter, rightsemi를 지원합니다.
 
-1. 쿼리 창에서 **Time range**를 다시 **Last 24 hours**로 변경합니다.
+1. 쿼리 창에서 **시간 범위**를 **지난 7일**로 그대로 둘 수 있습니다.
 
 ### 작업 6: KQL에서 문자열 데이터 작업
 
