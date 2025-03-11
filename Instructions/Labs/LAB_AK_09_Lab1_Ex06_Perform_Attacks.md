@@ -57,6 +57,7 @@ lab:
     net localgroup administrators theusernametoadd /add
     ```
 
+
 ### 작업 3: DNS를 이용한 명령 및 제어 공격
 
 1. 이 명령을 복사하고 실행하여 C2 서버에 대한 DNS 쿼리를 시뮬레이션하는 스크립트를 만듭니다.
