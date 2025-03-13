@@ -14,165 +14,13 @@ lab:
 
 >**중요:** 학습 경로 #10의 랩은 *독립 실행형* 환경으로 되어 있습니다. 완료하기 전에 랩을 종료하면 구성을 다시 실행해야 합니다.
 
-참고: 이전 학습 경로 9 랩 연습에서 생성된 로그 데이터는 다음 필수 구성 요소 작업을 다시 실행하지 않으면 이 랩에서 사용할 수 없습니다.
+>**참고**: 학습 경로 9 랩 연습에서 생성된 로그 데이터는 연습 5의 작업 1 및 2를 다시 실행하고 연습 6의 WIN1 서버에서 *공격 3*을 다시 실행하지 않으면 이 랩에서 사용할 수 없습니다. 다음 링크를 선택하여 새 브라우저 탭에서 이러한 지침을 열 수 있습니다.
 
-<!--- **[Lab 09 Exercise 5](https://microsoftlearning.github.io/SC-200T00A-Microsoft-Security-Operations-Analyst/Instructions/Labs/LAB_AK_09_Lab1_Ex05_Attacks.html)**
+**[랩 09 연습 5](https://microsoftlearning.github.io/SC-200T00A-Microsoft-Security-Operations-Analyst/Instructions/Labs/LAB_AK_09_Lab1_Ex05_Attacks.html)**
 
-**[Lab 09 Exercise 6](https://microsoftlearning.github.io/SC-200T00A-Microsoft-Security-Operations-Analyst/Instructions/Labs/LAB_AK_09_Lab1_Ex06_Perform_Attacks.html)** --->
+**[랩 09 연습 6](https://microsoftlearning.github.io/SC-200T00A-Microsoft-Security-Operations-Analyst/Instructions/Labs/LAB_AK_09_Lab1_Ex06_Perform_Attacks.html)**
 
-### 이 랩의 예상 완료 시간은 45분에서 60분입니다.
-
-### 필수 구성 요소 작업 1: 온-프레미스 서버 연결
-
-이 작업에서는 온-프레미스 서버를 Azure 구독에 연결합니다. Azure Arc가 이 서버에 미리 설치되었습니다. 이 서버는 다음 연습에서 나중에 Microsoft Sentinel에서 검색 및 조사할 시뮬레이션 공격을 실행하는 데 사용됩니다.
-
->**중요:** 다음 단계는 이전에 작업한 컴퓨터와는 다른 컴퓨터에서 수행합니다. 참조 탭에서 가상 머신 이름을 찾습니다.
-
-1. **WINServer** 가상 머신에 Administrator로 로그인합니다. 암호로는 **Passw0rd!** 를 사용합니다. 다시 장착합니다.  
-
-위에서 설명한 대로 Azure Arc는 **WINServer** 컴퓨터에 사전 설치되어 있습니다. 이제 이 컴퓨터를 Azure 구독에 연결합니다.
-
-1. *WINServer* 컴퓨터에서 *검색* 아이콘을 선택하고 **cmd**를 입력합니다.
-
-1. 검색 결과에서 *명령 프롬프트*를 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택합니다.
-
-1. 명령 프롬프트 창에서 다음 명령을 입력합니다. *Enter 키를 누르지 않습니다.*
-
-    ```cmd
-    azcmagent connect -g "defender-RG" -l "EastUS" -s "Subscription ID string"
-    ```
-
-1. **구독 ID 문자열**을 랩 호스팅 서비스 공급자가 제공한 *구독 ID*로 바꿉니다(*리소스 탭). 따옴표를 유지해야 합니다.
-
-1. **Enter** 키를 입력하여 명령을 실행합니다(몇 분 정도 걸릴 수 있습니다).
-
-    >**참고**: *이것을 어떻게 여시겠습니까?* 라는 브라우저 선택 창이 표시되면 **Microsoft Edge**를 선택합니다.
-
-1. *로그인* 대화 상자에서 랩 호스팅 제공업체에서 제공한 **테넌트 이메일**과 **테넌트 비밀번호**를 입력하고 **로그인**을 선택합니다. *인증 완료* 메시지를 기다렸다가 브라우저 탭을 닫고 *명령 프롬프트* 창으로 돌아갑니다.
-
-1. 명령 실행이 완료되면 *명령 프롬프트* 창을 열어두고 다음 명령을 입력하여 연결이 성공했는지 확인합니다.
-
-    ```cmd
-    azcmagent show
-    ```
-
-1. 명령 출력에서 *에이전트 상태*가 **연결됨**인지 확인합니다.
-
-## 필수 구성 요소 작업 2: 비 Azure Windows 컴퓨터 연결
-
-이 작업에서는 Azure Arc에 연결된 온-프레미스 머신을 Microsoft Sentinel에 추가합니다.  
-
->**참고:** Microsoft Sentinel이 Azure 구독에 **defenderWorkspace**라는 이름으로 사전 배포되었으며 필요한 *콘텐츠 허브* 솔루션이 설치되어 있습니다.
-
-1. **WIN1** 가상 머신에 Admin으로 로그인합니다. 암호로는 **Pa55w.rd**를 사용하여 로그인합니다.  
-
-1. Microsoft Edge 브라우저에서 <https://portal.azure.com>의 Azure Portal로 이동합니다.
-
-1. 랩 호스팅 공급자가 제공한 **테넌트 전자 메일** 계정을 복사하여 **로그인** 대화 상자에 붙여 넣은 후 **다음**을 선택합니다.
-
-1. 랩 호스팅 공급자가 제공한 **테넌트 암호**를 복사하여 **암호 입력** 대화 상자에 붙여 넣은 후 **로그인**을 선택합니다.
-
-1. Azure Portal의 검색 창에 *Sentinel*을 입력하고 **Microsoft Sentinel**을 선택합니다.
-
-1. Microsoft Sentinel **defenderWorkspace**을 선택합니다.
-
-1. Microsoft Sentinel 왼쪽 탐색 메뉴에서 *구성* 섹션까지 아래로 스크롤하여 **데이터 커넥터**를 선택합니다.
-
-1. *데이터 커넥터*에서 **AMA를 통한 Windows 보안 이벤트** 솔루션을 검색하여 목록에서 선택합니다.
-
-1. *AMA를 통한 Windows 보안 이벤트* 세부 정보 창에서 **커넥터 페이지 열기**를 선택합니다.
-
-    >**참고:** *Windows 보안 이벤트* 솔루션은 *AMA를 통한 Windows 보안 이벤트*와 *레거시 에이전트를 통한 보안 이벤트* 데이터 커넥터를 모두 설치합니다. 또한 2개의 통합 문서, 20개의 분석 규칙 및 43개의 헌팅 쿼리가 포함되어 있습니다.
-
-1. *구성* 섹션의 *지침* 탭에서 **데이터 수집 규칙 만들기**를 선택합니다.
-
-1. 규칙 이름에 **AZWINDCR**을 입력하고 **다음: 리소스**를 선택합니다.
-
-1. *리소스* 탭의 *범위*에서 *구독*을 확장합니다.
-
-    >**힌트:** *범위* 열 앞에 있는 ">"를 선택하여 전체 *범위* 계층 구조를 확장할 수 있습니다.
-
-1. **defender-RG** 리소스 그룹을 확장한 다음 **WINServer**를 선택합니다.
-
-1. **다음: 수집**을 선택하고 *모든 보안 이벤트*를 선택한 상태로 둡니다.
-
-1. 완료되면 **다음: 리뷰 + 만들기**를 클릭합니다.
-
-1. *유효성 검사 통과*가 표시되면 **만들기**를 선택합니다.
-
-### 필수 구성 요소 작업 3: DNS를 이용한 명령 및 제어 공격
-
->**중요:** 다음 단계는 이전에 작업한 컴퓨터와는 다른 컴퓨터에서 수행합니다. 참조 탭에서 가상 머신 이름을 찾습니다.
-
-1. **WINServer** 가상 머신에 Administrator로 로그인합니다. 암호로는 **Passw0rd!** 를 사용합니다. 다시 장착합니다.
-
-1. *WINServer* 컴퓨터에서 *검색* 아이콘을 선택하고 **cmd**를 입력합니다.
-
-1. 검색 결과에서 *명령 프롬프트*를 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택합니다.
-
-1. 이 명령을 복사하고 실행하여 C2 서버에 대한 DNS 쿼리를 시뮬레이션하는 스크립트를 만듭니다.
-
-    ```CommandPrompt
-    notepad c2.ps1
-    ```
-
-1. **예**를 선택하여 새 파일을 만든 후 아래 PowerShell 스크립트를 *c2.ps1*에 복사합니다.
-
-    >**참고:** 가상 머신 파일에 붙여넣으면 전체 스크립트 길이가 표시되지 않을 수 있습니다. 스크립트가 *c2.ps1* 파일 내의 지침과 일치하는지 확인합니다.
-
-    ```PowerShell
-    param(
-        [string]$Domain = "microsoft.com",
-        [string]$Subdomain = "subdomain",
-        [string]$Sub2domain = "sub2domain",
-        [string]$Sub3domain = "sub3domain",
-        [string]$QueryType = "TXT",
-        [int]$C2Interval = 8,
-        [int]$C2Jitter = 20,
-        [int]$RunTime = 240
-    )
-    $RunStart = Get-Date
-    $RunEnd = $RunStart.addminutes($RunTime)
-    $x2 = 1
-    $x3 = 1 
-    Do {
-        $TimeNow = Get-Date
-        Resolve-DnsName -type $QueryType $Subdomain".$(Get-Random -Minimum 1 -Maximum 999999)."$Domain -QuickTimeout
-        if ($x2 -eq 3 )
-        {
-            Resolve-DnsName -type $QueryType $Sub2domain".$(Get-Random -Minimum 1 -Maximum 999999)."$Domain -QuickTimeout
-            $x2 = 1
-        }
-        else
-        {
-            $x2 = $x2 + 1
-        }    
-        if ($x3 -eq 7 )
-        {
-            Resolve-DnsName -type $QueryType $Sub3domain".$(Get-Random -Minimum 1 -Maximum 999999)."$Domain -QuickTimeout
-            $x3 = 1
-        }
-        else
-        {
-            $x3 = $x3 + 1
-        }
-        $Jitter = ((Get-Random -Minimum -$C2Jitter -Maximum $C2Jitter) / 100 + 1) +$C2Interval
-        Start-Sleep -Seconds $Jitter
-    }
-    Until ($TimeNow -ge $RunEnd)
-    ```
-
-1. 메모장 메뉴에서 **파일**, **저장**을 차례로 선택합니다. 
-
-1. 명령 프롬프트 창으로 돌아가서 다음 명령을 입력하고 Enter 키를 누릅니다. 
-
-    >**참고:** DNS 확인 오류가 표시됩니다. 예상된 동작입니다.
-
-    ```CommandPrompt
-    Start PowerShell.exe -file c2.ps1
-    ```
-
->**중요:** 이 창을 닫지 마세요. 이 PowerShell 스크립트를 백그라운드에서 실행하겠습니다. 명령이 몇 시간 동안 로그 항목을 생성해야 합니다. 이 스크립트가 실행되는 동안 다음 작업과 다음 연습을 진행해도 됩니다. 이 작업에서 생성되는 데이터를 나중에 위협 헌팅 랩에서 사용합니다. 이 프로세스에서 대량의 데이터가 작성되거나 처리되지는 않습니다.
+### 이 랩의 예상 완료 시간은 40분입니다.
 
 ### 작업 1: 헌팅 쿼리 만들기
 
@@ -182,7 +30,7 @@ lab:
 
 1. WIN1 가상 머신에 Admin으로 로그인합니다. 암호로는 **Pa55w.rd**를 사용하여 로그인합니다.  
 
-1. Microsoft Edge 브라우저에서 <https://portal.azure.com>의 Azure Portal로 이동합니다.
+1. Edge 브라우저에서 Azure Portal(<https://portal.azure.com> )로 이동합니다.
 
 1. 랩 호스팅 공급자가 제공한 **테넌트 전자 메일** 계정을 복사하여 **로그인** 대화 상자에 붙여넣은 후 **다음**을 선택합니다.
 
@@ -286,7 +134,7 @@ lab:
 
 ### 작업 2: NRT 쿼리 규칙 만들기
 
-이 작업에서는 라이브 스트림을 사용하는 대신 NRT 분석 쿼리 규칙을 만듭니다. NRT 규칙은 1분마다 실행되고 1분마다 조회됩니다. NRT 규칙의 이점은 경고 및 인시던트 생성 논리를 사용할 수 있다는 것입니다.
+이 작업에서는 LiveStream을 사용하는 대신 NRT 분석 쿼리 규칙을 만듭니다. NRT 규칙은 1분마다 실행되고 1분마다 조회됩니다. NRT 규칙의 이점은 경고 및 인시던트 생성 논리를 사용할 수 있다는 것입니다.
 
 1. Microsoft Sentinel의 *구성*에서 **분석** 페이지를 선택합니다. 
 
@@ -340,7 +188,7 @@ lab:
 
 이 작업에서는 검색 작업을 사용하여 C2를 찾습니다.
 
-**참고:***복원* 작업을 수행하면 Azure Pass 구독 크레딧이 고갈될 수 있는 비용이 발생합니다. 따라서 이 랩에서는 복원 작업을 수행하지 않습니다. 그러나 아래 단계에 따라 사용자 환경에서 복원 작업을 수행할 수 있습니다.
+<!--- >**Note:** The *Restore* operation incurs costs that can deplete your Azure Pass subscription credits. For that reason, you will not be performing the restore operation in this lab. However, you can follow the steps below to perform the restore operation in your own environment. --->
 
 1. Microsoft Sentinel의 *일반*에서 **검색** 페이지를 선택합니다.
 
@@ -384,7 +232,7 @@ lab:
 
 1. 필터 위의 화면 중앙에 있는 **헌팅 작업** 드롭다운 메뉴를 선택합니다.
 
-1. **헌팅 만들기**를 선택합니다. 선택한 모든 쿼리가 이 새 헌팅을 위해 복제됩니다.
+1. **새 헌팅 만들기**를 선택합니다. 선택한 모든 쿼리가 이 새 헌팅을 위해 복제됩니다.
 
 1. 헌팅 이름과 선택적 필드를 입력합니다. 설명은 가설을 구두로 설명하기에 좋은 장소입니다. 가설 풀다운 메뉴에서 작업 가설의 상태를 설정할 수 있습니다.
 
