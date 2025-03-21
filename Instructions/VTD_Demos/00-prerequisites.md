@@ -8,39 +8,35 @@
 
 ## 데모 필수 구성 요소
 
-이 과정의 랩을 진행하려면 Microsoft 365 E5 사용 허가를 받은 테넌트와 Azure 구독이 필요합니다.
+이 과정에 대한 랩에는 엔드포인트용 Microsoft Defender P2 라이선스 및 Azure 구독이 있는 Microsoft 365 E5 라이선스 테넌트가 필요합니다.
 
-* 자신을 위해 Microsoft Learning Azure Pass를 요청할 수 있습니다.
-* 데모를 수행하기 최소 2주 전에 이러한 패스를 요청해야 합니다. 패스를 받으면 해당 패스를 활성화해야 합니다. 
-* Azure Pass는 공개적으로 사용할 수 있는 Microsoft Azure 평가판 구독과 동일한 방식으로 효과적으로 작동합니다. 즉, Pass를 사용하여 수행할 수 있는 작업이 제한됩니다.
+* SC-200 Microsoft Security Operations Analyst 과정과 마찬가지로 이러한 데모는 권한 있는 랩 호스팅 환경에서 실행되도록 설계되었습니다.
 * 랩 지침은 [SC-200 Microsoft Learning GitHub 리포지토리](https://github.com/MicrosoftLearning/SC-200T00A-Microsoft-Security-Operations-Analyst/tree/master/Instructions/VTD_Demos/)에 있습니다.
 * 데모에 사용할 컴퓨터에는 최신 Microsoft Edge 브라우저가 설치되어 있어야 합니다.
 
-## Azure Pass 활성화
-
->**참고:** Microsoft 365 E5 테넌트에 연결된 Azure 구독이 필요한 특정 데모입니다. Azure Passes를 사용할 수 없는 경우 사용자 고유의 Azure 구독 및 Microsoft 365 E5 테넌트를 사용할 수 있습니다. [Microsoft 365 개발자 프로그램](https://developer.microsoft.com/microsoft-365/dev-program/) 웹사이트를 방문하여 멤버 자격을 요청하고 Microsoft 365 E5 개발자 무료 구독을 설정하세요.
+>**참고:** 이전에 언급한 바와 같이, Microsoft 365 E5 테넌트에 연결된 Azure 구독이 필요한 특정 데모입니다. 자체 Azure 구독 및 Microsoft 365 E5 테넌트를 사용할 수 있습니다. [Microsoft 365 개발자 프로그램](https://developer.microsoft.com/microsoft-365/dev-program/) 웹사이트를 방문하여 멤버 자격을 요청하고 Microsoft 365 E5 개발자 무료 구독을 설정하세요.
 
 ## 엔드포인트용 Defender 배포
 
 ### Microsoft 365 자격 증명 가져오기
 
-랩을 시작하면 Microsoft Virtual Lab 환경에서 액세스할 수 있도록 무료 평가판 테넌트가 제공됩니다. 이 테넌트에는 고유한 사용자 이름과 암호가 자동으로 할당됩니다. Microsoft Virtual Lab 환경 내에서 Azure와 Microsoft 365에 로그인할 수 있도록 이 사용자 이름과 암호를 검색해야 합니다.
+호스팅된 랩을 시작하면 Microsoft 가상 랩 환경에서 무료 평가판 테넌트를 사용할 수 있습니다. 이 테넌트에는 고유한 사용자 이름과 암호가 자동으로 할당됩니다. Microsoft Virtual Lab 환경 내에서 Azure와 Microsoft 365에 로그인할 수 있도록 이 사용자 이름과 암호를 검색해야 합니다.
 
 이 과정은 학습 파트너가 여러 승인된 랩 호스팅 공급자 중 하나를 통해 제공하는 것입니다. 따라서 테넌트와 연결된 테넌트 ID를 검색하는 실제 단계는 랩 호스팅 공급자별로 다를 수 있습니다. 그러므로 과정에서 이 정보를 검색하는 방법과 관련된 필요한 지침은 강사가 제공합니다. 나중에 사용할 수 있도록 기록해 두어야 하는 정보는 다음과 같습니다.
 
-    - **테넌트 접미사 ID.** 랩 전반에서 Microsoft 365에 로그인하는 데 사용할 onmicrosoft.com 계정용 ID입니다. 이 ID의 형식은 **{username}@M365xZZZZZZ.onmicrosoft.com**입니다. 여기서 ZZZZZZ는 랩 호스팅 공급자가 제공한 고유 테넌트 접미사 ID입니다. 나중에 사용할 수 있도록 이 ZZZZZZ 부분의 내용을 기록해 둡니다. 랩 단계를 진행할 때 Microsoft 365 포털에 로그인하라는 메시지가 표시되면 여기서 적어 둔 ZZZZZZ 값을 입력해야 합니다.
-    - **테넌트 암호.** 랩 호스팅 공급자가 제공한 관리자 계정의 암호입니다.
-    
+-**테넌트 접미사 ID.** 랩 전반에서 Microsoft 365에 로그인하는 데 사용할 onmicrosoft.com 계정용 ID입니다. 이 ID의 형식은 **{username}@M365xZZZZZZ.onmicrosoft.com**입니다. 여기서 ZZZZZZ는 랩 호스팅 공급자가 제공한 고유 테넌트 접미사 ID입니다. 나중에 사용할 수 있도록 이 ZZZZZZ 부분의 내용을 기록해 둡니다. 랩 단계를 진행할 때 Microsoft 365 포털에 로그인하라는 메시지가 표시되면 여기서 적어 둔 ZZZZZZ 값을 입력해야 합니다.
+
+-**테넌트 암호.** 랩 호스팅 공급자가 제공한 관리자 계정의 암호입니다.
 
 ### 엔드포인트용 Microsoft Defender 초기화
 
 이 작업에서는 엔드포인트용 Microsoft Defender 초기화를 수행합니다.
 
-1. WIN1 가상 머신에 Admin으로 로그인합니다. 암호로는 **Pa55w.rd**를 사용하여 로그인합니다.  
+1. 비밀번호(**Pa55w.rd**)를 사용하여 WIN1 가상 머신에 관리자로 로그인합니다.  
 
-1. Edge 브라우저에서 Microsoft Defender 포털(https://security.microsoft.com))로 이동합니다.
+1. Microsoft Edge 브라우저에서 Microsoft Defender 포털(https://security.microsoft.com))로 이동합니다.
 
-1. 랩 호스팅 공급자가 제공한 관리자 사용자 이름용 테넌트 전자 메일 계정을 복사하여 **로그인** 대화 상자에 붙여넣은 후 **다음**을 선택합니다.
+1. 랩 호스팅 공급자가 제공한 관리자 사용자 이름용 테넌트 전자 메일 계정을 복사하여 **로그인** 대화 상자에 붙여 넣은 후 **다음**을 선택합니다.
 
 1. 랩 호스팅 공급자가 제공한 관리자의 테넌트 암호를 복사하여 **암호 입력** 대화 상자에 붙여 넣은 후 **로그인**을 선택합니다.
 
@@ -56,9 +52,9 @@
 
     >**참고:** *일부 데이터를 검색할 수 없습니다*라는 팝업 오류 메시지는 무시하세요. "잠깐만요! 데이터에 대한 새 공간을 준비하고 연결하는 중입니다"라는 메시지가 표시되지 않거나 "설정 > Microsoft Defender XDR > 계정" 페이지가 열리지만 *데이터 스토리지 위치를 로드하지 못했습니다. 나중에 다시 시도하세요*라는 메시지가 표시되는 경우, "일반" 메뉴에서 "경고 서비스 설정"을 선택합니다.
 
-1. 새 작업 영역 초기화가 성공적으로 완료되면 **홈** 포털 페이지에 **SIEM 및 XDR을 한 곳에 가져오기** 배너가 표시됩니다. 또한 **설정**에서 계정, 이메일 알림, **미리 보기 기능**, 경고 서비스 설정, 권한 및 역할, 스트리밍 API에 대한 Microsoft Defender XDR 일반 설정이 켜짐으로 설정되었습니다.
+1. 새 작업 영역 초기화가 성공적으로 완료되면 **홈** 포털 페이지에 **SIEM 및 XDR을 한곳에 가져오기** 배너가 표시됩니다. 그리고 **설정**에서 계정, 메일 알림, **미리 보기 기능**, 알림 서비스 설정, 권한 및 역할, 스트리밍 API에 대한 Microsoft Defender XDR 일반 설정이 켜져 있습니다.
 
-1. 새 공간이 성공적으로 완료되면 계정, 이메일 경고, 경고 서비스 설정, 권한 및 역할, 스트리밍 API에 대한 Microsoft 365 Defender 일반 설정이 표시됩니다. 또한 **미리 보기 기능**이 켜져 있는 것을 볼 수 있습니다.
+1. 새 공간이 성공적으로 완료되면 계정, 메일 경고, 알림 서비스 설정, 권한 및 역할, 스트리밍 API에 대한 Microsoft 365 Defender 일반 설정이 표시됩니다. 또한 **미리 보기 기능**이 켜져 있는 것을 볼 수 있습니다.
 
     >**참고**: 호스트형 랩 환경에서는 데이터 스토리지 위치가 선택되어 있습니다. 또한 이 학습 테넌트가 관리되는 적절한 지리에 있습니다. 여전히 데이터 보존 길이를 선택할 수 있지만 필수는 아닙니다.
 
@@ -132,7 +128,7 @@
 1. . 디바이스 탭에서 OS 조건으로 **Windows 10**을 선택하고 **다음**을 선택합니다.
 
 1. 디바이스 미리 보기 탭에서 **미리 보기 표시**를 선택하여 WIN1 가상 머신을 확인합니다. **다음**을 선택합니다. 
-**힌트:** 미리 보기 목록에 가상 머신이 표시되지 않으면 돌아가서 OS 조건에 대해서도 없음을 선택합니다.** VM에 대한 데이터가 아직 채워지지 않았습니다.
+**힌트:** 미리 보기 목록에 가상 머신이 표시되지 않으면 돌아가서 OS 조건에 대해서도 *없음*을 선택합니다. VM에 대한 데이터가 아직 채워지지 않았습니다.
 
 1. 사용자 액세스 탭에서 **sg-IT**를 선택하고 **선택한 그룹 추가**를 선택합니다.
 
@@ -140,7 +136,7 @@
 
 1. 디바이스 그룹 구성이 변경되었습니다. **변경 내용 적용**을 선택하여 일치 항목을 확인하고 그룹화를 다시 계산합니다.
 
-1. 이제 방금 만든 “일반” 및 동일한 수정 수준을 가진 “그룹화되지 않은 디바이스(기본값)”의 두 가지 디바이스 그룹을 포함하려고 합니다.
+1. 이제 만든 “일반” 및 동일한 수정 수준을 가진 “그룹화되지 않은 디바이스(기본값)”의 두 가지 디바이스 그룹을 포함하려고 합니다.
 
 <!--- 
 ## Deploy sample alerts for Demo in Module 3
@@ -169,13 +165,13 @@ In this task, you will load sample security alerts and review the alert details.
 
 이 작업에서는 Microsoft Sentinel 작업 영역을 만듭니다.
 
- >**참고:** 다음 데모를 위해서는 Azure Pass 또는 기타 Azure 구독이 활성화되어 있어야 합니다.
+ >**참고:** 다음 데모를 사용하려면 Azure 구독이 활성화되어 있어야 합니다.
 
-1. Edge 브라우저에서 Azure Portal(https://portal.azure.com )로 이동합니다.
+1. Microsoft Edge 브라우저에서 https://portal.azure.com의 Azure Portal로 이동합니다.
 
-1. 랩 호스팅 공급자가 제공한 **테넌트 전자 메일** 계정을 복사하여 **로그인** 대화 상자에 붙여넣은 후 **다음**을 선택합니다.
+1. 랩 호스팅 공급자가 제공한 **테넌트 전자 메일** 계정을 복사하여 **로그인** 대화 상자에 붙여 넣은 후 **다음**을 선택합니다.
 
-1. 랩 호스팅 공급자가 제공한 **테넌트 암호**를 복사하여 **암호 입력** 대화 상자에 붙여넣은 후 **로그인**을 선택합니다.
+1. 랩 호스팅 공급자가 제공한 **테넌트 암호**를 복사하여 **암호 입력** 대화 상자에 붙여 넣은 후 **로그인**을 선택합니다.
 
 1. Azure Portal의 검색 창에 *Sentinel*을 입력하고 **Microsoft Sentinel**을 선택합니다.
 
@@ -207,15 +203,15 @@ In this task, you will load sample security alerts and review the alert details.
 
 이 작업에서는 Microsoft Sentinel 작업 영역에 액세스합니다.
 
-1. WIN1 가상 머신에 Admin으로 로그인합니다. 암호로는 **Pa55w.rd**를 사용하여 로그인합니다.  
+1. 비밀번호(**Pa55w.rd**)를 사용하여 WIN1 가상 머신에 관리자로 로그인합니다.  
 
-1. 브라우저를 열고 Microsoft Edge 브라우저를 검색하여 다운로드한 후 새로 설치합니다. 새 Edge 브라우저를 시작합니다.
+1. 브라우저를 열고 Microsoft Edge 브라우저를 검색하여 다운로드한 후 새로 설치합니다. 새 Microsoft Edge 브라우저를 시작합니다.
 
-1. Edge 브라우저에서 Azure Portal(https://portal.azure.com )로 이동합니다.
+1. Microsoft Edge 브라우저에서 https://portal.azure.com의 Azure Portal로 이동합니다.
 
-1. 랩 호스팅 공급자가 제공한 **테넌트 전자 메일** 계정을 복사하여 **로그인** 대화 상자에 붙여넣은 후 **다음**을 선택합니다.
+1. 랩 호스팅 공급자가 제공한 **테넌트 전자 메일** 계정을 복사하여 **로그인** 대화 상자에 붙여 넣은 후 **다음**을 선택합니다.
 
-1. 랩 호스팅 공급자가 제공한 **테넌트 암호**를 복사하여 **암호 입력** 대화 상자에 붙여넣은 후 **로그인**을 선택합니다.
+1. 랩 호스팅 공급자가 제공한 **테넌트 암호**를 복사하여 **암호 입력** 대화 상자에 붙여 넣은 후 **로그인**을 선택합니다.
 
 1. Azure Portal의 검색 창에 *Sentinel*을 입력하고 **Microsoft Sentinel**을 선택합니다.
 
@@ -239,9 +235,9 @@ In this task, you will load sample security alerts and review the alert details.
 
 1. *지침* 탭 아래의 *구성* 영역에서 "2. 구독 연결..."까지 아래로 스크롤하고 **Azure Policy 할당 마법사 시작>** 을 선택합니다.
 
-1. **기본 사항** 탭의 **범위** 아래에서 줄임표 단추(...)를 선택하고, 드롭다운 목록에서 “Azure Pass - 스폰서쉽” 구독을 선택하고, **선택**을 클릭합니다.
+1. **기본** 탭의 **범위**에서 줄임표 단추(...)를 선택하고 드롭다운 목록에서 호스팅된 Azure 구독을 선택한 후 **선택**을 선택합니다.
 
-1. **매개 변수** 탭을 선택하고 **기본 Log Analytics 작업 영역** 드롭다운 목록에서 작업 영역을 선택합니다. 이 작업은 구독 구성을 적용하여 Log Analytics 작업 영역에 정보를 보냅니다.
+1. **매개 변수** 탭을 선택하고 **기본 Log Analytics 작업 영역** 드롭다운 목록에서 작업 영역을 선택합니다. 이 작업은 구독 구성을 적용하여 Log Analytics 작업 영역으로 정보를 보냅니다.
 
 1. **수정** 탭에서 **수정 작업 만들기** 확인란을 선택합니다. 이 작업은 기존 Azure 리소스에 정책을 적용합니다.
 
@@ -253,7 +249,7 @@ In this task, you will load sample security alerts and review the alert details.
 
 이 작업에서는 Azure에서 Windows 가상 머신을 만듭니다.
 
-1. **WIN1** 가상 머신에 Admin으로 로그인합니다. 암호로는 **Pa55w.rd**를 사용하여 로그인합니다.  
+1. 비밀번호(**Pa55w.rd**)를 사용하여 **WIN1** 가상 머신에 관리자로 로그인합니다.  
 
 1. Microsoft Edge 브라우저에서 https://portal.azure.com의 Azure Portal로 이동합니다.
 
@@ -262,7 +258,7 @@ In this task, you will load sample security alerts and review the alert details.
 1. 랩 호스팅 공급자가 제공한 **테넌트 암호**를 복사하여 **암호 입력** 대화 상자에 붙여 넣은 후 **로그인**을 선택합니다.
 
 1. 
-          **+ 리소스 만들기**를 선택합니다. **힌트:** 이미 Azure Portal에 있는 경우 위쪽 막대에서 *Microsoft Azure*를 선택하여 홈으로 이동해야 할 수 있습니다.
+          **+ 리소스 만들기**를 선택합니다. **힌트:** 이미 Azure Portal에 있는 경우 홈으로 이동하려면 위쪽 막대에서 *Microsoft Azure*를 선택해야 할 수 있습니다.
 
 1. **서비스 및 마켓플레이스 검색** 상자에 *Windows 10*을 입력하고 드롭다운 목록에서 **Microsoft Window 10**을 선택합니다.
 
@@ -342,13 +338,13 @@ In this task, you will load sample security alerts and review the alert details.
 
 >**중요:** 다음 단계는 이전에 작업한 컴퓨터와는 다른 컴퓨터에서 수행합니다. 가상 머신 이름 참조를 찾습니다.
 
-1. **WINServer** 가상 머신에 Administrator로 로그인합니다. 암호로는 **Passw0rd!** 를 사용합니다. 사용합니다(필요한 경우).  
+1. 비밀번호(**Passw0rd!**)를 사용하여 **WINServer** 가상 머신에 관리자로 로그인합니다. 다시 장착합니다.  
 
 1. Microsoft Edge 브라우저를 열고 https://portal.azure.com에 있는 Azure Portal로 이동합니다.
 
 1. 랩 호스팅 공급자가 제공한 **테넌트 전자 메일** 계정을 복사하여 **로그인** 대화 상자에 붙여 넣은 후 **다음**을 선택합니다.
 
-1. 랩 호스팅 공급자가 제공한 **테넌트 암호**를 복사하여 **암호 입력** 대화 상자에 붙여넣은 후 **로그인**을 선택합니다.
+1. 랩 호스팅 공급자가 제공한 **테넌트 암호**를 복사하여 **암호 입력** 대화 상자에 붙여 넣은 후 **로그인**을 선택합니다.
 
 1. Azure Portal의 검색 창에 *Arc*를 입력하고 **Azure Arc**를 선택합니다.
 
@@ -422,7 +418,7 @@ In this task, you will load sample security alerts and review the alert details.
 
 이 작업에서는 Microsoft Defender XDR 커넥터를 배포합니다.
 
-1. WIN1 가상 머신에 Admin으로 로그인합니다. 암호로는 **Pa55w.rd**를 사용하여 로그인합니다.  
+1. 비밀번호(**Pa55w.rd**)를 사용하여 WIN1 가상 머신에 관리자로 로그인합니다.  
 
 1. Microsoft Edge 브라우저에서(<https://portal.azure.com>)의 Azure Portal로 이동합니다.
 
@@ -607,7 +603,7 @@ You should still be connected to the WIN2 virtual machine.  The following instru
 
 이 작업에서는 엔드포인트용 Microsoft Defender가 구성되어 있는 호스트에서 공격을 수행합니다.
 
-1. 암호를 사용하여 관리자로 `WIN1` 가상 머신에 로그인합니다. **Pa55w.rd**를 사용하여 로그인합니다.  
+1. 비밀번호(**Pa55w.rd**)를 사용하여 `WIN1` 가상 머신에 관리자로 로그인합니다.  
 
 1. 작업 표시줄의 검색 창에 *명령*을 입력합니다.  검색 결과에 명령 프롬프트가 표시됩니다.  명령 프롬프트를 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택합니다. 사용자 계정 컨트롤 메시지가 표시되면 실행을 확인합니다.
 
@@ -627,7 +623,7 @@ You should still be connected to the WIN2 virtual machine.  The following instru
 
 ### 작업 2: C2(명령 및 제어) 공격 만들기
 
-1. 암호를 사용하여 관리자로 `WIN1` 가상 머신에 로그인합니다. **Pa55w.rd**를 사용하여 로그인합니다.  
+1. 비밀번호(**Pa55w.rd**)를 사용하여 `WIN1` 가상 머신에 관리자로 로그인합니다.  
 
 1. 작업 표시줄의 검색 창에 *명령*을 입력합니다.  검색 결과에 명령 프롬프트가 표시됩니다.  명령 프롬프트를 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 선택합니다. 사용자 계정 컨트롤 메시지가 표시되면 실행을 확인합니다.
 
@@ -696,7 +692,7 @@ You should still be connected to the WIN2 virtual machine.  The following instru
     Until ($TimeNow -ge $RunEnd)
     ```
 
-명령 프롬프트의 각 행에 다음 명령을 입력하고 각 행의 끝에서 Enter 키를 누릅니다.
+명령 프롬프트에서 다음을 입력합니다. 각 행 뒤에 Enter 키를 눌러 각 행에 명령을 입력합니다:
 
     ```PowerShell
     .\c2.ps1
@@ -711,7 +707,7 @@ You should still be connected to the WIN2 virtual machine.  The following instru
 
 1. 이전에 만든 `AZWIN01` 가상 머신을 선택합니다.  
 
-1. 왼쪽 메뉴에서 **작업**까지 아래로 스크롤하고 **명령 실행**을 선택합니다.
+1. 왼쪽 탐색 메뉴에서 **작업**까지 아래로 스크롤하여 **명령 실행**을 선택합니다.
 
 1. **명령 실행** 창에서 **RunPowerShellScript**를 선택합니다.
 
