@@ -72,7 +72,14 @@ lab:
 
 1. 이제 클라우드용 Microsoft Defender 플랜으로 보호되는 Azure 리소스를 검토합니다.
 
-    >**중요:** 모든 Defender 플랜이 *끄기*인 경우 **모든 계획 사용**을 선택합니다. *월 200달러 Microsoft Defender for API 계획 1*을 선택한 다음 **저장**을 선택합니다. 페이지 상단에서 **저장**을 선택하고 *"사용자의 Defender 플랜 구독이 성공적으로 저장되었습니다."* 메시지가 나타날 때까지 기다립니다. 알림이 표시됩니다.
+<!---
+    >**Important:** If all Defender plans are *Off*, select **Enable all plans**. Select the *$200/month Microsoft Defender for APIs Plan 1* and then select **Save**. Select **Save** at the top of the page and wait for the *"Defender plans (for your) subscription were saved successfully!"* notifications to appear.--->
+
+1. *CSPM(클라우드 보안 태세 관리)* 섹션에서 *Defender CSPM*에 대해 **켜기**를 선택합니다.
+
+1. *CWP(클라우드 워크로드 보호)* 섹션에서 *서버 플랜 2*에 대해 **켜기**를 선택합니다.
+
+1. 페이지 위쪽에 있는 **저장** 단추를 선택합니다.
 
 1. 설정 영역(저장 옆)에서 **설정 및 모니터링** 탭을 선택합니다.
 
@@ -107,6 +114,8 @@ lab:
 1. 상단 메뉴 모음에서 **Azure 구독**을 선택합니다. 이렇게 하면 사용 가능한 구독에서 선택할 수 있는 환경 설정으로 전환됩니다.
 
 1. **개요** 페이지로 돌아가서 **보안 태세** 타일을 검토합니다. 현재 *보안 점수*와 완료된 제어 및 권장 사항의 수를 확인할 수 있습니다. 이 타일을 선택하면 구독 전체의 드릴다운 보기로 리디렉션됩니다.
+
+    >**참고:** 보안 점수 및 *보안 태세* 타일의 기타 정보는 계산하는 데 최대 24시간이 걸릴 수 있습니다. 이 랩 중에는 완전히 채워지지 않을 수 있습니다.
 
 1. **규정 준수** 타일에서는 Azure 및 하이브리드 클라우드 환경에 대한 지속적인 평가를 기반으로 규정 준수 상태에 대한 인사이트를 얻을 수 있습니다. 이 타일은 Microsoft Cloud Security 벤치마크 및 최저 규정 준수 규정 표준인 다음 표준을 보여 줍니다. 데이터를 보려면 먼저 보안 정책을 추가해야 합니다.
 

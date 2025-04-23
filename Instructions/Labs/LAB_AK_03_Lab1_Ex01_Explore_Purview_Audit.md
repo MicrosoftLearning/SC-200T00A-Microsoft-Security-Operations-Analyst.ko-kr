@@ -14,12 +14,12 @@ lab:
 >
 >1. Windows 검색 양식에 *PowerShell*을 입력하여 관리자 권한 PowerShell 세션을 연 다음 **관리자 권한으로 실행**을 선택합니다.
 >1. `Install-Module -Name ExchangeOnlineManagement`를 실행하여 ExchangeOnlineManagement 모듈을 설치합니다.
->1. `Connect-ExchangeOnline`을 실행하여 ExchangeOnlineManagement에 연결합니다.
+>1. 실행하여 ExchangeOnlineManagement에 연결 `Connect-ExchangeOnline`
 >1. 메시지가 표시되면 랩 호스팅 공급자에서 관리자 사용자 이름 및 암호를 입력하여 로그인합니다.
 >1. 감사를 사용할 수 있는지 확인하려면 다음을 실행합니다. `Get-AdminAuditLogConfig | FL UnifiedAuditLogIngestionEnabled` 
 >1. false이면 감사 로그가 꺼집니다.
->1. 감사를 사용하도록 설정하려면 다음을 실행합니다. `Set-AdminAuditLogConfig -UnifiedAuditLogIngestionEnabled $true` 
->1. 조직에서 스크립트를 실행할 수 없다는 오류가 나타나면 다음을 실행합니다. `Enable-OrganizationCustomization` 
+>1. 감사를 사용하도록 설정하려면 다음을 실행합니다.`Set-AdminAuditLogConfig -UnifiedAuditLogIngestionEnabled $true`
+>1. 조직에서 스크립트를 실행할 수 없다는 오류가 표시되면 다음을 실행합니다. `Enable-OrganizationCustomization` 
 >1. 다시 시도하여 다음을 실행합니다. `Set-AdminAuditLogConfig -UnifiedAuditLogIngestionEnabled $true` 
 >1. 감사가 사용하도록 설정되어 있는지 확인하려면 다음을 실행합니다. `Get-AdminAuditLogConfig | FL UnifiedAuditLogIngestionEnabled` 
 >1. 완료되면 세션을 종료하기 위해 다음을 실행합니다. `Disconnect-ExchangeOnline` 
