@@ -12,9 +12,14 @@ lab:
 
 당신은 Microsoft Sentinel을 구현한 회사에서 근무하는 보안 운영 분석가입니다. 로그 데이터 분석을 수행하여 악의적인 활동을 검색하고, 시각화를 표시하고, 위협 헌팅을 수행할 책임이 있습니다. 로그 데이터를 쿼리하려면 KQL(Kusto Query Language)을 사용합니다.
 
->**참고:** Microsoft의 *SFI(Secure Future Initiative)* 에 따라 위치, 사용자 이름, IP 주소, 리소스 ID 등 *PII(개인 식별 정보)* 로 간주될 수 있는 모든 정보입니다. *SigninLogs*와 같은 LA 데모 테이블에서 제거되었습니다. 이로 인해 일부 쿼리에 대한 *결과를 찾을 수 없습니다*.
+>**중요:** 이 랩에 사용되는 [LA 데모](https://aka.ms/lademo) Log Analytics 작업 영역이 전환 중입니다. 환경에 액세스할 수 없거나 오류 메시지가 표시되는 경우 Microsoft Sentinel이 배포된 자체 Azure 구독에서 쿼리를 실행해 볼 수 있습니다. Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?azure-portal=true)을 만듭니다.
 
->**중요:** 이 랩에서는 많은 KQL 스크립트를 Microsoft Sentinel에 입력합니다. 스크립트는 이 랩의 시작 부분에 있는 파일에 제공되었습니다. 스크립트를 다운로드할 대체 위치는 <https://github.com/MicrosoftLearning/SC-200T00A-Microsoft-Security-Operations-Analyst/tree/master/Allfiles>입니다.
+>**참고:** 이 랩에 [LA 데모](https://aka.ms/lademo) Log Analytics 작업 영역을 사용하도록 선택하는 경우, 쿼리 창에서 사용자 지정 시간 범위를 설정해야 합니다. 사용자 지정 시간 범위를 2025년 4월 1일로 설정하는 것이 좋습니다.
+
+<!--- 
+>**Note:** Per Microsoft's *Secure Future Initiative* (SFI), any information that could be considered *Personally Identifiable Information* (PII), such as locations, usernames, IP addresses, resource IDs etc.. have been removed from the LA Demo tables such as *SigninLogs*. This may produce *No results were found* messages for some queries. --->
+
+>**팁:** 이 랩에서는 많은 KQL 스크립트를 Microsoft Sentinel에 입력합니다. 스크립트는 이 랩의 시작 부분에 있는 파일에 제공되었습니다. 스크립트를 다운로드할 대체 위치는 <https://github.com/MicrosoftLearning/SC-200T00A-Microsoft-Security-Operations-Analyst/tree/master/Allfiles>입니다.
 
 ### 이 랩의 예상 완료 시간은 60분입니다.
 
