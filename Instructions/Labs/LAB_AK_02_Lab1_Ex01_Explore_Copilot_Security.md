@@ -13,7 +13,8 @@ lab:
 이 연습에서는 Microsoft Security Copilot의 *첫 번째 실행 환경*을 살펴보고 하나의 SCU(보안 컴퓨팅 단위)로 Copilot을 프로비전합니다.
 
 >**참고:** 이 연습의 환경은 제품에서 생성된 시뮬레이션입니다. 제한된 시뮬레이션으로 페이지의 링크가 사용하도록 설정되지 않을 수 있으며 지정된 스크립트를 벗어나는 텍스트 기반 입력은 지원되지 않을 수 있습니다. "이 기능은 시뮬레이션 내에서 사용할 수 없습니다."라는 팝업 메시지가 표시됩니다. 이 경우 확인을 선택하고 연습 단계를 계속합니다.  
-> :::image type="content" source="../Media/simulation-pop-up-error.png" alt-text="시뮬레이션 내에서 이 기능을 사용할 수 없음을 나타내는 팝업 화면의 스크린샷.":::
+
+![팝업 오류 메시지](../Media/simulation-pop-up-error.png)
 
 ### 이 랩의 예상 완료 시간은 45분입니다.
 
@@ -34,7 +35,7 @@ lab:
 
 Azure에서 사용자 액세스 관리자 역할이 할당되면 사용자에게 Copilot용 SCU를 프로비전하는 데 필요한 액세스 권한을 할당할 수 있습니다.  관련 단계를 보여주기 위한 이 연습의 용도로만 필요한 액세스 권한을 자신에게 할당하게 됩니다.  다음 단계는 프로세스를 안내합니다.
 
-1. 다음 링크를 선택하여 시뮬레이션 환경을 엽니다. **[Azure Portal](https://app.highlights.guide/start/6373500f-1f10-4584-a14e-ca0b4aa7399f?link=1&token=40f793d4-2956-40a4-b11a-6b3d4f92557f&azure-portal=true)**.
+1. 다음 링크를 선택하여 시뮬레이션 환경을 엽니다. **[Azure Portal](https://app.highlights.guide/start/6d7270b9-7187-456a-ac16-97bc227d5c27?token=045faae1-1078-4eac-bf56-e12472eddaf9&link=1&azure-portal=true)**.
 
 1. Azure 리소스에 대한 액세스 관리를 사용하도록 설정하는 것부터 시작합니다. 이 설정에 액세스하려면
     1. Azure Portal에서 **Microsoft Entra ID**를 선택합니다.
@@ -65,7 +66,7 @@ Azure 구독의 소유자로서 이제 Copilot 내에서 용량을 프로비전�
 
 이 연습에서는 Security Copilot을 ​​통해 용량을 프로비전합니다. Security Copilot을 ​​처음 열면 마법사가 조직의 용량 설정 단계를 안내합니다.
 
-1. 다음 링크를 선택하여 시뮬레이션 환경을 엽니다. **[Microsoft Security Copilot](https://app.highlights.guide/start/6373500f-1f10-4584-a14e-ca0b4aa7399f?link=0&token=40f793d4-2956-40a4-b11a-6b3d4f92557f&azure-portal=true)**.
+1. 다음 링크를 선택하여 시뮬레이션 환경을 엽니다. **[Microsoft Security Copilot](https://app.highlights.guide/start/6d7270b9-7187-456a-ac16-97bc227d5c27?token=045faae1-1078-4eac-bf56-e12472eddaf9&azure-portal=true)**.
 
 1. 마법사의 단계에 따라 **시작**을 선택합니다.
 1. 이 페이지에서 보안 용량을 설정합니다. 아래 나열된 필드에 대해 정보 아이콘을 선택하면 자세한 내용을 확인할 수 있습니다.
@@ -101,7 +102,7 @@ Avery Howard로 로그인했으며 Copilot 소유자 역할이 있습니다. Mic
 
 이 작업에서는 홈 메뉴에서 탐색을 시작합니다.
 
-1. 다음 링크를 선택하여 시뮬레이션 환경을 엽니다. **[Microsoft Security Copilot](https://app.highlights.guide/start/2cac767e-42c4-4058-afbb-a9413aac461d?link=0&token=40f793d4-2956-40a4-b11a-6b3d4f92557f&azure-portal=true)**.
+1. 다음 링크를 선택하여 시뮬레이션 환경을 엽니다. **[Microsoft Security Copilot](https://app.highlights.guide/start/7608581a-ee3a-4fe0-be03-309a58b78c60?token=045faae1-1078-4eac-bf56-e12472eddaf9&azure-portal=true)**.
 
 1. 햄버거 아이콘이라고도 하는 **메뉴** 아이콘![홈 메뉴 아이콘](../Media/home-menu-icon.png)을 선택합니다.
 
@@ -212,7 +213,7 @@ Avery Howard로 로그인했으며 Copilot 소유자 역할이 있습니다. Mic
 
 #### 하위 작업 1: 인시던트 요약 및 단계별 대응 살펴보기
 
-1. 다음 링크를 선택하여 시뮬레이션 환경을 엽니다. **[Microsoft Defender 포털](https://app.highlights.guide/start/f4f590f6-8937-40f9-91ec-632de546ab98?token=40f793d4-2956-40a4-b11a-6b3d4f92557f&azure-portal=true)**.
+1. 다음 링크를 선택하여 시뮬레이션 환경을 엽니다. **[Microsoft Defender 포털](https://app.highlights.guide/start/be8a91c3-3979-4048-ad38-fd38deaf7117?token=045faae1-1078-4eac-bf56-e12472eddaf9&azure-portal=true)**.
 
 1. Microsoft Defender 포털에서:
     1. **조사 및 응답**을 확장합니다.
