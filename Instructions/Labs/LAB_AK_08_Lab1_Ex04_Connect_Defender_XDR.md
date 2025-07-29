@@ -22,7 +22,7 @@ Microsoft Defender XDR과 Microsoft Sentinel을 모두 배포한 회사에서 �
 
 1. WIN1 가상 머신에 Admin으로 로그인합니다. 암호로는 **Pa55w.rd**를 사용하여 로그인합니다.  
 
-1. Microsoft Edge 브라우저에서 다음 링크를 선택하여 시뮬레이트된 환경을 엽니다. [Azure Portal]( https://app.highlights.guide/start/1c894b46-4b0a-40cb-b0f0-1e1c86c615f3?token=16d48b6c-eace-4a1f-8050-098d29d23a89).
+1. Microsoft Edge 브라우저에서 다음 링크를 선택하여 시뮬레이트된 환경을 엽니다. **[Azure Portal]( https://app.highlights.guide/start/1c894b46-4b0a-40cb-b0f0-1e1c86c615f3?token=16d48b6c-eace-4a1f-8050-098d29d23a89)**.
 
 1. Azure Portal *홈* 페이지에서 **Microsoft Sentinel** 아이콘을 선택합니다.
 
