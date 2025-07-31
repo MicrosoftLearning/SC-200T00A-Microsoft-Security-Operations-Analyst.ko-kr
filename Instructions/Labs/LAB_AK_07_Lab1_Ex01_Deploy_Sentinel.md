@@ -26,7 +26,7 @@ lab:
 
 1. 랩 호스팅 공급자가 제공한 관리자의 테넌트 암호를 복사하여 **암호 입력** 대화 상자에 붙여 넣은 후 **로그인**을 선택합니다.
 
-1. Azure Portal의 검색 창에 Microsoft Sentinel을 입력하고 다음을 선택합니다.
+1. Azure Portal의 검색 창에 "Microsoft Sentinel"을 입력하고 다음을 선택합니다.
 
 1. **+ 만들기**를 선택합니다.
 
@@ -50,11 +50,11 @@ lab:
 
 1. 작업 영역 배포가 완료되면 Microsoft Azure "이동 경로" 메뉴에서 **홈**을 선택합니다.
 
-1. 포털의 *Azure 서비스* 섹션에 **Microsoft Sentinel**이 표시되어야 합니다. 이 폴더를 선택합니다.
+1. 포털의 *Azure 서비스* 섹션에 **Microsoft Sentinel** 타일이 표시되어야 합니다. 이 폴더를 선택합니다.
 
 1. 메뉴 항목에서 **+ 만들기**를 선택합니다.
 
-1. Microsoft Sentinel을 추가할 작업 영역을 선택합니다(작업 1에서 생성됨).
+1. 작업 1에서 만든 *defenderWorkspace*를 선택하세요.
 
 1. **추가**를 선택합니다.
 
@@ -62,7 +62,9 @@ lab:
 
 1. Microsoft Azure "이동 경로" 메뉴에서 **홈**을 선택합니다.
 
-1. Azure Portal의 검색 창에 Log Analytics을 입력하고 작업 1에서 만든 작업 영역을 선택합니다.
+1. Azure Portal의 검색 창에 "Log Analytics"를 입력하고 *서비스* 섹션에서 **Log Analytics 작업 영역**을 선택하세요.
+
+1. 작업 1에서 만든 *defenderWorkspace*를 선택하세요.
 
 1. 탐색 메뉴에서 *설정* 섹션을 확장하고 **사용량 및 예상 비용**을 선택합니다.
 
