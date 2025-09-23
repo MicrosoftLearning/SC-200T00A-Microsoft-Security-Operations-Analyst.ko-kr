@@ -6,7 +6,7 @@
 
 이 작업에서는 두 가지 시뮬레이션 공격을 실행하여 엔드포인트용 Microsoft Defender의 기능을 살펴봅니다.
 
-1. 브라우저의 Microsoft Defender XDR 포털에 아직 있지 않은 경우 테넌트의 관리자로 로그인된 Microsoft Defender XDR(https://security.microsoft.com))로 이동합니다.
+1. 브라우저의 Microsoft Defender XDR 포털에 아직 접속해 있지 않은 경우, 테넌트의 관리자로 로그인된 Microsoft Defender XDR(<https://security.microsoft.com>)로 이동합니다.
 
 *WIN1*에서 *PowerShell*을 사용하여 *시뮬레이션된* 공격을 실행하여 엔드포인트용 Microsoft Defender의 기능을 살펴보겠습니다.
 
