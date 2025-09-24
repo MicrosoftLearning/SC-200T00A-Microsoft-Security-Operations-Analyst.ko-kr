@@ -161,54 +161,11 @@ lab:
     LowActivityAccounts | where Account_s contains "sql"
     ```
 
-    <!--- 1. Change the **Time range** to **Last hour** in the Query Window. This limits our results for the following statements.
+### 작업 4: Summarize 연산자를 사용하여 KQL에서 결과 분석
 
-    1. The following statement demonstrates the **extend** operator, which creates a calculated column and adds it to the result set. In the Query Window, enter the following statement and select **Run**: 
+이 작업에서는 데이터를 집계하는 KQL 문을 빌드합니다. **요약**에서는 **by** 그룹 열에 따라 행을 그룹화하고 각 그룹에 대한 집계를 계산합니다.
 
-    ```KQL
-    SecurityEvent_CL  
-    | where TimeGenerated > ago(7d) 
-    | where ProcessName != "" and Process != "" 
-    | extend StartDir =  substring(ProcessName,0, string_size(ProcessName)-string_size(Process))
-    ```
-
-    1. The following statement demonstrates the **order by** operator, which sorts the rows of the input table by one or more columns in ascending or descending order. The **order by** operator is an alias to the **sort by** operator. In the Query Window, enter the following statement and select **Run**: 
-
-    ```KQL
-    SecurityEvent_CL  
-    | where TimeGenerated > ago(7d) 
-    | where ProcessName != "" and Process != "" 
-    | extend StartDir =  substring(ProcessName,0, string_size(ProcessName)-string_size(Process)) 
-    | order by StartDir desc, Process asc
-    ```
-
-    1. The following statements demonstrate the **project** operator, which selects the columns to include in the order specified. In the Query Window, enter the following statement and select **Run**: 
-
-    ```KQL
-    SecurityEvent_CL  
-    | where TimeGenerated > ago(7d) 
-    | where ProcessName != "" and Process != "" 
-    | extend StartDir =  substring(ProcessName,0, string_size(ProcessName)-string_size(Process)) 
-    | order by StartDir desc, Process asc 
-    | project Process, StartDir
-    ```
-
-    1. The following statements demonstrate the **project-away** operator, which selects the columns to exclude from the output. In the Query Window, enter the following statement and select **Run**: 
-
-    ```KQL
-    SecurityEvent_CL  
-    | where TimeGenerated > ago(7d) 
-    | where ProcessName != "" and Process != "" 
-    | extend StartDir =  substring(ProcessName,0, string_size(ProcessName)-string_size(Process)) 
-    | order by StartDir desc, Process asc 
-    | project-away ProcessName --->
-    ```
-
-### Task 4: Analyze Results in KQL with the Summarize Operator
-
-In this task, you'll build KQL statements to aggregate data. **Summarize** groups the rows according to the **by** group columns, and calculates aggregations over each group.
-
-1. The following statement demonstrates the **count()** function, which returns a count of the group. In the Query Window enter the following statement and select **Run**: 
+1. 다음 문은 그룹 수를 반환하는 **count()** 함수를 보여 줍니다. 쿼리 창에서 다음 문을 입력하고 **실행**을 선택합니다.
 
     ```KQL
     SecurityEvent_CL  
@@ -216,7 +173,7 @@ In this task, you'll build KQL statements to aggregate data. **Summarize** group
     | summarize count() by Computer
     ```
 
-1. 다음 문은 **count()** 함수를 보여 주지만 이 예제에서는 열 이름을 *cnt*로 지정합니다. 쿼리 창에서 다음 문을 입력하고 **실행**을 선택합니다. 
+1. 다음 문은 **count()** 함수를 보여 주지만 이 예제에서는 열 이름을 *cnt*로 지정합니다. 쿼리 창에서 다음 문을 입력하고 **실행**을 선택합니다.
 
     ```KQL
     SecurityEvent_CL  
@@ -414,35 +371,6 @@ In this task, you'll build KQL statements to aggregate data. **Summarize** group
     | parse EventText with * "resourceName=" resourceName ", totalSlices=" totalSlices:long * "sliceNumber=" sliceNumber:long * "lockTime=" lockTime ", releaseTime=" releaseTime:date "," * "previousLockTime=" previousLockTime:date ")" *  
     | project resourceName, totalSlices, sliceNumber, lockTime, releaseTime, previousLockTime
     ```
-
-    <!--- 1. The following statement demonstrates working with **dynamic** fields, which are special since they can take on any value of other data types. In this example, The DeviceDetail_s field from the SigninLogs_CL table is of type **dynamic**. In the Query Window, enter the following statement and select **Run**:
-
-    ```KQL
-    SigninLogs
-    | extend OS = DeviceDetail.operatingSystem
-    ```
-
-     1. The following example shows how to break out packed fields for SigninLogs_CL. In the Query Window, enter the following statement and select **Run**:
-
-    ```KQL
-    SigninLogs_CL 
-    | extend OS = DeviceDetail.operatingSystem, Browser = DeviceDetail.browser 
-    | extend StatusCode = tostring(Status.errorCode), StatusDetails = tostring(Status.additionalDetails) 
-    | extend Date = startofday(TimeGenerated) 
-    | summarize count() by Date, Identity, UserDisplayName, UserPrincipalName, IPAddress, ResultType, ResultDescription, StatusCode, StatusDetails 
-    | sort by Date
-
-    SigninLogs_CL 
-    | extend OS = todynamic(DeviceDetail_s)
-    | where OS = DeviceDetail_s.operatingSystem, Browser = DeviceDetail_s.browser
-    | extend StatusCode = tostring(Status_s.errorCode), StatusDetails = tostring(Status_s.additionalDetails) 
-    | extend Date = startofday(TimeGenerated) 
-    | summarize count() by Date, UserDisplayName_s, UserPrincipalName_s, IPAddress, ResultType, ResultDescription, StatusCode, StatusDetails, OS, Browser 
-    | sort by Date
-
-    ```
-
-    >**Important:** Although the dynamic type appears JSON-like, it can hold values that the JSON model does not represent because they do not exist in JSON. Therefore, in serializing dynamic values into a JSON representation, values that JSON cannot represent are serialized into string values. --->
 
 1. 다음 문은 문자열 필드에 저장된 JSON을 조작하는 연산자를 보여 줍니다. 대부분의 로그는 JSON 형식으로 데이터를 제출합니다. 이 경우 JSON 데이터를 쿼리 가능한 필드로 변환하는 방법을 알아야 합니다. 쿼리 창에서 다음 문을 입력하고 **실행**을 선택합니다.
 
