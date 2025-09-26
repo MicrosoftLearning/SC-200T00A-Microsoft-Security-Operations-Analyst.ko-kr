@@ -1,16 +1,22 @@
 # 모듈 4 KQL(Kusto 쿼리 언어)을 사용하여 Microsoft Sentinel에 대한 쿼리 만들기
 
-**참고** 이 데모의 성공적인 완료는 [필수 구성 요소 문서](00-prerequisites.md)에 있는 모든 단계를 완료하는 것에 달려 있습니다. 
+<!--- **Note** Successful completion of this demo depends on completing all of the steps in the  [Pre-requisites document](00-prerequisites.md). --->
+
+>**중요:** 이 랩의 쿼리는 Zava(이전 Alpine-Ski-House) 데모 환경에서 수행할 것을 권장합니다. 또 다른 방법은 SC-200 랩 환경에서 Lab 06 - [KQL(Kusto 쿼리 언어)을 사용하여 Microsoft Sentinel에 대한 쿼리 만들기](https://microsoftlearning.github.io/SC-200T00A-Microsoft-Security-Operations-Analyst/Instructions/Labs/LAB_AK_06_Lab1_Ex01_KQL.html/)를 사용하는 것입니다. 이 경우 배포 시간이 30분 정도 소요됩니다.
 
 ## KQL 테스트 영역 액세스
 
-이 작업에서는 KQL 문 작성을 연습할 수 있는 Log Analytics 환경에 액세스합니다.
+이 작업에서는 KQL 문 작성을 연습할 수 있는 Microsoft Sentinel Log Analytics 환경에 액세스합니다.
 
 1. WIN1 가상 머신에 Admin으로 로그인합니다. 암호로는 **Pa55w.rd**를 사용하여 로그인합니다.  
 
-1. 브라우저에서 https://aka.ms/lademo으로 이동합니다. MOD 관리자 자격 증명을 사용하여 로그인합니다. 
+1. 브라우저에서 <https://security.microsoft.com>으로 이동합니다. Zava 또는 Alpine Ski House 사용자 자격 증명으로 로그인합니다.
 
-1. 화면 왼쪽 탭에 나열되어 있는 사용 가능한 테이블을 살펴봅니다.
+1. 왼쪽 탐색 창에서 **조사 및 대응** 섹션을 확장합니다.
+
+1. **헌팅** 섹션을 확장하고 **고급 헌팅**을 선택하세요.
+
+1. 화면 왼쪽의 *스키마* 탭에 나열되어 있는 사용 가능한 테이블을 살펴봅니다. *Microsoft Sentinel* 테이블과 *보안 및 감사* 테이블을 참고하세요.
 
 1. 쿼리 편집기에서 다음 쿼리를 입력하고 실행 단추를 선택합니다.  아래쪽 창에서 쿼리 결과가 표시됩니다.
 
@@ -25,6 +31,8 @@
 이 작업에서는 기본적인 KQL 문을 작성합니다.
 
 1. `search` 연산자는 다중 테이블/다중 열 검색 환경을 제공합니다. 다음 쿼리는`search` 연산자의 사용을 보여 줍니다.
+
+    > **참고:** `search` 연산자는 리소스를 많이 사용합니다. *시간 범위*를 *지난 3시간*으로 제한하고 *제한 | 100*을 사용합니다.
 
 ```KQL
 search "err" 
